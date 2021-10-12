@@ -1,6 +1,6 @@
 // ======================================================================
 // MainController.v generated from TopDesign.cysch
-// 10/12/2021 at 15:56
+// 10/12/2021 at 22:35
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -339,7 +339,7 @@ module SCB_UART_PDL_v2_0_0 (
 
 endmodule
 
-// TCPWM_PWM_PDL_v1_0(ClockPrescaler=2, Compare0=1000, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=20000, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_1, CY_INSTANCE_SHORT_NAME=PWM_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_1, )
+// TCPWM_PWM_PDL_v1_0(ClockPrescaler=2, Compare0=1000, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=21000, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_1, CY_INSTANCE_SHORT_NAME=PWM_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_1, )
 module TCPWM_PWM_PDL_v1_0_1 (
     clock,
     compare,
@@ -437,7 +437,7 @@ module TCPWM_PWM_PDL_v1_0_2 (
 
 endmodule
 
-// TCPWM_PWM_PDL_v1_0(ClockPrescaler=2, Compare0=1000, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=20000, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_2, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_2, CY_INSTANCE_SHORT_NAME=PWM_2, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_2, )
+// TCPWM_PWM_PDL_v1_0(ClockPrescaler=2, Compare0=1000, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=21000, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_2, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_2, CY_INSTANCE_SHORT_NAME=PWM_2, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_2, )
 module TCPWM_PWM_PDL_v1_0_3 (
     clock,
     compare,
@@ -493,7 +493,7 @@ module top ;
           wire  Net_91;
           wire  Net_90;
           wire  Net_89;
-          wire  Net_88;
+          wire  Net_117;
           wire  Net_87;
           wire  Net_86;
           wire  Net_85;
@@ -510,19 +510,19 @@ module top ;
           wire  Net_109;
           wire  Net_108;
           wire  Net_107;
-          wire  Net_52;
+          wire  Net_120;
           wire  Net_38;
           wire  Net_35;
           wire  Net_33;
           wire  Net_32;
-          wire  Net_42;
+          wire  Net_118;
           wire  Net_37;
           wire  Net_31;
           wire  Net_36;
           wire  Net_34;
           wire  Net_39;
           wire  Net_51;
-          wire  Net_41;
+          wire  Net_119;
           wire  Net_2;
           wire  Net_10;
           wire  Net_7;
@@ -577,7 +577,7 @@ module top ;
 		  .hotswap_needed("0"))
 		M1
 		 (.oe({1'b1}),
-		  .y({Net_41}),
+		  .y({Net_119}),
 		  .fb({tmpFB_0__M1_net[0:0]}),
 		  .io({tmpIO_0__M1_net[0:0]}),
 		  .siovref(tmpSIOVREF__M1_net));
@@ -602,8 +602,8 @@ module top ;
         .interrupt(Net_36),
         .kill(1'b0),
         .ovrflw(Net_37),
-        .pwm(Net_41),
-        .pwm_n(Net_42),
+        .pwm(Net_119),
+        .pwm_n(Net_118),
         .reload(1'b0),
         .start(1'b0),
         .swap(1'b0),
@@ -639,7 +639,7 @@ module top ;
 		  .hotswap_needed("0"))
 		M2
 		 (.oe({1'b1}),
-		  .y({Net_52}),
+		  .y({Net_120}),
 		  .fb({tmpFB_0__M2_net[0:0]}),
 		  .io({tmpIO_0__M2_net[0:0]}),
 		  .siovref(tmpSIOVREF__M2_net));
@@ -666,8 +666,8 @@ module top ;
         .interrupt(Net_85),
         .kill(1'b0),
         .ovrflw(Net_87),
-        .pwm(Net_52),
-        .pwm_n(Net_88),
+        .pwm(Net_120),
+        .pwm_n(Net_117),
         .reload(1'b0),
         .start(1'b0),
         .swap(1'b0),

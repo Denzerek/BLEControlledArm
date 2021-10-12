@@ -34,7 +34,7 @@ static int inline pulseToPercent(int pulse)
 {
     int percent = 0;
     percent = pulse * (100 - 0) / (MAX_US - MIN_US) - 100;
-    return pulse;
+    return percent;
 }
 
 //Turn a PWM compare value into pulse width in us
@@ -133,6 +133,8 @@ void motorTask(void* arg)
         {
             percentTmp = pwmMessage.percent;
         }
+		
+		motorPrintf("Setting Motor %d to percent :%d",pwmMessage.motor,percentTmp);
         
         //Change the PWM of motor
         Cy_TCPWM_PWM_SetCompare0(hw,cntrNum,percentToCompare(percentTmp));

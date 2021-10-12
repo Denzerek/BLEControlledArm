@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MainController-000\MainController\CM4 (Core 1)\Source Files\main_cm4.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MainController-000\MainController\CM4 (Core 1)\Source Files\motortask.c">
 <ExpandedNodeIds>
 <v>MainController-000</v>
 <v>MainController-000\MainController</v>
@@ -145,13 +145,6 @@
 <v>MainController-000\PWM_Basic\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\uart\uartTask.h</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\common.h</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\FreeRTOSConfig.h</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\motorTask.h</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\pwmTask.h</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Source Files</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM GCC Generic</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM GCC Generic\startup_psoc6_01_cm4.S</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM IAR Generic</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM IAR Generic\startup_psoc6_01_cm4.s</v>
@@ -175,6 +168,13 @@
 <v>MainController-000\MainController\Generated_Source\PSoC6\Pins and Interrupts</v>
 <v>MainController-000\MainController\Generated_Source\PSoC6\PWM_1</v>
 <v>MainController-000\MainController\Generated_Source\PSoC6\PWM_2</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\PWM_RED</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\UART</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\UART_SCBCLK</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\cycodeshareexport.ld</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\cycodeshareimport.ld</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\cycodeshareimport.scat</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\cydevice_trm.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -417,6 +417,34 @@
 <VisibleNodeIds>
 <v>MainController-000</v>
 <v>MainController-000\MainController</v>
+<v>MainController-000\MainController\CortexM0p</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_clk.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_device.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_efuse.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_flash.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_gpio.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_drv.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_pipe.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_sema.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_lvd.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_profile.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_prot.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_common.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_ezi2c.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_i2c.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_spi.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_uart.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysanalog.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysclk.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysint.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syslib.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syslib_gcc.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syspm.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_systick.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_tcpwm_counter.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -479,20 +507,13 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\main_cm4.c" />
+<name v=".\uartTask.c" />
+<name v=".\motortask.c" />
 <name v=".\TopDesign\TopDesign.cysch" />
 <name v=".\MainController.cydwr" />
-<name v="..\PWM_Basic.cydsn\main_cm4.c" />
-<name v="..\PWM_Basic.cydsn\TopDesign\TopDesign.cysch" />
-<name v="..\PWM_Basic.cydsn\Generated_Source\PSoC6\PWM.h" />
-<name v="..\PWM_Basic.cydsn\PWM_Basic.cydwr" />
-<name v="..\PWM_Basic.cydsn\pwmTask.c" />
-<name v="..\PWM_Basic.cydsn\pwmTask.h" />
-<name v="..\PWM_Basic.cydsn\uartTask.c" />
-<name v="..\PWM_Basic.cydsn\Generated_Source\PSoC6\PWM.c" />
-<name v="..\PWM_Basic.cydsn\common.h" />
-<name v="..\PWM_Basic.cydsn\Generated_Source\PSoC6\pdl\rtos\FreeRTOS\10.0.1\Source\include\task.h" />
-<name v="..\PWM_Basic.cydsn\uartTask.h" />
+<name v=".\main_cm4.c" />
+<name v=".\main_cm0p.c" />
+<name v=".\motorTask.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -500,7 +521,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="943, 391" SelectedTabbedMdiWindow="45ff50d9-e205-4ffb-b26a-1cd3f83fdb94"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="9f0da9a4-6fc1-4842-8f78-a0c55cdf0e7d" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\main_cm4.c" Guid="de50d85f-ffcb-4f9e-b99c-f40ee348a878" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\TopDesign\TopDesign.cysch" Guid="474dde2a-30cf-4290-ae6d-741722cfc860" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\MainController.cydwr" Guid="a97e4008-f85a-4366-9e08-9f1dfda1c231" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\main_cm4.c" Guid="23c0de05-e4fa-441c-a9c9-f1c8a05f42cd" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\TopDesign\TopDesign.cysch" Guid="00d57629-32e8-429a-b02a-799c520a2d1d" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\Generated_Source\PSoC6\PWM.h" Guid="62ddb580-1071-4674-882c-cdcb791200cc" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\PWM_Basic.cydwr" Guid="b2a9fedb-30cc-4d83-ac2b-d6a4f3b38de5" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\pwmTask.c" Guid="c36ff8de-d026-40eb-83ce-5e936b02218e" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\pwmTask.h" Guid="fc869871-5c07-48da-9e36-28dce50196f8" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\uartTask.c" Guid="a7508228-d991-46fc-adca-f72cc3eca25e" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\Generated_Source\PSoC6\PWM.c" Guid="c7633ee6-7c98-4d4e-887c-b36094668a88" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\common.h" Guid="45ff50d9-e205-4ffb-b26a-1cd3f83fdb94" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\Generated_Source\PSoC6\pdl\rtos\FreeRTOS\10.0.1\Source\include\task.h" Guid="d071bf77-d279-4c00-8349-1b3ce3dd0a29" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\PWM_Basic.cydsn\uartTask.h" Guid="dc8494dc-5211-47dd-9fbc-622d5c5d6a34" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="943, 391" SelectedTabbedMdiWindow="639997bd-9645-4fe3-9097-a69b33ee68f9"><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\uartTask.c" Guid="ac7e1582-209b-46e4-a4f3-e247f095c8f5" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\motortask.c" Guid="cb641e6f-7e09-4a44-8851-bc66d8dbc675" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\TopDesign\TopDesign.cysch" Guid="dc4bb037-480c-4aac-9793-c70f9b552b50" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\MainController.cydwr" Guid="825f89cc-316f-45c2-8751-a799b41a15d2" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\main_cm4.c" Guid="7402efa2-1376-45e3-b113-79e9ae6f5461" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\main_cm0p.c" Guid="fa3f2f3c-be41-4e2e-adb2-fb11f6a5870b" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="9f0da9a4-6fc1-4842-8f78-a0c55cdf0e7d" /><DocumentWindow Key="C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\motorTask.h" Guid="639997bd-9645-4fe3-9097-a69b33ee68f9" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

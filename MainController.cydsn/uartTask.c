@@ -68,6 +68,26 @@ void UartTask(void * arg)
             char c = getchar();
             switch(c)
             {
+                case 'r' :
+                serialPrint("Reset");
+                Cy_TCPWM_PWM_SetCompare0(PWM_1_HW,PWM_1_CNT_NUM,0);                
+                Cy_TCPWM_PWM_SetCompare0(PWM_2_HW,PWM_2_CNT_NUM,0);
+                break;
+                case 'q' :
+                serialPrint("0 Degree");
+                Cy_TCPWM_PWM_SetCompare0(PWM_1_HW,PWM_1_CNT_NUM,1000);                
+                Cy_TCPWM_PWM_SetCompare0(PWM_2_HW,PWM_2_CNT_NUM,1000);
+                break;
+                case 'w' :
+                serialPrint("90 Degree");               
+                Cy_TCPWM_PWM_SetCompare0(PWM_1_HW,PWM_1_CNT_NUM,1500);
+                Cy_TCPWM_PWM_SetCompare0(PWM_2_HW,PWM_2_CNT_NUM,1500);
+                break;
+                case 'e' :
+                serialPrint("180 degree");
+                Cy_TCPWM_PWM_SetCompare0(PWM_1_HW,PWM_1_CNT_NUM,2000);
+                Cy_TCPWM_PWM_SetCompare0(PWM_2_HW,PWM_2_CNT_NUM,2000);
+                break;
                 case 'p':
                     pwmMessage.motor = M1; 
                     pwmMessage.changeType = POS_RELATIVE;
@@ -81,15 +101,15 @@ void UartTask(void * arg)
                     xQueueSend(pwmQueue,&pwmMessage,0);
                 break; 
                 case 'l':
-                    pwmMessage.motor = M1; 
+                    pwmMessage.motor = M2; 
                     pwmMessage.changeType = POS_RELATIVE;
                     pwmMessage.percent = 10;
                     xQueueSend(pwmQueue,&pwmMessage,0);
                 break;
                 case 'k':
-                    pwmMessage.motor = M1; 
+                    pwmMessage.motor = M2; 
                     pwmMessage.changeType = POS_RELATIVE;
-                    pwmMessage.percent = 10;
+                    pwmMessage.percent = -10;
                     xQueueSend(pwmQueue,&pwmMessage,0);
                 break;
                 

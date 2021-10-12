@@ -12,8 +12,11 @@
 #pragma once
 #include "common.h"
 
+#define motorPrint(x)  { printf("[ MOTOR TASK ] : ");printf(x);printf("\r\n");}
+#define motorPrintf(x,...)  { printf("[ MOTOR TASK ] : ");printf(x,__VA_ARGS__);printf("\r\n");}
+
 typedef enum{
-    M1,
+    M1 = 1,
     M2,
 }motors_t;
 

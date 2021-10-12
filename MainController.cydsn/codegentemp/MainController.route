@@ -24,6 +24,29 @@ net Net_105
 	switch ":ioport0:smartio_mux_in3.smartio_mux_in==>:ioport0:pin3.pin_input"
 	term   ":ioport0:pin3.pin_input"
 end Net_105
+net Net_119
+	term   ":TCPWMcontainer:TCPWM[9].line"
+	switch ":TCPWMcontainer:TCPWM[9].line==>:ioport0:hsiomOut2.fixedIn2_ACT_1"
+	switch ":ioport0:hsiomOut2.hsiomOut2==>:ioport0:smartio_mux_in2.direct_out"
+	switch ":ioport0:smartio_mux_in2.smartio_mux_in==>:ioport0:pin2.pin_input"
+	term   ":ioport0:pin2.pin_input"
+end Net_119
+net Net_120
+	term   ":TCPWMcontainer:TCPWM[0].line"
+	switch ":TCPWMcontainer:TCPWM[0].line==>:UDB_Array:DSI_new0:LHO_Sel76.5"
+	switch ":UDB_Array:DSI_new0:LHO_Sel76.lho76==>:UDB_Array:DSI_new0:RHO_Sel76.1"
+	switch ":UDB_Array:DSI_new0:RHO_Sel76.rho76==>:UDB_Array:DSI_new1:LHO_Sel76.0"
+	switch ":UDB_Array:DSI_new1:LHO_Sel76.lho76==>:UDB_Array:DSI_new1:RHO_Sel76.1"
+	switch ":UDB_Array:DSI_new1:RHO_Sel76.rho76==>:UDB_Array:DSI_new2:LHO_Sel76.0"
+	switch ":UDB_Array:DSI_new2:LHO_Sel76.lho76==>:UDB_Array:DSI_new2:RHO_Sel76.1"
+	switch ":UDB_Array:DSI_new2:RHO_Sel76.rho76==>:UDB_Array:DSI_new3:LHO_Sel76.0"
+	switch ":UDB_Array:DSI_new3:LHO_Sel76.lho76==>:UDB_Array:DSI_new3:DOT_Sel4.15"
+	switch ":UDB_Array:DSI_new3:DOT_Sel4.ot4==>:UDB_Array:PortAdapter3:inputMux2.pinIn_4"
+	switch ":UDB_Array:PortAdapter3:inputMux2.paOut_5==>:ioport5:hsiomOut5.fixedIn5_DSI_GPIO"
+	switch ":ioport5:hsiomOut5.hsiomOut5==>:ioport5:smartio_mux_in5.direct_out"
+	switch ":ioport5:smartio_mux_in5.smartio_mux_in==>:ioport5:pin5.pin_input"
+	term   ":ioport5:pin5.pin_input"
+end Net_120
 net Net_40_ff11
 	term   ":Clockcontainer:Clock[0].ff_div_20"
 	switch ":Clockcontainer:Clock[0].ff_div_20==>:Clockcontainer:ff_permute.ff_div_20"
@@ -42,29 +65,6 @@ net Net_40_ff13
 	switch ":Clockcontainer:ff_permute.Clock[0]ff_div_20==>:TCPWMcontainer:TCPWM[1].clock"
 	term   ":TCPWMcontainer:TCPWM[1].clock"
 end Net_40_ff13
-net Net_41
-	term   ":TCPWMcontainer:TCPWM[9].line"
-	switch ":TCPWMcontainer:TCPWM[9].line==>:ioport0:hsiomOut2.fixedIn2_ACT_1"
-	switch ":ioport0:hsiomOut2.hsiomOut2==>:ioport0:smartio_mux_in2.direct_out"
-	switch ":ioport0:smartio_mux_in2.smartio_mux_in==>:ioport0:pin2.pin_input"
-	term   ":ioport0:pin2.pin_input"
-end Net_41
-net Net_52
-	term   ":TCPWMcontainer:TCPWM[0].line"
-	switch ":TCPWMcontainer:TCPWM[0].line==>:UDB_Array:DSI_new0:LHO_Sel76.5"
-	switch ":UDB_Array:DSI_new0:LHO_Sel76.lho76==>:UDB_Array:DSI_new0:RHO_Sel76.1"
-	switch ":UDB_Array:DSI_new0:RHO_Sel76.rho76==>:UDB_Array:DSI_new1:LHO_Sel76.0"
-	switch ":UDB_Array:DSI_new1:LHO_Sel76.lho76==>:UDB_Array:DSI_new1:RHO_Sel76.1"
-	switch ":UDB_Array:DSI_new1:RHO_Sel76.rho76==>:UDB_Array:DSI_new2:LHO_Sel76.0"
-	switch ":UDB_Array:DSI_new2:LHO_Sel76.lho76==>:UDB_Array:DSI_new2:RHO_Sel76.1"
-	switch ":UDB_Array:DSI_new2:RHO_Sel76.rho76==>:UDB_Array:DSI_new3:LHO_Sel76.0"
-	switch ":UDB_Array:DSI_new3:LHO_Sel76.lho76==>:UDB_Array:DSI_new3:DOT_Sel4.15"
-	switch ":UDB_Array:DSI_new3:DOT_Sel4.ot4==>:UDB_Array:PortAdapter3:inputMux2.pinIn_4"
-	switch ":UDB_Array:PortAdapter3:inputMux2.paOut_5==>:ioport5:hsiomOut5.fixedIn5_DSI_GPIO"
-	switch ":ioport5:hsiomOut5.hsiomOut5==>:ioport5:smartio_mux_in5.direct_out"
-	switch ":ioport5:smartio_mux_in5.smartio_mux_in==>:ioport5:pin5.pin_input"
-	term   ":ioport5:pin5.pin_input"
-end Net_52
 net \UART:Net_1172\
 	term   ":ioport5:pin0.fb"
 	switch ":ioport5:pin0.fb==>:ioport5:smartio_mux_out0.direct_in"
