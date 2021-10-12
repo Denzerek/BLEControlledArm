@@ -20,12 +20,6 @@
 #include "cyfitter_gpio.h"
 #include "cyfitter_sysint.h"
 
-/* PWM */
-#define PWM_TCPWM__CNT_HW TCPWM0_CNT0
-#define PWM_TCPWM__CNT_IDX 0u
-#define PWM_TCPWM__HW TCPWM0
-#define PWM_TCPWM__IDX 0u
-
 /* UART */
 #define UART_SCB__HW SCB5
 #define UART_SCB__IDX 5
@@ -33,14 +27,32 @@
 #define UART_SCB__SS1_POSITION 1u
 #define UART_SCB__SS2_POSITION 2u
 #define UART_SCB__SS3_POSITION 3u
-#define UART_SCBCLK__DIV_IDX 0
-#define UART_SCBCLK__DIV_NUM 0
+#define UART_SCBCLK__DIV_IDX 1
+#define UART_SCBCLK__DIV_NUM 1
 #define UART_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
+/* PWM_1 */
+#define PWM_1_TCPWM__CNT_HW TCPWM1_CNT1
+#define PWM_1_TCPWM__CNT_IDX 1u
+#define PWM_1_TCPWM__HW TCPWM1
+#define PWM_1_TCPWM__IDX 1u
+
+/* PWM_2 */
+#define PWM_2_TCPWM__CNT_HW TCPWM0_CNT0
+#define PWM_2_TCPWM__CNT_IDX 0u
+#define PWM_2_TCPWM__HW TCPWM0
+#define PWM_2_TCPWM__IDX 0u
+
 /* Clock_1 */
-#define Clock_1__DIV_IDX 1
-#define Clock_1__DIV_NUM 1
+#define Clock_1__DIV_IDX 0
+#define Clock_1__DIV_NUM 0
 #define Clock_1__DIV_TYPE CY_SYSCLK_DIV_8_BIT
+
+/* PWM_RED */
+#define PWM_RED_TCPWM__CNT_HW TCPWM0_CNT1
+#define PWM_RED_TCPWM__CNT_IDX 1u
+#define PWM_RED_TCPWM__HW TCPWM0
+#define PWM_RED_TCPWM__IDX 0u
 
 /* Miscellaneous */
 #define CPUSS__CTI_TR_IN_0 TRIG5_OUT_CPUSS_CTI_TR_IN0

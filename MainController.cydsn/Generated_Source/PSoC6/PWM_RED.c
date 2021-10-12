@@ -1,9 +1,9 @@
 /*******************************************************************************
-* File Name: PWM.c
+* File Name: PWM_RED.c
 * Version 1.0
 *
 * Description:
-*  This file provides the source code to the API for the PWM
+*  This file provides the source code to the API for the PWM_RED
 *  component.
 *
 ********************************************************************************
@@ -13,23 +13,23 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "PWM.h"
+#include "PWM_RED.h"
 
-/** Indicates whether or not the PWM has been initialized. 
+/** Indicates whether or not the PWM_RED has been initialized. 
 *  The variable is initialized to 0 and set to 1 the first time 
-*  PWM_Start() is called. This allows the Component to 
+*  PWM_RED_Start() is called. This allows the Component to 
 *  restart without reinitialization after the first call to 
-*  the PWM_Start() routine.
+*  the PWM_RED_Start() routine.
 */
-uint8_t PWM_initVar = 0U;
+uint8_t PWM_RED_initVar = 0U;
 
 /** The instance-specific configuration structure. This should be used in the 
-*  associated PWM_Init() function.
+*  associated PWM_RED_Init() function.
 */ 
-cy_stc_tcpwm_pwm_config_t const PWM_config =
+cy_stc_tcpwm_pwm_config_t const PWM_RED_config =
 {
     .pwmMode = 4UL,
-    .clockPrescaler = 0UL,
+    .clockPrescaler = 2UL,
     .pwmAlignment = 0UL,
     .deadTimeClocks = 0UL,
     .runMode = 0UL,
@@ -57,31 +57,31 @@ cy_stc_tcpwm_pwm_config_t const PWM_config =
 
 
 /*******************************************************************************
-* Function Name: PWM_Start
+* Function Name: PWM_RED_Start
 ****************************************************************************//**
 *
-*  Calls the PWM_Init() when called the first time and enables 
-*  the PWM. For subsequent calls the configuration is left 
+*  Calls the PWM_RED_Init() when called the first time and enables 
+*  the PWM_RED. For subsequent calls the configuration is left 
 *  unchanged and the component is just enabled.
 *
 * \globalvars
-*  \ref PWM_initVar
+*  \ref PWM_RED_initVar
 *
 *******************************************************************************/
-void PWM_Start(void)
+void PWM_RED_Start(void)
 {
-    if (0U == PWM_initVar)
+    if (0U == PWM_RED_initVar)
     {
-        (void) Cy_TCPWM_PWM_Init(PWM_RED_HW, PWM_RED_CNT_NUM, &PWM_config);
+        (void) Cy_TCPWM_PWM_Init(PWM_RED_HW, PWM_RED_CNT_NUM, &PWM_RED_config);
 
-        PWM_initVar = 1U;
+        PWM_RED_initVar = 1U;
     }
 
     Cy_TCPWM_Enable_Multiple(PWM_RED_HW, PWM_RED_CNT_MASK);
     
-    #if (PWM_INPUT_DISABLED == 7UL)
+    #if (PWM_RED_INPUT_DISABLED == 7UL)
         Cy_TCPWM_TriggerStart(PWM_RED_HW, PWM_RED_CNT_MASK);
-    #endif /* (PWM_INPUT_DISABLED == 7UL) */    
+    #endif /* (PWM_RED_INPUT_DISABLED == 7UL) */    
 }
 
 

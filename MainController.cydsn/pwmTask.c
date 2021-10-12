@@ -19,13 +19,13 @@ void pwmTask(void * arg)
     uint8_t compareVal;
     
     /* Start the PWM operation */
-    PWM_Start();
+    PWM_RED_Start();
     
     
     for(;;)
     {
         /* Set the compare value with modified one*/
-        Cy_TCPWM_PWM_SetCompare0(PWM_HW,PWM_CNT_NUM,compareVal++);
+        Cy_TCPWM_PWM_SetCompare0(PWM_RED_HW,PWM_RED_CNT_NUM,compareVal++);
         
         /* Update the compare value*/
         compareVal  = (compareVal + 1) % 100;

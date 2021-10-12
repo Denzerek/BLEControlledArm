@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MainController-000\MainController\CM4 (Core 1)\Header Files\common.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MainController-000\MainController\TopDesign">
 <ExpandedNodeIds>
 <v>MainController-000</v>
 <v>MainController-000\MainController</v>
@@ -143,6 +143,20 @@
 <v>MainController-000\PWM_Basic\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>MainController-000</v>
+<v>MainController-000\MainController</v>
+<v>MainController-000\MainController\TopDesign</v>
+<v>MainController-000\MainController\MainController.cydwr</v>
+<v>MainController-000\MainController\MainController.cydwr\Pins</v>
+<v>MainController-000\MainController\MainController.cydwr\Analog</v>
+<v>MainController-000\MainController\MainController.cydwr\DMA</v>
+<v>MainController-000\MainController\MainController.cydwr\Clocks</v>
+<v>MainController-000\MainController\MainController.cydwr\Interrupts</v>
+<v>MainController-000\MainController\MainController.cydwr\System</v>
+<v>MainController-000\MainController\MainController.cydwr\Directives</v>
+<v>MainController-000\MainController\CM0p (Core 0)</v>
+<v>MainController-000\MainController\CM0p (Core 0)\ARM GCC Generic</v>
+<v>MainController-000\MainController\CM0p (Core 0)\ARM GCC Generic\cy8c6xx7_cm0plus.ld</v>
 <v>MainController-000\MainController\CM0p (Core 0)\ARM IAR Generic</v>
 <v>MainController-000\MainController\CM0p (Core 0)\ARM IAR Generic\cy8c6xx7_cm0plus.icf</v>
 <v>MainController-000\MainController\CM0p (Core 0)\ARM MDK Generic</v>
@@ -159,20 +173,6 @@
 <v>MainController-000\MainController\CM0p (Core 0)\Source Files\system_psoc6_cm0plus.c</v>
 <v>MainController-000\MainController\CM4 (Core 1)</v>
 <v>MainController-000\MainController\CM4 (Core 1)\ARM GCC Generic</v>
-<v>MainController-000\MainController\CM4 (Core 1)\ARM GCC Generic\cy8c6xx7_cm4_dual.ld</v>
-<v>MainController-000\MainController\CM4 (Core 1)\ARM IAR Generic</v>
-<v>MainController-000\MainController\CM4 (Core 1)\ARM IAR Generic\cy8c6xx7_cm4_dual.icf</v>
-<v>MainController-000\MainController\CM4 (Core 1)\ARM MDK Generic</v>
-<v>MainController-000\MainController\CM4 (Core 1)\ARM MDK Generic\cy8c6xx7_cm4_dual.scat</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\uart</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\uart\uartTask.h</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\common.h</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\FreeRTOSConfig.h</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Header Files\pwmTask.h</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Source Files</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM GCC Generic</v>
-<v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM GCC Generic\startup_psoc6_01_cm4.S</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -235,7 +235,9 @@
 <v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_sysint_cfg.lst</v>
 <v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
 <v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\main_cm0p.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM_1.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM_2.lst</v>
+<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\PWM_RED.lst</v>
 <v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\retarget.lst</v>
 <v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\startup_psoc6_01_cm0plus.lst</v>
 <v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\stdio_user.lst</v>
@@ -284,7 +286,9 @@
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\list.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\main_cm4.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\port.lst</v>
-<v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\PWM.lst</v>
+<v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\PWM_1.lst</v>
+<v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\PWM_2.lst</v>
+<v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\PWM_RED.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\pwmTask.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\queue.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\retarget.lst</v>
@@ -453,10 +457,12 @@
 <v>MainController-000\MainController\PSoC 63 Family Datasheet</v>
 <v>MainController-000\MainController\Peripheral Driver Library</v>
 <v>MainController-000\MainController\System Reference Guides</v>
-<v>MainController-000\MainController\GPIO_PDL_v1_0.pdf</v>
+<v>MainController-000\MainController\GPIO_PDL_v1_0</v>
+<v>MainController-000\MainController\GPIO_PDL_v1_0\GPIO_PDL_v1_0.pdf</v>
 <v>MainController-000\MainController\SCB_UART_PDL_v2_0.pdf</v>
 <v>MainController-000\MainController\SysClk_PDL_v1_0.pdf</v>
-<v>MainController-000\MainController\TCPWM_PWM_PDL_v1_0.pdf</v>
+<v>MainController-000\MainController\TCPWM_PWM_PDL_v1_0</v>
+<v>MainController-000\MainController\TCPWM_PWM_PDL_v1_0\TCPWM_PWM_PDL_v1_0.pdf</v>
 <v>MainController-000\PWM_Basic</v>
 <v>MainController-000\PWM_Basic\PSoC 6 Architecture TRM</v>
 <v>MainController-000\PWM_Basic\PSoC 63 Family Datasheet</v>
@@ -474,10 +480,12 @@
 <v>MainController-000\MainController\PSoC 63 Family Datasheet</v>
 <v>MainController-000\MainController\Peripheral Driver Library</v>
 <v>MainController-000\MainController\System Reference Guides</v>
-<v>MainController-000\MainController\GPIO_PDL_v1_0.pdf</v>
+<v>MainController-000\MainController\GPIO_PDL_v1_0</v>
+<v>MainController-000\MainController\GPIO_PDL_v1_0\GPIO_PDL_v1_0.pdf</v>
 <v>MainController-000\MainController\SCB_UART_PDL_v2_0.pdf</v>
 <v>MainController-000\MainController\SysClk_PDL_v1_0.pdf</v>
-<v>MainController-000\MainController\TCPWM_PWM_PDL_v1_0.pdf</v>
+<v>MainController-000\MainController\TCPWM_PWM_PDL_v1_0</v>
+<v>MainController-000\MainController\TCPWM_PWM_PDL_v1_0\TCPWM_PWM_PDL_v1_0.pdf</v>
 <v>MainController-000\PWM_Basic</v>
 <v>MainController-000\PWM_Basic\PSoC 6 Architecture TRM</v>
 <v>MainController-000\PWM_Basic\PSoC 63 Family Datasheet</v>

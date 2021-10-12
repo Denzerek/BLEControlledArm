@@ -108,7 +108,9 @@
 #include "cydisabledsheets.h"
 #include "UART.h"
 #include "Clock_1.h"
-#include "PWM.h"
+#include "PWM_1.h"
+#include "PWM_RED.h"
+#include "PWM_2.h"
 #include "UART_SCBCLK.h"
 
 /*[]*/
