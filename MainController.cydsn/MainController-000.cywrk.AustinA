@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MainController-000\MainController\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MainController-000\MainController\CM4 (Core 1)\Source Files\main_cm4.c">
 <ExpandedNodeIds>
 <v>MainController-000</v>
 <v>MainController-000\MainController</v>
@@ -60,6 +60,7 @@
 <v>MainController-000\MainController\CM4 (Core 1)\Header Files\uart\uartTask.h</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Header Files\common.h</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Header Files\FreeRTOSConfig.h</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Header Files\motorTask.h</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Header Files\pwmTask.h</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM GCC Generic</v>
@@ -71,6 +72,7 @@
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files\uart</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files\uart\uartTask.c</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files\main_cm4.c</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\motortask.c</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files\pwmTask.c</v>
 <v>MainController-000\MainController\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
 <v>MainController-000\MainController\Shared Files</v>
@@ -143,36 +145,36 @@
 <v>MainController-000\PWM_Basic\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>MainController-000</v>
-<v>MainController-000\MainController</v>
-<v>MainController-000\MainController\TopDesign</v>
-<v>MainController-000\MainController\MainController.cydwr</v>
-<v>MainController-000\MainController\MainController.cydwr\Pins</v>
-<v>MainController-000\MainController\MainController.cydwr\Analog</v>
-<v>MainController-000\MainController\MainController.cydwr\DMA</v>
-<v>MainController-000\MainController\MainController.cydwr\Clocks</v>
-<v>MainController-000\MainController\MainController.cydwr\Interrupts</v>
-<v>MainController-000\MainController\MainController.cydwr\System</v>
-<v>MainController-000\MainController\MainController.cydwr\Directives</v>
-<v>MainController-000\MainController\CM0p (Core 0)</v>
-<v>MainController-000\MainController\CM0p (Core 0)\ARM GCC Generic</v>
-<v>MainController-000\MainController\CM0p (Core 0)\ARM GCC Generic\cy8c6xx7_cm0plus.ld</v>
-<v>MainController-000\MainController\CM0p (Core 0)\ARM IAR Generic</v>
-<v>MainController-000\MainController\CM0p (Core 0)\ARM IAR Generic\cy8c6xx7_cm0plus.icf</v>
-<v>MainController-000\MainController\CM0p (Core 0)\ARM MDK Generic</v>
-<v>MainController-000\MainController\CM0p (Core 0)\ARM MDK Generic\cy8c6xx7_cm0plus.scat</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Header Files</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Source Files</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Source Files\ARM GCC Generic</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Source Files\ARM GCC Generic\startup_psoc6_01_cm0plus.S</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Source Files\ARM IAR Generic</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Source Files\ARM IAR Generic\startup_psoc6_01_cm0plus.s</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Source Files\ARM MDK Generic</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Source Files\ARM MDK Generic\startup_psoc6_01_cm0plus.s</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Source Files\main_cm0p.c</v>
-<v>MainController-000\MainController\CM0p (Core 0)\Source Files\system_psoc6_cm0plus.c</v>
-<v>MainController-000\MainController\CM4 (Core 1)</v>
-<v>MainController-000\MainController\CM4 (Core 1)\ARM GCC Generic</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Header Files\uart\uartTask.h</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Header Files\common.h</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Header Files\FreeRTOSConfig.h</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Header Files\motorTask.h</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Header Files\pwmTask.h</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM GCC Generic</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM GCC Generic\startup_psoc6_01_cm4.S</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM IAR Generic</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM IAR Generic\startup_psoc6_01_cm4.s</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM MDK Generic</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\ARM MDK Generic\startup_psoc6_01_cm4.s</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\uart</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\uart\uartTask.c</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\main_cm4.c</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\motortask.c</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\pwmTask.c</v>
+<v>MainController-000\MainController\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
+<v>MainController-000\MainController\Shared Files</v>
+<v>MainController-000\MainController\Shared Files\cyapicallbacks.h</v>
+<v>MainController-000\MainController\Shared Files\stdio_user.c</v>
+<v>MainController-000\MainController\Shared Files\stdio_user.h</v>
+<v>MainController-000\MainController\Shared Files\system_psoc6.h</v>
+<v>MainController-000\MainController\Generated_Source</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\pdl</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\Clock_1</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\Pins and Interrupts</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\PWM_1</v>
+<v>MainController-000\MainController\Generated_Source\PSoC6\PWM_2</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -285,6 +287,7 @@
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\heap_1.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\list.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\main_cm4.lst</v>
+<v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\motortask.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\port.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\PWM_1.lst</v>
 <v>MainController-000\MainController\CortexM4\ARM_GCC_541\Debug\Listing Files\PWM_2.lst</v>
@@ -414,34 +417,6 @@
 <VisibleNodeIds>
 <v>MainController-000</v>
 <v>MainController-000\MainController</v>
-<v>MainController-000\MainController\CortexM0p</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_clk.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_device.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_efuse.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_flash.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_gpio.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_drv.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_pipe.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_sema.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_lvd.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_profile.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_prot.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_common.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_ezi2c.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_i2c.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_spi.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_uart.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysanalog.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysclk.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysint.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syslib.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syslib_gcc.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syspm.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_systick.lst</v>
-<v>MainController-000\MainController\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_tcpwm_counter.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

@@ -46,6 +46,8 @@ void UartTask(void * arg)
     
     uartSemaphore = xSemaphoreCreateBinary();
     
+    PWM_Message_t pwmMessage;
+    
     //configure the interrupt handler
     (void) Cy_SysInt_Init(&UART_SCB_IRQ_cfg,&UARTIsr);
     
@@ -66,6 +68,34 @@ void UartTask(void * arg)
             char c = getchar();
             switch(c)
             {
+                case 'p':
+                    pwmMessage.motor = M1; 
+                    pwmMessage.changeType = POS_RELATIVE;
+                    pwmMessage.percent = 10;
+                    xQueueSend(pwmQueue,&pwmMessage,0);
+                break;
+                case 'o':
+                    pwmMessage.motor = M1; 
+                    pwmMessage.changeType = POS_RELATIVE;
+                    pwmMessage.percent = -10;
+                    xQueueSend(pwmQueue,&pwmMessage,0);
+                break; 
+                case 'l':
+                    pwmMessage.motor = M1; 
+                    pwmMessage.changeType = POS_RELATIVE;
+                    pwmMessage.percent = 10;
+                    xQueueSend(pwmQueue,&pwmMessage,0);
+                break;
+                case 'k':
+                    pwmMessage.motor = M1; 
+                    pwmMessage.changeType = POS_RELATIVE;
+                    pwmMessage.percent = 10;
+                    xQueueSend(pwmQueue,&pwmMessage,0);
+                break;
+                
+                case 's':
+                    serialPrintf("Motor1 = %%%d\tMotor2 = %%%d",getMotorPercent(M1),getMotorPercent(M2));
+                break;
                 case '?':
                 serialPrint("?\tPrint Help");
                 break;

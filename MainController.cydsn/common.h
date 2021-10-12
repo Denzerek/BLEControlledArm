@@ -30,6 +30,9 @@
                             serialPrintf("=======%s=========",PJT_NAME); \
                             serialPrint("======================================"); \
                         }
+                            
+                        
+extern QueueHandle_t pwmQueue;
 
 char temp[100];
 
