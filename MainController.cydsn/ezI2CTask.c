@@ -20,7 +20,6 @@ void ezI2CTask(void * arg)
     (void) arg;
     uint8_t motorPercent[2];
     EZI2C_Start();
-    PWM_3_Start();
     ezi2cPrint("EZI2C Task Started ...");
     
     EZI2C_SetBuffer1(motorPercent,sizeof(motorPercent),0);

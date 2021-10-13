@@ -1,9 +1,9 @@
 /*******************************************************************************
-* File Name: PWM_1.c
+* File Name: LEDBlink.c
 * Version 1.0
 *
 * Description:
-*  This file provides the source code to the API for the PWM_1
+*  This file provides the source code to the API for the LEDBlink
 *  component.
 *
 ********************************************************************************
@@ -13,30 +13,30 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "PWM_1.h"
+#include "LEDBlink.h"
 
-/** Indicates whether or not the PWM_1 has been initialized. 
+/** Indicates whether or not the LEDBlink has been initialized. 
 *  The variable is initialized to 0 and set to 1 the first time 
-*  PWM_1_Start() is called. This allows the Component to 
+*  LEDBlink_Start() is called. This allows the Component to 
 *  restart without reinitialization after the first call to 
-*  the PWM_1_Start() routine.
+*  the LEDBlink_Start() routine.
 */
-uint8_t PWM_1_initVar = 0U;
+uint8_t LEDBlink_initVar = 0U;
 
 /** The instance-specific configuration structure. This should be used in the 
-*  associated PWM_1_Init() function.
+*  associated LEDBlink_Init() function.
 */ 
-cy_stc_tcpwm_pwm_config_t const PWM_1_config =
+cy_stc_tcpwm_pwm_config_t const LEDBlink_config =
 {
     .pwmMode = 4UL,
-    .clockPrescaler = 2UL,
+    .clockPrescaler = 0UL,
     .pwmAlignment = 0UL,
     .deadTimeClocks = 0UL,
     .runMode = 0UL,
-    .period0 = 20000UL,
+    .period0 = 999UL,
     .period1 = 32768UL,
     .enablePeriodSwap = false,
-    .compare0 = 1000UL,
+    .compare0 = 500UL,
     .compare1 = 16384UL,
     .enableCompareSwap = false,
     .interruptSources = 0UL,
@@ -47,9 +47,9 @@ cy_stc_tcpwm_pwm_config_t const PWM_1_config =
     .swapInput = CY_TCPWM_INPUT_CREATOR,
     .reloadInputMode = 3UL,
     .reloadInput = CY_TCPWM_INPUT_CREATOR,
-    .startInputMode = 0UL,
+    .startInputMode = 3UL,
     .startInput = CY_TCPWM_INPUT_CREATOR,
-    .killInputMode = 1UL,
+    .killInputMode = 3UL,
     .killInput = CY_TCPWM_INPUT_CREATOR,
     .countInputMode = 3UL,
     .countInput = CY_TCPWM_INPUT_CREATOR,
@@ -57,31 +57,31 @@ cy_stc_tcpwm_pwm_config_t const PWM_1_config =
 
 
 /*******************************************************************************
-* Function Name: PWM_1_Start
+* Function Name: LEDBlink_Start
 ****************************************************************************//**
 *
-*  Calls the PWM_1_Init() when called the first time and enables 
-*  the PWM_1. For subsequent calls the configuration is left 
+*  Calls the LEDBlink_Init() when called the first time and enables 
+*  the LEDBlink. For subsequent calls the configuration is left 
 *  unchanged and the component is just enabled.
 *
 * \globalvars
-*  \ref PWM_1_initVar
+*  \ref LEDBlink_initVar
 *
 *******************************************************************************/
-void PWM_1_Start(void)
+void LEDBlink_Start(void)
 {
-    if (0U == PWM_1_initVar)
+    if (0U == LEDBlink_initVar)
     {
-        (void) Cy_TCPWM_PWM_Init(PWM_1_HW, PWM_1_CNT_NUM, &PWM_1_config);
+        (void) Cy_TCPWM_PWM_Init(LEDBlink_HW, LEDBlink_CNT_NUM, &LEDBlink_config);
 
-        PWM_1_initVar = 1U;
+        LEDBlink_initVar = 1U;
     }
 
-    Cy_TCPWM_Enable_Multiple(PWM_1_HW, PWM_1_CNT_MASK);
+    Cy_TCPWM_Enable_Multiple(LEDBlink_HW, LEDBlink_CNT_MASK);
     
-    #if (PWM_1_INPUT_DISABLED == 0UL)
-        Cy_TCPWM_TriggerStart(PWM_1_HW, PWM_1_CNT_MASK);
-    #endif /* (PWM_1_INPUT_DISABLED == 0UL) */    
+    #if (LEDBlink_INPUT_DISABLED == 7UL)
+        Cy_TCPWM_TriggerStart(LEDBlink_HW, LEDBlink_CNT_MASK);
+    #endif /* (LEDBlink_INPUT_DISABLED == 7UL) */    
 }
 
 

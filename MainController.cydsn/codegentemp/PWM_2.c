@@ -33,7 +33,7 @@ cy_stc_tcpwm_pwm_config_t const PWM_2_config =
     .pwmAlignment = 0UL,
     .deadTimeClocks = 0UL,
     .runMode = 0UL,
-    .period0 = 21000UL,
+    .period0 = 20000UL,
     .period1 = 32768UL,
     .enablePeriodSwap = false,
     .compare0 = 1000UL,
@@ -47,9 +47,9 @@ cy_stc_tcpwm_pwm_config_t const PWM_2_config =
     .swapInput = CY_TCPWM_INPUT_CREATOR,
     .reloadInputMode = 3UL,
     .reloadInput = CY_TCPWM_INPUT_CREATOR,
-    .startInputMode = 3UL,
+    .startInputMode = 0UL,
     .startInput = CY_TCPWM_INPUT_CREATOR,
-    .killInputMode = 3UL,
+    .killInputMode = 1UL,
     .killInput = CY_TCPWM_INPUT_CREATOR,
     .countInputMode = 3UL,
     .countInput = CY_TCPWM_INPUT_CREATOR,
@@ -79,9 +79,9 @@ void PWM_2_Start(void)
 
     Cy_TCPWM_Enable_Multiple(PWM_2_HW, PWM_2_CNT_MASK);
     
-    #if (PWM_2_INPUT_DISABLED == 7UL)
+    #if (PWM_2_INPUT_DISABLED == 0UL)
         Cy_TCPWM_TriggerStart(PWM_2_HW, PWM_2_CNT_MASK);
-    #endif /* (PWM_2_INPUT_DISABLED == 7UL) */    
+    #endif /* (PWM_2_INPUT_DISABLED == 0UL) */    
 }
 
 

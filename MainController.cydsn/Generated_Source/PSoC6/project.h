@@ -110,9 +110,10 @@
 #include "Clock_1.h"
 #include "PWM_1.h"
 #include "PWM_RED.h"
-#include "PWM_2.h"
 #include "EZI2C.h"
-#include "PWM_3.h"
+#include "PWM_2.h"
+#include "LEDBlink.h"
+#include "Clock_2.h"
 #include "UART_SCBCLK.h"
 #include "EZI2C_SCBCLK.h"
 

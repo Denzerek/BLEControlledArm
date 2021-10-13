@@ -16,8 +16,9 @@
 ##################################################################### 
                     1::Clock Frequency Summary
 ===================================================================== 
-Number of clocks: 12
+Number of clocks: 14
 Clock: Clock_1        | N/A  | Target: 4.17 MHz    | 
+Clock: Clock_2        | N/A  | Target: 0.00 MHz    | 
 Clock: CyClk_Fast     | N/A  | Target: 100.00 MHz  | 
 Clock: CyClk_HF0      | N/A  | Target: 100.00 MHz  | 
 Clock: CyClk_LF       | N/A  | Target: 0.03 MHz    | 
@@ -28,6 +29,7 @@ Clock: CyILO          | N/A  | Target: 0.03 MHz    |
 Clock: CyIMO          | N/A  | Target: 8.00 MHz    | 
 Clock: CyPeriClk_App  | N/A  | Target: 50.00 MHz   | 
 Clock: EZI2C_SCBCLK   | N/A  | Target: 12.50 MHz   | 
+Clock: SW(0)_PAD      | N/A  | Target: 100.00 MHz  | 
 Clock: UART_SCBCLK    | N/A  | Target: 1.39 MHz    | 
 
  =====================================================================
@@ -62,12 +64,14 @@ Port Name  Setup to Clk  Clock Name:Phase
 -----------------------3.2::Clock to Out
 ----------------------------------------
 
-Port Name  Clock to Out  Clock Name:Phase  
----------  ------------  ----------------  
+Port Name     Clock to Out  Clock Name:Phase  
+------------  ------------  ----------------  
+GREEN(0)_PAD  6073          SW(0)_PAD:R       
+RED(0)_PAD    5379          SW(0)_PAD:R       
 
 
--------------------------3.3::Pad to Pad
-----------------------------------------
+                         3.3::Pad to Pad
+                         ---------------
 
 Port Name (Source)  Port Name (Destination)  Delay  
 ------------------  -----------------------  -----  

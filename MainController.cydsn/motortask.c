@@ -135,7 +135,7 @@ void motorTask(void* arg)
             percentTmp = pwmMessage.percent;
         }
 		
-		motorPrintf("Setting Motor %d to percent :%d",pwmMessage.motor,percentTmp);
+		motorPrintf("Motor %d : %d %%",pwmMessage.motor,percentTmp);
         
         //Change the PWM of motor
         Cy_TCPWM_PWM_SetCompare0(hw,cntrNum,percentToCompare(percentTmp));

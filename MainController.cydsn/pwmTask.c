@@ -20,9 +20,11 @@ void pwmTask(void * arg)
     
     /* Start the PWM operation */
     PWM_RED_Start();
+    pwm_print("Heart Beat LED Started ...");
+    LEDBlink_Start();
+    pwm_print("Kill Switch LED Started ...");
     
     
-    serialPrint("Heart Beat Started ...\r\n");
     
     START_UP_DISP();
     
