@@ -40,9 +40,8 @@ void UartTask(void * arg)
     
     /* \x1b[2J\x1b[;H - ANSI ESC sequence for clear screen */
     serialPrint("\x1b[2J\x1b[;H");
-    serialPrint("UART Started ");
+    serialPrint("UART TASK Started ");
     serialPrint("Press ? to ensure reception operation");
-    START_UP_DISP();
     
     uartSemaphore = xSemaphoreCreateBinary();
     

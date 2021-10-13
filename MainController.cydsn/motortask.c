@@ -92,6 +92,7 @@ void motorTask(void* arg)
     int percentTmp = 0;
     PWM_1_Start();
     PWM_2_Start();
+    motorPrint("Motor Task Started ...");
     
     while(1)
     {

@@ -2,7 +2,7 @@
 --	Conversion of MainController.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Oct 12 22:35:06 2021
+--	Wed Oct 13 11:50:46 2021
 --
 
 USE cypress.cypress.all;
@@ -90,6 +90,50 @@ SIGNAL Net_85 : bit;
 SIGNAL tmpFB_0__RED_net_0 : bit;
 SIGNAL tmpIO_0__RED_net_0 : bit;
 TERMINAL tmpSIOVREF__RED_net_0 : bit;
+SIGNAL \EZI2C:clock_wire\ : bit;
+SIGNAL \EZI2C:Net_283\ : bit;
+SIGNAL \EZI2C:Net_1062\ : bit;
+SIGNAL \EZI2C:Net_1053\ : bit;
+SIGNAL \EZI2C:Net_282\ : bit;
+SIGNAL \EZI2C:Net_277\ : bit;
+SIGNAL Net_122 : bit;
+SIGNAL Net_123 : bit;
+SIGNAL \EZI2C:Net_1059\ : bit;
+SIGNAL \EZI2C:Net_281\ : bit;
+SIGNAL \EZI2C:Net_87_3\ : bit;
+SIGNAL \EZI2C:Net_87_2\ : bit;
+SIGNAL \EZI2C:Net_87_1\ : bit;
+SIGNAL \EZI2C:Net_87_0\ : bit;
+SIGNAL \EZI2C:Net_280\ : bit;
+SIGNAL \EZI2C:Net_1061\ : bit;
+SIGNAL \EZI2C:Net_279\ : bit;
+SIGNAL \EZI2C:Net_278\ : bit;
+SIGNAL \EZI2C:Net_1055\ : bit;
+SIGNAL \EZI2C:intr_wire\ : bit;
+SIGNAL \EZI2C:Net_162\ : bit;
+SIGNAL \EZI2C:Net_163\ : bit;
+SIGNAL \EZI2C:Net_264\ : bit;
+SIGNAL \EZI2C:Net_224\ : bit;
+SIGNAL \EZI2C:Net_223\ : bit;
+SIGNAL \EZI2C:Net_847\ : bit;
+SIGNAL \EZI2C:tmpFB_0__scl_net_0\ : bit;
+TERMINAL \EZI2C:tmpSIOVREF__scl_net_0\ : bit;
+SIGNAL \EZI2C:tmpFB_0__sda_net_0\ : bit;
+TERMINAL \EZI2C:tmpSIOVREF__sda_net_0\ : bit;
+SIGNAL \PWM_3:swap\ : bit;
+SIGNAL \PWM_3:count\ : bit;
+SIGNAL \PWM_3:reload\ : bit;
+SIGNAL \PWM_3:kill\ : bit;
+SIGNAL \PWM_3:start\ : bit;
+SIGNAL Net_131 : bit;
+SIGNAL Net_132 : bit;
+SIGNAL Net_130 : bit;
+SIGNAL Net_135 : bit;
+SIGNAL Net_134 : bit;
+SIGNAL Net_129 : bit;
+SIGNAL tmpFB_0__GREEN_net_0 : bit;
+SIGNAL tmpIO_0__GREEN_net_0 : bit;
+TERMINAL tmpSIOVREF__GREEN_net_0 : bit;
 BEGIN
 
 one <=  ('1') ;
@@ -354,5 +398,157 @@ RED:cy_mxs40_gpio_v1_0
 		io=>(tmpIO_0__RED_net_0),
 		annotation=>(open),
 		siovref=>(tmpSIOVREF__RED_net_0));
+\EZI2C:SCB\:cy_mxs40_scb_v1_10
+	GENERIC MAP(cy_registers=>"",
+		requires_io_preconfigure=>'1',
+		mode=>0,
+		master=>'0')
+	PORT MAP(clock=>\EZI2C:clock_wire\,
+		uart_rx=>zero,
+		uart_tx=>\EZI2C:Net_1062\,
+		uart_rts=>\EZI2C:Net_1053\,
+		uart_cts=>zero,
+		uart_tx_en=>\EZI2C:Net_277\,
+		i2c_scl=>Net_122,
+		i2c_sda=>Net_123,
+		spi_clk_m=>\EZI2C:Net_1059\,
+		spi_clk_s=>zero,
+		spi_select_m=>(\EZI2C:Net_87_3\, \EZI2C:Net_87_2\, \EZI2C:Net_87_1\, \EZI2C:Net_87_0\),
+		spi_select_s=>zero,
+		spi_mosi_m=>\EZI2C:Net_1061\,
+		spi_miso_m=>zero,
+		spi_mosi_s=>zero,
+		spi_miso_s=>\EZI2C:Net_1055\,
+		interrupt=>\EZI2C:intr_wire\,
+		tr_tx_req=>\EZI2C:Net_162\,
+		tr_rx_req=>\EZI2C:Net_163\,
+		tr_i2c_scl_filtered=>\EZI2C:Net_264\);
+\EZI2C:SCB_IRQ\:cy_mxs40_isr_v1_0
+	GENERIC MAP(cy_registers=>"",
+		deepsleep_required=>'0',
+		int_type=>"10")
+	PORT MAP(int_signal=>\EZI2C:intr_wire\);
+\EZI2C:SCBCLK\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"7ced46af-7f8c-409b-95be-54f36ac9b577/b68e5b9d-7828-482d-a282-930f990e3b3e",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"78125000",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>\EZI2C:clock_wire\,
+		dig_domain_out=>open);
+\EZI2C:scl\:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"7ced46af-7f8c-409b-95be-54f36ac9b577/69c3b5e8-b094-4d65-b96b-9f4f3a9a8641",
+		drive_mode=>"4",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"B",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(\EZI2C:tmpFB_0__scl_net_0\),
+		analog=>(open),
+		io=>Net_122,
+		annotation=>(open),
+		siovref=>(\EZI2C:tmpSIOVREF__scl_net_0\));
+\EZI2C:sda\:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"7ced46af-7f8c-409b-95be-54f36ac9b577/2aab8a93-e7dd-4bd4-8210-42652cd079c5",
+		drive_mode=>"4",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"B",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(\EZI2C:tmpFB_0__sda_net_0\),
+		analog=>(open),
+		io=>Net_123,
+		annotation=>(open),
+		siovref=>(\EZI2C:tmpSIOVREF__sda_net_0\));
+\PWM_3:TCPWM\:cy_mxs40_tcpwm_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>16,
+		exact_width=>'0')
+	PORT MAP(clock=>Net_40,
+		capture=>zero,
+		count=>one,
+		reload=>zero,
+		stop=>zero,
+		start=>zero,
+		tr_underflow=>Net_131,
+		tr_compare_match=>Net_132,
+		tr_overflow=>Net_130,
+		line_compl=>Net_135,
+		line=>Net_134,
+		interrupt=>Net_129);
+GREEN:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"b4e0606e-71d6-4b71-a630-43b3d1f856ad",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"1",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>Net_134,
+		fb=>(tmpFB_0__GREEN_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__GREEN_net_0),
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__GREEN_net_0));
 
 END R_T_L;

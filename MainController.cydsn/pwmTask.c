@@ -22,6 +22,11 @@ void pwmTask(void * arg)
     PWM_RED_Start();
     
     
+    serialPrint("Heart Beat Started ...\r\n");
+    
+    START_UP_DISP();
+    
+    
     for(;;)
     {
         /* Set the compare value with modified one*/

@@ -1,5 +1,5 @@
 -- Project:   C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\MainController.cyprj
--- Generated: 10/12/2021 22:35:33
+-- Generated: 10/13/2021 11:51:12
 -- PSoC Creator  4.4
 
 ENTITY MainController IS
@@ -8,7 +8,10 @@ ENTITY MainController IS
         \UART:rx(0)_PAD\ : IN std_ulogic;
         M1(0)_PAD : OUT std_ulogic;
         M2(0)_PAD : OUT std_ulogic;
-        RED(0)_PAD : OUT std_ulogic);
+        RED(0)_PAD : OUT std_ulogic;
+        \EZI2C:scl(0)_PAD\ : INOUT std_ulogic;
+        \EZI2C:sda(0)_PAD\ : INOUT std_ulogic;
+        GREEN(0)_PAD : OUT std_ulogic);
     ATTRIBUTE voltage_VBACKUP OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDD_NS OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDDA_CSD OF __DEFAULT__ : ENTITY IS 3.3e0;
@@ -47,6 +50,7 @@ ARCHITECTURE __DEFAULT__ OF MainController IS
     ATTRIBUTE global_signal OF ClockBlock_PeriClk : SIGNAL IS true;
     SIGNAL ClockBlock_SlowClk : bit;
     SIGNAL ClockBlock_WCO : bit;
+    SIGNAL GREEN(0)__PA : bit;
     SIGNAL M1(0)__PA : bit;
     SIGNAL M2(0)__PA : bit;
     SIGNAL Net_105 : bit;
@@ -59,6 +63,14 @@ ARCHITECTURE __DEFAULT__ OF MainController IS
     SIGNAL Net_118 : bit;
     SIGNAL Net_119 : bit;
     SIGNAL Net_120 : bit;
+    SIGNAL Net_122 : bit;
+    SIGNAL Net_123 : bit;
+    SIGNAL Net_129 : bit;
+    SIGNAL Net_130 : bit;
+    SIGNAL Net_131 : bit;
+    SIGNAL Net_132 : bit;
+    SIGNAL Net_134 : bit;
+    SIGNAL Net_135 : bit;
     SIGNAL Net_36 : bit;
     SIGNAL Net_37 : bit;
     SIGNAL Net_38 : bit;
@@ -69,6 +81,8 @@ ARCHITECTURE __DEFAULT__ OF MainController IS
     ATTRIBUTE global_signal OF Net_40_ff12 : SIGNAL IS true;
     SIGNAL Net_40_ff13 : bit;
     ATTRIBUTE global_signal OF Net_40_ff13 : SIGNAL IS true;
+    SIGNAL Net_40_ff14 : bit;
+    ATTRIBUTE global_signal OF Net_40_ff14 : SIGNAL IS true;
     SIGNAL Net_6 : bit;
     SIGNAL Net_7 : bit;
     SIGNAL Net_83 : bit;
@@ -76,10 +90,20 @@ ARCHITECTURE __DEFAULT__ OF MainController IS
     SIGNAL Net_87 : bit;
     SIGNAL Net_92 : bit;
     SIGNAL RED(0)__PA : bit;
+    SIGNAL \EZI2C:Net_1053\ : bit;
+    SIGNAL \EZI2C:Net_1062\ : bit;
+    SIGNAL \EZI2C:Net_162\ : bit;
+    SIGNAL \EZI2C:Net_163\ : bit;
+    SIGNAL \EZI2C:Net_264\ : bit;
+    SIGNAL \EZI2C:clock_wire_ff0\ : bit;
+    ATTRIBUTE global_signal OF \EZI2C:clock_wire_ff0\ : SIGNAL IS true;
+    SIGNAL \EZI2C:intr_wire\ : bit;
+    SIGNAL \\\EZI2C:scl(0)\\__PA\ : bit;
+    SIGNAL \\\EZI2C:sda(0)\\__PA\ : bit;
     SIGNAL \UART:Net_1172\ : bit;
     SIGNAL \UART:Net_161\ : bit;
-    SIGNAL \UART:Net_847_ff0\ : bit;
-    ATTRIBUTE global_signal OF \UART:Net_847_ff0\ : SIGNAL IS true;
+    SIGNAL \UART:Net_847_ff1\ : bit;
+    ATTRIBUTE global_signal OF \UART:Net_847_ff1\ : SIGNAL IS true;
     SIGNAL \UART:intr_wire\ : bit;
     SIGNAL \UART:rts_wire\ : bit;
     SIGNAL \\\UART:rx(0)\\__PA\ : bit;
@@ -111,11 +135,20 @@ ARCHITECTURE __DEFAULT__ OF MainController IS
     ATTRIBUTE Location OF M2(0) : LABEL IS "P5[5]";
     ATTRIBUTE lib_model OF RED(0) : LABEL IS "iocell7";
     ATTRIBUTE Location OF RED(0) : LABEL IS "P0[3]";
+    ATTRIBUTE lib_model OF \EZI2C:scl(0)\ : LABEL IS "iocell8";
+    ATTRIBUTE Location OF \EZI2C:scl(0)\ : LABEL IS "P6[0]";
+    ATTRIBUTE lib_model OF \EZI2C:sda(0)\ : LABEL IS "iocell9";
+    ATTRIBUTE Location OF \EZI2C:sda(0)\ : LABEL IS "P6[1]";
+    ATTRIBUTE lib_model OF GREEN(0) : LABEL IS "iocell10";
+    ATTRIBUTE Location OF GREEN(0) : LABEL IS "P1[1]";
     ATTRIBUTE Location OF \UART:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(46)]";
     ATTRIBUTE Location OF \UART:SCB\ : LABEL IS "F(SCB,5)";
     ATTRIBUTE Location OF \PWM_1:TCPWM\ : LABEL IS "F(TCPWM,9)";
-    ATTRIBUTE Location OF \PWM_RED:TCPWM\ : LABEL IS "F(TCPWM,1)";
-    ATTRIBUTE Location OF \PWM_2:TCPWM\ : LABEL IS "F(TCPWM,0)";
+    ATTRIBUTE Location OF \PWM_RED:TCPWM\ : LABEL IS "F(TCPWM,0)";
+    ATTRIBUTE Location OF \PWM_2:TCPWM\ : LABEL IS "F(TCPWM,1)";
+    ATTRIBUTE Location OF \EZI2C:SCB\ : LABEL IS "F(SCB,3)";
+    ATTRIBUTE Location OF \EZI2C:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(44)]";
+    ATTRIBUTE Location OF \PWM_3:TCPWM\ : LABEL IS "F(TCPWM,2)";
     COMPONENT CLK_GEN
         PORT (
             gen_clk_in_0 : IN std_ulogic;
@@ -504,11 +537,14 @@ BEGIN
             ilo => ClockBlock_ILO,
             wco => ClockBlock_WCO,
             lfclk => ClockBlock_LFClk,
-            ff_div_11 => Net_40_ff12,
-            ff_div_12 => Net_40_ff13,
-            ff_div_13 => open,
             ff_div_0 => open,
-            ff_div_5 => \UART:Net_847_ff0\,
+            ff_div_11 => Net_40_ff14,
+            ff_div_12 => Net_40_ff12,
+            ff_div_13 => Net_40_ff13,
+            ff_div_14 => open,
+            ff_div_1 => open,
+            ff_div_3 => \EZI2C:clock_wire_ff0\,
+            ff_div_5 => \UART:Net_847_ff1\,
             ff_div_20 => Net_40_ff11,
             periclk_App => periclk_App);
 
@@ -902,6 +938,174 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
+    \EZI2C:scl\:logicalport
+        GENERIC MAP(
+            cy_registers => "",
+            drive_mode => "100",
+            drive_strength => "0",
+            hotswap_needed => "0",
+            i2c_mode => "0",
+            ibuf_enabled => "1",
+            id => "7ced46af-7f8c-409b-95be-54f36ac9b577/69c3b5e8-b094-4d65-b96b-9f4f3a9a8641",
+            init_dr_st => "1",
+            input_sync => "0",
+            intr_mode => "00",
+            io_voltage => "",
+            max_frequency => "100",
+            oe_conn => "0",
+            oe_sync => "0",
+            output_conn => "0",
+            output_current_cap => "8",
+            output_sync => "0",
+            pin_aliases => "",
+            pin_mode => "B",
+            sio_grp_cnt => 0,
+            slew_rate => "0",
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0);
+
+    \EZI2C:scl(0)\:iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "\EZI2C:scl\",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => \\\EZI2C:scl(0)\\__PA\,
+            oe => open,
+            fb => Net_122,
+            pin_input => open,
+            pad_in => \EZI2C:scl(0)_PAD\,
+            in_clock => open,
+            in_clock_en => open,
+            in_reset => open,
+            out_clock => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    \EZI2C:sda\:logicalport
+        GENERIC MAP(
+            cy_registers => "",
+            drive_mode => "100",
+            drive_strength => "0",
+            hotswap_needed => "0",
+            i2c_mode => "0",
+            ibuf_enabled => "1",
+            id => "7ced46af-7f8c-409b-95be-54f36ac9b577/2aab8a93-e7dd-4bd4-8210-42652cd079c5",
+            init_dr_st => "1",
+            input_sync => "0",
+            intr_mode => "00",
+            io_voltage => "",
+            max_frequency => "100",
+            oe_conn => "0",
+            oe_sync => "0",
+            output_conn => "0",
+            output_current_cap => "8",
+            output_sync => "0",
+            pin_aliases => "",
+            pin_mode => "B",
+            sio_grp_cnt => 0,
+            slew_rate => "0",
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0);
+
+    \EZI2C:sda(0)\:iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "\EZI2C:sda\",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => \\\EZI2C:sda(0)\\__PA\,
+            oe => open,
+            fb => Net_123,
+            pin_input => open,
+            pad_in => \EZI2C:sda(0)_PAD\,
+            in_clock => open,
+            in_clock_en => open,
+            in_reset => open,
+            out_clock => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    GREEN:logicalport
+        GENERIC MAP(
+            cy_registers => "",
+            drive_mode => "110",
+            drive_strength => "0",
+            hotswap_needed => "0",
+            i2c_mode => "0",
+            ibuf_enabled => "0",
+            id => "b4e0606e-71d6-4b71-a630-43b3d1f856ad",
+            init_dr_st => "1",
+            input_sync => "0",
+            intr_mode => "00",
+            io_voltage => "",
+            max_frequency => "100",
+            oe_conn => "0",
+            oe_sync => "0",
+            output_conn => "1",
+            output_current_cap => "8",
+            output_sync => "0",
+            pin_aliases => "",
+            pin_mode => "B",
+            sio_grp_cnt => 0,
+            slew_rate => "0",
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0);
+
+    GREEN(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "GREEN",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => GREEN(0)__PA,
+            oe => open,
+            pin_input => Net_134,
+            pad_out => GREEN(0)_PAD,
+            pad_in => GREEN(0)_PAD,
+            in_clock => open,
+            in_clock_en => open,
+            in_reset => open,
+            out_clock => open,
+            out_clock_en => open,
+            out_reset => open);
+
     \UART:SCB_IRQ\:interrupt
         GENERIC MAP(
             cy_registers => "",
@@ -918,7 +1122,7 @@ BEGIN
             mode => 2,
             requires_io_preconfigure => 0)
         PORT MAP(
-            clock => \UART:Net_847_ff0\,
+            clock => \UART:Net_847_ff1\,
             uart_rx => \UART:Net_1172\,
             uart_tx => \UART:tx_wire\,
             uart_rts => \UART:rts_wire\,
@@ -960,7 +1164,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_40_ff13,
+            clock => Net_40_ff14,
             capture => '0',
             count => '1',
             reload => '0',
@@ -991,5 +1195,59 @@ BEGIN
             line_compl => Net_117,
             line => Net_120,
             interrupt => Net_85);
+
+    \EZI2C:SCB\:SCB
+        GENERIC MAP(
+            cy_registers => "",
+            master => 0,
+            mode => 0,
+            requires_io_preconfigure => 1)
+        PORT MAP(
+            clock => \EZI2C:clock_wire_ff0\,
+            uart_rx => open,
+            uart_tx => \EZI2C:Net_1062\,
+            uart_rts => \EZI2C:Net_1053\,
+            uart_cts => open,
+            i2c_scl => Net_122,
+            i2c_sda => Net_123,
+            spi_clk => open,
+            spi_select_3 => open,
+            spi_select_2 => open,
+            spi_select_1 => open,
+            spi_select_0 => open,
+            spi_mosi => open,
+            spi_miso => open,
+            interrupt => \EZI2C:intr_wire\,
+            tr_tx_req => \EZI2C:Net_162\,
+            tr_rx_req => \EZI2C:Net_163\,
+            tr_i2c_scl_filtered => \EZI2C:Net_264\);
+
+    \EZI2C:SCB_IRQ\:interrupt
+        GENERIC MAP(
+            cy_registers => "",
+            deepsleep_required => 0,
+            int_type => "10")
+        PORT MAP(
+            interrupt => \EZI2C:intr_wire\,
+            clock => ClockBlock_PeriClk);
+
+    \PWM_3:TCPWM\:TCPWM
+        GENERIC MAP(
+            cy_registers => "",
+            exact_width => 0,
+            width => 16)
+        PORT MAP(
+            clock => Net_40_ff13,
+            capture => '0',
+            count => '1',
+            reload => '0',
+            stop => '0',
+            start => '0',
+            tr_underflow => Net_131,
+            tr_compare_match => Net_132,
+            tr_overflow => Net_130,
+            line_compl => Net_135,
+            line => Net_134,
+            interrupt => Net_129);
 
 END __DEFAULT__;

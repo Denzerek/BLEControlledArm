@@ -13,6 +13,8 @@
 #include "pwmTask.h"
 #include "common.h"
 #include "motorTask.h"
+#include "ezI2CTask.h"
+#include "event_groups.h"
 
 
 
@@ -25,7 +27,11 @@
 #define PWM_TASK_STACK_SIZE         400
 #define PWM_TASK_PRIORITY           1
 
+#define EZI2C_TASK_STACK_SIZE         400
+#define EZI2C_TASK_PRIORITY           2
+
 QueueHandle_t pwmQueue;
+EventGroupHandle_t pwmEventGroup;
 
 int main(void)
 {
@@ -41,6 +47,9 @@ int main(void)
     
     /* PWM Motor task that runs continuously*/
     xTaskCreate(motorTask,"MOTOR TASK",MOTOR_TASK_STACK_SIZE,0,MOTOR_TASK_PRIORITY,0);
+    
+    /* EZ I2C task that runs continuously*/
+    xTaskCreate(ezI2CTask,"EZ I2C TASK",EZI2C_TASK_STACK_SIZE,0,EZI2C_TASK_PRIORITY,0);
     
     /* Start the Scheduler*/
     vTaskStartScheduler();
