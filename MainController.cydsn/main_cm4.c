@@ -38,6 +38,8 @@ int main(void)
     __enable_irq(); /* Enable global interrupts. */
     
     pwmQueue = xQueueCreate(4,sizeof(PWM_Message_t));
+    
+    pwmEventGroup = xEventGroupCreate();
 
     //Setting uart with higher priority for allowing processing in between the pwm task
     xTaskCreate(UartTask,"UART TASK",UART_TASK_STACK_SIZE,0,UART_TASK_PRIORITY,0);

@@ -69,7 +69,7 @@ int getMotorPercent(motors_t motors)
         (motors == M1)?PWM_1_HW:PWM_2_HW,
         (motors == M1)?PWM_1_CNT_NUM:PWM_2_CNT_NUM);
     
-        return compare;
+        return compareToPercent(compare);
         
 }
 //Turn percent into compare value
@@ -139,6 +139,7 @@ void motorTask(void* arg)
         
         //Change the PWM of motor
         Cy_TCPWM_PWM_SetCompare0(hw,cntrNum,percentToCompare(percentTmp));
+        xEventGroupSetBits(pwmEventGroup,PWM_EVENT_ALL);
     }
 }
 
