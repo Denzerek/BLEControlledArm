@@ -53,10 +53,11 @@ int main(void)
     PWM_2_Start();
     
     uint8_t ledIndex = 0;
-    for(int i = 0;i<MAX_COLOR;i++)
+    for(int ledIndex = 0; ledIndex < MAX_COLOR;ledIndex++)
     {
         Cy_TCPWM_PWM_SetCompare0(ledSelect[ledIndex].type,ledSelect[ledIndex].num,0xFFF);
     }
+    ledIndex = 0;
     
     for(;;)
     {
