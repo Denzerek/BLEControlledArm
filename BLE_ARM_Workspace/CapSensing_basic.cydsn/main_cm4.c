@@ -10,7 +10,7 @@
  * ========================================
 */
 #include "project.h"
-
+#include <stdio.h>
 
 void bluePwmEnable();
 void redPwmEnable();
@@ -62,7 +62,7 @@ int main(void)
     uint16_t Ycord;
     
     printf("\x1b[2J\x1b[;H");
-    printf("UART TASK Started ");
+    printf("UART TASK Started \r\n");
     
     for(;;)
     {
