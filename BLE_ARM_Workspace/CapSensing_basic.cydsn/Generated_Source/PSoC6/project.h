@@ -106,8 +106,10 @@
 #include "CapSense_RegisterMap.h"
 #include "CapSense_Centroid_LL.h"
 #include "CapSense_SmartSense_LL.h"
+#include "CapSense_Gesture.h"
 #include "UART_1.h"
 #include "CapSense_ModClk.h"
+#include "CapSense_TMG.h"
 #include "UART_1_SCBCLK.h"
 
 /*[]*/

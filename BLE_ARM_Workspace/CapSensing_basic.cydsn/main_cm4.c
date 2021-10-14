@@ -39,7 +39,7 @@ ledSelect_s ledSelect[MAX_COLOR] = {
     {BLUE,PWM_2_HW,PWM_2_CNT_NUM}
 };
 
-#if 0
+#if 1
 int main(void)
 {
     __enable_irq(); /* Enable global interrupts. */
@@ -128,7 +128,7 @@ int main(void)
     }
 }
 #endif
-#if 1
+#if 0
 
 
 int main(void)
