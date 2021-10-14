@@ -1,12 +1,12 @@
 /***************************************************************************//**
 * \file CapSense_Structure.c
-* \version 3.0
+* \version 2.0
 *
 * \brief
 *   This file defines the data structure global variables and provides implementation
 *   for the high-level and low-level APIs of the Data Structure module.
 *
-* \see CapSense v3.0 Datasheet
+* \see CapSense v2.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.

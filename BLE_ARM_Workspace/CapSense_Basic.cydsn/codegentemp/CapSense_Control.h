@@ -1,11 +1,11 @@
 /***************************************************************************//**
 * \file CapSense_Control.h
-* \version 3.0
+* \version 2.0
 *
 * \brief
 *   This file provides the function prototypes of the Control Block.
 *
-* \see CapSense v3.0 Datasheet
+* \see CapSense v2.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.
@@ -65,16 +65,9 @@ cy_status CapSense_ProcessWidget(uint32 widgetId);
 void CapSense_Sleep(void);
 void CapSense_Wakeup(void);
 
-#if (CY_SYSPM_DRV_VERSION_MAJOR < 4u)
-    cy_en_syspm_status_t CapSense_DeepSleepCallback(cy_stc_syspm_callback_params_t *callbackParams);
-    cy_en_syspm_status_t CapSense_EnterLowPowerCallback(cy_stc_syspm_callback_params_t *callbackParams);
-    cy_en_syspm_status_t CapSense_ExitLowPowerCallback(cy_stc_syspm_callback_params_t *callbackParams);
-#else
-    cy_en_syspm_status_t CapSense_DeepSleepCallback(
-                         cy_stc_syspm_callback_params_t * callbackParams,
-                         cy_en_syspm_callback_mode_t mode);
-#endif
-
+cy_en_syspm_status_t CapSense_DeepSleepCallback(cy_stc_syspm_callback_params_t *callbackParams);
+cy_en_syspm_status_t CapSense_EnterLowPowerCallback(cy_stc_syspm_callback_params_t *callbackParams);
+cy_en_syspm_status_t CapSense_ExitLowPowerCallback(cy_stc_syspm_callback_params_t *callbackParams);
 
 /** \}
 * \endcond */

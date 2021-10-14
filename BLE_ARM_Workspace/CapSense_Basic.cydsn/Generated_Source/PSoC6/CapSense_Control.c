@@ -1,11 +1,11 @@
 /***************************************************************************//**
 * \file CapSense_Control.c
-* \version 3.0
+* \version 2.0
 *
 * \brief
 *   This file provides the source code to the Control module API of the Component.
 *
-* \see CapSense v3.0 Datasheet
+* \see CapSense v2.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.
@@ -75,9 +75,7 @@ static uint8 CapSense_InitVar = CapSense_INIT_NEEDED;
 /***********************************************************************************************************************
 * Local function
 ***********************************************************************************************************************/
-#if (CY_SYSPM_DRV_VERSION_MAJOR < 4u)
-    static cy_en_syspm_status_t CapSense_SwitchPowerModeCallback(cy_stc_syspm_callback_params_t *callbackParams);
-#endif
+static cy_en_syspm_status_t CapSense_SwitchPowerModeCallback(cy_stc_syspm_callback_params_t *callbackParams);
 
 /*******************************************************************************
 * Function Name: CapSense_Start
@@ -814,288 +812,199 @@ void CapSense_Wakeup(void)
 }
 
 
-#if (CY_SYSPM_DRV_VERSION_MAJOR < 4u)
-    /*******************************************************************************
-    * Function Name: CapSense_DeepSleepCallback
-    ****************************************************************************//**
-    *
-    * \brief
-    *  Handles Active to DeepSleep power mode transition for the CapSense
-    *  Component. This function is used when the major version of the SysPm driver
-    *  is less than 4.
-    *
-    * \details
-    *  This function handles Active to DeepSleep power mode transition
-    *  for the CapSense Component.
-    *  Calling this function directly by application layer is not recommended.
-    *  Instead, Cy_SysPm_DeepSleep() should be used for the Active to DeepSleep
-    *  power mode transition of the device.
-    *
-    *  For proper operation of the CapSense Component during the Active to
-    *  DeepSleep mode transition, a callback to this API should be registered
-    *  using the Cy_SysPm_RegisterCallback() function with CY_SYSPM_DEEPSLEEP
-    *  type. Once the callback is registered, this function is called by the
-    *  Cy_SysPm_DeepSleep() function to prepare the Component to the device
-    *  power mode transition.
-    *
-    *  When this function is called with CY_SYSPM_CHECK_READY as input, this
-    *  function returns CY_SYSPM_SUCCESS if no scanning is in progress, otherwise
-    *  CY_SYSPM_FAIL is returned. If CY_SYSPM_FAIL status is returned, a device
-    *  cannot change the power mode without completing the current scan as
-    *  a transition to DeepSleep during the scan can disrupt the Component
-    *  operation.
-    *
-    * \param callbackParams
-    *  Refer to the description of the cy_stc_syspm_callback_params_t type in the
-    *  Peripheral Driver Library documentation.
-    *
-    * \return
-    *  Returns the status of the operation requested by the mode parameter:
-    *  - CY_SYSPM_SUCCESS  - DeepSleep power mode can be entered.
-    *  - CY_SYSPM_FAIL     - DeepSleep power mode cannot be entered.
-    *
-    *******************************************************************************/
-    cy_en_syspm_status_t CapSense_DeepSleepCallback(cy_stc_syspm_callback_params_t *callbackParams)
+/*******************************************************************************
+* Function Name: CapSense_DeepSleepCallback
+****************************************************************************//**
+*
+* \brief
+*  Handles Active to DeepSleep power mode transition for the CapSense
+*  Component.
+*
+* \details
+*  This function handles Active to DeepSleep power mode transition
+*  for the CapSense Component.
+*  Calling this function directly by application layer is not recommended.
+*  Instead, Cy_SysPm_DeepSleep() should be used for the Active to DeepSleep
+*  power mode transition of the device.
+*
+*  For proper operation of the CapSense Component during the Active to
+*  DeepSleep mode transition, a callback to this API should be registered
+*  using the Cy_SysPm_RegisterCallback() function with CY_SYSPM_DEEPSLEEP
+*  type. Once the callback is registered, this function is called by the
+*  Cy_SysPm_DeepSleep() function to prepare the Component to the device
+*  power mode transition.
+*
+*  When this function is called with CY_SYSPM_CHECK_READY as input, this
+*  function returns CY_SYSPM_SUCCESS if no scanning is in progress, otherwise
+*  CY_SYSPM_FAIL is returned. If CY_SYSPM_FAIL status is returned, a device
+*  cannot change the power mode without completing the current scan as
+*  a transition to DeepSleep during the scan can disrupt the Component
+*  operation.
+*
+* \param callbackParams
+*  Refer to the description of the cy_stc_syspm_callback_params_t type in the
+*  Peripheral Driver Library documentation.
+*
+* \return
+*  Returns the status of the operation requested by the mode parameter:
+*  - CY_SYSPM_SUCCESS  - DeepSleep power mode can be entered.
+*  - CY_SYSPM_FAIL     - DeepSleep power mode cannot be entered.
+*
+*******************************************************************************/
+cy_en_syspm_status_t CapSense_DeepSleepCallback(cy_stc_syspm_callback_params_t *callbackParams)
+{
+    return(CapSense_SwitchPowerModeCallback(callbackParams));
+}
+
+
+/*******************************************************************************
+* Function Name: CapSense_EnterLowPowerCallback
+****************************************************************************//**
+*
+* \brief
+*  Handles Active to Low Power Active (LPActive) power mode transition for
+*  the CapSense Component.
+*
+* \details
+*  This function handles the Active to LPActive power mode transition for
+*  the CapSense Component.
+*  Calling this function directly by application layer is not recommended.
+*  Instead, Cy_SysPm_EnterLpMode() should be used for the Active to LPActive
+*  power mode transition of the device.
+*
+*  For proper operation of the CapSense Component during the Active to
+*  LPActive mode transition, a callback to this function should be registered
+*  using the Cy_SysPm_RegisterCallback() function with CY_SYSPM_ENTER_LP_MODE
+*  type. Once the callback is registered, this function is called by the
+*  Cy_SysPm_EnterLpMode() function to prepare the Component to the device
+*  power mode transition.
+*
+*  When this function is called with CY_SYSPM_CHECK_READY as input, this
+*  function returns CY_SYSPM_SUCCESS if no scanning is in progress, otherwise
+*  CY_SYSPM_FAIL is returned. If CY_SYSPM_FAIL status is returned, a device
+*  cannot change the power mode without completing the current scan as
+*  a transition to LPActive during the scan can disrupt the Component
+*  operation.
+*
+* \param callbackParams
+*  Refer to the description of the cy_stc_syspm_callback_params_t type in the
+*  Peripheral Driver Library documentation.
+*
+* \return
+*  Returns the status of the operation requested by the mode parameter:
+*  - CY_SYSPM_SUCCESS  - LPActive power mode can be entered.
+*  - CY_SYSPM_FAIL     - LPActive power mode cannot be entered.
+*
+*******************************************************************************/
+cy_en_syspm_status_t CapSense_EnterLowPowerCallback(cy_stc_syspm_callback_params_t *callbackParams)
+{
+    return(CapSense_SwitchPowerModeCallback(callbackParams));
+}
+
+
+/*******************************************************************************
+* Function Name: CapSense_ExitLowPowerCallback
+****************************************************************************//**
+*
+* \brief
+*  Handles Low Power Active (LPActive) to Active power mode transition for
+*  the CapSense Component.
+*
+* \details
+*  This function handles LPActive to Active power mode transition for
+*  the CapSense Component.
+*  Calling this function directly by application layer is not recommended.
+*  Instead, Cy_SysPm_ExitLpMode() should be used for the LPActive to Active
+*  power mode transition of the device.
+*
+*  For proper operation of the CapSense Component during the LPActive to
+*  Active mode transition, a callback to this function should be registered
+*  using Cy_SysPm_RegisterCallback() function with CY_SYSPM_EXIT_LP_MODE
+*  type. Once the callback is registered, this function is called by the
+*  Cy_SysPm_ExitLpMode() function to prepare the Component to the device
+*  power mode transition.
+*
+*  When this function is called with CY_SYSPM_CHECK_READY as input, this
+*  function returns CY_SYSPM_SUCCESS if no scanning is in progress, otherwise
+*  CY_SYSPM_FAIL is returned. If CY_SYSPM_FAIL status is returned, a device
+*  cannot change the power mode without completing the current scan as
+*  a transition to Active during the scan can disrupt the Component
+*  operation.
+
+* \param callbackParams
+*  Refer to the description of the cy_stc_syspm_callback_params_t type in the
+*  Peripheral Driver Library documentation.
+*
+* \return
+*  Returns the status of the operation requested by the mode parameter:
+*  - CY_SYSPM_SUCCESS  - Active power mode can be entered.
+*  - CY_SYSPM_FAIL     - Active power mode cannot be entered.
+*
+*******************************************************************************/
+cy_en_syspm_status_t CapSense_ExitLowPowerCallback(cy_stc_syspm_callback_params_t *callbackParams)
+{
+    return(CapSense_SwitchPowerModeCallback(callbackParams));
+}
+
+
+/*******************************************************************************
+* Function Name: CapSense_SwitchPowerModeCallback
+****************************************************************************//**
+*
+* \brief
+*  Handles the switching power mode for the CapSense Component.
+*
+* \details
+*  This function handles swithing of system power mode.
+*  When this function is called with the mode parameter set to CY_SYSPM_CHECK_READY,
+*  the function returns CY_SYSPM_SUCCESS if no scanning is in progress, otherwise
+*  CY_SYSPM_FAIL is returned that means that the device cannot switch the power mode
+*  without finishing the current scan that is in progress (switching power mode
+*  during the scan can disrupt a sensor scan result and produce an unexpected
+*  behavior).
+*
+* \param callbackParams
+*  Refer to the description of the cy_stc_syspm_callback_params_t type.
+*
+* \return
+*  Returns the status of the operation requeted by mode parameter:
+*  - CY_SYSPM_SUCCESS  - Switching power mode can be done
+*  - CY_SYSPM_FAIL     - Switching power mode cannot be done.
+*
+*******************************************************************************/
+static cy_en_syspm_status_t CapSense_SwitchPowerModeCallback(cy_stc_syspm_callback_params_t *callbackParams)
+{
+    cy_en_syspm_status_t retVal = CY_SYSPM_SUCCESS;
+
+    #if (0u != CapSense_ADC_EN)
+        uint8 temp;
+    #endif /* (0u != CapSense_ADC_EN) */
+
+    switch(callbackParams->mode)
     {
-        return(CapSense_SwitchPowerModeCallback(callbackParams));
-    }
-
-
-    /*******************************************************************************
-    * Function Name: CapSense_EnterLowPowerCallback
-    ****************************************************************************//**
-    *
-    * \brief
-    *  Handles Active to Low Power Active (LPActive) power mode transition for
-    *  the CapSense Component. This function is used when the major version
-    *  of the SysPm driver is less than 4.
-    *
-    * \details
-    *  This function handles the Active to LPActive power mode transition for
-    *  the CapSense Component.
-    *  Calling this function directly by application layer is not recommended.
-    *  Instead, Cy_SysPm_EnterLpMode() should be used for the Active to LPActive
-    *  power mode transition of the device.
-    *
-    *  For proper operation of the CapSense Component during the Active to
-    *  LPActive mode transition, a callback to this function should be registered
-    *  using the Cy_SysPm_RegisterCallback() function with CY_SYSPM_ENTER_LP_MODE
-    *  type. Once the callback is registered, this function is called by the
-    *  Cy_SysPm_EnterLpMode() function to prepare the Component to the device
-    *  power mode transition.
-    *
-    *  When this function is called with CY_SYSPM_CHECK_READY as input, this
-    *  function returns CY_SYSPM_SUCCESS if no scanning is in progress, otherwise
-    *  CY_SYSPM_FAIL is returned. If CY_SYSPM_FAIL status is returned, a device
-    *  cannot change the power mode without completing the current scan as
-    *  a transition to LPActive during the scan can disrupt the Component
-    *  operation.
-    *
-    * \param callbackParams
-    *  Refer to the description of the cy_stc_syspm_callback_params_t type in the
-    *  Peripheral Driver Library documentation.
-    *
-    * \return
-    *  Returns the status of the operation requested by the mode parameter:
-    *  - CY_SYSPM_SUCCESS  - LPActive power mode can be entered.
-    *  - CY_SYSPM_FAIL     - LPActive power mode cannot be entered.
-    *
-    *******************************************************************************/
-    cy_en_syspm_status_t CapSense_EnterLowPowerCallback(cy_stc_syspm_callback_params_t *callbackParams)
-    {
-        return(CapSense_SwitchPowerModeCallback(callbackParams));
-    }
-
-
-    /*******************************************************************************
-    * Function Name: CapSense_ExitLowPowerCallback
-    ****************************************************************************//**
-    *
-    * \brief
-    *  Handles Low Power Active (LPActive) to Active power mode transition for
-    *  the CapSense Component. This function is used when the major version
-    *  of the SysPm driver is less than 4.
-    *
-    * \details
-    *  This function handles LPActive to Active power mode transition for
-    *  the CapSense Component.
-    *  Calling this function directly by application layer is not recommended.
-    *  Instead, Cy_SysPm_ExitLpMode() should be used for the LPActive to Active
-    *  power mode transition of the device.
-    *
-    *  For proper operation of the CapSense Component during the LPActive to
-    *  Active mode transition, a callback to this function should be registered
-    *  using Cy_SysPm_RegisterCallback() function with CY_SYSPM_EXIT_LP_MODE
-    *  type. Once the callback is registered, this function is called by the
-    *  Cy_SysPm_ExitLpMode() function to prepare the Component to the device
-    *  power mode transition.
-    *
-    *  When this function is called with CY_SYSPM_CHECK_READY as input, this
-    *  function returns CY_SYSPM_SUCCESS if no scanning is in progress, otherwise
-    *  CY_SYSPM_FAIL is returned. If CY_SYSPM_FAIL status is returned, a device
-    *  cannot change the power mode without completing the current scan as
-    *  a transition to Active during the scan can disrupt the Component
-    *  operation.
-
-    * \param callbackParams
-    *  Refer to the description of the cy_stc_syspm_callback_params_t type in the
-    *  Peripheral Driver Library documentation.
-    *
-    * \return
-    *  Returns the status of the operation requested by the mode parameter:
-    *  - CY_SYSPM_SUCCESS  - Active power mode can be entered.
-    *  - CY_SYSPM_FAIL     - Active power mode cannot be entered.
-    *
-    *******************************************************************************/
-    cy_en_syspm_status_t CapSense_ExitLowPowerCallback(cy_stc_syspm_callback_params_t *callbackParams)
-    {
-        return(CapSense_SwitchPowerModeCallback(callbackParams));
-    }
-
-
-    /*******************************************************************************
-    * Function Name: CapSense_SwitchPowerModeCallback
-    ****************************************************************************//**
-    *
-    * \brief
-    *  Handles the switching power mode for the CapSense Component.
-    *
-    * \details
-    *  This function handles swithing of system power mode.
-    *  When this function is called with the mode parameter set to CY_SYSPM_CHECK_READY,
-    *  the function returns CY_SYSPM_SUCCESS if no scanning is in progress, otherwise
-    *  CY_SYSPM_FAIL is returned that means that the device cannot switch the power mode
-    *  without finishing the current scan that is in progress (switching power mode
-    *  during the scan can disrupt a sensor scan result and produce an unexpected
-    *  behavior).
-    *
-    * \param callbackParams
-    *  Refer to the description of the cy_stc_syspm_callback_params_t type.
-    *
-    * \return
-    *  Returns the status of the operation requeted by mode parameter:
-    *  - CY_SYSPM_SUCCESS  - Switching power mode can be done
-    *  - CY_SYSPM_FAIL     - Switching power mode cannot be done.
-    *
-    *******************************************************************************/
-    static cy_en_syspm_status_t CapSense_SwitchPowerModeCallback(cy_stc_syspm_callback_params_t *callbackParams)
-    {
-        cy_en_syspm_status_t retVal = CY_SYSPM_SUCCESS;
-
-        #if (0u != CapSense_ADC_EN)
-            uint8 temp;
-        #endif /* (0u != CapSense_ADC_EN) */
-
-        switch(callbackParams->mode)
+    case (CY_SYSPM_CHECK_READY):
+        if (CapSense_NOT_BUSY != CapSense_IsBusy())
         {
-        case (CY_SYSPM_CHECK_READY):
-            if (CapSense_NOT_BUSY != CapSense_IsBusy())
+            /* Scanning in progress */
+            retVal = CY_SYSPM_FAIL;
+        }
+        #if (0u != CapSense_ADC_EN)
+            temp = CapSense_AdcIsBusy();
+            if ((CapSense_AdcSTATUS_IDLE != temp) &&
+                (CapSense_AdcSTATUS_OVERFLOW != temp))
             {
                 /* Scanning in progress */
                 retVal = CY_SYSPM_FAIL;
             }
-            #if (0u != CapSense_ADC_EN)
-                temp = CapSense_AdcIsBusy();
-                if ((CapSense_AdcSTATUS_IDLE != temp) &&
-                    (CapSense_AdcSTATUS_OVERFLOW != temp))
-                {
-                    /* Scanning in progress */
-                    retVal = CY_SYSPM_FAIL;
-                }
-            #endif /* (0u != CapSense_ADC_EN) */
-            break;
-
-        default:
-            break;
-        }
-
-        return(retVal);
-    }
-#else
-
-
-    /*******************************************************************************
-    * Function Name: CapSense_DeepSleepCallback
-    ****************************************************************************//**
-    *
-    * \brief
-    *  Handles Active to Deep Sleep power mode transition for the CapSense
-    *  Component. This function is used when the major version of the SysPm driver
-    *  is 4 or greater.
-    *
-    * \details
-    *  This function handles Active to Deep Sleep power mode transition for the
-    *  CapSense Component.
-    *  Calling this function directly from the application layer is not recommended.
-    *  Instead, Cy_SysPm_CpuEnterDeepSleep() should be used for the Active to Deep Sleep
-    *  power mode transition of the device.
-    *
-    *  For proper operation of the CapSense Component during the Active to
-    *  Deep Sleep mode transition, a callback to this function should be registered
-    *  using the Cy_SysPm_RegisterCallback() function with CY_SYSPM_DEEPSLEEP
-    *  type. After the callback is registered, this function is called by the
-    *  Cy_SysPm_CpuEnterDeepSleep() function to prepare the Component to the device
-    *  power mode transition.
-    *
-    *  When this function is called with CY_SYSPM_CHECK_READY as input, this
-    *  function returns CY_SYSPM_SUCCESS if no scanning is in progress. Otherwise
-    *  CY_SYSPM_FAIL is returned. If CY_SYSPM_FAIL status is returned, a device
-    *  cannot change the power mode without completing the current scan as
-    *  a transition to Deep Sleep during the scan can disrupt the Component
-    *  operation.
-    *
-    * \param callbackParams
-    *  Refer to the description of the cy_stc_syspm_callback_params_t type in the
-    *  Peripheral Driver Library documentation.
-    *
-    * \param mode
-    *  Specifies mode cy_en_syspm_callback_mode_t.
-    *
-    * \return
-    *  Returns the status cy_en_syspm_status_t of the operation requested
-    *  by the mode parameter:
-    *  - CY_SYSPM_SUCCESS  - Deep Sleep power mode can be entered.
-    *  - CY_SYSPM_FAIL     - Deep Sleep power mode cannot be entered.
-    *
-    *******************************************************************************/
-    cy_en_syspm_status_t CapSense_DeepSleepCallback(
-                         cy_stc_syspm_callback_params_t * callbackParams,
-                         cy_en_syspm_callback_mode_t mode)
-    {
-        cy_en_syspm_status_t retVal = CY_SYSPM_SUCCESS;
-
-        #if (0u != CapSense_ADC_EN)
-            uint8 temp;
         #endif /* (0u != CapSense_ADC_EN) */
+        break;
 
-        (void)callbackParams;
-        switch(mode)
-        {
-        case (CY_SYSPM_CHECK_READY):
-            if (CapSense_NOT_BUSY != CapSense_IsBusy())
-            {
-                /* Scanning in progress */
-                retVal = CY_SYSPM_FAIL;
-            }
-            #if (0u != CapSense_ADC_EN)
-                temp = CapSense_AdcIsBusy();
-                if ((CapSense_AdcSTATUS_IDLE != temp) &&
-                    (CapSense_AdcSTATUS_OVERFLOW != temp))
-                {
-                    /* Scanning in progress */
-                    retVal = CY_SYSPM_FAIL;
-                }
-            #endif /* (0u != CapSense_ADC_EN) */
-            break;
-
-        default:
-            break;
-        }
-
-        return(retVal);
+    default:
+        break;
     }
 
-#endif /* (CY_SYSPM_DRV_VERSION_MAJOR < 4u) */
+    return(retVal);
+}
 
 
 /* [] END OF FILE */

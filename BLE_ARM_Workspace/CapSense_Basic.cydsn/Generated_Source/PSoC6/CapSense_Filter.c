@@ -1,12 +1,12 @@
 /***************************************************************************//**
 * \file CapSense_Filter.c
-* \version 3.0
+* \version 2.0
 *
 * \brief
 *   This file contains the implementation source code to implement all
 *   firmware filters.
 *
-* \see CapSense v3.0 Datasheet
+* \see CapSense v2.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.
@@ -309,7 +309,7 @@ uint32 CapSense_FtUpdateBaseline(
             #if (!CapSense_SENSOR_AUTO_RESET_EN)
                 /* Update baseline only if signal is in range between noiseThreshold and negativenoiseThreshold */
                 if ((difference <= (uint32)ptrWidgetRam->noiseTh) ||
-                    ((difference <= (uint32) ptrWidgetRam->nNoiseTh) && (sign == 0u)))
+                    ((difference < (uint32) ptrWidgetRam->nNoiseTh) && (sign == 0u)))
                 {
             #endif /* (CapSense_CSD_AUTO_RESET == CapSense_CSD_AUTO_RESET_DISABLE) */
 

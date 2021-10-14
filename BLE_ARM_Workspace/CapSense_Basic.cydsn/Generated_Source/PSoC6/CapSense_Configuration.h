@@ -1,11 +1,11 @@
 /*******************************************************************************
 * \file       CapSense_Configuration.h
-* \version    3.0
+* \version    2.0
 *
 * \brief
 *   This file provides the customizer parameters definitions.
 *
-* \see CapSense v3.0 Datasheet
+* \see CapSense v2.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.
@@ -139,7 +139,7 @@
 #define CapSense_SLIDER_WIDGET_EN         (1u)
 #define CapSense_MATRIX_WIDGET_EN         (0u)
 #define CapSense_PROXIMITY_WIDGET_EN      (0u)
-#define CapSense_TOUCHPAD_WIDGET_EN       (0u)
+#define CapSense_TOUCHPAD_WIDGET_EN       (1u)
 
 #define CapSense_CSD_MATRIX_WIDGET_EN     (0u)
 #define CapSense_CSD_TOUCHPAD_WIDGET_EN   (0u)
@@ -560,7 +560,7 @@ typedef uint16 CapSense_THRESHOLD_TYPE;
 *******************************************************************************/
 
 /* RAM Global Parameters Definitions */
-#define CapSense_CONFIG_ID                      (0xC5A2u)
+#define CapSense_CONFIG_ID                      (0x09E0u)
 #define CapSense_DEVICE_ID                      (0x0900u)
 #define CapSense_HW_CLOCK                       (0x186Au)
 #define CapSense_CSD0_CONFIG                    (0x0008u)

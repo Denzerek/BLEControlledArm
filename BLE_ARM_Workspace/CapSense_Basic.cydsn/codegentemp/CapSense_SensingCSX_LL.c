@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CapSense_SensingCSX_LL.c
-* \version 3.0
+* \version 2.0
 *
 * \brief
 *   This file defines the data structure global variables and provides
@@ -8,7 +8,7 @@
 *   the Sensing module. The file contains the APIs used for the CSD block
 *   initialization, calibration and scanning.
 *
-* \see CapSense v3.0 Datasheet
+* \see CapSense v2.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.
@@ -623,7 +623,7 @@ void CapSense_CSXScan(void)
             #endif
 
             /* Set scan status, enter critical section and initiate scan */
-            CapSense_SetBusyFlags(CapSense_SW_STS_BUSY);
+            CapSense_dsRam.status |= CapSense_SW_STS_BUSY;
 
             #if (CapSense_ENABLE != CapSense_BLOCK_OFF_AFTER_SCAN_EN)
                 #if(CapSense_CSX_ANALOG_STARTUP_DELAY_US > 0uL)
@@ -708,7 +708,7 @@ void CapSense_CSXScan(void)
             #endif
 
         /* Set scan status, enter critical section and initiate scan */
-        CapSense_SetBusyFlags(CapSense_SW_STS_BUSY);
+        CapSense_dsRam.status |= CapSense_SW_STS_BUSY;
 
         #if (CapSense_ENABLE != CapSense_BLOCK_OFF_AFTER_SCAN_EN)
             #if(CapSense_CSX_ANALOG_STARTUP_DELAY_US > 0uL)
@@ -774,7 +774,7 @@ void CapSense_CSXScanExt(void)
         if (0u != CapSense_curRamSnsPtr->subConvNum)
         {
             /* Set busy flag and start conversion */
-            CapSense_SetBusyFlags(CapSense_SW_STS_BUSY);
+            CapSense_dsRam.status |= CapSense_SW_STS_BUSY;
 
             #if (CapSense_ENABLE != CapSense_BLOCK_OFF_AFTER_SCAN_EN)
                 #if(CapSense_CSX_ANALOG_STARTUP_DELAY_US > 0uL)
@@ -785,7 +785,7 @@ void CapSense_CSXScanExt(void)
         }
     #else
         /* Set busy flag and start conversion */
-        CapSense_SetBusyFlags(CapSense_SW_STS_BUSY);
+        CapSense_dsRam.status |= CapSense_SW_STS_BUSY;
 
         #if (CapSense_ENABLE != CapSense_BLOCK_OFF_AFTER_SCAN_EN)
             #if(CapSense_CSX_ANALOG_STARTUP_DELAY_US > 0uL)
@@ -886,7 +886,7 @@ static void CapSense_SsCSXPostMultiScan(void)
                     else
                     {
                         CapSense_dsRam.scanCounter++;
-                        CapSense_ClrBusyFlags(CapSense_SW_STS_BUSY);
+                        CapSense_dsRam.status &= ~CapSense_SW_STS_BUSY;
                     }
                 }
             #else /* (CapSense_ENABLE == CapSense_CSX_SKIP_OVSMPL_SPECIFIC_NODES) */
@@ -965,7 +965,7 @@ static void CapSense_SsCSXPostMultiScan(void)
                             *    2. Clear busy state as scanning is completed
                             */
                             CapSense_dsRam.scanCounter++;
-                            CapSense_ClrBusyFlags(CapSense_SW_STS_BUSY);
+                            CapSense_dsRam.status &= ~CapSense_SW_STS_BUSY;
                         }
                     }
                 }
@@ -1101,7 +1101,7 @@ static void CapSense_SsCSXPostMultiScanGanged(void)
                     else
                     {
                         CapSense_dsRam.scanCounter++;
-                        CapSense_ClrBusyFlags(CapSense_SW_STS_BUSY);
+                        CapSense_dsRam.status &= ~CapSense_SW_STS_BUSY;
                     }
                 }
             #else /* (CapSense_ENABLE == CapSense_CSX_SKIP_OVSMPL_SPECIFIC_NODES) */
@@ -1214,7 +1214,7 @@ static void CapSense_SsCSXPostMultiScanGanged(void)
                             *    2. Clear busy state as scanning is completed
                             */
                             CapSense_dsRam.scanCounter++;
-                            CapSense_ClrBusyFlags(CapSense_SW_STS_BUSY);
+                            CapSense_dsRam.status &= ~CapSense_SW_STS_BUSY;
                         }
                     }
                 }
@@ -1280,7 +1280,7 @@ static void CapSense_SsCSXPostSingleScan(void)
             *   2. Clear busy state as scanning is completed
             */
             CapSense_dsRam.scanCounter++;
-            CapSense_ClrBusyFlags(CapSense_SW_STS_BUSY);
+            CapSense_dsRam.status &= ~CapSense_SW_STS_BUSY;
         }
 
     #ifdef CapSense_EXIT_CALLBACK

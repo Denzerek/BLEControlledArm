@@ -618,7 +618,7 @@ typedef struct
 }
 
 
-#define CapSense_TMG_CLICKS_ENABLED                 (0u)
+#define CapSense_TMG_CLICKS_ENABLED                 (1u)
 #define CapSense_TMG_EDGE_SWIPE_ENABLED             (0u)
 #define CapSense_TMG_FLICKS_ENABLED                 (1u)
 #define CapSense_TMG_ST_SCROLLS_ENABLED             (0u)

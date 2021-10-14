@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_flash.h
-* \version 3.20
+* \version 3.0
 *
 * Provides the API declarations of the Flash driver.
 *
@@ -16,13 +16,9 @@
 #define CY_FLASH_H
 
 /**
-* \addtogroup group_flash
+* \defgroup group_flash Flash System Routine (Flash)
 * \{
 * Internal flash memory programming
-*
-* The functions and other declarations used in this driver are in cy_flash.h. 
-* You can include cy_pdl.h (ModusToolbox only) to get access to all functions 
-* and declarations in the PDL.
 *
 * Flash memory in PSoC devices provides non-volatile storage for user firmware,
 * user configuration data, and bulk data storage.
@@ -55,7 +51,7 @@
 *
 * \subsection group_flash_config_intro Introduction:
 * The PSoC 6 MCU user-programmable Flash consists of:
-* - Four User Flash sectors (0 through 3) - 256KB each.
+* - Up to four User Flash sectors (0 through 3) - 256KB each.
 * - EEPROM emulation sector - 32KB.
 *
 * Write operations are performed on a per-sector basis and may be done as
@@ -63,10 +59,10 @@
 *
 * \subsection group_flash_config_blocking Blocking:
 * In this case, the entire Flash block is not available for the duration of the
-* Write (&sim;16ms). Therefore, no Flash accesses (from any Bus Master) can
-* occur during that time. CPU execution can be performed from SRAM. All
-* pre-fetching must be disabled. Application code execution from Flash is
-* blocked for the Flash Write duration for both cores.
+* Write (up to 20 milliseconds). Therefore, no Flash accesses
+* (from any Bus Master) can occur during that time. CPU execution can be
+* performed from SRAM. All pre-fetching must be disabled. Application code
+* execution from Flash is blocked for the Flash Write duration for both cores.
 *
 * \subsection group_flash_config_block_const Constraints for Blocking Flash operations:
 * -# During write to flash, the device should not be reset (including XRES pin,
@@ -92,9 +88,9 @@
 * -# User must guarantee that during flash write operation no flash read
 *    operations are performed by bus masters other than CM0+ and CM4 (DMA and
 *    Crypto).
-* -# If you do not use the default startup, perform the following steps 
-*    before any flash write/erase operations:
-* \snippet flash\3.20\snippet\main.c Flash Initialization
+* -# If you do not use the default startup, ensure that firmware calls the
+*    following functions before any flash write/erase operations:
+* \snippet Flash_sut_01.cydsn/main_cm0p.c Flash Initialization
 *
 * \subsection group_flash_config_rww Partially Blocking:
 * This method has a much shorter time window during which Flash accesses are not
@@ -142,7 +138,7 @@
 * This capability is important for communication protocols that rely on fast
 * response.
 *
-* \image html flash-rww-diagram.png "Figure 1 - Blocking Intervals in Flash Write operation"
+* \image html flash-rww-diagram.png "Figure 1 - Blocking Intervals in Flash Write operation" width=70%
 *
 * For the Cy_Flash_StartWrite() function, the block-out period is different for
 * the two cores. The core that initiates Cy_Flash_StartWrite() is blocked for
@@ -151,8 +147,8 @@
 *   Program operation (end of C on Figure 1).
 * - During D period on <b>Figure 1</b>.
 *
-* The core that performs read/execute is blocked identically to the previous
-* scenario - see <b>Figure 1</b>.
+* The core that performs read/execute is blocked identically to the
+* Cy_Flash_StartErase() + Cy_Flash_StartProgram() sequence - see <b>Figure 1</b>.
 *
 * This allows the core that initiates Cy_Flash_StartWrite() to execute an
 * application for about 20% of the Flash Write operation. The other core executes
@@ -170,8 +166,6 @@
 * -# During write to flash, application code should not change the clock
 *    settings. Use Cy_Flash_IsOperationComplete() to ensure flash write
 *    operation is finished.
-* -# During write to flash, application code should not start the clock
-*    measurements (should not call Cy_SysClk_StartClkMeasurementCounters()).
 * -# Flash write operation is allowed only in one of the following CM4 states:
 *     -# CM4 is Active and initialized:<br>
 *        call \ref Cy_SysEnableCM4 "Cy_SysEnableCM4(CY_CORTEX_M4_APPL_ADDR)".
@@ -204,9 +198,9 @@
 * -# User must guarantee that during flash write operation no flash read
 *    operations are performed by bus masters other than CM0+ and CM4
 *    (DMA and Crypto).
-* -# If you do not use the default startup, perform the following steps 
-*    before any flash write/erase operations:
-* \snippet flash\3.20\snippet\main.c Flash Initialization
+* -# If you do not use the default startup, ensure that firmware calls the
+*    following functions before any flash write/erase operations:
+* \snippet Flash_sut_01.cydsn/main_cm0p.c Flash Initialization
 *
 * \subsection group_flash_config_emeeprom EEPROM section use:
 * If you plan to use "cy_em_eeprom" section for different purposes for both of
@@ -237,40 +231,18 @@
 *         is used to get transmitted data via the \ref group_ipc channel.
 *         We cast only one pointer, so there is no way to avoid this cast.</td>
 *   </tr>
-*   
+*   <tr>
+*     <td>11.5</td>
+*     <td>R</td>
+*     <td>Not performed, the cast that removes any const or volatile qualification from the type addressed by a pointer.</td>
+*     <td>The removal of the volatile qualification inside the function has no side effects.</td>
+*   </tr>
 * </table>
 *
 * \section group_flash_changelog Changelog
 *
 * <table class="doxtable">
 *   <tr><th>Version</th><th style="width: 52%;">Changes</th><th>Reason for Change</th></tr>
-*   <tr>
-*     <td rowspan="3">3.20</td>
-*     <td>Flattened the organization of the driver source code into the single source directory and the single include directory.</td>
-*     <td>Driver library directory-structure simplification.</td>
-*   </tr>
-*   <tr>
-*     <td>Added new API function \ref Cy_Flash_InitExt</td>
-*     <td>The driver improvements based on the usability feedback</td>
-*   </tr>
-*   <tr>
-*     <td>Added register access layer. Use register access macros instead
-*         of direct register access using dereferenced pointers.</td>
-*     <td>Makes register access device-independent, so that the PDL does 
-*         not need to be recompiled for each supported part number.</td>
-*   </tr>
-*   <tr>
-*     <td>3.11</td>
-*     <td>Updated driver functionality to correctly use the SysClk measurement 
-*         counters while partially blocking flash operations</td>
-*     <td>Added arbiter mechanism for correct usage of the SysClk measurement 
-*         counters</td>
-*   </tr>
-*   <tr>
-*     <td>3.10</td>
-*     <td>Updated Cy_Flash_SendCmd() code to support single core devices.</td>
-*     <td>Support new devices</td>
-*   </tr>
 *   <tr>
 *     <td>3.0</td>
 *     <td>New function - Cy_Flash_ProgramRow();<br>
@@ -320,18 +292,13 @@
 * \{
 *     \defgroup group_flash_general_macros Flash general parameters
 *         Provides general information about flash
-*
-*     \defgroup group_flash_config_macros  Flash configuration
-*         Specifies the parameter values passed to SROM API
 * \}
 * \defgroup group_flash_functions Functions
 * \defgroup group_flash_enumerated_types Enumerated Types
 */
 
-#include "cy_device.h"
 #include <cy_device_headers.h>
-
-#include "cy_syslib.h"
+#include "syslib/cy_syslib.h"
 
 #if defined(__cplusplus)
 extern "C" {
@@ -349,7 +316,7 @@ extern "C" {
 #define CY_FLASH_DRV_VERSION_MAJOR       3
 
 /** Driver minor version */
-#define CY_FLASH_DRV_VERSION_MINOR       20
+#define CY_FLASH_DRV_VERSION_MINOR       0
 
 #define CY_FLASH_ID               (CY_PDL_DRV_ID(0x14UL))                          /**< FLASH PDL ID */
 
@@ -367,6 +334,8 @@ extern "C" {
 
 /** Flash row size */
 #define CY_FLASH_SIZEOF_ROW                (CPUSS_FLASHC_PA_SIZE * 4u)
+/** Number of flash rows */
+#define CY_FLASH_NUMBER_ROWS               (CY_FLASH_SIZE / CY_FLASH_SIZEOF_ROW)
 /** Long words flash row size */
 #define CY_FLASH_SIZEOF_ROW_LONG_UNITS     (CY_FLASH_SIZEOF_ROW / sizeof(uint32_t))
 
@@ -395,17 +364,6 @@ typedef enum cy_en_flashdrv_status
     CY_FLASH_DRV_OPCODE_BUSY              =   ( CY_FLASH_ID_INFO  + 0x2UL)   /**< Flash is under operation */
 } cy_en_flashdrv_status_t;
 
-
-#if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
-    /** Flash notification configuration structure */
-    typedef struct
-    {
-        uint8_t  clientID;      /**< Client ID */
-        uint8_t  pktType;       /**< Message Type */
-        uint16_t intrRelMask;   /**< Mask */
-    } cy_stc_flash_notify_t;
-#endif /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
-    
 /** \} group_flash_enumerated_types */
 
 /***************************************
@@ -427,24 +385,13 @@ cy_en_flashdrv_status_t Cy_Flash_IsOperationComplete(void);
 cy_en_flashdrv_status_t Cy_Flash_RowChecksum(uint32_t rowAddr, uint32_t* checksumPtr);
 cy_en_flashdrv_status_t Cy_Flash_CalculateHash(const uint32_t* data, uint32_t numberOfBytes, uint32_t* hashPtr);
 uint32_t Cy_Flash_GetExternalStatus(void);
-
-#if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
-    void Cy_Flash_InitExt(cy_stc_flash_notify_t *ipcWaitMessageAddr);
-#endif /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
-
 /** \} group_flash_functions */
 
 /** \cond INTERNAL */
-#if (CY_CPU_CORTEX_M4)
-void Cy_Flash_ResumeIrqHandler(void);
-#endif
-
 /* Macros to backward compatibility */
 #define     Cy_Flash_IsWriteComplete(...)    Cy_Flash_IsOperationComplete()
 #define     Cy_Flash_IsProgramComplete(...)  Cy_Flash_IsOperationComplete()
 #define     Cy_Flash_IsEraseComplete(...)    Cy_Flash_IsOperationComplete()
-#define     CY_FLASH_NUMBER_ROWS            (CY_FLASH_SIZE / CY_FLASH_SIZEOF_ROW)
-
 /** \endcond */
 
 #if defined(__cplusplus)

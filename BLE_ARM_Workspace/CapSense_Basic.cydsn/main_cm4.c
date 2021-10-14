@@ -57,7 +57,9 @@ int main(void)
     {
         Cy_TCPWM_PWM_SetCompare0(ledSelect[ledIndex].type,ledSelect[ledIndex].num,0xFFF);
     }
-    ledIndex = 0;
+    ledIndex = 0; 
+    uint32_t gesture,Xcord;
+    uint16_t Ycord;
     
     for(;;)
     {
@@ -65,6 +67,41 @@ int main(void)
         {
             CapSense_ProcessAllWidgets();
             int pos;
+            
+            
+            /* Stores the current detected gesture */
+            gesture = CapSense_DecodeWidgetGestures(CapSense_LINEARSLIDER0_WDGT_ID);
+            
+            /* Stores current finger position on the touchpad */            
+            Xcord = CapSense_GetXYCoordinates(CapSense_LINEARSLIDER0_WDGT_ID);
+            
+            Ycord = Xcord >> 16;
+            Xcord = (uint16)Xcord;
+            
+            
+            /* Controls specific LEDs based on the gesture that was captured */
+            switch(gesture)
+            {
+                case CapSense_ONE_FINGER_FLICK_UP:
+                    ledIndex++;
+                break;
+                case CapSense_ONE_FINGER_FLICK_DOWN:
+                    ledIndex--;
+                break;
+                case CapSense_ONE_FINGER_SINGLE_CLICK:
+                    break;
+                case CapSense_ONE_FINGER_EDGE_SWIPE_LEFT:
+                    break;
+                case CapSense_ONE_FINGER_EDGE_SWIPE_RIGTH:
+                    break;
+                case CapSense_ONE_FINGER_ROTATE_CW:
+                    break;
+                case CapSense_ONE_FINGER_ROTATE_CCW:
+                    break;
+                default:
+                    break;
+            }
+            
             pos = CapSense_GetCentroidPos(CapSense_LINEARSLIDER0_WDGT_ID);
             if(pos < 0xFFFF)
             {                
