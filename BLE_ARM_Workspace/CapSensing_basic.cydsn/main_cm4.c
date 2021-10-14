@@ -148,7 +148,7 @@ int main(void)
                 UART_1_Start();
                 
     printf("\x1b[2J\x1b[;H");
-    printf("UART TASK Started \r\n");
+    printf("UART TASK Started \r\n"); 
      
     for(;;)
     {
