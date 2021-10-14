@@ -58,7 +58,7 @@ int main(void)
         Cy_TCPWM_PWM_SetCompare0(ledSelect[ledIndex].type,ledSelect[ledIndex].num,0);
     }
     ledIndex = 0; 
-    uint32_t gesture,Xcord;
+    uint32_t gesture,prevGsture,Xcord;
     uint16_t Ycord;
     
     printf("\x1b[2J\x1b[;H");
@@ -101,9 +101,12 @@ int main(void)
                 case CapSense_ONE_FINGER_ROTATE_CCW:
                     break;
                 default:
-                printf("%d ",gesture );
+                if(prevGsture != gesture)
+                printf("%d \r\n",gesture );
+                prevGsture = gesture;
                     break;
             }
+            
             
             pos = CapSense_GetCentroidPos(CapSense_LINEARSLIDER0_WDGT_ID);
             if(pos < 0xFFFF)
