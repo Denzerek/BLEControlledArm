@@ -62,7 +62,7 @@ int main(void)
     uint16_t Ycord;
     
     CapSense_dsRam.timestampInterval = 2u;
-    Cy_SysTick_Init(CY_SYSTICK_CLOCK_SOURCE_CLK_IMO,800);
+    Cy_SysTick_Init(CY_SYSTICK_CLOCK_SOURCE_CLK_IMO,80000);
     Cy_SysTick_SetCallback(0u, CapSense_IncrementGestureTimestamp);
     
     printf("\x1b[2J\x1b[;H");
