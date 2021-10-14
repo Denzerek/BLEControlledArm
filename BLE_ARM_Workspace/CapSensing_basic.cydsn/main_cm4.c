@@ -100,6 +100,12 @@ int main(void)
                     break;
                 case CapSense_ONE_FINGER_ROTATE_CCW:
                     break;
+                case CapSense_TMG_TOUCHDOWN:
+                printf("Touched Slider\r\n");
+                break;
+                case CapSense_TMG_LIFT_OFF:
+                printf("Touched Removed from slider\r\n");
+                break;
                 default:
                 if(prevGsture != gesture)
                 printf("%X \r\n",gesture );
