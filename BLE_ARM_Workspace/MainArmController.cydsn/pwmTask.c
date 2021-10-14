@@ -24,7 +24,7 @@ void pwmTask(void * arg)
     LEDBlink_Start();
     Dimmer_Start();
     pwm_print("Kill Switch LEDs Started ...");
-    Cy_TCPWM_PWM_SetCompare0(Dimmer_HW,Dimmer_CNT_NUM,100);
+    Cy_TCPWM_PWM_SetCompare0(Dimmer_HW,Dimmer_CNT_NUM,90);
     
    uint32_t counter;
     
@@ -43,7 +43,7 @@ void pwmTask(void * arg)
         /* Update the compare value*/
         compareVal  = (compareVal + 1) % 100;
         
-        vTaskDelay(50);
+        vTaskDelay(10);
     }
     
 }
