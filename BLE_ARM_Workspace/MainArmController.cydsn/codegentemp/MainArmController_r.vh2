@@ -1,5 +1,5 @@
 -- Project:   MainArmController
--- Generated: 10/14/2021 16:29:44
+-- Generated: 10/14/2021 17:00:04
 -- PSoC Creator  4.2
 
 ENTITY MainArmController IS
@@ -63,6 +63,8 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     ATTRIBUTE global_signal OF Net_154_ff12 : SIGNAL IS true;
     SIGNAL Net_154_ff13 : bit;
     ATTRIBUTE global_signal OF Net_154_ff13 : SIGNAL IS true;
+    SIGNAL Net_154_ff14 : bit;
+    ATTRIBUTE global_signal OF Net_154_ff14 : SIGNAL IS true;
     SIGNAL Net_16 : bit;
     SIGNAL Net_17 : bit;
     SIGNAL Net_18 : bit;
@@ -84,8 +86,8 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL Net_44 : bit;
     SIGNAL Net_45 : bit;
     SIGNAL Net_46 : bit;
-    SIGNAL Net_47_ff14 : bit;
-    ATTRIBUTE global_signal OF Net_47_ff14 : SIGNAL IS true;
+    SIGNAL Net_47_ff15 : bit;
+    ATTRIBUTE global_signal OF Net_47_ff15 : SIGNAL IS true;
     SIGNAL Net_48 : bit;
     SIGNAL Net_50 : bit;
     ATTRIBUTE placement_force OF Net_50 : SIGNAL IS "U(1,5,A)0";
@@ -98,6 +100,12 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL Net_6 : bit;
     SIGNAL Net_60 : bit;
     SIGNAL Net_7 : bit;
+    SIGNAL Net_90 : bit;
+    SIGNAL Net_91 : bit;
+    SIGNAL Net_92 : bit;
+    SIGNAL Net_93 : bit;
+    SIGNAL Net_95 : bit;
+    SIGNAL Net_96 : bit;
     SIGNAL RED(0)__PA : bit;
     SIGNAL RED_USER_LED2(0)__PA : bit;
     SIGNAL SW(0)__PA : bit;
@@ -223,16 +231,17 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     ATTRIBUTE Location OF Net_51 : LABEL IS "U(1,5)";
     ATTRIBUTE Location OF \UART:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(46)]";
     ATTRIBUTE Location OF \UART:SCB\ : LABEL IS "F(SCB,5)";
-    ATTRIBUTE Location OF \PWM_1:TCPWM\ : LABEL IS "F(TCPWM,1)";
-    ATTRIBUTE Location OF \PWM_RED:TCPWM\ : LABEL IS "F(TCPWM,3)";
+    ATTRIBUTE Location OF \PWM_1:TCPWM\ : LABEL IS "F(TCPWM,9)";
+    ATTRIBUTE Location OF \PWM_RED:TCPWM\ : LABEL IS "F(TCPWM,2)";
     ATTRIBUTE Location OF \EZI2C:SCB\ : LABEL IS "F(SCB,3)";
     ATTRIBUTE Location OF \EZI2C:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(44)]";
     ATTRIBUTE Location OF \LEDBlink:TCPWM\ : LABEL IS "F(TCPWM,0)";
-    ATTRIBUTE Location OF \PWM_2:TCPWM\ : LABEL IS "F(TCPWM,2)";
+    ATTRIBUTE Location OF \PWM_2:TCPWM\ : LABEL IS "F(TCPWM,18)";
     ATTRIBUTE Location OF \CapSense:IDACMod\ : LABEL IS "F(CSIDAC7,0)";
     ATTRIBUTE Location OF \CapSense:IDACComp\ : LABEL IS "F(CSIDAC7,1)";
     ATTRIBUTE Location OF \CapSense:CSD\ : LABEL IS "F(CSD,0)";
     ATTRIBUTE Location OF \CapSense:ISR\ : LABEL IS "[IntrContainer=(0)][IntrId=(49)]";
+    ATTRIBUTE Location OF \LEDBlink_1:TCPWM\ : LABEL IS "F(TCPWM,1)";
     ATTRIBUTE lib_model OF Net_294 : LABEL IS "macrocell3";
     ATTRIBUTE Location OF Net_294 : LABEL IS "U(1,5)";
     COMPONENT CLK_GEN
@@ -715,13 +724,16 @@ BEGIN
             lfclk => ClockBlock_LFClk,
             ff_div_43 => \CapSense:Net_611_ff43\,
             ff_div_0 => open,
-            ff_div_11 => Net_47_ff14,
+            ff_div_11 => Net_47_ff15,
             ff_div_12 => Net_154_ff11,
-            ff_div_13 => Net_154_ff12,
+            ff_div_13 => Net_154_ff14,
+            ff_div_14 => open,
             ff_div_1 => open,
-            ff_div_14 => Net_154_ff13,
+            ff_div_15 => open,
             ff_div_3 => \EZI2C:clock_wire_ff0\,
             ff_div_5 => \UART:Net_847_ff1\,
+            ff_div_20 => Net_154_ff12,
+            ff_div_29 => Net_154_ff13,
             periclk_App => periclk_App);
 
     CPUSS:CPUSS
@@ -1323,11 +1335,11 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "GREEN",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => GREEN(0)__PA,
             oe => open,
-            pin_input => Net_51,
+            pin_input => Net_95,
             pad_out => GREEN(0)_PAD,
             pad_in => GREEN(0)_PAD,
             in_clock => open,
@@ -1859,7 +1871,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_154_ff11,
+            clock => Net_154_ff12,
             capture => '0',
             count => '1',
             reload => '0',
@@ -1878,7 +1890,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_154_ff13,
+            clock => Net_154_ff14,
             capture => '0',
             count => '1',
             reload => '0',
@@ -1932,7 +1944,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_47_ff14,
+            clock => Net_47_ff15,
             capture => '0',
             count => '1',
             reload => '0',
@@ -1951,7 +1963,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_154_ff12,
+            clock => Net_154_ff13,
             capture => '0',
             count => '1',
             reload => '0',
@@ -2038,6 +2050,25 @@ BEGIN
         PORT MAP(
             interrupt => \CapSense:Net_849\,
             clock => ClockBlock_PeriClk);
+
+    \LEDBlink_1:TCPWM\:TCPWM
+        GENERIC MAP(
+            cy_registers => "",
+            exact_width => 0,
+            width => 16)
+        PORT MAP(
+            clock => Net_154_ff11,
+            capture => '0',
+            count => '1',
+            reload => '0',
+            stop => Net_51,
+            start => Net_51,
+            tr_underflow => Net_92,
+            tr_compare_match => Net_93,
+            tr_overflow => Net_91,
+            line_compl => Net_96,
+            line => Net_95,
+            interrupt => Net_90);
 
     Net_294:macrocell
         GENERIC MAP(

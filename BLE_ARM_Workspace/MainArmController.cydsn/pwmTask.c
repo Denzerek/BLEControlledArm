@@ -22,7 +22,8 @@ void pwmTask(void * arg)
     PWM_RED_Start();
     pwm_print("Heart Beat LED Started ...");
     LEDBlink_Start();
-    pwm_print("Kill Switch LED Started ...");
+    LEDBlink_1_Start();
+    pwm_print("Kill Switch LEDs Started ...");
     
     
     

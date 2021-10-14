@@ -1,6 +1,6 @@
 // ======================================================================
 // MainArmController.v generated from TopDesign.cysch
-// 10/14/2021 at 16:29
+// 10/14/2021 at 16:59
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1167,9 +1167,66 @@ module CapSense_v2_0_6 ;
 
 endmodule
 
+// TCPWM_PWM_PDL_v1_0(ClockPrescaler=2, Compare0=500, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=0, KillInputMasked=0, KillMode=2, Period0=999, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=1, StartInputMasked=1, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=LEDBlink_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=LEDBlink_1, CY_INSTANCE_SHORT_NAME=LEDBlink_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=LEDBlink_1, )
+module TCPWM_PWM_PDL_v1_0_7 (
+    kill,
+    reload,
+    start,
+    count,
+    swap,
+    interrupt,
+    ovrflw,
+    undrflw,
+    compare,
+    clock,
+    pwm,
+    pwm_n);
+    input       kill;
+    input       reload;
+    input       start;
+    input       count;
+    input       swap;
+    output      interrupt;
+    output      ovrflw;
+    output      undrflw;
+    output      compare;
+    input       clock;
+    output      pwm;
+    output      pwm_n;
+
+
+
+    cy_mxs40_tcpwm_v1_0 TCPWM (
+        .clock(clock),
+        .capture(swap),
+        .count(count),
+        .reload(reload),
+        .stop(kill),
+        .start(start),
+        .tr_underflow(undrflw),
+        .tr_compare_match(compare),
+        .tr_overflow(ovrflw),
+        .line_compl(pwm_n),
+        .line(pwm),
+        .interrupt(interrupt));
+    defparam TCPWM.exact_width = 0;
+    defparam TCPWM.width = 16;
+
+
+
+endmodule
+
 // top
 module top ;
 
+          wire  Net_96;
+          wire  Net_93;
+          wire  Net_92;
+          wire  Net_91;
+          wire  Net_90;
+          wire  Net_89;
+          wire  Net_88;
+          wire  Net_86;
           wire  Net_60;
           wire  Net_59;
           wire  Net_58;
@@ -1179,7 +1236,7 @@ module top ;
           wire  Net_54;
           wire  Net_53;
           wire  Net_52;
-          wire  Net_51;
+          wire  Net_95;
           wire  Net_50;
           wire  Net_84;
           wire  Net_48;
@@ -1230,6 +1287,7 @@ module top ;
           wire  Net_3;
           wire  Net_2;
           wire  Net_1;
+          wire  Net_51;
           wire  Net_329;
           wire  Net_294;
           wire  Net_145;
@@ -1496,7 +1554,7 @@ module top ;
 		  .hotswap_needed("0"))
 		GREEN
 		 (.oe({1'b1}),
-		  .y({Net_51}),
+		  .y({Net_95}),
 		  .fb({tmpFB_0__GREEN_net[0:0]}),
 		  .io({tmpIO_0__GREEN_net[0:0]}),
 		  .siovref(tmpSIOVREF__GREEN_net));
@@ -1582,6 +1640,20 @@ module top ;
         .pwm_n(Net_60));
 
     CapSense_v2_0_6 CapSense ();
+
+    TCPWM_PWM_PDL_v1_0_7 LEDBlink_1 (
+        .kill(Net_51),
+        .reload(1'b0),
+        .start(Net_51),
+        .count(1'b1),
+        .swap(1'b0),
+        .interrupt(Net_90),
+        .ovrflw(Net_91),
+        .undrflw(Net_92),
+        .compare(Net_93),
+        .clock(Net_154),
+        .pwm(Net_95),
+        .pwm_n(Net_96));
 
 
 

@@ -109,6 +109,7 @@
 #include "CapSense_Centroid_LL.h"
 #include "CapSense_SmartSense_LL.h"
 #include "CapSense_Gesture.h"
+#include "LEDBlink_1.h"
 #include "UART_SCBCLK.h"
 #include "EZI2C_SCBCLK.h"
 #include "CapSense_ModClk.h"

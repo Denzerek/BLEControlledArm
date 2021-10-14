@@ -43,16 +43,16 @@
 #define EZI2C_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* PWM_1 */
-#define PWM_1_TCPWM__CNT_HW TCPWM0_CNT1
+#define PWM_1_TCPWM__CNT_HW TCPWM1_CNT1
 #define PWM_1_TCPWM__CNT_IDX 1u
-#define PWM_1_TCPWM__HW TCPWM0
-#define PWM_1_TCPWM__IDX 0u
+#define PWM_1_TCPWM__HW TCPWM1
+#define PWM_1_TCPWM__IDX 1u
 
 /* PWM_2 */
-#define PWM_2_TCPWM__CNT_HW TCPWM0_CNT2
-#define PWM_2_TCPWM__CNT_IDX 2u
-#define PWM_2_TCPWM__HW TCPWM0
-#define PWM_2_TCPWM__IDX 0u
+#define PWM_2_TCPWM__CNT_HW TCPWM1_CNT10
+#define PWM_2_TCPWM__CNT_IDX 10u
+#define PWM_2_TCPWM__HW TCPWM1
+#define PWM_2_TCPWM__IDX 1u
 
 /* Clock_1 */
 #define Clock_1__DIV_IDX 2
@@ -65,8 +65,8 @@
 #define Clock_2__DIV_TYPE CY_SYSCLK_DIV_16_BIT
 
 /* PWM_RED */
-#define PWM_RED_TCPWM__CNT_HW TCPWM0_CNT3
-#define PWM_RED_TCPWM__CNT_IDX 3u
+#define PWM_RED_TCPWM__CNT_HW TCPWM0_CNT2
+#define PWM_RED_TCPWM__CNT_IDX 2u
 #define PWM_RED_TCPWM__HW TCPWM0
 #define PWM_RED_TCPWM__IDX 0u
 
@@ -86,6 +86,10 @@
 #define CapSense_ModClk__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* LEDBlink */
+#define LEDBlink_1_TCPWM__CNT_HW TCPWM0_CNT1
+#define LEDBlink_1_TCPWM__CNT_IDX 1u
+#define LEDBlink_1_TCPWM__HW TCPWM0
+#define LEDBlink_1_TCPWM__IDX 0u
 #define LEDBlink_TCPWM__CNT_HW TCPWM0_CNT0
 #define LEDBlink_TCPWM__CNT_IDX 0u
 #define LEDBlink_TCPWM__HW TCPWM0
