@@ -27,8 +27,8 @@
 #define UART_SCB__SS1_POSITION 1u
 #define UART_SCB__SS2_POSITION 2u
 #define UART_SCB__SS3_POSITION 3u
-#define UART_SCBCLK__DIV_IDX 2
-#define UART_SCBCLK__DIV_NUM 2
+#define UART_SCBCLK__DIV_IDX 3
+#define UART_SCBCLK__DIV_NUM 3
 #define UART_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* EZI2C */
@@ -38,8 +38,8 @@
 #define EZI2C_SCB__SS1_POSITION 1u
 #define EZI2C_SCB__SS2_POSITION 2u
 #define EZI2C_SCB__SS3_POSITION 3u
-#define EZI2C_SCBCLK__DIV_IDX 0
-#define EZI2C_SCBCLK__DIV_NUM 0
+#define EZI2C_SCBCLK__DIV_IDX 1
+#define EZI2C_SCBCLK__DIV_NUM 1
 #define EZI2C_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* PWM_1 */
@@ -55,8 +55,8 @@
 #define PWM_2_TCPWM__IDX 0u
 
 /* Clock_1 */
-#define Clock_1__DIV_IDX 1
-#define Clock_1__DIV_NUM 1
+#define Clock_1__DIV_IDX 2
+#define Clock_1__DIV_NUM 2
 #define Clock_1__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_2 */
@@ -69,6 +69,21 @@
 #define PWM_RED_TCPWM__CNT_IDX 3u
 #define PWM_RED_TCPWM__HW TCPWM0
 #define PWM_RED_TCPWM__IDX 0u
+
+/* CapSense */
+#define CapSense_CSD__CMOD_PAD 1u
+#define CapSense_CSD__CSH_TANK_PAD 2u
+#define CapSense_CSD__CSHIELD_PAD 4u
+#define CapSense_CSD__HW CSD0
+#define CapSense_CSD__IDX 0
+#define CapSense_CSD__VREF_EXT_PAD 8u
+#define CapSense_IDACComp__HW CSD0
+#define CapSense_IDACComp__IDX 1
+#define CapSense_IDACMod__HW CSD0
+#define CapSense_IDACMod__IDX 0
+#define CapSense_ModClk__DIV_IDX 0
+#define CapSense_ModClk__DIV_NUM 0
+#define CapSense_ModClk__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* LEDBlink */
 #define LEDBlink_TCPWM__CNT_HW TCPWM0_CNT0

@@ -15,6 +15,7 @@
 #include "motorTask.h"
 #include "ezI2CTask.h"
 #include "event_groups.h"
+#include "capSenseTask.h"
 
 
 
@@ -29,6 +30,9 @@
 
 #define EZI2C_TASK_STACK_SIZE         400
 #define EZI2C_TASK_PRIORITY           2
+
+#define CAPSENSE_TASK_STACK_SIZE         400
+#define CAPSENSE_TASK_PRIORITY           2
 
 QueueHandle_t pwmQueue;
 EventGroupHandle_t pwmEventGroup;
@@ -52,6 +56,9 @@ int main(void)
     
     /* EZ I2C task that runs continuously*/
     xTaskCreate(ezI2CTask,"EZ I2C TASK",EZI2C_TASK_STACK_SIZE,0,EZI2C_TASK_PRIORITY,0);
+    
+    /* Capsense task that runs continuously*/
+    xTaskCreate(capsenseTask,"Capsense TASK",CAPSENSE_TASK_STACK_SIZE,0,CAPSENSE_TASK_PRIORITY,0);
     
     /* Start the Scheduler*/
     vTaskStartScheduler();

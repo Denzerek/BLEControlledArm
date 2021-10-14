@@ -154,6 +154,7 @@ int main(void)
             CapSense_UpdateAllBaselines();
             CapSense_ScanAllWidgets();
             flickDetected = false;
+            
         }
     }
 }
