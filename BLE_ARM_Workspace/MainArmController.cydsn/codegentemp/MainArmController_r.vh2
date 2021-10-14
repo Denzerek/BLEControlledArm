@@ -1,5 +1,5 @@
 -- Project:   MainArmController
--- Generated: 10/14/2021 17:09:50
+-- Generated: 10/14/2021 17:12:56
 -- PSoC Creator  4.2
 
 ENTITY MainArmController IS
@@ -1296,7 +1296,7 @@ BEGIN
     GREEN:logicalport
         GENERIC MAP(
             cy_registers => "",
-            drive_mode => "010",
+            drive_mode => "110",
             drive_strength => "0",
             hotswap_needed => "0",
             i2c_mode => "0",

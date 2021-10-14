@@ -736,6 +736,20 @@ library (timing) {
                 intrinsic_rise : 3.301;
                 intrinsic_fall : 3.106;
             }
+            timing () {
+                related_pin : "oe";
+                timing_type : "three_state_enable";
+                timing_sense : "positive_unate";
+                intrinsic_rise : 3.276;
+                intrinsic_fall : 3.151;
+            }
+            timing () {
+                related_pin : "oe";
+                timing_type : "three_state_disable";
+                timing_sense : "negative_unate";
+                intrinsic_rise : 6.836;
+                intrinsic_fall : 7.711;
+            }
         }
     }
     cell (iocell12) {
