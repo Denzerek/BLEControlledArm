@@ -1,6 +1,6 @@
 // ======================================================================
 // MainArmController.v generated from TopDesign.cysch
-// 10/14/2021 at 17:06
+// 10/14/2021 at 17:09
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1532,7 +1532,7 @@ module top ;
 		#(.id("cb816176-9068-42bc-8dd8-10a06f374e15"),
 		  .width(1),
 		  .sio_grp_cnt(0),
-		  .drive_mode("6"),
+		  .drive_mode("2"),
 		  .ibuf_enabled("0"),
 		  .init_dr_st("1"),
 		  .input_sync("0"),
