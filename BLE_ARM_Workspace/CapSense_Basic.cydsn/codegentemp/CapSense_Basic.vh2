@@ -2,7 +2,7 @@
 --	Conversion of CapSense_Basic.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Oct 14 06:25:31 2021
+--	Thu Oct 14 06:50:52 2021
 --
 
 USE cypress.cypress.all;
@@ -12,6 +12,18 @@ ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
 END top_RTL;
 --------------------------------------------------------
 ARCHITECTURE R_T_L OF top_RTL IS
+SIGNAL Net_54 : bit;
+SIGNAL \PWM_1:swap\ : bit;
+SIGNAL \PWM_1:count\ : bit;
+SIGNAL \PWM_1:reload\ : bit;
+SIGNAL \PWM_1:kill\ : bit;
+SIGNAL \PWM_1:start\ : bit;
+SIGNAL Net_65 : bit;
+SIGNAL Net_55 : bit;
+SIGNAL Net_59 : bit;
+SIGNAL Net_61 : bit;
+SIGNAL Net_60 : bit;
+SIGNAL Net_57 : bit;
 SIGNAL Net_11 : bit;
 SIGNAL \PWM:swap\ : bit;
 SIGNAL \PWM:count\ : bit;
@@ -119,6 +131,21 @@ TERMINAL \CapSense:tmpSIOVREF__Sns_net_0\ : bit;
 SIGNAL \CapSense:tmpFB_0__Tx_net_0\ : bit;
 SIGNAL \CapSense:tmpIO_0__Tx_net_0\ : bit;
 TERMINAL \CapSense:tmpSIOVREF__Tx_net_0\ : bit;
+SIGNAL Net_73 : bit;
+SIGNAL \PWM_2:swap\ : bit;
+SIGNAL \PWM_2:count\ : bit;
+SIGNAL \PWM_2:reload\ : bit;
+SIGNAL \PWM_2:kill\ : bit;
+SIGNAL \PWM_2:start\ : bit;
+SIGNAL Net_84 : bit;
+SIGNAL Net_74 : bit;
+SIGNAL Net_78 : bit;
+SIGNAL Net_80 : bit;
+SIGNAL Net_79 : bit;
+SIGNAL Net_76 : bit;
+SIGNAL tmpFB_0__GREEN_net_0 : bit;
+SIGNAL tmpIO_0__GREEN_net_0 : bit;
+TERMINAL tmpSIOVREF__GREEN_net_0 : bit;
 SIGNAL tmpFB_0__BLUE_net_0 : bit;
 SIGNAL tmpIO_0__BLUE_net_0 : bit;
 TERMINAL tmpSIOVREF__BLUE_net_0 : bit;
@@ -128,6 +155,22 @@ one <=  ('1') ;
 
 zero <=  ('0') ;
 
+\PWM_1:TCPWM\:cy_mxs40_tcpwm_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>16,
+		exact_width=>'0')
+	PORT MAP(clock=>Net_54,
+		capture=>zero,
+		count=>one,
+		reload=>zero,
+		stop=>zero,
+		start=>zero,
+		tr_underflow=>Net_65,
+		tr_compare_match=>Net_55,
+		tr_overflow=>Net_59,
+		line_compl=>Net_61,
+		line=>Net_60,
+		interrupt=>Net_57);
 \PWM:TCPWM\:cy_mxs40_tcpwm_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>16,
@@ -475,18 +518,44 @@ RED:cy_mxs40_gpio_v1_0
 		is_net_join=>'0')
 	PORT MAP(signal1=>\CapSense:Net_866\,
 		signal2=>\CapSense:Net_606\);
-BLUE:cy_mxs40_gpio_v1_0
+\PWM_2:TCPWM\:cy_mxs40_tcpwm_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>16,
+		exact_width=>'0')
+	PORT MAP(clock=>Net_73,
+		capture=>zero,
+		count=>one,
+		reload=>zero,
+		stop=>zero,
+		start=>zero,
+		tr_underflow=>Net_84,
+		tr_compare_match=>Net_74,
+		tr_overflow=>Net_78,
+		line_compl=>Net_80,
+		line=>Net_79,
+		interrupt=>Net_76);
+Clock_2:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"3dcc717e-c13f-47b6-b048-5de39f0e39a8",
+		source_clock_id=>"2FB4EC85-8328-4C5A-9ED9-8B63060178EB",
+		divisor=>0,
+		period=>"1000000000",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>Net_54,
+		dig_domain_out=>open);
+GREEN:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
 		sio_grp_cnt=>0,
-		id=>"35200b75-b402-4793-9ec3-63409c297af3",
+		id=>"59bf4056-a5a4-4458-bf78-9273275fc582",
 		drive_mode=>"6",
 		ibuf_enabled=>"0",
-		init_dr_st=>"0",
+		init_dr_st=>"1",
 		input_sync=>"0",
 		intr_mode=>"0",
 		io_voltage=>"",
-		output_conn=>"0",
+		output_conn=>"1",
 		oe_conn=>"0",
 		output_sync=>"0",
 		oe_sync=>"0",
@@ -501,7 +570,49 @@ BLUE:cy_mxs40_gpio_v1_0
 		use_annotation=>"0",
 		hotswap_needed=>"0")
 	PORT MAP(oe=>(one),
-		y=>(zero),
+		y=>Net_60,
+		fb=>(tmpFB_0__GREEN_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__GREEN_net_0),
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__GREEN_net_0));
+Clock_3:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"aeafa879-fd0c-4232-bd3c-a44f184cd32b",
+		source_clock_id=>"2FB4EC85-8328-4C5A-9ED9-8B63060178EB",
+		divisor=>0,
+		period=>"1000000000",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>Net_73,
+		dig_domain_out=>open);
+BLUE:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"eb4694d8-f9da-4ad1-ac65-cc32061ad5e2",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"1",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>Net_79,
 		fb=>(tmpFB_0__BLUE_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__BLUE_net_0),

@@ -20,18 +20,34 @@
 #include "cyfitter_gpio.h"
 #include "cyfitter_sysint.h"
 
-/* PWM */
-#define PWM_TCPWM__CNT_HW TCPWM0_CNT0
-#define PWM_TCPWM__CNT_IDX 0u
+/* PWM_1 */
+#define PWM_1_TCPWM__CNT_HW TCPWM0_CNT2
+#define PWM_1_TCPWM__CNT_IDX 2u
+#define PWM_1_TCPWM__HW TCPWM0
+#define PWM_1_TCPWM__IDX 0u
+
+/* PWM_2 */
+#define PWM_2_TCPWM__CNT_HW TCPWM0_CNT0
+#define PWM_2_TCPWM__CNT_IDX 0u
+#define PWM_2_TCPWM__HW TCPWM0
+#define PWM_2_TCPWM__IDX 0u
+
+/* PWM_TCPWM */
+#define PWM_TCPWM__CNT_HW TCPWM0_CNT1
+#define PWM_TCPWM__CNT_IDX 1u
 #define PWM_TCPWM__HW TCPWM0
 #define PWM_TCPWM__IDX 0u
 
-/* Clock_1 */
-#define Clock_1__DIV_IDX 1
-#define Clock_1__DIV_NUM 1
+/* Miscellaneous */
+#define Clock_1__DIV_IDX 3
+#define Clock_1__DIV_NUM 3
 #define Clock_1__DIV_TYPE CY_SYSCLK_DIV_8_BIT
-
-/* CapSense */
+#define Clock_2__DIV_IDX 1
+#define Clock_2__DIV_NUM 1
+#define Clock_2__DIV_TYPE CY_SYSCLK_DIV_8_BIT
+#define Clock_3__DIV_IDX 2
+#define Clock_3__DIV_NUM 2
+#define Clock_3__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 #define CapSense_CSD__CMOD_PAD 1u
 #define CapSense_CSD__CSH_TANK_PAD 2u
 #define CapSense_CSD__CSHIELD_PAD 4u
@@ -45,8 +61,6 @@
 #define CapSense_ModClk__DIV_IDX 0
 #define CapSense_ModClk__DIV_NUM 0
 #define CapSense_ModClk__DIV_TYPE CY_SYSCLK_DIV_8_BIT
-
-/* Miscellaneous */
 #define CPUSS__CTI_TR_IN_0 TRIG5_OUT_CPUSS_CTI_TR_IN0
 #define CPUSS__CTI_TR_IN_1 TRIG5_OUT_CPUSS_CTI_TR_IN1
 #define CY_CPUSS_SWJ_SWCLK_TCLK_0_DRIVEMODE CY_GPIO_DM_PULLDOWN

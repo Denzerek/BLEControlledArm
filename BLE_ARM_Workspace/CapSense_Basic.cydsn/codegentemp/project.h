@@ -101,6 +101,7 @@
 #include "cyfitter_gpio.h"
 #include "cyfitter_sysint.h"
 #include "cydisabledsheets.h"
+#include "PWM_1.h"
 #include "PWM.h"
 #include "Clock_1.h"
 #include "CapSense.h"
@@ -116,7 +117,12 @@
 #include "CapSense_RegisterMap.h"
 #include "CapSense_Centroid_LL.h"
 #include "CapSense_SmartSense_LL.h"
+#include "CapSense_Gesture.h"
+#include "PWM_2.h"
+#include "Clock_2.h"
+#include "Clock_3.h"
 #include "CapSense_ModClk.h"
+#include "CapSense_TMG.h"
 
 /*[]*/
 
