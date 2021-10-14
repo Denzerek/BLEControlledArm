@@ -61,6 +61,10 @@ int main(void)
     uint32_t gesture,prevGsture,Xcord;
     uint16_t Ycord;
     
+    CapSense_dsRam.timestampInterval = 2u;
+    Cy_SysTick_Init(CY_SYSTICK_CLOCK_SOURCE_CLK_IMO,8000);
+    Cy_SysTick_SetCallback(0u, CapSense_IncrementGestureTimestamp);
+    
     printf("\x1b[2J\x1b[;H");
     printf("UART TASK Started \r\n");
     
