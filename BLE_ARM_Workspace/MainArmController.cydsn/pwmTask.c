@@ -21,9 +21,10 @@ void pwmTask(void * arg)
     /* Start the PWM operation */
     PWM_RED_Start();
     pwm_print("Heart Beat LED Started ...");
-    //LEDBlink_Start();
+    LEDBlink_Start();
     LEDBlink_1_Start();
     pwm_print("Kill Switch LEDs Started ...");
+    Cy_TCPWM_PWM_SetCompare0(LEDBlink_1_HW,LEDBlink_1_CNT_NUM,80);
     
    
     
@@ -34,7 +35,6 @@ void pwmTask(void * arg)
     {
         /* Set the compare value with modified one*/
         Cy_TCPWM_PWM_SetCompare0(PWM_RED_HW,PWM_RED_CNT_NUM,compareVal++);
-    Cy_TCPWM_PWM_SetCompare0(LEDBlink_1_HW,LEDBlink_1_CNT_NUM,compareVal++);
         
         /* Update the compare value*/
         compareVal  = (compareVal + 1) % 100;
