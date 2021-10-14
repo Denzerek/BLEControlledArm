@@ -142,6 +142,9 @@ int main(void)
     PWM_Start();
     PWM_1_Start();
     PWM_2_Start();
+                Cy_TCPWM_PWM_SetCompare0(PWM_1_HW,PWM_1_CNT_NUM,0);
+                Cy_TCPWM_PWM_SetCompare0(PWM_2_HW,PWM_2_CNT_NUM,0);
+                Cy_TCPWM_PWM_SetCompare0(PWM_HW,PWM_CNT_NUM,100);
      
     for(;;)
     {
