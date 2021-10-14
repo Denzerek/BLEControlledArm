@@ -1,5 +1,5 @@
 # CapSensing_basic
-# 2021-10-14 04:37:24Z
+# 2021-10-14 05:03:23Z
 
 dont_use_location p4usbcell -1 -1 0
 dont_use_location USB -1 -1 0
@@ -20,6 +20,8 @@ set_io "\CapSense:Sns(2)\" iocell 8 5
 set_io "\CapSense:Sns(3)\" iocell 8 6
 set_io "\CapSense:Sns(4)\" iocell 8 7
 set_io "\CapSense:Tx(0)\" iocell 1 0
+set_io "\UART_1:tx(0)\" iocell 5 1
+set_io "\UART_1:rx(0)\" iocell 5 0
 set_location "\CapSense:IDACMod\" CSIDAC7 -1 -1 0
 set_location "\CapSense:IDACComp\" CSIDAC7 -1 -1 1
 set_location "\CapSense:CSD\" CSD -1 -1 0

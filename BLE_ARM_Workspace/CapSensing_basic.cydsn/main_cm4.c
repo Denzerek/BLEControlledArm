@@ -51,15 +51,18 @@ int main(void)
     PWM_Start();
     PWM_1_Start();
     PWM_2_Start();
-    
+    UART_1_Start();
     uint8_t ledIndex = 0;
     for(int ledIndex = 0; ledIndex < MAX_COLOR;ledIndex++)
     {
-        Cy_TCPWM_PWM_SetCompare0(ledSelect[ledIndex].type,ledSelect[ledIndex].num,0xFFF);
+        Cy_TCPWM_PWM_SetCompare0(ledSelect[ledIndex].type,ledSelect[ledIndex].num,0);
     }
     ledIndex = 0; 
     uint32_t gesture,Xcord;
     uint16_t Ycord;
+    
+    printf("\x1b[2J\x1b[;H");
+    printf("UART TASK Started ");
     
     for(;;)
     {
@@ -79,13 +82,17 @@ int main(void)
             {
                 case CapSense_ONE_FINGER_FLICK_UP:
                     ledIndex++;
+                printf("CapSense_ONE_FINGER_FLICK_UP\r\n" );
                 break;
                 case CapSense_ONE_FINGER_FLICK_DOWN:
+                printf("CapSense_ONE_FINGER_FLICK_DOWN\r\n" );
                     ledIndex--;
                 break;
                 case CapSense_ONE_FINGER_SINGLE_CLICK:
+                printf("CapSense_ONE_FINGER_SINGLE_CLICK\r\n" );
                     break;
                 case CapSense_ONE_FINGER_EDGE_SWIPE_LEFT:
+                printf("CapSense_ONE_FINGER_EDGE_SWIPE_LEFT\r\n" );
                     break;
                 case CapSense_ONE_FINGER_EDGE_SWIPE_RIGTH:
                     break;
@@ -94,6 +101,7 @@ int main(void)
                 case CapSense_ONE_FINGER_ROTATE_CCW:
                     break;
                 default:
+                printf("Nothing Happened\r\n" );
                     break;
             }
             

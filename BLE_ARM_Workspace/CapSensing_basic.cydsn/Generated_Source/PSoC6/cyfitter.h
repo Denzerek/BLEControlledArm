@@ -38,15 +38,28 @@
 #define PWM_TCPWM__HW TCPWM0
 #define PWM_TCPWM__IDX 0u
 
+/* UART_1_SCB */
+#define UART_1_SCB__HW SCB5
+#define UART_1_SCB__IDX 5
+#define UART_1_SCB__SS0_POSITION 0u
+#define UART_1_SCB__SS1_POSITION 1u
+#define UART_1_SCB__SS2_POSITION 2u
+#define UART_1_SCB__SS3_POSITION 3u
+
+/* UART_1_SCBCLK */
+#define UART_1_SCBCLK__DIV_IDX 1
+#define UART_1_SCBCLK__DIV_NUM 1
+#define UART_1_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
+
 /* Miscellaneous */
-#define Clock_1__DIV_IDX 3
-#define Clock_1__DIV_NUM 3
+#define Clock_1__DIV_IDX 4
+#define Clock_1__DIV_NUM 4
 #define Clock_1__DIV_TYPE CY_SYSCLK_DIV_8_BIT
-#define Clock_2__DIV_IDX 1
-#define Clock_2__DIV_NUM 1
+#define Clock_2__DIV_IDX 2
+#define Clock_2__DIV_NUM 2
 #define Clock_2__DIV_TYPE CY_SYSCLK_DIV_8_BIT
-#define Clock_3__DIV_IDX 2
-#define Clock_3__DIV_NUM 2
+#define Clock_3__DIV_IDX 3
+#define Clock_3__DIV_NUM 3
 #define Clock_3__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 #define CapSense_CSD__CMOD_PAD 1u
 #define CapSense_CSD__CSH_TANK_PAD 2u

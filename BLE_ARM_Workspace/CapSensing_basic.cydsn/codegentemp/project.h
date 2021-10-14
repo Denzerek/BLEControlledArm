@@ -25,6 +25,11 @@
 #include "tcpwm/cy_tcpwm_counter.h"
 #include "tcpwm/cy_tcpwm_pwm.h"
 #include "tcpwm/cy_tcpwm_quaddec.h"
+#include "scb/cy_scb_common.h"
+#include "scb/cy_scb_i2c.h"
+#include "scb/cy_scb_ezi2c.h"
+#include "scb/cy_scb_spi.h"
+#include "scb/cy_scb_uart.h"
 #include "efuse/cy_efuse.h"
 #include "flash/cy_flash.h"
 #include "gpio/cy_gpio.h"
@@ -102,8 +107,10 @@
 #include "CapSense_Centroid_LL.h"
 #include "CapSense_SmartSense_LL.h"
 #include "CapSense_Gesture.h"
+#include "UART_1.h"
 #include "CapSense_ModClk.h"
 #include "CapSense_TMG.h"
+#include "UART_1_SCBCLK.h"
 
 /*[]*/
 

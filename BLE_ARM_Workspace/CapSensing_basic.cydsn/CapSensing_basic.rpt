@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.122ms
+Loading plugins phase: Elapsed time ==> 0s.609ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSensing_basic.cydsn\CapSensing_basic.cyprj -d CY8C6347BZI-BLD53 -s C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSensing_basic.cydsn\Generated_Source\PSoC6 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 1s.561ms
+Elaboration phase: Elapsed time ==> 1s.939ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.049ms
+HDL generation phase: Elapsed time ==> 0s.060ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Thu Oct 14 10:07:17 2021
+Thu Oct 14 10:33:15 2021
 
 
 ======================================================================
@@ -51,11 +51,12 @@ Options  :    -yv2 -q10 CapSensing_basic.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Thu Oct 14 10:07:17 2021
+Thu Oct 14 10:33:15 2021
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 
 vpp:  No errors.
 
@@ -83,7 +84,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Thu Oct 14 10:07:17 2021
+Thu Oct 14 10:33:16 2021
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -99,6 +100,7 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\conte
 Linking 'C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSensing_basic.cydsn\codegentemp\CapSensing_basic.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
 
 tovif:  No errors.
 
@@ -110,7 +112,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Thu Oct 14 10:07:17 2021
+Thu Oct 14 10:33:16 2021
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -126,6 +128,7 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\conte
 Linking 'C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSensing_basic.cydsn\codegentemp\CapSensing_basic.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
@@ -134,9 +137,16 @@ Detecting unused logic.
     User names
 	\CapSense:Net_608\
 	\CapSense:Net_610\
+	\UART_1:Net_22\
+	\UART_1:Net_23\
+	Net_104
+	Net_105
+	Net_106
+	Net_111
+	Net_112
 
 
-Deleted 2 User equations/components.
+Deleted 9 User equations/components.
 Deleted 0 Synthesized equations/components.
 
 ------------------------------------------------------
@@ -169,6 +179,7 @@ Aliasing \CapSense:Net_639\ to \PWM:swap\
 Aliasing \CapSense:Net_1423\ to \PWM:swap\
 Aliasing \CapSense:Net_44\ to \PWM:swap\
 Aliasing \CapSense:Net_851\ to \PWM:swap\
+Aliasing \UART_1:cts_wire\ to \PWM:swap\
 Removing Lhs of wire \PWM:reload\[4] = \PWM:swap\[2]
 Removing Lhs of wire \PWM:kill\[5] = \PWM:swap\[2]
 Removing Lhs of wire \PWM:start\[6] = \PWM:swap\[2]
@@ -196,9 +207,12 @@ Removing Lhs of wire \CapSense:Net_639\[91] = zero[56]
 Removing Lhs of wire \CapSense:Net_1423\[92] = zero[56]
 Removing Lhs of wire \CapSense:Net_44\[95] = zero[56]
 Removing Lhs of wire \CapSense:Net_851\[137] = zero[56]
+Removing Lhs of wire \UART_1:clock_wire\[163] = \UART_1:Net_847\[162]
+Removing Lhs of wire \UART_1:rx_wire\[175] = \UART_1:Net_1172\[172]
+Removing Lhs of wire \UART_1:cts_wire\[176] = zero[56]
 
 ------------------------------------------------------
-Aliased 0 equations, 27 wires.
+Aliased 0 equations, 30 wires.
 ------------------------------------------------------
 
 ----------------------------------------------------------
@@ -222,14 +236,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSensing_basic.cydsn\CapSensing_basic.cyprj -dcpsoc3 CapSensing_basic.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 0s.959ms
+Warp synthesis phase: Elapsed time ==> 1s.275ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Thursday, 14 October 2021 10:07:17
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Thursday, 14 October 2021 10:33:16
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSensing_basic.cydsn\CapSensing_basic.cyprj -d CY8C6347BZI-BLD53 CapSensing_basic.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.408ms
+Design parsing phase: Elapsed time ==> 0s.507ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -238,6 +252,7 @@ Removing unused cells resulting from optimization
 Done removing unused cells.
 <CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
     Fixed Function Clock 43: Automatic-assigning  clock 'CapSense_ModClk'. Signal=\CapSense:Net_611_ff43\
+    Fixed Function Clock 0: Automatic-assigning  clock 'UART_1_SCBCLK'. Signal=\UART_1:Net_847_ff0\
     Fixed Function Clock 11: Automatic-assigning  clock 'Clock_2'. Signal=Net_23_ff11
     Fixed Function Clock 12: Automatic-assigning  clock 'Clock_3'. Signal=Net_36_ff12
     Fixed Function Clock 13: Automatic-assigning  clock 'Clock_1'. Signal=Net_10_ff13
@@ -250,10 +265,16 @@ Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prev
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: TCPWM[19].line_compl. (App=cydsfit)
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: CSD[0].csd_tx. (App=cydsfit)
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: CSD[0].csd_tx_n. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: SCB[6].uart_cts. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: SCB[6].spi_select[0]. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: SCB[8].spi_select[0]. (App=cydsfit)
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: TCPWM[3].line. (App=cydsfit)
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: TCPWM[19].line. (App=cydsfit)
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: CSD[0].csd_tx. (App=cydsfit)
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: CSD[0].csd_tx_n. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: SCB[6].uart_rts. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: SCB[6].spi_clk. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: SCB[8].spi_clk. (App=cydsfit)
 
 Removing unused cells resulting from optimization
 Done removing unused cells.
@@ -910,6 +931,86 @@ Design Equations
         Properties:
         {
         }
+
+    Pin : Name = \UART_1:tx(0)\
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: CMOS
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: INP_DIS_HI_Z
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => \UART_1:tx(0)\__PA ,
+            pin_input => \UART_1:tx_wire\ ,
+            pad => \UART_1:tx(0)_PAD\ );
+        Properties:
+        {
+        }
+
+    Pin : Name = \UART_1:rx(0)\
+        Attributes:
+            In Group/Port: True
+            In Sync Option: NOSYNC
+            Out Sync Option: AUTO
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: HI_Z_ANALOG
+            VTrip: CMOS
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: INP_DIS_HI_Z
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => \UART_1:rx(0)\__PA ,
+            fb => \UART_1:Net_1172\ ,
+            pad => \UART_1:rx(0)_PAD\ );
+        Properties:
+        {
+        }
     </CYPRESSTAG>
     <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
     </CYPRESSTAG>
@@ -942,6 +1043,16 @@ Design Equations
             deepsleep_required = 0
             int_type = "10"
         }
+
+    interrupt: Name =\UART_1:SCB_IRQ\
+        PORT MAP (
+            interrupt => \UART_1:intr_wire\ );
+        Properties:
+        {
+            cy_registers = ""
+            deepsleep_required = 0
+            int_type = "10"
+        }
     </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Technology mapping summary" expanded>
@@ -955,8 +1066,8 @@ Resource Type                 : Used : Free :  Max :  % Used
 Digital Clocks                :    0 :    8 :    8 :  0.00 %
 Crypto Accelerator            :    0 :    1 :    1 :  0.00 %
 Interrupts [CM0+]             :    5 :   27 :   32 : 15.63 %
-Interrupts [CM4]              :    1 :  146 :  147 :  0.68 %
-IO                            :   16 :   62 :   78 : 20.51 %
+Interrupts [CM4]              :    2 :  145 :  147 :  1.36 %
+IO                            :   18 :   60 :   78 : 23.08 %
 Interprocessor Communication  :    0 :   16 :   16 :  0.00 %
 MCWDT                         :    0 :    2 :    2 :  0.00 %
 CapSense                      :    1 :    0 :    1 : 100.00 %
@@ -965,7 +1076,7 @@ Real Time Clock               :    0 :    1 :    1 :  0.00 %
 Bluetooth Low Energy          :    0 :    1 :    1 :  0.00 %
 I2S                           :    0 :    1 :    1 :  0.00 %
 PDM/PCM                       :    0 :    1 :    1 :  0.00 %
-SCB                           :    0 :    9 :    9 :  0.00 %
+SCB                           :    1 :    8 :    9 : 11.11 %
 Serial Memory Interface       :    0 :    1 :    1 :  0.00 %
 DMA Channels                  :    0 :   32 :   32 :  0.00 %
 LCD                           :    0 :    1 :    1 :  0.00 %
@@ -986,8 +1097,8 @@ Sample and Hold               :    0 :    1 :    1 :  0.00 %
 SAR ADC                       :    0 :    1 :    1 :  0.00 %
 DieTemp Sensor                :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.042ms
-Tech Mapping phase: Elapsed time ==> 0s.093ms
+Technology Mapping: Elapsed time ==> 0s.051ms
+Tech Mapping phase: Elapsed time ==> 0s.119ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -1010,28 +1121,31 @@ BLUE(0)                             : [IOP=(11)][IoId=(1)]
 \CapSense:Sns(3)\                   : [IOP=(8)][IoId=(6)]                
 \CapSense:Sns(4)\                   : [IOP=(8)][IoId=(7)]                
 \CapSense:Tx(0)\                    : [IOP=(1)][IoId=(0)]                
+\UART_1:tx(0)\                      : [IOP=(5)][IoId=(1)]                
+\UART_1:rx(0)\                      : [IOP=(5)][IoId=(0)]                
 ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
 CPUSS                               : CPUSS_[FFB(CPUSS,0)]               
 \CapSense:CSD\                      : CSD_[FFB(CSD,0)]                   
+\UART_1:SCB\                        : SCB_[FFB(SCB,5)]                   
 \CapSense:IDACMod\                  : CSIDAC7_[FFB(CSIDAC7,0)]           
 \CapSense:IDACComp\                 : CSIDAC7_[FFB(CSIDAC7,1)]           
-\PWM:TCPWM\                         : TCPWM_[FFB(TCPWM,0)]               
 RED(0)                              : [IOP=(0)][IoId=(0)]                
+\PWM:TCPWM\                         : TCPWM_[FFB(TCPWM,0)]               
 \PWM_1:TCPWM\                       : TCPWM_[FFB(TCPWM,1)]               
 \PWM_2:TCPWM\                       : TCPWM_[FFB(TCPWM,2)]               
 
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
-Elapsed time ==> 0.2268509s
+Elapsed time ==> 0.2227773s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.924ms
+Analog Placement phase: Elapsed time ==> 1s.125ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0110339 secs
+Route success=True, Iterations=1 Elapsed=0.0090794 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.012ms
+Analog Routing phase: Elapsed time ==> 0s.010ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -1053,12 +1167,12 @@ Map of net to items {
     p8_7
     P8_P46
     p8_6
-    P8_P44
-    p8_4
     P8_P45
     p8_5
     P8_P43
     p8_3
+    P8_P44
+    p8_4
     P8_P41
     p8_1
     P8_P42
@@ -1098,12 +1212,12 @@ Map of item to net {
   p8_7                                             -> \CapSense:Net_847_0\
   P8_P46                                           -> \CapSense:Net_847_0\
   p8_6                                             -> \CapSense:Net_847_0\
-  P8_P44                                           -> \CapSense:Net_847_0\
-  p8_4                                             -> \CapSense:Net_847_0\
   P8_P45                                           -> \CapSense:Net_847_0\
   p8_5                                             -> \CapSense:Net_847_0\
   P8_P43                                           -> \CapSense:Net_847_0\
   p8_3                                             -> \CapSense:Net_847_0\
+  P8_P44                                           -> \CapSense:Net_847_0\
+  p8_4                                             -> \CapSense:Net_847_0\
   P8_P41                                           -> \CapSense:Net_847_0\
   p8_1                                             -> \CapSense:Net_847_0\
   P8_P42                                           -> \CapSense:Net_847_0\
@@ -1128,12 +1242,12 @@ Map of item to net {
 }
 Mux Info {
 }
-Analog Code Generation phase: Elapsed time ==> 0s.016ms
+Analog Code Generation phase: Elapsed time ==> 0s.017ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
 I2659: No Constrained paths were found. The placer will run in non-timing driven mode.
-I2076: Total run-time: 0.3 sec.
+I2076: Total run-time: 0.4 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -1147,7 +1261,7 @@ PLD Packing: Elapsed time ==> 0s.000ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.015ms
+Partitioning: Elapsed time ==> 0s.016ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -1177,6 +1291,16 @@ UDB [UDB=(1,3)] is empty.
 UDB [UDB=(1,4)] is empty.
 UDB [UDB=(1,5)] is empty.
 Intr container @ [IntrContainer=(0)]: 
+  Intr@ [IntrContainer=(0)][IntrId=(46)] 
+    interrupt: Name =\UART_1:SCB_IRQ\
+        PORT MAP (
+            interrupt => \UART_1:intr_wire\ );
+        Properties:
+        {
+            cy_registers = ""
+            deepsleep_required = 0
+            int_type = "10"
+        }
   Intr@ [IntrContainer=(0)][IntrId=(49)] 
     interrupt: Name =\CapSense:ISR\
         PORT MAP (
@@ -1315,6 +1439,88 @@ Pin : Name = GREEN(0)
     }
 
 Port 5 contains the following IO cells:
+[IoId=0]: 
+Pin : Name = \UART_1:rx(0)\
+    Attributes:
+        In Group/Port: True
+        In Sync Option: NOSYNC
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: HI_Z_ANALOG
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: INP_DIS_HI_Z
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => \UART_1:rx(0)\__PA ,
+        fb => \UART_1:Net_1172\ ,
+        pad => \UART_1:rx(0)_PAD\ );
+    Properties:
+    {
+    }
+
+[IoId=1]: 
+Pin : Name = \UART_1:tx(0)\
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: INP_DIS_HI_Z
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => \UART_1:tx(0)\__PA ,
+        pin_input => \UART_1:tx_wire\ ,
+        pad => \UART_1:tx(0)_PAD\ );
+    Properties:
+    {
+    }
+
 Port 6 contains the following IO cells:
 [IoId=6]: 
 Pin : Name = CY_CPUSS_SWJ_SWDIO_TMS(0)
@@ -1884,6 +2090,7 @@ Clock group 0:
             wco => ClockBlock_WCO ,
             lfclk => ClockBlock_LFClk ,
             ff_div_43 => \CapSense:Net_611_ff43\ ,
+            ff_div_0 => \UART_1:Net_847_ff0\ ,
             ff_div_11 => Net_23_ff11 ,
             ff_div_12 => Net_36_ff12 ,
             ff_div_13 => Net_10_ff13 );
@@ -1893,7 +2100,25 @@ Clock group 0:
 LCD group 0: empty
 Vref group 0: empty
 LPCOMP group 0: empty
-SCB group 0: empty
+SCB group 0: 
+    SCB @ F(SCB,5): 
+    SCB: Name =\UART_1:SCB\
+        PORT MAP (
+            clock => \UART_1:Net_847_ff0\ ,
+            uart_rx => \UART_1:Net_1172\ ,
+            uart_tx => \UART_1:tx_wire\ ,
+            uart_rts => \UART_1:rts_wire\ ,
+            interrupt => \UART_1:intr_wire\ ,
+            tr_tx_req => Net_109 ,
+            tr_rx_req => Net_108 ,
+            tr_i2c_scl_filtered => \UART_1:Net_161\ );
+        Properties:
+        {
+            cy_registers = ""
+            master = 0
+            mode = 2
+            requires_io_preconfigure = 0
+        }
 CSD group 0: 
     CapSense @ F(CSD,0): 
     mxs40_csd: Name =\CapSense:CSD\
@@ -2077,6 +2302,9 @@ Port | Pin | Fixed |      Type |       Drive Mode |                       Name |
    1 |   0 |     * |      NONE |      HI_Z_ANALOG |           \CapSense:Tx(0)\ | Analog(\CapSense:Net_847_0\)
      |   1 |     * |      NONE |         CMOS_OUT |                   GREEN(0) | In(Net_24)
 -----+-----+-------+-----------+------------------+----------------------------+-----------------------------
+   5 |   0 |     * |      NONE |      HI_Z_ANALOG |             \UART_1:rx(0)\ | FB(\UART_1:Net_1172\)
+     |   1 |     * |      NONE |         CMOS_OUT |             \UART_1:tx(0)\ | In(\UART_1:tx_wire\)
+-----+-----+-------+-----------+------------------+----------------------------+-----------------------------
    6 |   6 |     * |      NONE |      RES_PULL_UP |  CY_CPUSS_SWJ_SWDIO_TMS(0) | FB(CPUSS_swj_swdio_tms)
      |   7 |     * |      NONE |    RES_PULL_DOWN | CY_CPUSS_SWJ_SWCLK_TCLK(0) | FB(CPUSS_swj_swclk_tclk)
 -----+-----+-------+-----------+------------------+----------------------------+-----------------------------
@@ -2097,33 +2325,33 @@ Port | Pin | Fixed |      Type |       Drive Mode |                       Name |
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.022ms
-Digital Placement phase: Elapsed time ==> 5s.341ms
+Digital component placer commit/Report: Elapsed time ==> 0s.021ms
+Digital Placement phase: Elapsed time ==> 5s.098ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc6/0/route_arch-rrg.cydata" --vh2-path "CapSensing_basic_r.vh2" --pcf-path "CapSensing_basic.pco" --des-name "CapSensing_basic" --dsf-path "CapSensing_basic.dsf" --sdc-path "CapSensing_basic.sdc" --lib-path "CapSensing_basic_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.929ms
+Digital Routing phase: Elapsed time ==> 0s.972ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.495ms
+Bitstream Generation phase: Elapsed time ==> 0s.448ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
 Bitstream Verification phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in CapSensing_basic_timing.html.
-Static timing analysis phase: Elapsed time ==> 7s.122ms
+Static timing analysis phase: Elapsed time ==> 7s.398ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.152ms
+Design database save phase: Elapsed time ==> 0s.165ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 15s.546ms
+cydsfit: Elapsed time ==> 15s.916ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 15s.547ms
-API generation phase: Elapsed time ==> 2s.049ms
-Dependency generation phase: Elapsed time ==> 0s.006ms
-Cleanup phase: Elapsed time ==> 0s.002ms
+Fitter phase: Elapsed time ==> 15s.917ms
+API generation phase: Elapsed time ==> 5s.321ms
+Dependency generation phase: Elapsed time ==> 0s.022ms
+Cleanup phase: Elapsed time ==> 0s.000ms
