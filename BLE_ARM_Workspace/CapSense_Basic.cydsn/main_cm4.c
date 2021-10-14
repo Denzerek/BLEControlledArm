@@ -21,7 +21,7 @@ void greenPwmDisable();
 
 typedef struct{
     uint8_t select;
-    TCPWM_Type type;
+    TCPWM_Type* type;
     uint32_t num;
 }ledSelect_s;
 
@@ -62,7 +62,7 @@ int main(void)
                 Cy_TCPWM_PWM_SetCompare0(PWM_1_HW,PWM_1_CNT_NUM,100);
                 Cy_TCPWM_PWM_SetCompare0(PWM_2_HW,PWM_2_CNT_NUM,100);
                 Cy_TCPWM_PWM_SetCompare0(PWM_HW,PWM_CNT_NUM,100);
-        Cy_TCPWM_PWM_SetCompare0(&ledSelect[BLUE].type,ledSelect[BLUE].num,1);
+        Cy_TCPWM_PWM_SetCompare0(ledSelect[BLUE].type,ledSelect[BLUE].num,1);
     }
     
     for(;;)
@@ -74,7 +74,7 @@ int main(void)
             pos = CapSense_GetCentroidPos(CapSense_LINEARSLIDER0_WDGT_ID);
             if(pos < 0xFFFF)
             {                
-                Cy_TCPWM_PWM_SetCompare0(&ledSelect[ledIndex].type,ledSelect[ledIndex].num,pos);
+                Cy_TCPWM_PWM_SetCompare0(ledSelect[ledIndex].type,ledSelect[ledIndex].num,pos);
             }
               
             if(CapSense_IsWidgetActive(CapSense_BUTTON0_WDGT_ID))
