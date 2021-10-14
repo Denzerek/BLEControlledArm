@@ -26,13 +26,17 @@ void pwmTask(void * arg)
     pwm_print("Kill Switch LEDs Started ...");
     Cy_TCPWM_PWM_SetCompare0(Dimmer_HW,Dimmer_CNT_NUM,1);
     
-   
+   uint32_t counter;
     
     START_UP_DISP();
     
     
     for(;;)
     {
+        if(counter++ < 90)
+        {
+    Cy_TCPWM_PWM_SetCompare0(Dimmer_HW,Dimmer_CNT_NUM,compareVal++);
+        }
         /* Set the compare value with modified one*/
         Cy_TCPWM_PWM_SetCompare0(PWM_RED_HW,PWM_RED_CNT_NUM,compareVal++);
         
