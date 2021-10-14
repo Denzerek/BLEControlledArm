@@ -62,6 +62,7 @@ int main(void)
                 Cy_TCPWM_PWM_SetCompare0(PWM_1_HW,PWM_1_CNT_NUM,100);
                 Cy_TCPWM_PWM_SetCompare0(PWM_2_HW,PWM_2_CNT_NUM,100);
                 Cy_TCPWM_PWM_SetCompare0(PWM_HW,PWM_CNT_NUM,100);
+        Cy_TCPWM_PWM_SetCompare0(&ledSelect[BLUE].type,ledSelect[BLUE].num,1);
     }
     
     for(;;)
