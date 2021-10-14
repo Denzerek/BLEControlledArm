@@ -1,5 +1,5 @@
 # MainArmController
-# 2021-10-14 11:52:12Z
+# 2021-10-14 11:55:20Z
 
 dont_use_location p4usbcell -1 -1 0
 dont_use_location USB -1 -1 0
@@ -30,8 +30,8 @@ set_io "\CapSense:Sns(2)\" iocell 8 5
 set_io "\CapSense:Sns(3)\" iocell 8 6
 set_io "\CapSense:Sns(4)\" iocell 8 7
 set_io "\CapSense:Tx(0)\" iocell 1 0
-set_location "Net_50" 1 5 0 0
 set_location "Net_51" 1 5 0 1
+set_location "Net_99" 1 5 0 0
 set_location "\UART:SCB_IRQ\" interrupt -1 -1 46
 set_location "\UART:SCB\" SCB -1 -1 5
 set_location "\PWM_1:TCPWM\" TCPWM -1 -1 9

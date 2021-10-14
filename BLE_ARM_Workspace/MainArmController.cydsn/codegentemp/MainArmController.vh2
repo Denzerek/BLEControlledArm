@@ -2,7 +2,7 @@
 --	Conversion of MainArmController.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Oct 14 17:22:04 2021
+--	Thu Oct 14 17:25:12 2021
 --
 
 USE cypress.cypress.all;
@@ -122,7 +122,7 @@ SIGNAL Net_44 : bit;
 SIGNAL Net_48 : bit;
 SIGNAL Net_145 : bit;
 SIGNAL Net_43 : bit;
-SIGNAL Net_50 : bit;
+SIGNAL Net_99 : bit;
 SIGNAL tmpFB_0__RED_net_0 : bit;
 SIGNAL tmpIO_0__RED_net_0 : bit;
 TERMINAL tmpSIOVREF__RED_net_0 : bit;
@@ -133,6 +133,7 @@ TERMINAL tmpSIOVREF__GREEN_net_0 : bit;
 SIGNAL cy_tff_1 : bit;
 SIGNAL \mux_1:tmp__mux_1_reg\ : bit;
 SIGNAL Net_52 : bit;
+SIGNAL Net_100 : bit;
 SIGNAL Net_51 : bit;
 SIGNAL Net_329 : bit;
 SIGNAL tmpFB_0__M2_net_0 : bit;
@@ -244,6 +245,8 @@ SIGNAL Net_93 : bit;
 SIGNAL Net_91 : bit;
 SIGNAL Net_96 : bit;
 SIGNAL Net_90 : bit;
+SIGNAL \mux_2:tmp__mux_2_reg\ : bit;
+SIGNAL Net_98 : bit;
 SIGNAL cy_tff_1D : bit;
 BEGIN
 
@@ -253,10 +256,10 @@ zero <=  ('0') ;
 
 Net_36 <= (not Net_35);
 
-Net_50 <= (Net_145
-	OR Net_294);
-
 Net_51 <= (not Net_294);
+
+Net_99 <= (Net_145
+	OR Net_294);
 
 \UART:SCBCLK\:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
@@ -656,7 +659,7 @@ RED:cy_mxs40_gpio_v1_0
 		use_annotation=>"0",
 		hotswap_needed=>"0")
 	PORT MAP(oe=>(one),
-		y=>Net_50,
+		y=>Net_99,
 		fb=>(tmpFB_0__RED_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__RED_net_0),

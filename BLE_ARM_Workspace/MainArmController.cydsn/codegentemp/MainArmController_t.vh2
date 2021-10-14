@@ -1,5 +1,5 @@
 -- Project:   C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\MainArmController.cydsn\MainArmController.cyprj
--- Generated: 10/14/2021 17:22:20
+-- Generated: 10/14/2021 17:25:29
 -- PSoC Creator  4.2
 
 ENTITY MainArmController IS
@@ -89,8 +89,6 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL Net_47_ff15 : bit;
     ATTRIBUTE global_signal OF Net_47_ff15 : SIGNAL IS true;
     SIGNAL Net_48 : bit;
-    SIGNAL Net_50 : bit;
-    ATTRIBUTE placement_force OF Net_50 : SIGNAL IS "U(1,5,A)0";
     SIGNAL Net_51 : bit;
     ATTRIBUTE placement_force OF Net_51 : SIGNAL IS "U(1,5,A)1";
     SIGNAL Net_56 : bit;
@@ -106,6 +104,8 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL Net_93 : bit;
     SIGNAL Net_95 : bit;
     SIGNAL Net_96 : bit;
+    SIGNAL Net_99 : bit;
+    ATTRIBUTE placement_force OF Net_99 : SIGNAL IS "U(1,5,A)0";
     SIGNAL RED(0)__PA : bit;
     SIGNAL RED_USER_LED2(0)__PA : bit;
     SIGNAL SW(0)__PA : bit;
@@ -225,10 +225,10 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     ATTRIBUTE Location OF \CapSense:Sns(4)\ : LABEL IS "P8[7]";
     ATTRIBUTE lib_model OF \CapSense:Tx(0)\ : LABEL IS "iocell23";
     ATTRIBUTE Location OF \CapSense:Tx(0)\ : LABEL IS "P1[0]";
-    ATTRIBUTE lib_model OF Net_50 : LABEL IS "macrocell1";
-    ATTRIBUTE Location OF Net_50 : LABEL IS "U(1,5)";
-    ATTRIBUTE lib_model OF Net_51 : LABEL IS "macrocell2";
+    ATTRIBUTE lib_model OF Net_51 : LABEL IS "macrocell1";
     ATTRIBUTE Location OF Net_51 : LABEL IS "U(1,5)";
+    ATTRIBUTE lib_model OF Net_99 : LABEL IS "macrocell2";
+    ATTRIBUTE Location OF Net_99 : LABEL IS "U(1,5)";
     ATTRIBUTE Location OF \UART:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(46)]";
     ATTRIBUTE Location OF \UART:SCB\ : LABEL IS "F(SCB,5)";
     ATTRIBUTE Location OF \PWM_1:TCPWM\ : LABEL IS "F(TCPWM,9)";
@@ -1283,7 +1283,7 @@ BEGIN
         PORT MAP(
             pa_out => RED(0)__PA,
             oe => open,
-            pin_input => Net_50,
+            pin_input => Net_99,
             pad_out => RED(0)_PAD,
             pad_in => RED(0)_PAD,
             in_clock => open,
@@ -1813,16 +1813,6 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    Net_50:macrocell
-        GENERIC MAP(
-            eqn_main => "(!main_0 * !main_1)",
-            regmode => 0,
-            clken_mode => 1)
-        PORT MAP(
-            q => Net_50,
-            main_0 => Net_294,
-            main_1 => Net_145);
-
     Net_51:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0)",
@@ -1831,6 +1821,16 @@ BEGIN
         PORT MAP(
             q => Net_51,
             main_0 => Net_294);
+
+    Net_99:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_99,
+            main_0 => Net_294,
+            main_1 => Net_145);
 
     \UART:SCB_IRQ\:interrupt
         GENERIC MAP(

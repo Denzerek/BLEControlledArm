@@ -1,6 +1,6 @@
 // ======================================================================
 // MainArmController.v generated from TopDesign.cysch
-// 10/14/2021 at 17:22
+// 10/14/2021 at 17:25
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1219,6 +1219,7 @@ endmodule
 // top
 module top ;
 
+          wire  Net_98;
           wire  Net_96;
           wire  Net_93;
           wire  Net_92;
@@ -1237,7 +1238,7 @@ module top ;
           wire  Net_53;
           wire  Net_52;
           wire  Net_95;
-          wire  Net_50;
+          wire  Net_99;
           wire  Net_84;
           wire  Net_48;
           wire  Net_47;
@@ -1287,6 +1288,8 @@ module top ;
           wire  Net_3;
           wire  Net_2;
           wire  Net_1;
+          wire  Net_97;
+          wire  Net_100;
           wire  Net_51;
           wire  Net_329;
           wire  Net_294;
@@ -1518,7 +1521,7 @@ module top ;
 		  .hotswap_needed("0"))
 		RED
 		 (.oe({1'b1}),
-		  .y({Net_50}),
+		  .y({Net_99}),
 		  .fb({tmpFB_0__RED_net[0:0]}),
 		  .io({tmpIO_0__RED_net[0:0]}),
 		  .siovref(tmpSIOVREF__RED_net));
@@ -1580,7 +1583,7 @@ module top ;
                 1'b1 :  tmp__mux_1_reg = Net_52;
             endcase
         end
-        assign Net_50 = tmp__mux_1_reg;
+        assign Net_100 = tmp__mux_1_reg;
     end
     // -- Mux end --
 
@@ -1654,6 +1657,23 @@ module top ;
         .clock(Net_154),
         .pwm(Net_95),
         .pwm_n(Net_96));
+
+    // -- Mux start --
+    if (1)
+    begin : mux_2
+        reg  tmp__mux_2_reg;
+        always @(Net_98 or Net_100)
+        begin
+            case (Net_100)
+                1'b0 :  tmp__mux_2_reg = 1'b0;
+                1'b1 :  tmp__mux_2_reg = Net_98;
+            endcase
+        end
+        assign Net_99 = tmp__mux_2_reg;
+    end
+    // -- Mux end --
+
+    assign Net_98 = 1'h1;
 
 
 
