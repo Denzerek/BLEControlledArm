@@ -140,6 +140,8 @@ int main(void)
     CapSense_ScanAllWidgets();
     
     PWM_Start();
+    PWM_1_Start();
+    PWM_2_Start();
      
     for(;;)
     {
