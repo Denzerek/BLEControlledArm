@@ -87,7 +87,7 @@ int main(void)
                 case CapSense_TMG_FLICK_EAST:
                     ledIndex++;
                 printf("CapSense_TMG_FLICK_EAST %d\r\n",ledIndex );
-                break;
+                break; 
                 case CapSense_TMG_FLICK_WEST:
                     ledIndex--;
                 printf("CapSense_TMG_FLICK_WEST %d\r\n",ledIndex );
