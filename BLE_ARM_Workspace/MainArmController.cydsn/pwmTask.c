@@ -24,7 +24,7 @@ void pwmTask(void * arg)
     LEDBlink_Start();
     LEDBlink_1_Start();
     pwm_print("Kill Switch LEDs Started ...");
-    Cy_TCPWM_PWM_SetCompare0(LEDBlink_1_HW,LEDBlink_1_CNT_NUM,90);
+    Cy_TCPWM_PWM_SetCompare0(LEDBlink_1_HW,LEDBlink_1_CNT_NUM,100);
     
    
     
