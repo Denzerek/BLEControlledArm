@@ -1,9 +1,9 @@
 /*******************************************************************************
-* File Name: LEDBlink_1.c
+* File Name: Dimmer.c
 * Version 1.0
 *
 * Description:
-*  This file provides the source code to the API for the LEDBlink_1
+*  This file provides the source code to the API for the Dimmer
 *  component.
 *
 ********************************************************************************
@@ -13,20 +13,20 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "LEDBlink_1.h"
+#include "Dimmer.h"
 
-/** Indicates whether or not the LEDBlink_1 has been initialized. 
+/** Indicates whether or not the Dimmer has been initialized. 
 *  The variable is initialized to 0 and set to 1 the first time 
-*  LEDBlink_1_Start() is called. This allows the Component to 
+*  Dimmer_Start() is called. This allows the Component to 
 *  restart without reinitialization after the first call to 
-*  the LEDBlink_1_Start() routine.
+*  the Dimmer_Start() routine.
 */
-uint8_t LEDBlink_1_initVar = 0U;
+uint8_t Dimmer_initVar = 0U;
 
 /** The instance-specific configuration structure. This should be used in the 
-*  associated LEDBlink_1_Init() function.
+*  associated Dimmer_Init() function.
 */ 
-cy_stc_tcpwm_pwm_config_t const LEDBlink_1_config =
+cy_stc_tcpwm_pwm_config_t const Dimmer_config =
 {
     .pwmMode = 4UL,
     .clockPrescaler = 2UL,
@@ -47,9 +47,9 @@ cy_stc_tcpwm_pwm_config_t const LEDBlink_1_config =
     .swapInput = CY_TCPWM_INPUT_CREATOR,
     .reloadInputMode = 3UL,
     .reloadInput = CY_TCPWM_INPUT_CREATOR,
-    .startInputMode = 1UL,
+    .startInputMode = 3UL,
     .startInput = CY_TCPWM_INPUT_CREATOR,
-    .killInputMode = 0UL,
+    .killInputMode = 3UL,
     .killInput = CY_TCPWM_INPUT_CREATOR,
     .countInputMode = 3UL,
     .countInput = CY_TCPWM_INPUT_CREATOR,
@@ -57,31 +57,31 @@ cy_stc_tcpwm_pwm_config_t const LEDBlink_1_config =
 
 
 /*******************************************************************************
-* Function Name: LEDBlink_1_Start
+* Function Name: Dimmer_Start
 ****************************************************************************//**
 *
-*  Calls the LEDBlink_1_Init() when called the first time and enables 
-*  the LEDBlink_1. For subsequent calls the configuration is left 
+*  Calls the Dimmer_Init() when called the first time and enables 
+*  the Dimmer. For subsequent calls the configuration is left 
 *  unchanged and the component is just enabled.
 *
 * \globalvars
-*  \ref LEDBlink_1_initVar
+*  \ref Dimmer_initVar
 *
 *******************************************************************************/
-void LEDBlink_1_Start(void)
+void Dimmer_Start(void)
 {
-    if (0U == LEDBlink_1_initVar)
+    if (0U == Dimmer_initVar)
     {
-        (void) Cy_TCPWM_PWM_Init(LEDBlink_1_HW, LEDBlink_1_CNT_NUM, &LEDBlink_1_config);
+        (void) Cy_TCPWM_PWM_Init(Dimmer_HW, Dimmer_CNT_NUM, &Dimmer_config);
 
-        LEDBlink_1_initVar = 1U;
+        Dimmer_initVar = 1U;
     }
 
-    Cy_TCPWM_Enable_Multiple(LEDBlink_1_HW, LEDBlink_1_CNT_MASK);
+    Cy_TCPWM_Enable_Multiple(Dimmer_HW, Dimmer_CNT_MASK);
     
-    #if (LEDBlink_1_INPUT_DISABLED == 1UL)
-        Cy_TCPWM_TriggerStart(LEDBlink_1_HW, LEDBlink_1_CNT_MASK);
-    #endif /* (LEDBlink_1_INPUT_DISABLED == 1UL) */    
+    #if (Dimmer_INPUT_DISABLED == 7UL)
+        Cy_TCPWM_TriggerStart(Dimmer_HW, Dimmer_CNT_MASK);
+    #endif /* (Dimmer_INPUT_DISABLED == 7UL) */    
 }
 
 

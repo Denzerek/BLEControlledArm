@@ -54,6 +54,12 @@
 #define PWM_2_TCPWM__HW TCPWM1
 #define PWM_2_TCPWM__IDX 1u
 
+/* Dimmer */
+#define Dimmer_TCPWM__CNT_HW TCPWM0_CNT1
+#define Dimmer_TCPWM__CNT_IDX 1u
+#define Dimmer_TCPWM__HW TCPWM0
+#define Dimmer_TCPWM__IDX 0u
+
 /* Clock_1 */
 #define Clock_1__DIV_IDX 2
 #define Clock_1__DIV_NUM 2
@@ -86,10 +92,6 @@
 #define CapSense_ModClk__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* LEDBlink */
-#define LEDBlink_1_TCPWM__CNT_HW TCPWM0_CNT1
-#define LEDBlink_1_TCPWM__CNT_IDX 1u
-#define LEDBlink_1_TCPWM__HW TCPWM0
-#define LEDBlink_1_TCPWM__IDX 0u
 #define LEDBlink_TCPWM__CNT_HW TCPWM0_CNT0
 #define LEDBlink_TCPWM__CNT_IDX 0u
 #define LEDBlink_TCPWM__HW TCPWM0
