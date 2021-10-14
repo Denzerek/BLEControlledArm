@@ -33,7 +33,7 @@ void pwmTask(void * arg)
     
     for(;;)
     {
-        if(counter++ < 90)
+        //if(counter++ < 90)
         {
     Cy_TCPWM_PWM_SetCompare0(Dimmer_HW,Dimmer_CNT_NUM,compareVal++);
         }
