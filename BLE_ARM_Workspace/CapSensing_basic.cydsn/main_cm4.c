@@ -101,7 +101,7 @@ int main(void)
                 case CapSense_ONE_FINGER_ROTATE_CCW:
                     break;
                 default:
-                printf("Nothing Happened\r\n" );
+                printf("%d ",gesture );
                     break;
             }
             
