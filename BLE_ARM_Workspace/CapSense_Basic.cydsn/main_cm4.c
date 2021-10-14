@@ -53,6 +53,10 @@ int main(void)
     PWM_2_Start();
     
     uint8_t ledIndex = 0;
+    for(int i = 0;i<MAX_COLOR;i++)
+    {
+     Cy_TCPWM_PWM_SetCompare0(&ledSelect[ledIndex].type,ledSelect[ledIndex].num,100);
+    }
     
     for(;;)
     {
@@ -63,7 +67,8 @@ int main(void)
             pos = CapSense_GetCentroidPos(CapSense_LINEARSLIDER0_WDGT_ID);
             if(pos < 0xFFFF)
             {                
-                Cy_TCPWM_PWM_SetCompare0(&ledSelect[ledIndex].type,ledSelect[ledIndex].num,pos);
+                //Cy_TCPWM_PWM_SetCompare0(&ledSelect[ledIndex].type,ledSelect[ledIndex].num,pos);
+                Cy_TCPWM_PWM_SetCompare0(&ledSelect[BLUE].type,ledSelect[BLUE].num,pos);
             }
               
             if(CapSense_IsWidgetActive(CapSense_BUTTON0_WDGT_ID))

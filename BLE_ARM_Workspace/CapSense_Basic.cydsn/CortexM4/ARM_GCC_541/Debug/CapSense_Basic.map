@@ -1218,7 +1218,7 @@ LOAD c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm
 LOAD c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libnosys.a
 END GROUP
 
-.text           0x10080000     0x3f70
+.text           0x10080000     0x3f90
                 0x10080000                . = ALIGN (0x4)
                 0x10080000                __Vectors = .
  *(.vectors)
@@ -1390,429 +1390,430 @@ END GROUP
                 0x10080350                HardFault_Handler
                 0x10080350                MemManage_Handler
                 0x10080350                BusFault_Handler
- .text.main     0x1008036c       0x84 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+ .text.main     0x1008036c       0xa0 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
                 0x1008036c                main
  .text.Cy_SysIpcPipeIsrCm4
-                0x100803f0        0xc .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
-                0x100803f0                Cy_SysIpcPipeIsrCm4
+                0x1008040c        0xc .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+                0x1008040c                Cy_SysIpcPipeIsrCm4
  .text.Cy_SystemInit
-                0x100803fc        0x4 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
-                0x100803fc                Cy_SystemInit
+                0x10080418        0x4 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+                0x10080418                Cy_SystemInit
  .text.SystemCoreClockUpdate
-                0x10080400      0x190 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
-                0x10080400                SystemCoreClockUpdate
+                0x1008041c      0x190 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+                0x1008041c                SystemCoreClockUpdate
  .text.SystemInit
-                0x10080590       0x48 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
-                0x10080590                SystemInit
+                0x100805ac       0x48 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+                0x100805ac                SystemInit
  .text.Cy_SystemInitFpuEnable
-                0x100805d8       0x28 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
-                0x100805d8                Cy_SystemInitFpuEnable
+                0x100805f4       0x28 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+                0x100805f4                Cy_SystemInitFpuEnable
  .text.PWM_Start
-                0x10080600       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM.o
-                0x10080600                PWM_Start
+                0x1008061c       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM.o
+                0x1008061c                PWM_Start
  .text.CapSense_Initialize
-                0x10080630       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
-                0x10080630                CapSense_Initialize
+                0x1008064c       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+                0x1008064c                CapSense_Initialize
  .text.CapSense_Start
-                0x10080654       0x3c .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
-                0x10080654                CapSense_Start
+                0x10080670       0x3c .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+                0x10080670                CapSense_Start
  .text.CapSense_ProcessAllWidgets
-                0x10080690       0x74 .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
-                0x10080690                CapSense_ProcessAllWidgets
+                0x100806ac       0x74 .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+                0x100806ac                CapSense_ProcessAllWidgets
  .text.CapSense_DpInitialize
-                0x10080704       0x84 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
-                0x10080704                CapSense_DpInitialize
+                0x10080720       0x84 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+                0x10080720                CapSense_DpInitialize
  .text.CapSense_DpUpdateThresholds
-                0x10080788       0x34 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
-                0x10080788                CapSense_DpUpdateThresholds
+                0x100807a4       0x34 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+                0x100807a4                CapSense_DpUpdateThresholds
  .text.CapSense_DpUpdateDifferences
-                0x100807bc       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
-                0x100807bc                CapSense_DpUpdateDifferences
+                0x100807d8       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+                0x100807d8                CapSense_DpUpdateDifferences
  .text.CapSense_DpProcessCsxWidgetRawCounts
-                0x100807d4       0x38 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
-                0x100807d4                CapSense_DpProcessCsxWidgetRawCounts
+                0x100807f0       0x38 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+                0x100807f0                CapSense_DpProcessCsxWidgetRawCounts
  .text.CapSense_DpProcessCsdWidgetRawCounts
-                0x1008080c       0x54 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
-                0x1008080c                CapSense_DpProcessCsdWidgetRawCounts
+                0x10080828       0x54 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+                0x10080828                CapSense_DpProcessCsdWidgetRawCounts
  .text.CapSense_DpProcessButton
-                0x10080860       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
-                0x10080860                CapSense_DpProcessButton
+                0x1008087c       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+                0x1008087c                CapSense_DpProcessButton
  .text.CapSense_DpProcessCsxWidgetStatus
-                0x100808c4       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
-                0x100808c4                CapSense_DpProcessCsxWidgetStatus
+                0x100808e0       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+                0x100808e0                CapSense_DpProcessCsxWidgetStatus
  .text.CapSense_DpProcessSlider
-                0x10080928       0xcc .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
-                0x10080928                CapSense_DpProcessSlider
+                0x10080944       0xcc .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+                0x10080944                CapSense_DpProcessSlider
  .text.CapSense_DpProcessCsdWidgetStatus
-                0x100809f4       0x74 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
-                0x100809f4                CapSense_DpProcessCsdWidgetStatus
+                0x10080a10       0x74 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+                0x10080a10                CapSense_DpProcessCsdWidgetStatus
  .text.CapSense_DsInitialize
-                0x10080a68       0x98 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
-                0x10080a68                CapSense_DsInitialize
+                0x10080a84       0x98 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+                0x10080a84                CapSense_DsInitialize
  .text.CapSense_IsWidgetActive
-                0x10080b00       0x28 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
-                0x10080b00                CapSense_IsWidgetActive
+                0x10080b1c       0x28 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+                0x10080b1c                CapSense_IsWidgetActive
  .text.CapSense_GetCentroidPos
-                0x10080b28       0x38 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
-                0x10080b28                CapSense_GetCentroidPos
+                0x10080b44       0x38 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+                0x10080b44                CapSense_GetCentroidPos
  .text.CapSense_TuInitialize
-                0x10080b60       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
-                0x10080b60                CapSense_TuInitialize
+                0x10080b7c       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
+                0x10080b7c                CapSense_TuInitialize
  .text.CapSense_FtInitializeBaselineChannel
-                0x10080b74       0x20 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080b74                CapSense_FtInitializeBaselineChannel
+                0x10080b90       0x20 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080b90                CapSense_FtInitializeBaselineChannel
  .text.CapSense_FtInitializeBaseline
-                0x10080b94       0x20 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080b94                CapSense_FtInitializeBaseline
+                0x10080bb0       0x20 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080bb0                CapSense_FtInitializeBaseline
  .text.CapSense_InitializeSensorBaseline
-                0x10080bb4       0x20 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080bb4                CapSense_InitializeSensorBaseline
+                0x10080bd0       0x20 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080bd0                CapSense_InitializeSensorBaseline
  .text.CapSense_InitializeWidgetBaseline
-                0x10080bd4       0x28 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080bd4                CapSense_InitializeWidgetBaseline
+                0x10080bf0       0x28 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080bf0                CapSense_InitializeWidgetBaseline
  .text.CapSense_InitializeAllBaselines
-                0x10080bfc       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080bfc                CapSense_InitializeAllBaselines
+                0x10080c18       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080c18                CapSense_InitializeAllBaselines
  .text.CapSense_InitializeWidgetFilter
-                0x10080c14       0x48 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080c14                CapSense_InitializeWidgetFilter
+                0x10080c30       0x48 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080c30                CapSense_InitializeWidgetFilter
  .text.CapSense_InitializeAllFilters
-                0x10080c5c       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080c5c                CapSense_InitializeAllFilters
+                0x10080c78       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080c78                CapSense_InitializeAllFilters
  .text.CapSense_FtInitialize
-                0x10080c74        0x8 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080c74                CapSense_FtInitialize
+                0x10080c90        0x8 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080c90                CapSense_FtInitialize
  .text.CapSense_FtIIR1stOrder
-                0x10080c7c       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080c7c                CapSense_FtIIR1stOrder
+                0x10080c98       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080c98                CapSense_FtIIR1stOrder
  .text.CapSense_FtUpdateBaseline
-                0x10080c90       0xa0 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080c90                CapSense_FtUpdateBaseline
+                0x10080cac       0xa0 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080cac                CapSense_FtUpdateBaseline
  .text.CapSense_UpdateSensorBaseline
-                0x10080d30       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080d30                CapSense_UpdateSensorBaseline
+                0x10080d4c       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080d4c                CapSense_UpdateSensorBaseline
  .text.CapSense_UpdateWidgetBaseline
-                0x10080d54       0x2c .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080d54                CapSense_UpdateWidgetBaseline
+                0x10080d70       0x2c .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080d70                CapSense_UpdateWidgetBaseline
  .text.CapSense_UpdateAllBaselines
-                0x10080d80       0x1c .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
-                0x10080d80                CapSense_UpdateAllBaselines
+                0x10080d9c       0x1c .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+                0x10080d9c                CapSense_UpdateAllBaselines
  .text.CapSense_SsCalcLfsrSize
-                0x10080d9c       0xb0 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080db8       0xb0 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
  .text.CapSense_SsCalcLfsrScale
-                0x10080e4c       0x38 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080e68       0x38 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
  .text.CapSense_SsDisableCSXMode
-                0x10080e84        0x8 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080ea0        0x8 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
  .text.CapSense_SsCSDDisableMode
-                0x10080e8c       0x38 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080ea8       0x38 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
  .text.CapSense_IsBusy
-                0x10080ec4       0x10 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10080ec4                CapSense_IsBusy
+                0x10080ee0       0x10 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080ee0                CapSense_IsBusy
  .text.CapSense_SetBusyFlags
-                0x10080ed4       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10080ed4                CapSense_SetBusyFlags
+                0x10080ef0       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080ef0                CapSense_SetBusyFlags
  .text.CapSense_ClrBusyFlags
-                0x10080eec       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10080eec                CapSense_ClrBusyFlags
+                0x10080f08       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080f08                CapSense_ClrBusyFlags
  .text.CapSense_SetupWidget
-                0x10080f04       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10080f04                CapSense_SetupWidget
+                0x10080f20       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080f20                CapSense_SetupWidget
  .text.CapSense_Scan
-                0x10080f68       0x3c .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10080f68                CapSense_Scan
+                0x10080f84       0x3c .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080f84                CapSense_Scan
  .text.CapSense_ScanAllWidgets
-                0x10080fa4       0x54 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10080fa4                CapSense_ScanAllWidgets
+                0x10080fc0       0x54 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10080fc0                CapSense_ScanAllWidgets
  .text.CapSense_SsSwitchSensingMode
-                0x10080ff8       0x50 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10080ff8                CapSense_SsSwitchSensingMode
+                0x10081014       0x50 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10081014                CapSense_SsSwitchSensingMode
  .text.CapSense_SsSetIOsInDefaultState
-                0x10081048       0x28 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10081048                CapSense_SsSetIOsInDefaultState
+                0x10081064       0x28 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10081064                CapSense_SsSetIOsInDefaultState
  .text.CapSense_SsPostAllWidgetsScan
-                0x10081070       0x78 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10081070                CapSense_SsPostAllWidgetsScan
+                0x1008108c       0x78 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x1008108c                CapSense_SsPostAllWidgetsScan
  .text.CapSense_SsIsrInitialize
-                0x100810e8       0x58 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x100810e8                CapSense_SsIsrInitialize
+                0x10081104       0x58 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10081104                CapSense_SsIsrInitialize
  .text.CapSense_CalibrateWidget
-                0x10081140       0x3c .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10081140                CapSense_CalibrateWidget
+                0x1008115c       0x3c .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x1008115c                CapSense_CalibrateWidget
  .text.CapSense_CalibrateAllWidgets
-                0x1008117c       0x1c .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x1008117c                CapSense_CalibrateAllWidgets
+                0x10081198       0x1c .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10081198                CapSense_CalibrateAllWidgets
  .text.CapSense_SsClearCSDSensors
-                0x10081198       0x44 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10081198                CapSense_SsClearCSDSensors
+                0x100811b4       0x44 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x100811b4                CapSense_SsClearCSDSensors
  .text.CapSense_SsCSDGetColSnsClkDivider
-                0x100811dc       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x100811dc                CapSense_SsCSDGetColSnsClkDivider
+                0x100811f8       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x100811f8                CapSense_SsCSDGetColSnsClkDivider
  .text.CapSense_SsCSDSetColSnsClkDivider
-                0x100811f0       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x100811f0                CapSense_SsCSDSetColSnsClkDivider
+                0x1008120c       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x1008120c                CapSense_SsCSDSetColSnsClkDivider
  .text.CapSense_SsCSDCalcPrsSize
-                0x10081204       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10081204                CapSense_SsCSDCalcPrsSize
+                0x10081220       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10081220                CapSense_SsCSDCalcPrsSize
  .text.CapSense_SsSetWidgetSenseClkSrc
-                0x10081228       0x54 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10081244       0x54 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
  .text.CapSense_SsAutoTune
-                0x1008127c      0x18c .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x1008127c                CapSense_SsAutoTune
+                0x10081298      0x18c .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10081298                CapSense_SsAutoTune
  .text.CapSense_SsInitializeSourceSenseClk
-                0x10081408       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10081408                CapSense_SsInitializeSourceSenseClk
+                0x10081424       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10081424                CapSense_SsInitializeSourceSenseClk
  .text.CapSense_SsInitialize
-                0x1008146c       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x1008146c                CapSense_SsInitialize
+                0x10081488       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10081488                CapSense_SsInitialize
  .text.CapSense_BistDischargeExtCapacitors
-                0x10081480       0xc0 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10081480                CapSense_BistDischargeExtCapacitors
+                0x1008149c       0xc0 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x1008149c                CapSense_BistDischargeExtCapacitors
  .text.CapSense_SsCSDPostScan
-                0x10081540       0x54 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+                0x1008155c       0x54 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
  .text.CapSense_SsCSDInitNextScan
-                0x10081594       0xa0 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+                0x100815b0       0xa0 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
  .text.CapSense_CSDPostSingleScan
-                0x10081634       0x2c .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
-                0x10081634                CapSense_CSDPostSingleScan
+                0x10081650       0x2c .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+                0x10081650                CapSense_CSDPostSingleScan
  .text.CapSense_CSDPostMultiScan
-                0x10081660       0x44 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
-                0x10081660                CapSense_CSDPostMultiScan
+                0x1008167c       0x44 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+                0x1008167c                CapSense_CSDPostMultiScan
  .text.CapSense_SsCSDSetModeSnsClockDivider
-                0x100816a4       0x10 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x100816c0       0x10 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .text.CapSense_SsCSDSetFilterDelay
-                0x100816b4       0x50 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x100816d0       0x50 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .text.CapSense_SsCSDConfigIDACs
-                0x10081704       0x1c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081720       0x1c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .text.CapSense_SsCSDSetSingleIdacMode
-                0x10081720       0x28 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x1008173c       0x28 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .text.CapSense_SsCSDRestoreIdacMode
-                0x10081748       0x2c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081764       0x2c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .text.CapSense_SsCSDCalibrateCheck
-                0x10081774       0x4c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081790       0x4c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .text.CapSense_SsCSDCmodPrecharge
-                0x100817c0       0x6c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x100817dc       0x6c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .text.CapSense_SsCSDTriggerScan
-                0x1008182c       0x98 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081848       0x98 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .text.CapSense_SsCSDInitialize
-                0x100818c4      0x144 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x100818c4                CapSense_SsCSDInitialize
+                0x100818e0      0x144 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x100818e0                CapSense_SsCSDInitialize
  .text.CapSense_SsCSDSetUpIdacs
-                0x10081a08       0x50 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081a08                CapSense_SsCSDSetUpIdacs
+                0x10081a24       0x50 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081a24                CapSense_SsCSDSetUpIdacs
  .text.CapSense_SsCSDGetNumberOfConversions
-                0x10081a58       0x30 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081a58                CapSense_SsCSDGetNumberOfConversions
+                0x10081a74       0x30 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081a74                CapSense_SsCSDGetNumberOfConversions
  .text.CapSense_SsCSDConfigClock
-                0x10081a88       0x3c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081a88                CapSense_SsCSDConfigClock
+                0x10081aa4       0x3c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081aa4                CapSense_SsCSDConfigClock
  .text.CapSense_SsCSDCalculateScanDuration
-                0x10081ac4       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081ac4                CapSense_SsCSDCalculateScanDuration
+                0x10081ae0       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081ae0                CapSense_SsCSDCalculateScanDuration
  .text.CapSense_SsCSDStartSample
-                0x10081adc       0x44 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081adc                CapSense_SsCSDStartSample
+                0x10081af8       0x44 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081af8                CapSense_SsCSDStartSample
  .text.CapSense_CSDScanExt
-                0x10081b20       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081b20                CapSense_CSDScanExt
+                0x10081b3c       0x18 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081b3c                CapSense_CSDScanExt
  .text.CapSense_CSDConnectSns
-                0x10081b38       0xa0 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081b38                CapSense_CSDConnectSns
+                0x10081b54       0xa0 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081b54                CapSense_CSDConnectSns
  .text.CapSense_CSDScan
-                0x10081bd8       0x6c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081bd8                CapSense_CSDScan
+                0x10081bf4       0x6c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081bf4                CapSense_CSDScan
  .text.CapSense_SsCSDConnectSensorExt
-                0x10081c44       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081c44                CapSense_SsCSDConnectSensorExt
+                0x10081c60       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081c60                CapSense_SsCSDConnectSensorExt
  .text.CapSense_CSDDisconnectSns
-                0x10081c68       0xac .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081c68                CapSense_CSDDisconnectSns
+                0x10081c84       0xac .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081c84                CapSense_CSDDisconnectSns
  .text.CapSense_SsCSDElectrodeCheck
-                0x10081d14       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081d14                CapSense_SsCSDElectrodeCheck
+                0x10081d30       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081d30                CapSense_SsCSDElectrodeCheck
  .text.CapSense_CSDSetupWidget
-                0x10081d38       0x58 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081d38                CapSense_CSDSetupWidget
+                0x10081d54       0x58 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081d54                CapSense_CSDSetupWidget
  .text.CapSense_CSDSetupWidgetExt
-                0x10081d90       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081d90                CapSense_CSDSetupWidgetExt
+                0x10081dac       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081dac                CapSense_CSDSetupWidgetExt
  .text.CapSense_SsCSDCalibrateOneSensor
-                0x10081df4       0xe4 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081e10       0xe4 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .text.CapSense_CSDCalibrateWidget
-                0x10081ed8      0x114 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
-                0x10081ed8                CapSense_CSDCalibrateWidget
+                0x10081ef4      0x114 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10081ef4                CapSense_CSDCalibrateWidget
  .text.CapSense_SsCalcCsxScanPeriod
-                0x10081fec       0x10 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x10082008       0x10 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
  .text.CapSense_CSXScanISR
-                0x10081ffc       0xd0 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x10081ffc                CapSense_CSXScanISR
+                0x10082018       0xd0 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x10082018                CapSense_CSXScanISR
  .text.CapSense_SsCSXStartSample
-                0x100820cc      0x14c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x100820e8      0x14c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
  .text.CapSense_CSXInitialize
-                0x10082218      0x160 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x10082218                CapSense_CSXInitialize
+                0x10082234      0x160 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x10082234                CapSense_CSXInitialize
  .text.CapSense_CSXCalibrateWidget
-                0x10082378       0xcc .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x10082378                CapSense_CSXCalibrateWidget
+                0x10082394       0xcc .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x10082394                CapSense_CSXCalibrateWidget
  .text.CapSense_CSXConnectTx
-                0x10082444       0xa0 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x10082444                CapSense_CSXConnectTx
+                0x10082460       0xa0 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x10082460                CapSense_CSXConnectTx
  .text.CapSense_CSXConnectRx
-                0x100824e4       0x9c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x100824e4                CapSense_CSXConnectRx
+                0x10082500       0x9c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x10082500                CapSense_CSXConnectRx
  .text.CapSense_CSXScan
-                0x10082580       0x60 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x10082580                CapSense_CSXScan
+                0x1008259c       0x60 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x1008259c                CapSense_CSXScan
  .text.CapSense_CSXDisconnectTx
-                0x100825e0       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x100825e0                CapSense_CSXDisconnectTx
+                0x100825fc       0x64 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x100825fc                CapSense_CSXDisconnectTx
  .text.CapSense_CSXDisconnectRx
-                0x10082644       0xac .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x10082644                CapSense_CSXDisconnectRx
+                0x10082660       0xac .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x10082660                CapSense_CSXDisconnectRx
  .text.CapSense_SsCSXPostMultiScan
-                0x100826f0       0xd0 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x1008270c       0xd0 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
  .text.CapSense_CSXElectrodeCheck
-                0x100827c0       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x100827c0                CapSense_CSXElectrodeCheck
+                0x100827dc       0x24 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x100827dc                CapSense_CSXElectrodeCheck
  .text.CapSense_CSXSetupWidget
-                0x100827e4       0x8c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x100827e4                CapSense_CSXSetupWidget
+                0x10082800       0x8c .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x10082800                CapSense_CSXSetupWidget
  .text.CapSense_SsCSXGetTxClkDivider
-                0x10082870       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
-                0x10082870                CapSense_SsCSXGetTxClkDivider
+                0x1008288c       0x14 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+                0x1008288c                CapSense_SsCSXGetTxClkDivider
  .text.CapSense_DpFindLocalMaxSd
-                0x10082884       0xd8 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
-                0x10082884                CapSense_DpFindLocalMaxSd
+                0x100828a0       0xd8 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
+                0x100828a0                CapSense_DpFindLocalMaxSd
  .text.CapSense_DpCalcLinearCentroid
-                0x1008295c       0x84 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
-                0x1008295c                CapSense_DpCalcLinearCentroid
+                0x10082978       0x84 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
+                0x10082978                CapSense_DpCalcLinearCentroid
  .text.CapSense_InitializeGestures
-                0x100829e0       0x30 .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
-                0x100829e0                CapSense_InitializeGestures
+                0x100829fc       0x30 .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
+                0x100829fc                CapSense_InitializeGestures
  .text.Cy_Flash_ProcessOpcode
-                0x10082a10       0xac .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+                0x10082a2c       0xac .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
  .text.Cy_Flash_OperationStatus
-                0x10082abc       0x5c .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+                0x10082ad8       0x5c .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
  .text.Cy_Flash_InitExt
-                0x10082b18       0x80 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
-                0x10082b18                Cy_Flash_InitExt
+                0x10082b34       0x80 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+                0x10082b34                Cy_Flash_InitExt
  .text.Cy_Flash_Init
-                0x10082b98       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
-                0x10082b98                Cy_Flash_Init
+                0x10082bb4       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+                0x10082bb4                Cy_Flash_Init
  .text.Cy_GPIO_Pin_FastInit
-                0x10082ba8       0xf8 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
-                0x10082ba8                Cy_GPIO_Pin_FastInit
+                0x10082bc4       0xf8 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
+                0x10082bc4                Cy_GPIO_Pin_FastInit
  .text.Cy_IPC_Drv_LockRelease
-                0x10082ca0       0x3c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
-                0x10082ca0                Cy_IPC_Drv_LockRelease
+                0x10082cbc       0x3c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+                0x10082cbc                Cy_IPC_Drv_LockRelease
  .text.Cy_IPC_Drv_SendMsgWord
-                0x10082cdc       0x3c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
-                0x10082cdc                Cy_IPC_Drv_SendMsgWord
+                0x10082cf8       0x3c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+                0x10082cf8                Cy_IPC_Drv_SendMsgWord
  .text.Cy_IPC_Drv_ReadMsgWord
-                0x10082d18       0x38 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
-                0x10082d18                Cy_IPC_Drv_ReadMsgWord
+                0x10082d34       0x38 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+                0x10082d34                Cy_IPC_Drv_ReadMsgWord
  .text.Cy_IPC_Sema_InitExt
-                0x10082d50       0xac .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
-                0x10082d50                Cy_IPC_Sema_InitExt
+                0x10082d6c       0xac .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+                0x10082d6c                Cy_IPC_Sema_InitExt
  .text.Cy_IPC_Sema_Init
-                0x10082dfc       0x64 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
-                0x10082dfc                Cy_IPC_Sema_Init
+                0x10082e18       0x64 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+                0x10082e18                Cy_IPC_Sema_Init
  .text.Cy_IPC_Sema_Clear
-                0x10082e60       0x88 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
-                0x10082e60                Cy_IPC_Sema_Clear
+                0x10082e7c       0x88 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+                0x10082e7c                Cy_IPC_Sema_Clear
  .text.Cy_IPC_Sema_Status
-                0x10082ee8       0x40 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
-                0x10082ee8                Cy_IPC_Sema_Status
+                0x10082f04       0x40 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+                0x10082f04                Cy_IPC_Sema_Status
  .text.Cy_IPC_Pipe_Config
-                0x10082f28       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x10082f28                Cy_IPC_Pipe_Config
+                0x10082f44       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x10082f44                Cy_IPC_Pipe_Config
  .text.Cy_IPC_Pipe_EndpointInit
-                0x10082f38       0xd0 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x10082f38                Cy_IPC_Pipe_EndpointInit
+                0x10082f54       0xd0 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x10082f54                Cy_IPC_Pipe_EndpointInit
  .text.Cy_IPC_Pipe_Init
-                0x10083008       0xb4 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x10083008                Cy_IPC_Pipe_Init
+                0x10083024       0xb4 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x10083024                Cy_IPC_Pipe_Init
  .text.Cy_IPC_Pipe_SendMessage
-                0x100830bc       0xa4 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x100830bc                Cy_IPC_Pipe_SendMessage
+                0x100830d8       0xa4 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x100830d8                Cy_IPC_Pipe_SendMessage
  .text.Cy_IPC_Pipe_RegisterCallback
-                0x10083160       0x50 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x10083160                Cy_IPC_Pipe_RegisterCallback
+                0x1008317c       0x50 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x1008317c                Cy_IPC_Pipe_RegisterCallback
  .text.Cy_IPC_Pipe_ExecCallback
-                0x100831b0       0xbc .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x100831b0                Cy_IPC_Pipe_ExecCallback
+                0x100831cc       0xbc .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x100831cc                Cy_IPC_Pipe_ExecCallback
  .text.Cy_IPC_Pipe_ExecuteCallback
-                0x1008326c       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x1008326c                Cy_IPC_Pipe_ExecuteCallback
+                0x10083288       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x10083288                Cy_IPC_Pipe_ExecuteCallback
  .text.Cy_SysInt_SetVector
-                0x10083298       0x48 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
-                0x10083298                Cy_SysInt_SetVector
+                0x100832b4       0x48 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+                0x100832b4                Cy_SysInt_SetVector
  .text.Cy_SysInt_Init
-                0x100832e0       0x74 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
-                0x100832e0                Cy_SysInt_Init
+                0x100832fc       0x74 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+                0x100832fc                Cy_SysInt_Init
  .text.Cy_SysLib_DelayUs
-                0x10083354       0x14 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x10083354                Cy_SysLib_DelayUs
+                0x10083370       0x14 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x10083370                Cy_SysLib_DelayUs
  .text.Cy_SysLib_Halt
-                0x10083368        0x4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x10083368                Cy_SysLib_Halt
+                0x10083384        0x4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x10083384                Cy_SysLib_Halt
  .text.Cy_SysLib_AssertFailed
-                0x1008336c       0x1c .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x1008336c                Cy_SysLib_AssertFailed
+                0x10083388       0x1c .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x10083388                Cy_SysLib_AssertFailed
  .text.Cy_SysLib_ProcessingFault
-                0x10083388        0x4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x10083388                Cy_SysLib_ProcessingFault
+                0x100833a4        0x4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x100833a4                Cy_SysLib_ProcessingFault
  .text.Cy_SysLib_FaultHandler
-                0x1008338c       0xa4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x1008338c                Cy_SysLib_FaultHandler
- .text          0x10083430       0x20 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
-                0x10083430                Cy_SysLib_DelayCycles
-                0x10083442                Cy_SysLib_EnterCriticalSection
-                0x1008344a                Cy_SysLib_ExitCriticalSection
+                0x100833a8       0xa4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x100833a8                Cy_SysLib_FaultHandler
+ *fill*         0x1008344c        0x4 
+ .text          0x10083450       0x20 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
+                0x10083450                Cy_SysLib_DelayCycles
+                0x10083462                Cy_SysLib_EnterCriticalSection
+                0x1008346a                Cy_SysLib_ExitCriticalSection
  .text.Cy_TCPWM_PWM_Init
-                0x10083450      0x16c .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
-                0x10083450                Cy_TCPWM_PWM_Init
+                0x10083470      0x16c .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
+                0x10083470                Cy_TCPWM_PWM_Init
  .text.Cy_PDL_Init
-                0x100835bc        0xc .\CortexM4\ARM_GCC_541\Debug\cy_device.o
-                0x100835bc                Cy_PDL_Init
+                0x100835dc        0xc .\CortexM4\ARM_GCC_541\Debug\cy_device.o
+                0x100835dc                Cy_PDL_Init
  .text.PWM_1_Start
-                0x100835c8       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
-                0x100835c8                PWM_1_Start
+                0x100835e8       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
+                0x100835e8                PWM_1_Start
  .text.PWM_2_Start
-                0x100835f8       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
-                0x100835f8                PWM_2_Start
+                0x10083618       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
+                0x10083618                PWM_2_Start
  .text.Gesture_Init
-                0x10083628       0x80 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_TMG_v2_0\Library\Gestures_GCC_M4.a(Gesture.o)
-                0x10083628                Gesture_Init
+                0x10083648       0x80 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_TMG_v2_0\Library\Gestures_GCC_M4.a(Gesture.o)
+                0x10083648                Gesture_Init
  .text.SmartSense_TunePrescalers
-                0x100836a8       0x4c C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
-                0x100836a8                SmartSense_TunePrescalers
+                0x100836c8       0x4c C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
+                0x100836c8                SmartSense_TunePrescalers
  .text.SmartSense_TuneSensitivity
-                0x100836f4       0x64 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
-                0x100836f4                SmartSense_TuneSensitivity
+                0x10083714       0x64 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
+                0x10083714                SmartSense_TuneSensitivity
  .text.SmartSense_UpdateThresholds
-                0x10083758       0x38 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
-                0x10083758                SmartSense_UpdateThresholds
+                0x10083778       0x38 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
+                0x10083778                SmartSense_UpdateThresholds
  .text.SmartSense_InitializeNoiseEnvelope
-                0x10083790       0x18 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
-                0x10083790                SmartSense_InitializeNoiseEnvelope
+                0x100837b0       0x18 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
+                0x100837b0                SmartSense_InitializeNoiseEnvelope
  .text.SmartSense_RunNoiseEnvelope
-                0x100837a8       0x8a C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
-                0x100837a8                SmartSense_RunNoiseEnvelope
- .text.memcpy   0x10083832       0x16 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy-stub.o)
-                0x10083832                memcpy
- .text.memset   0x10083848       0x10 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
-                0x10083848                memset
- .text.strncpy  0x10083858       0x26 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strncpy.o)
-                0x10083858                strncpy
+                0x100837c8       0x8a C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
+                0x100837c8                SmartSense_RunNoiseEnvelope
+ .text.memcpy   0x10083852       0x16 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy-stub.o)
+                0x10083852                memcpy
+ .text.memset   0x10083868       0x10 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
+                0x10083868                memset
+ .text.strncpy  0x10083878       0x26 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strncpy.o)
+                0x10083878                strncpy
  *(.init)
- *fill*         0x1008387e        0x2 
- .init          0x10083880        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crti.o
-                0x10083880                _init
- .init          0x10083884        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtn.o
+ *fill*         0x1008389e        0x2 
+ .init          0x100838a0        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crti.o
+                0x100838a0                _init
+ .init          0x100838a4        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtn.o
  *(.fini)
- .fini          0x1008388c        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crti.o
-                0x1008388c                _fini
- .fini          0x10083890        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtn.o
+ .fini          0x100838ac        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crti.o
+                0x100838ac                _fini
+ .fini          0x100838b0        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -1824,102 +1825,102 @@ END GROUP
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata .rodata.* .constdata .constdata.* .conststring .conststring.*)
- .rodata        0x10083898       0x34 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
- .rodata        0x100838cc        0x8 .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
-                0x100838cc                CapSense_ISR_cfg
- .rodata        0x100838d4       0x64 .\CortexM4\ARM_GCC_541\Debug\PWM.o
-                0x100838d4                PWM_config
+ .rodata        0x100838b8       0x34 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+ .rodata        0x100838ec        0x8 .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
+                0x100838ec                CapSense_ISR_cfg
+ .rodata        0x100838f4       0x64 .\CortexM4\ARM_GCC_541\Debug\PWM.o
+                0x100838f4                PWM_config
  .rodata.str1.4
-                0x10083938       0x2a .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
- *fill*         0x10083962        0x2 
+                0x10083958       0x2a .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+ *fill*         0x10083982        0x2 
  .rodata.str1.4
-                0x10083964       0x2d .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
- *fill*         0x10083991        0x3 
- .rodata        0x10083994      0x16c .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
-                0x10083994                CapSense_ramIdacInit
-                0x1008399c                CapSense_dsFlash
-                0x10083a20                CapSense_ramWidgetInit
-                0x10083a60                CapSense_ramGesturesInit
-                0x10083ab8                CapSense_ioList
- .rodata        0x10083b00        0x1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
-                0x10083b00                CapSense_scanFreqIndex
- *fill*         0x10083b01        0x3 
+                0x10083984       0x2d .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+ *fill*         0x100839b1        0x3 
+ .rodata        0x100839b4      0x16c .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+                0x100839b4                CapSense_ramIdacInit
+                0x100839bc                CapSense_dsFlash
+                0x10083a40                CapSense_ramWidgetInit
+                0x10083a80                CapSense_ramGesturesInit
+                0x10083ad8                CapSense_ioList
+ .rodata        0x10083b20        0x1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10083b20                CapSense_scanFreqIndex
+ *fill*         0x10083b21        0x3 
  .rodata.str1.4
-                0x10083b04       0x6a .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+                0x10083b24       0x6a .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
  .rodata.str1.4
-                0x10083b6e       0x3d .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+                0x10083b8e       0x3d .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
  .rodata.str1.4
-                0x10083b6e       0x3d .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
- *fill*         0x10083b6e        0x2 
+                0x10083b8e       0x3d .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+ *fill*         0x10083b8e        0x2 
  .rodata.str1.4
-                0x10083b70       0x3f .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
- *fill*         0x10083baf        0x1 
+                0x10083b90       0x3f .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+ *fill*         0x10083bcf        0x1 
  .rodata.str1.4
-                0x10083bb0       0x7d .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
- *fill*         0x10083c2d        0x3 
+                0x10083bd0       0x7d .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
+ *fill*         0x10083c4d        0x3 
  .rodata.str1.4
-                0x10083c30       0x7f .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+                0x10083c50       0x7f .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
  .rodata.str1.4
-                0x10083caf       0x3f .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
- *fill*         0x10083caf        0x1 
+                0x10083ccf       0x3f .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+ *fill*         0x10083ccf        0x1 
  .rodata.str1.4
-                0x10083cb0       0x40 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x10083cd0       0x40 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
                                  0x7f (size before relaxing)
  .rodata.str1.4
-                0x10083cf0       0x44 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+                0x10083d10       0x44 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
                                  0x41 (size before relaxing)
- .rodata        0x10083d34      0x170 .\CortexM4\ARM_GCC_541\Debug\cy_device.o
-                0x10083d34                cy_deviceIpBlockCfgPSoC6_02
-                0x10083dec                cy_deviceIpBlockCfgPSoC6_01
- .rodata        0x10083ea4       0x64 .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
-                0x10083ea4                PWM_1_config
- .rodata        0x10083f08       0x64 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
-                0x10083f08                PWM_2_config
+ .rodata        0x10083d54      0x170 .\CortexM4\ARM_GCC_541\Debug\cy_device.o
+                0x10083d54                cy_deviceIpBlockCfgPSoC6_02
+                0x10083e0c                cy_deviceIpBlockCfgPSoC6_01
+ .rodata        0x10083ec4       0x64 .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
+                0x10083ec4                PWM_1_config
+ .rodata        0x10083f28       0x64 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
+                0x10083f28                PWM_2_config
  *(.eh_frame*)
- .eh_frame      0x10083f6c        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtbegin.o
- .eh_frame      0x10083f6c        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtend.o
+ .eh_frame      0x10083f8c        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtbegin.o
+ .eh_frame      0x10083f8c        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtend.o
 
-.glue_7         0x10083f70        0x0
- .glue_7        0x10083f70        0x0 linker stubs
+.glue_7         0x10083f90        0x0
+ .glue_7        0x10083f90        0x0 linker stubs
 
-.glue_7t        0x10083f70        0x0
- .glue_7t       0x10083f70        0x0 linker stubs
+.glue_7t        0x10083f90        0x0
+ .glue_7t       0x10083f90        0x0 linker stubs
 
-.vfp11_veneer   0x10083f70        0x0
- .vfp11_veneer  0x10083f70        0x0 linker stubs
+.vfp11_veneer   0x10083f90        0x0
+ .vfp11_veneer  0x10083f90        0x0 linker stubs
 
-.v4_bx          0x10083f70        0x0
- .v4_bx         0x10083f70        0x0 linker stubs
+.v4_bx          0x10083f90        0x0
+ .v4_bx         0x10083f90        0x0 linker stubs
 
-.iplt           0x10083f70        0x0
- .iplt          0x10083f70        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtbegin.o
+.iplt           0x10083f90        0x0
+ .iplt          0x10083f90        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x10083f70                __exidx_start = .
+                0x10083f90                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x10083f70                __exidx_end = .
+                0x10083f90                __exidx_end = .
 
-.copy.table     0x10083f70       0x18
-                0x10083f70                . = ALIGN (0x4)
-                0x10083f70                __copy_table_start__ = .
-                0x10083f70        0x4 LONG 0x10080000 __Vectors
-                0x10083f74        0x4 LONG 0x8024000 __ram_vectors_start__
-                0x10083f78        0x4 LONG 0x28c (__Vectors_End - __Vectors)
-                0x10083f7c        0x4 LONG 0x10083f90 __etext
-                0x10083f80        0x4 LONG 0x802428c __data_start__
-                0x10083f84        0x4 LONG 0x2144 (__data_end__ - __data_start__)
-                0x10083f88                __copy_table_end__ = .
+.copy.table     0x10083f90       0x18
+                0x10083f90                . = ALIGN (0x4)
+                0x10083f90                __copy_table_start__ = .
+                0x10083f90        0x4 LONG 0x10080000 __Vectors
+                0x10083f94        0x4 LONG 0x8024000 __ram_vectors_start__
+                0x10083f98        0x4 LONG 0x28c (__Vectors_End - __Vectors)
+                0x10083f9c        0x4 LONG 0x10083fb0 __etext
+                0x10083fa0        0x4 LONG 0x802428c __data_start__
+                0x10083fa4        0x4 LONG 0x2144 (__data_end__ - __data_start__)
+                0x10083fa8                __copy_table_end__ = .
 
-.zero.table     0x10083f88        0x8
-                0x10083f88                . = ALIGN (0x4)
-                0x10083f88                __zero_table_start__ = .
-                0x10083f88        0x4 LONG 0x8026464 __bss_start__
-                0x10083f8c        0x4 LONG 0x48c (__bss_end__ - __bss_start__)
-                0x10083f90                __zero_table_end__ = .
-                0x10083f90                __etext = .
+.zero.table     0x10083fa8        0x8
+                0x10083fa8                . = ALIGN (0x4)
+                0x10083fa8                __zero_table_start__ = .
+                0x10083fa8        0x4 LONG 0x8026464 __bss_start__
+                0x10083fac        0x4 LONG 0x48c (__bss_end__ - __bss_start__)
+                0x10083fb0                __zero_table_end__ = .
+                0x10083fb0                __etext = .
 
 .ramVectors     0x08024000      0x28c
                 0x08024000                __ram_vectors_start__ = .
@@ -1928,7 +1929,7 @@ END GROUP
                 0x08024000                __ramVectors
                 0x0802428c                __ram_vectors_end__ = .
 
-.data           0x0802428c     0x2144 load address 0x10083f90
+.data           0x0802428c     0x2144 load address 0x10083fb0
                 0x0802428c                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -1980,17 +1981,17 @@ END GROUP
                 0x080263d0                . = ALIGN (0x4)
                 0x080263d0                __data_end__ = .
 
-.igot.plt       0x080263d0        0x0 load address 0x100860d4
+.igot.plt       0x080263d0        0x0 load address 0x100860f4
  .igot.plt      0x080263d0        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtbegin.o
 
-.noinit         0x080263d0       0x94 load address 0x100860d8
+.noinit         0x080263d0       0x94 load address 0x100860f8
  *(.noinit)
  .noinit        0x080263d0       0x94 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
                 0x080263d0                cy_assertFileName
                 0x080263e8                cy_assertLine
                 0x080263ec                cy_faultFrame
 
-.bss            0x08026464      0x48c load address 0x1008616c
+.bss            0x08026464      0x48c load address 0x1008618c
                 0x08026464                . = ALIGN (0x4)
                 0x08026464                __bss_start__ = .
  *(.bss*)
@@ -2142,7 +2143,7 @@ END GROUP
                 0x00000001                __cy_memory_4_row_size = 0x1
 OUTPUT(C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSense_Basic.cydsn\CortexM4\ARM_GCC_541\Debug\CapSense_Basic_link.elf elf32-littlearm)
 
-.rel.dyn        0x080268f0        0x0 load address 0x9855fd14
+.rel.dyn        0x080268f0        0x0 load address 0x9855fd34
  .rel.iplt      0x080268f0        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtbegin.o
 
 .ARM.attributes
@@ -2262,107 +2263,107 @@ OUTPUT(C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSense_Basic
  .comment       0x0000006e       0x6f C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
  .comment       0x0000006e       0x6f C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
 
-.debug_line     0x00000000     0x7c5e
+.debug_line     0x00000000     0x7c7f
  .debug_line    0x00000000       0x8e .\CortexM4\ARM_GCC_541\Debug\startup_psoc6_01_cm4.o
- .debug_line    0x0000008e      0x40d .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
- .debug_line    0x0000049b      0x437 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
- .debug_line    0x000008d2      0x251 .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
- .debug_line    0x00000b23      0x141 .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x00000c64      0x26b .\CortexM4\ARM_GCC_541\Debug\PWM.o
- .debug_line    0x00000ecf      0x4cb .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
- .debug_line    0x0000139a      0x5a7 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
- .debug_line    0x00001941      0x3f9 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
- .debug_line    0x00001d3a      0x2ec .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
- .debug_line    0x00002026      0x3b3 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
- .debug_line    0x000023d9      0x99a .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
- .debug_line    0x00002d73      0x3a0 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
- .debug_line    0x00003113      0x801 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
- .debug_line    0x00003914      0x778 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
- .debug_line    0x0000408c      0x29e .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
- .debug_line    0x0000432a      0x2c9 .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
- .debug_line    0x000045f3      0x7d4 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
- .debug_line    0x00004dc7      0x4fa .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
- .debug_line    0x000052c1      0x33e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
- .debug_line    0x000055ff      0x407 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
- .debug_line    0x00005a06      0x57e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
- .debug_line    0x00005f84      0x2dd .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
- .debug_line    0x00006261      0x482 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
- .debug_line    0x000066e3       0x89 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
- .debug_line    0x0000676c      0xa5a .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
- .debug_line    0x000071c6      0x2ce .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
- .debug_line    0x00007494      0x17e .\CortexM4\ARM_GCC_541\Debug\cy_device.o
- .debug_line    0x00007612      0x26d .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
- .debug_line    0x0000787f      0x26d .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
- .debug_line    0x00007aec       0x95 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
- .debug_line    0x00007b81       0xdd C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
+ .debug_line    0x0000008e      0x42e .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+ .debug_line    0x000004bc      0x437 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+ .debug_line    0x000008f3      0x251 .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
+ .debug_line    0x00000b44      0x141 .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00000c85      0x26b .\CortexM4\ARM_GCC_541\Debug\PWM.o
+ .debug_line    0x00000ef0      0x4cb .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+ .debug_line    0x000013bb      0x5a7 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+ .debug_line    0x00001962      0x3f9 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+ .debug_line    0x00001d5b      0x2ec .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
+ .debug_line    0x00002047      0x3b3 .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+ .debug_line    0x000023fa      0x99a .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+ .debug_line    0x00002d94      0x3a0 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+ .debug_line    0x00003134      0x801 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+ .debug_line    0x00003935      0x778 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+ .debug_line    0x000040ad      0x29e .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
+ .debug_line    0x0000434b      0x2c9 .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
+ .debug_line    0x00004614      0x7d4 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+ .debug_line    0x00004de8      0x4fa .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
+ .debug_line    0x000052e2      0x33e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+ .debug_line    0x00005620      0x407 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+ .debug_line    0x00005a27      0x57e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+ .debug_line    0x00005fa5      0x2dd .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+ .debug_line    0x00006282      0x482 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+ .debug_line    0x00006704       0x89 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
+ .debug_line    0x0000678d      0xa5a .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
+ .debug_line    0x000071e7      0x2ce .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
+ .debug_line    0x000074b5      0x17e .\CortexM4\ARM_GCC_541\Debug\cy_device.o
+ .debug_line    0x00007633      0x26d .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
+ .debug_line    0x000078a0      0x26d .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
+ .debug_line    0x00007b0d       0x95 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
+ .debug_line    0x00007ba2       0xdd C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
 
-.debug_info     0x00000000    0x2ba6b
+.debug_info     0x00000000    0x2bab1
  .debug_info    0x00000000       0x93 .\CortexM4\ARM_GCC_541\Debug\startup_psoc6_01_cm4.o
- .debug_info    0x00000093      0xdd3 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
- .debug_info    0x00000e66     0x1bb3 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
- .debug_info    0x00002a19      0x94a .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
- .debug_info    0x00003363       0xac .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
- .debug_info    0x0000340f      0x4d5 .\CortexM4\ARM_GCC_541\Debug\PWM.o
- .debug_info    0x000038e4     0x168f .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
- .debug_info    0x00004f73     0x1573 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
- .debug_info    0x000064e6     0x128f .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
- .debug_info    0x00007775     0x1057 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
- .debug_info    0x000087cc      0xadc .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
- .debug_info    0x000092a8     0x52da .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
- .debug_info    0x0000e582     0x16ec .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
- .debug_info    0x0000fc6e     0x49df .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
- .debug_info    0x0001464d     0x4a17 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
- .debug_info    0x00019064      0x331 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
- .debug_info    0x00019395      0xe3c .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
- .debug_info    0x0001a1d1     0x2a10 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
- .debug_info    0x0001cbe1     0x342f .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
- .debug_info    0x00020010      0x906 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
- .debug_info    0x00020916      0xc1e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
- .debug_info    0x00021534     0x1952 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
- .debug_info    0x00022e86      0xe11 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
- .debug_info    0x00023c97     0x24fa .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
- .debug_info    0x00026191       0xc1 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
- .debug_info    0x00026252     0x4014 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
- .debug_info    0x0002a266      0x483 .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
- .debug_info    0x0002a6e9      0x551 .\CortexM4\ARM_GCC_541\Debug\cy_device.o
- .debug_info    0x0002ac3a      0x4d5 .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
- .debug_info    0x0002b10f      0x4d5 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
- .debug_info    0x0002b5e4      0x22c C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
- .debug_info    0x0002b810      0x25b C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
+ .debug_info    0x00000093      0xe19 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+ .debug_info    0x00000eac     0x1bb3 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+ .debug_info    0x00002a5f      0x94a .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
+ .debug_info    0x000033a9       0xac .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x00003455      0x4d5 .\CortexM4\ARM_GCC_541\Debug\PWM.o
+ .debug_info    0x0000392a     0x168f .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+ .debug_info    0x00004fb9     0x1573 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+ .debug_info    0x0000652c     0x128f .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+ .debug_info    0x000077bb     0x1057 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
+ .debug_info    0x00008812      0xadc .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+ .debug_info    0x000092ee     0x52da .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+ .debug_info    0x0000e5c8     0x16ec .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+ .debug_info    0x0000fcb4     0x49df .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+ .debug_info    0x00014693     0x4a17 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+ .debug_info    0x000190aa      0x331 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
+ .debug_info    0x000193db      0xe3c .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
+ .debug_info    0x0001a217     0x2a10 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+ .debug_info    0x0001cc27     0x342f .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
+ .debug_info    0x00020056      0x906 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+ .debug_info    0x0002095c      0xc1e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+ .debug_info    0x0002157a     0x1952 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+ .debug_info    0x00022ecc      0xe11 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+ .debug_info    0x00023cdd     0x24fa .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+ .debug_info    0x000261d7       0xc1 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
+ .debug_info    0x00026298     0x4014 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
+ .debug_info    0x0002a2ac      0x483 .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
+ .debug_info    0x0002a72f      0x551 .\CortexM4\ARM_GCC_541\Debug\cy_device.o
+ .debug_info    0x0002ac80      0x4d5 .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
+ .debug_info    0x0002b155      0x4d5 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
+ .debug_info    0x0002b62a      0x22c C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
+ .debug_info    0x0002b856      0x25b C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
 
-.debug_abbrev   0x00000000     0x3d4c
+.debug_abbrev   0x00000000     0x3d5b
  .debug_abbrev  0x00000000       0x14 .\CortexM4\ARM_GCC_541\Debug\startup_psoc6_01_cm4.o
- .debug_abbrev  0x00000014      0x228 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
- .debug_abbrev  0x0000023c      0x23a .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
- .debug_abbrev  0x00000476       0xe3 .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
- .debug_abbrev  0x00000559       0x5d .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
- .debug_abbrev  0x000005b6      0x15f .\CortexM4\ARM_GCC_541\Debug\PWM.o
- .debug_abbrev  0x00000715      0x25d .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
- .debug_abbrev  0x00000972      0x253 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
- .debug_abbrev  0x00000bc5      0x268 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
- .debug_abbrev  0x00000e2d      0x1a4 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
- .debug_abbrev  0x00000fd1      0x1fe .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
- .debug_abbrev  0x000011cf      0x39d .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
- .debug_abbrev  0x0000156c      0x1ca .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
- .debug_abbrev  0x00001736      0x369 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
- .debug_abbrev  0x00001a9f      0x39f .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
- .debug_abbrev  0x00001e3e      0x109 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
- .debug_abbrev  0x00001f47      0x25e .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
- .debug_abbrev  0x000021a5      0x356 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
- .debug_abbrev  0x000024fb      0x261 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
- .debug_abbrev  0x0000275c      0x188 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
- .debug_abbrev  0x000028e4      0x219 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
- .debug_abbrev  0x00002afd      0x32b .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
- .debug_abbrev  0x00002e28      0x230 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
- .debug_abbrev  0x00003058      0x337 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
- .debug_abbrev  0x0000338f       0x14 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
- .debug_abbrev  0x000033a3      0x320 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
- .debug_abbrev  0x000036c3      0x158 .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
- .debug_abbrev  0x0000381b       0x9d .\CortexM4\ARM_GCC_541\Debug\cy_device.o
- .debug_abbrev  0x000038b8      0x15f .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
- .debug_abbrev  0x00003a17      0x15f .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
- .debug_abbrev  0x00003b76      0x110 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
- .debug_abbrev  0x00003c86       0xc6 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
+ .debug_abbrev  0x00000014      0x237 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+ .debug_abbrev  0x0000024b      0x23a .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+ .debug_abbrev  0x00000485       0xe3 .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
+ .debug_abbrev  0x00000568       0x5d .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x000005c5      0x15f .\CortexM4\ARM_GCC_541\Debug\PWM.o
+ .debug_abbrev  0x00000724      0x25d .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+ .debug_abbrev  0x00000981      0x253 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+ .debug_abbrev  0x00000bd4      0x268 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+ .debug_abbrev  0x00000e3c      0x1a4 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
+ .debug_abbrev  0x00000fe0      0x1fe .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+ .debug_abbrev  0x000011de      0x39d .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+ .debug_abbrev  0x0000157b      0x1ca .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+ .debug_abbrev  0x00001745      0x369 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+ .debug_abbrev  0x00001aae      0x39f .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+ .debug_abbrev  0x00001e4d      0x109 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
+ .debug_abbrev  0x00001f56      0x25e .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
+ .debug_abbrev  0x000021b4      0x356 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+ .debug_abbrev  0x0000250a      0x261 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
+ .debug_abbrev  0x0000276b      0x188 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+ .debug_abbrev  0x000028f3      0x219 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+ .debug_abbrev  0x00002b0c      0x32b .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+ .debug_abbrev  0x00002e37      0x230 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+ .debug_abbrev  0x00003067      0x337 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+ .debug_abbrev  0x0000339e       0x14 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
+ .debug_abbrev  0x000033b2      0x320 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
+ .debug_abbrev  0x000036d2      0x158 .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
+ .debug_abbrev  0x0000382a       0x9d .\CortexM4\ARM_GCC_541\Debug\cy_device.o
+ .debug_abbrev  0x000038c7      0x15f .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
+ .debug_abbrev  0x00003a26      0x15f .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
+ .debug_abbrev  0x00003b85      0x110 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
+ .debug_abbrev  0x00003c95       0xc6 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
 
 .debug_aranges  0x00000000      0xa80
  .debug_aranges
@@ -2430,34 +2431,34 @@ OUTPUT(C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSense_Basic
  .debug_aranges
                 0x00000a50       0x30 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
 
-.debug_loc      0x00000000     0x916f
- .debug_loc     0x00000000      0x141 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
- .debug_loc     0x00000141      0x1fe .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
- .debug_loc     0x0000033f       0x58 .\CortexM4\ARM_GCC_541\Debug\PWM.o
- .debug_loc     0x00000397      0x682 .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
- .debug_loc     0x00000a19      0xaec .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
- .debug_loc     0x00001505      0x4af .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
- .debug_loc     0x000019b4      0x186 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
- .debug_loc     0x00001b3a      0x8cd .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
- .debug_loc     0x00002407     0x13be .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
- .debug_loc     0x000037c5       0xa2 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
- .debug_loc     0x00003867      0xb81 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
- .debug_loc     0x000043e8      0xa5e .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
- .debug_loc     0x00004e46      0x1a1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
- .debug_loc     0x00004fe7      0x1b1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
- .debug_loc     0x00005198      0xd86 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
- .debug_loc     0x00005f1e      0x838 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
- .debug_loc     0x00006756      0x2a1 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
- .debug_loc     0x000069f7      0x76b .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
- .debug_loc     0x00007162      0x7e2 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
- .debug_loc     0x00007944      0x223 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
- .debug_loc     0x00007b67      0x215 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
- .debug_loc     0x00007d7c      0xe9a .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
- .debug_loc     0x00008c16       0xd9 .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
- .debug_loc     0x00008cef       0x58 .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
- .debug_loc     0x00008d47       0x58 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
- .debug_loc     0x00008d9f      0x2ac C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
- .debug_loc     0x0000904b      0x124 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
+.debug_loc      0x00000000     0x91dd
+ .debug_loc     0x00000000      0x1af .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+ .debug_loc     0x000001af      0x1fe .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+ .debug_loc     0x000003ad       0x58 .\CortexM4\ARM_GCC_541\Debug\PWM.o
+ .debug_loc     0x00000405      0x682 .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+ .debug_loc     0x00000a87      0xaec .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+ .debug_loc     0x00001573      0x4af .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+ .debug_loc     0x00001a22      0x186 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
+ .debug_loc     0x00001ba8      0x8cd .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+ .debug_loc     0x00002475     0x13be .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+ .debug_loc     0x00003833       0xa2 .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+ .debug_loc     0x000038d5      0xb81 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+ .debug_loc     0x00004456      0xa5e .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+ .debug_loc     0x00004eb4      0x1a1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
+ .debug_loc     0x00005055      0x1b1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
+ .debug_loc     0x00005206      0xd86 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+ .debug_loc     0x00005f8c      0x838 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
+ .debug_loc     0x000067c4      0x2a1 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+ .debug_loc     0x00006a65      0x76b .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+ .debug_loc     0x000071d0      0x7e2 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+ .debug_loc     0x000079b2      0x223 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+ .debug_loc     0x00007bd5      0x215 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+ .debug_loc     0x00007dea      0xe9a .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
+ .debug_loc     0x00008c84       0xd9 .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
+ .debug_loc     0x00008d5d       0x58 .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
+ .debug_loc     0x00008db5       0x58 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
+ .debug_loc     0x00008e0d      0x2ac C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
+ .debug_loc     0x000090b9      0x124 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
 
 .debug_ranges   0x00000000      0x8c0
  .debug_ranges  0x00000000       0x10 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
