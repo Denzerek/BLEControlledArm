@@ -210,11 +210,6 @@ typedef struct
      *  The 75% of signal per user-defined finger capacitance
      */
     uint16 sigPFC;
-
-    /**
-     *  Keeps either current gesture detection status or detected gesture code.
-     */
-    uint8  gestureId;
 } CapSense_RAM_WD_BASE_STRUCT;
 
 /***************************************************************************//**
@@ -293,11 +288,6 @@ typedef struct
      *  The 75% of signal per user-defined finger capacitance
      */
     uint16 sigPFC;
-
-    /**
-     *  Keeps either current gesture detection status or detected gesture code.
-     */
-    uint8  gestureId;
 } CapSense_RAM_WD_BUTTON_STRUCT;
 
 /***************************************************************************//**
@@ -376,11 +366,6 @@ typedef struct
      *  The 75% of signal per user-defined finger capacitance
      */
     uint16 sigPFC;
-
-    /**
-     *  Keeps either current gesture detection status or detected gesture code.
-     */
-    uint8  gestureId;
 
     /**
      *  Reports the widget position.
@@ -565,21 +550,6 @@ typedef struct
      *  RAM Sensor Objects.
      */
     CapSense_RAM_SNS_LIST_STRUCT snsList;
-
-    /**
-     *  The configuration data for gestures detection.
-     */
-    CapSense_TMG_CONFIG_STRUCT gestures;
-
-    /**
-     *  The timestamp interval used at increasing the timestamp.
-     */
-    uint32 timestampInterval;
-
-    /**
-     *  The current timestamp.
-     */
-    uint32 timestamp;
 
     /**
      *  The selected widget ID.
@@ -1184,7 +1154,6 @@ extern const CapSense_FLASH_IO_STRUCT CapSense_ioList[CapSense_TOTAL_ELECTRODES]
 extern const CapSense_RAM_WD_LIST_STRUCT CapSense_ramWidgetInit;
 extern const uint8 CapSense_ramIdacInit[CapSense_TOTAL_SENSORS];
 
-extern const CapSense_TMG_CONFIG_STRUCT CapSense_ramGesturesInit;
 
 
 
