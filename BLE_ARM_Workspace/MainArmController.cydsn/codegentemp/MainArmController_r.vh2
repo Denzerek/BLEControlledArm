@@ -1,5 +1,5 @@
 -- Project:   MainArmController
--- Generated: 10/14/2021 17:25:20
+-- Generated: 10/14/2021 17:28:29
 -- PSoC Creator  4.2
 
 ENTITY MainArmController IS
@@ -55,6 +55,7 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL GREEN(0)__PA : bit;
     SIGNAL M1(0)__PA : bit;
     SIGNAL M2(0)__PA : bit;
+    SIGNAL Net_104 : bit;
     SIGNAL Net_11 : bit;
     SIGNAL Net_145 : bit;
     SIGNAL Net_154_ff11 : bit;
@@ -75,7 +76,7 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL Net_28 : bit;
     SIGNAL Net_29 : bit;
     SIGNAL Net_294 : bit;
-    ATTRIBUTE placement_force OF Net_294 : SIGNAL IS "U(1,5,A)2";
+    ATTRIBUTE placement_force OF Net_294 : SIGNAL IS "U(1,5,A)1";
     SIGNAL Net_30 : bit;
     SIGNAL Net_31 : bit;
     SIGNAL Net_329 : bit;
@@ -90,7 +91,7 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     ATTRIBUTE global_signal OF Net_47_ff15 : SIGNAL IS true;
     SIGNAL Net_48 : bit;
     SIGNAL Net_51 : bit;
-    ATTRIBUTE placement_force OF Net_51 : SIGNAL IS "U(1,5,A)1";
+    ATTRIBUTE placement_force OF Net_51 : SIGNAL IS "U(1,5,A)2";
     SIGNAL Net_56 : bit;
     SIGNAL Net_57 : bit;
     SIGNAL Net_58 : bit;
@@ -102,7 +103,6 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL Net_91 : bit;
     SIGNAL Net_92 : bit;
     SIGNAL Net_93 : bit;
-    SIGNAL Net_95 : bit;
     SIGNAL Net_96 : bit;
     SIGNAL Net_99 : bit;
     ATTRIBUTE placement_force OF Net_99 : SIGNAL IS "U(1,5,A)0";
@@ -1335,11 +1335,11 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "GREEN",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
         PORT MAP(
             pa_out => GREEN(0)__PA,
             oe => open,
-            pin_input => Net_95,
+            pin_input => Net_51,
             pad_out => GREEN(0)_PAD,
             pad_in => GREEN(0)_PAD,
             in_clock => open,
@@ -1824,13 +1824,14 @@ BEGIN
 
     Net_99:macrocell
         GENERIC MAP(
-            eqn_main => "(!main_0 * !main_1)",
+            eqn_main => "(!main_0 * !main_1 * !main_2)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
             q => Net_99,
             main_0 => Net_294,
-            main_1 => Net_145);
+            main_1 => Net_145,
+            main_2 => Net_104);
 
     \UART:SCB_IRQ\:interrupt
         GENERIC MAP(
@@ -2067,7 +2068,7 @@ BEGIN
             tr_compare_match => Net_93,
             tr_overflow => Net_91,
             line_compl => Net_96,
-            line => Net_95,
+            line => Net_104,
             interrupt => Net_90);
 
     Net_294:macrocell

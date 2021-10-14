@@ -1,6 +1,6 @@
 // ======================================================================
 // MainArmController.v generated from TopDesign.cysch
-// 10/14/2021 at 17:25
+// 10/14/2021 at 17:28
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1167,7 +1167,7 @@ module CapSense_v2_0_6 ;
 
 endmodule
 
-// TCPWM_PWM_PDL_v1_0(ClockPrescaler=1, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=0, KillInputMasked=0, KillMode=2, Period0=100, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=1, StartInputMasked=1, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=LEDBlink_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=LEDBlink_1, CY_INSTANCE_SHORT_NAME=LEDBlink_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=LEDBlink_1, )
+// TCPWM_PWM_PDL_v1_0(ClockPrescaler=1, Compare0=99, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=0, KillInputMasked=0, KillMode=2, Period0=100, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=1, StartInputMasked=1, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=LEDBlink_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=LEDBlink_1, CY_INSTANCE_SHORT_NAME=LEDBlink_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=LEDBlink_1, )
 module TCPWM_PWM_PDL_v1_0_7 (
     kill,
     reload,
@@ -1237,7 +1237,6 @@ module top ;
           wire  Net_54;
           wire  Net_53;
           wire  Net_52;
-          wire  Net_95;
           wire  Net_99;
           wire  Net_84;
           wire  Net_48;
@@ -1288,7 +1287,7 @@ module top ;
           wire  Net_3;
           wire  Net_2;
           wire  Net_1;
-          wire  Net_97;
+          wire  Net_104;
           wire  Net_100;
           wire  Net_51;
           wire  Net_329;
@@ -1557,7 +1556,7 @@ module top ;
 		  .hotswap_needed("0"))
 		GREEN
 		 (.oe({1'b1}),
-		  .y({Net_95}),
+		  .y({Net_51}),
 		  .fb({tmpFB_0__GREEN_net[0:0]}),
 		  .io({tmpIO_0__GREEN_net[0:0]}),
 		  .siovref(tmpSIOVREF__GREEN_net));
@@ -1655,17 +1654,17 @@ module top ;
         .undrflw(Net_92),
         .compare(Net_93),
         .clock(Net_154),
-        .pwm(Net_95),
+        .pwm(Net_104),
         .pwm_n(Net_96));
 
     // -- Mux start --
     if (1)
     begin : mux_2
         reg  tmp__mux_2_reg;
-        always @(Net_98 or Net_100)
+        always @(Net_104 or Net_98 or Net_100)
         begin
             case (Net_100)
-                1'b0 :  tmp__mux_2_reg = 1'b0;
+                1'b0 :  tmp__mux_2_reg = Net_104;
                 1'b1 :  tmp__mux_2_reg = Net_98;
             endcase
         end
