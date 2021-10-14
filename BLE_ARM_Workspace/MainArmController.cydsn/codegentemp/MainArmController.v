@@ -1,6 +1,6 @@
 // ======================================================================
 // MainArmController.v generated from TopDesign.cysch
-// 10/14/2021 at 17:30
+// 10/14/2021 at 17:37
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1236,7 +1236,9 @@ module top ;
           wire  Net_55;
           wire  Net_54;
           wire  Net_53;
+          wire  Net_105;
           wire  Net_52;
+          wire  Net_107;
           wire  Net_99;
           wire  Net_84;
           wire  Net_48;
@@ -1289,7 +1291,6 @@ module top ;
           wire  Net_1;
           wire  Net_104;
           wire  Net_100;
-          wire  Net_51;
           wire  Net_329;
           wire  Net_294;
           wire  Net_145;
@@ -1556,7 +1557,7 @@ module top ;
 		  .hotswap_needed("0"))
 		GREEN
 		 (.oe({1'b1}),
-		  .y({Net_51}),
+		  .y({Net_107}),
 		  .fb({tmpFB_0__GREEN_net[0:0]}),
 		  .io({tmpIO_0__GREEN_net[0:0]}),
 		  .siovref(tmpSIOVREF__GREEN_net));
@@ -1588,8 +1589,7 @@ module top ;
 
     assign Net_52 = 1'h1;
 
-
-    assign Net_51 = ~Net_294;
+    assign Net_105 = 1'h1;
 
 	wire [0:0] tmpFB_0__M2_net;
 	wire [0:0] tmpIO_0__M2_net;
@@ -1644,9 +1644,9 @@ module top ;
     CapSense_v2_0_6 CapSense ();
 
     TCPWM_PWM_PDL_v1_0_7 LEDBlink_1 (
-        .kill(Net_51),
+        .kill(Net_294),
         .reload(1'b0),
-        .start(Net_51),
+        .start(Net_294),
         .count(1'b1),
         .swap(1'b0),
         .interrupt(Net_90),
@@ -1673,6 +1673,21 @@ module top ;
     // -- Mux end --
 
     assign Net_98 = 1'h1;
+
+    // -- Mux start --
+    if (1)
+    begin : mux_3
+        reg  tmp__mux_3_reg;
+        always @(Net_105 or Net_104 or Net_294)
+        begin
+            case (Net_294)
+                1'b0 :  tmp__mux_3_reg = Net_105;
+                1'b1 :  tmp__mux_3_reg = Net_104;
+            endcase
+        end
+        assign Net_107 = tmp__mux_3_reg;
+    end
+    // -- Mux end --
 
 
 
