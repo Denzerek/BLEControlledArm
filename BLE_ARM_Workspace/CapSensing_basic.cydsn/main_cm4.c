@@ -102,7 +102,7 @@ int main(void)
                     break;
                 default:
                 if(prevGsture != gesture)
-                printf("%d \r\n",gesture );
+                printf("%X \r\n",gesture );
                 prevGsture = gesture;
                     break;
             }
