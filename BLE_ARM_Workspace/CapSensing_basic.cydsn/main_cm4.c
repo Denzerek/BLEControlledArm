@@ -84,6 +84,14 @@ int main(void)
             /* Controls specific LEDs based on the gesture that was captured */
             switch(gesture)
             {
+                case CapSense_TMG_FLICK_EAST:
+                    ledIndex++;
+                printf("CapSense_TMG_FLICK_EAST\r\n" );
+                break;
+                case CapSense_TMG_FLICK_WEST:
+                printf("CapSense_TMG_FLICK_WEST\r\n" );
+                    ledIndex--;
+                break;
                 case CapSense_ONE_FINGER_FLICK_UP:
                     ledIndex++;
                 printf("CapSense_ONE_FINGER_FLICK_UP\r\n" );
