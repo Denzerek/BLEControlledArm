@@ -55,7 +55,7 @@ int main(void)
     uint8_t ledIndex = 0;
     for(int ledIndex = 0; ledIndex < MAX_COLOR;ledIndex++)
     {
-        Cy_TCPWM_PWM_SetCompare0(ledSelect[ledIndex].type,ledSelect[ledIndex].num,0);
+        Cy_TCPWM_PWM_SetCompare0(ledSelect[ledIndex].type,ledSelect[ledIndex].num,0xFFF);
     }
     ledIndex = 0; 
     uint32_t gesture,prevGsture,Xcord;
@@ -86,11 +86,11 @@ int main(void)
             {
                 case CapSense_TMG_FLICK_EAST:
                     ledIndex++;
-                printf("CapSense_TMG_FLICK_EAST\r\n" );
+                printf("CapSense_TMG_FLICK_EAST %d\r\n",ledIndex );
                 break;
                 case CapSense_TMG_FLICK_WEST:
-                printf("CapSense_TMG_FLICK_WEST\r\n" );
                     ledIndex--;
+                printf("CapSense_TMG_FLICK_WEST %d\r\n",ledIndex );
                 break;
                 case CapSense_ONE_FINGER_FLICK_UP:
                     ledIndex++;
