@@ -2202,192 +2202,193 @@ END GROUP
  .text.UartTask
                 0x100806a8      0x2ac .\CortexM4\ARM_GCC_541\Debug\uartTask.o
                 0x100806a8                UartTask
- .text.pwmTask  0x10080954       0xe8 .\CortexM4\ARM_GCC_541\Debug\pwmTask.o
+ .text.pwmTask  0x10080954       0xe4 .\CortexM4\ARM_GCC_541\Debug\pwmTask.o
                 0x10080954                pwmTask
  .text.getMotorPercent
-                0x10080a3c       0x34 .\CortexM4\ARM_GCC_541\Debug\motorTask.o
-                0x10080a3c                getMotorPercent
+                0x10080a38       0x34 .\CortexM4\ARM_GCC_541\Debug\motorTask.o
+                0x10080a38                getMotorPercent
  .text.motorTask
-                0x10080a70       0xe8 .\CortexM4\ARM_GCC_541\Debug\motorTask.o
-                0x10080a70                motorTask
+                0x10080a6c       0xe8 .\CortexM4\ARM_GCC_541\Debug\motorTask.o
+                0x10080a6c                motorTask
  .text.ezI2CTask
-                0x10080b58       0x6c .\CortexM4\ARM_GCC_541\Debug\ezI2CTask.o
-                0x10080b58                ezI2CTask
+                0x10080b54       0x6c .\CortexM4\ARM_GCC_541\Debug\ezI2CTask.o
+                0x10080b54                ezI2CTask
  .text.capsenseTask
-                0x10080bc4       0xcc .\CortexM4\ARM_GCC_541\Debug\capSenseTask.o
-                0x10080bc4                capsenseTask
+                0x10080bc0       0xcc .\CortexM4\ARM_GCC_541\Debug\capSenseTask.o
+                0x10080bc0                capsenseTask
  .text.cpuss_interrupts_ipc_4_IRQHandler
-                0x10080c90       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_config.o
-                0x10080c90                cpuss_interrupts_ipc_4_IRQHandler
+                0x10080c8c       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_config.o
+                0x10080c8c                cpuss_interrupts_ipc_4_IRQHandler
  .text.Cy_IPC_SystemSemaInit
-                0x10080ca0       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_config.o
-                0x10080ca0                Cy_IPC_SystemSemaInit
+                0x10080c9c       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_config.o
+                0x10080c9c                Cy_IPC_SystemSemaInit
  .text.Cy_IPC_SystemPipeInit
-                0x10080cb0       0x24 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_config.o
-                0x10080cb0                Cy_IPC_SystemPipeInit
+                0x10080cac       0x24 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_config.o
+                0x10080cac                Cy_IPC_SystemPipeInit
  .text.STDIO_PutChar
-                0x10080cd4       0x18 .\CortexM4\ARM_GCC_541\Debug\stdio_user.o
-                0x10080cd4                STDIO_PutChar
+                0x10080cd0       0x18 .\CortexM4\ARM_GCC_541\Debug\stdio_user.o
+                0x10080cd0                STDIO_PutChar
  .text.STDIO_GetChar
-                0x10080cec       0x1c .\CortexM4\ARM_GCC_541\Debug\stdio_user.o
-                0x10080cec                STDIO_GetChar
+                0x10080ce8       0x1c .\CortexM4\ARM_GCC_541\Debug\stdio_user.o
+                0x10080ce8                STDIO_GetChar
  .text.UART_Interrupt
-                0x10080d08       0x14 .\CortexM4\ARM_GCC_541\Debug\UART.o
+                0x10080d04       0x14 .\CortexM4\ARM_GCC_541\Debug\UART.o
  .text.UART_Start
-                0x10080d1c       0x64 .\CortexM4\ARM_GCC_541\Debug\UART.o
-                0x10080d1c                UART_Start
+                0x10080d18       0x64 .\CortexM4\ARM_GCC_541\Debug\UART.o
+                0x10080d18                UART_Start
  .text.PWM_1_Start
-                0x10080d80       0x2c .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
-                0x10080d80                PWM_1_Start
+                0x10080d7c       0x2c .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
+                0x10080d7c                PWM_1_Start
  .text.PWM_RED_Start
-                0x10080dac       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM_RED.o
-                0x10080dac                PWM_RED_Start
+                0x10080da8       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM_RED.o
+                0x10080da8                PWM_RED_Start
  .text.EZI2C_Interrupt
-                0x10080ddc       0x14 .\CortexM4\ARM_GCC_541\Debug\EZI2C.o
+                0x10080dd8       0x14 .\CortexM4\ARM_GCC_541\Debug\EZI2C.o
  .text.EZI2C_Start
-                0x10080df0       0x64 .\CortexM4\ARM_GCC_541\Debug\EZI2C.o
-                0x10080df0                EZI2C_Start
+                0x10080dec       0x64 .\CortexM4\ARM_GCC_541\Debug\EZI2C.o
+                0x10080dec                EZI2C_Start
  .text.LEDBlink_Start
-                0x10080e54       0x30 .\CortexM4\ARM_GCC_541\Debug\LEDBlink.o
-                0x10080e54                LEDBlink_Start
+                0x10080e50       0x30 .\CortexM4\ARM_GCC_541\Debug\LEDBlink.o
+                0x10080e50                LEDBlink_Start
  .text.PWM_2_Start
-                0x10080e84       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
-                0x10080e84                PWM_2_Start
+                0x10080e80       0x30 .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
+                0x10080e80                PWM_2_Start
  .text.Cy_SysInt_SetVector
-                0x10080eb4       0x44 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
-                0x10080eb4                Cy_SysInt_SetVector
+                0x10080eb0       0x44 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+                0x10080eb0                Cy_SysInt_SetVector
  .text.Cy_SysInt_Init
-                0x10080ef8       0x7c .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
-                0x10080ef8                Cy_SysInt_Init
+                0x10080ef4       0x7c .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+                0x10080ef4                Cy_SysInt_Init
  .text.Cy_IPC_Drv_LockRelease
-                0x10080f74       0x30 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
-                0x10080f74                Cy_IPC_Drv_LockRelease
+                0x10080f70       0x30 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+                0x10080f70                Cy_IPC_Drv_LockRelease
  .text.Cy_IPC_Drv_SendMsgWord
-                0x10080fa4       0x3c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
-                0x10080fa4                Cy_IPC_Drv_SendMsgWord
+                0x10080fa0       0x3c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+                0x10080fa0                Cy_IPC_Drv_SendMsgWord
  .text.Cy_IPC_Drv_ReadMsgWord
-                0x10080fe0       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
-                0x10080fe0                Cy_IPC_Drv_ReadMsgWord
+                0x10080fdc       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+                0x10080fdc                Cy_IPC_Drv_ReadMsgWord
  .text.Cy_IPC_Sema_Init
-                0x1008100c       0xb0 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
-                0x1008100c                Cy_IPC_Sema_Init
+                0x10081008       0xb0 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+                0x10081008                Cy_IPC_Sema_Init
  .text.Cy_IPC_Sema_Clear
-                0x100810bc       0x88 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
-                0x100810bc                Cy_IPC_Sema_Clear
+                0x100810b8       0x88 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+                0x100810b8                Cy_IPC_Sema_Clear
  .text.Cy_IPC_Sema_Status
-                0x10081144       0x40 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
-                0x10081144                Cy_IPC_Sema_Status
+                0x10081140       0x40 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+                0x10081140                Cy_IPC_Sema_Status
  .text.Cy_IPC_Pipe_Config
-                0x10081184       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x10081184                Cy_IPC_Pipe_Config
+                0x10081180       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x10081180                Cy_IPC_Pipe_Config
  .text.Cy_IPC_Pipe_EndpointInit
-                0x10081194       0xb8 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x10081194                Cy_IPC_Pipe_EndpointInit
+                0x10081190       0xb8 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x10081190                Cy_IPC_Pipe_EndpointInit
  .text.Cy_IPC_Pipe_Init
-                0x1008124c       0xc4 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x1008124c                Cy_IPC_Pipe_Init
+                0x10081248       0xc4 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x10081248                Cy_IPC_Pipe_Init
  .text.Cy_IPC_Pipe_SendMessage
-                0x10081310       0xb0 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x10081310                Cy_IPC_Pipe_SendMessage
+                0x1008130c       0xb0 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x1008130c                Cy_IPC_Pipe_SendMessage
  .text.Cy_IPC_Pipe_RegisterCallback
-                0x100813c0       0x40 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x100813c0                Cy_IPC_Pipe_RegisterCallback
+                0x100813bc       0x40 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x100813bc                Cy_IPC_Pipe_RegisterCallback
  .text.Cy_IPC_Pipe_ExecCallback
-                0x10081400       0xb0 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
-                0x10081400                Cy_IPC_Pipe_ExecCallback
+                0x100813fc       0xb0 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x100813fc                Cy_IPC_Pipe_ExecCallback
  .text.Cy_TCPWM_PWM_Init
-                0x100814b0      0x16c .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
-                0x100814b0                Cy_TCPWM_PWM_Init
+                0x100814ac      0x16c .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
+                0x100814ac                Cy_TCPWM_PWM_Init
  .text.Cy_SCB_ReadArrayNoCheck
-                0x1008161c       0x38 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
-                0x1008161c                Cy_SCB_ReadArrayNoCheck
+                0x10081618       0x38 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
+                0x10081618                Cy_SCB_ReadArrayNoCheck
  .text.Cy_SCB_ReadArray
-                0x10081654       0x1c .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
-                0x10081654                Cy_SCB_ReadArray
+                0x10081650       0x1c .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
+                0x10081650                Cy_SCB_ReadArray
  .text.Cy_SCB_Write
-                0x10081670       0x28 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
-                0x10081670                Cy_SCB_Write
+                0x1008166c       0x28 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
+                0x1008166c                Cy_SCB_Write
  .text.Cy_SCB_WriteArrayNoCheck
-                0x10081698       0x38 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
-                0x10081698                Cy_SCB_WriteArrayNoCheck
+                0x10081694       0x38 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
+                0x10081694                Cy_SCB_WriteArrayNoCheck
  .text.Cy_SCB_WriteArray
-                0x100816d0       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
-                0x100816d0                Cy_SCB_WriteArray
+                0x100816cc       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
+                0x100816cc                Cy_SCB_WriteArray
  .text.Cy_SCB_WriteDefaultArrayNoCheck
-                0x100816fc       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
-                0x100816fc                Cy_SCB_WriteDefaultArrayNoCheck
+                0x100816f8       0x10 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
+                0x100816f8                Cy_SCB_WriteDefaultArrayNoCheck
  .text.Cy_SCB_WriteDefaultArray
-                0x1008170c       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
-                0x1008170c                Cy_SCB_WriteDefaultArray
+                0x10081708       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
+                0x10081708                Cy_SCB_WriteDefaultArray
  .text.HandleErrors
-                0x10081738       0x30 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x10081734       0x30 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
  .text.HandleStop
-                0x10081768       0x94 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x10081764       0x94 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
  .text.UpdateAddressMask
-                0x100817fc       0x24 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x100817f8       0x24 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
  .text.HandleAddress
-                0x10081820      0x104 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x1008181c      0x104 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
  .text.HandleDataTransmit
-                0x10081924       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x10081920       0x2c .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
  .text.UpdateRxFifoLevel
-                0x10081950       0x64 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x1008194c       0x64 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
  .text.HandleDataReceive
-                0x100819b4      0x124 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x100819b0      0x124 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
  .text.Cy_SCB_EZI2C_SetAddress1
-                0x10081ad8       0x4c .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
-                0x10081ad8                Cy_SCB_EZI2C_SetAddress1
+                0x10081ad4       0x4c .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x10081ad4                Cy_SCB_EZI2C_SetAddress1
  .text.Cy_SCB_EZI2C_SetBuffer1
-                0x10081b24       0x34 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
-                0x10081b24                Cy_SCB_EZI2C_SetBuffer1
+                0x10081b20       0x34 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x10081b20                Cy_SCB_EZI2C_SetBuffer1
  .text.Cy_SCB_EZI2C_SetAddress2
-                0x10081b58       0x38 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
-                0x10081b58                Cy_SCB_EZI2C_SetAddress2
+                0x10081b54       0x38 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x10081b54                Cy_SCB_EZI2C_SetAddress2
  .text.Cy_SCB_EZI2C_Init
-                0x10081b90      0x124 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
-                0x10081b90                Cy_SCB_EZI2C_Init
+                0x10081b8c      0x124 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x10081b8c                Cy_SCB_EZI2C_Init
  .text.Cy_SCB_EZI2C_Interrupt
-                0x10081cb4       0xd4 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
-                0x10081cb4                Cy_SCB_EZI2C_Interrupt
+                0x10081cb0       0xd4 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+                0x10081cb0                Cy_SCB_EZI2C_Interrupt
  .text.HandleDataTransmit
-                0x10081d88       0xdc .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
+                0x10081d84       0xdc .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
  .text.HandleDataReceive
-                0x10081e64       0xf8 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
+                0x10081e60       0xf8 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
  .text.Cy_SCB_UART_Init
-                0x10081f5c      0x370 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
-                0x10081f5c                Cy_SCB_UART_Init
+                0x10081f58      0x370 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
+                0x10081f58                Cy_SCB_UART_Init
  .text.Cy_SCB_UART_GetNumInRingBuffer
-                0x100822cc       0x18 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
-                0x100822cc                Cy_SCB_UART_GetNumInRingBuffer
+                0x100822c8       0x18 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
+                0x100822c8                Cy_SCB_UART_GetNumInRingBuffer
  .text.HandleRingBuffer
-                0x100822e4       0xcc .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
+                0x100822e0       0xcc .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
  .text.Cy_SCB_UART_Interrupt
-                0x100823b0       0xe8 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
-                0x100823b0                Cy_SCB_UART_Interrupt
+                0x100823ac       0xe8 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
+                0x100823ac                Cy_SCB_UART_Interrupt
  .text.Cy_Flash_ProcessOpcode
-                0x10082498       0xac .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+                0x10082494       0xac .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
  .text.Cy_Flash_OperationStatus
-                0x10082544       0x44 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+                0x10082540       0x44 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
  .text.Cy_Flash_Init
-                0x10082588       0x4c .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
-                0x10082588                Cy_Flash_Init
+                0x10082584       0x4c .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+                0x10082584                Cy_Flash_Init
  .text.Cy_GPIO_Pin_FastInit
-                0x100825d4       0xf0 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
-                0x100825d4                Cy_GPIO_Pin_FastInit
+                0x100825d0       0xf0 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
+                0x100825d0                Cy_GPIO_Pin_FastInit
  .text.Cy_SysLib_DelayUs
-                0x100826c4       0x14 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x100826c4                Cy_SysLib_DelayUs
+                0x100826c0       0x14 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x100826c0                Cy_SysLib_DelayUs
  .text.Cy_SysLib_Halt
-                0x100826d8        0x4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x100826d8                Cy_SysLib_Halt
+                0x100826d4        0x4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x100826d4                Cy_SysLib_Halt
  .text.Cy_SysLib_AssertFailed
-                0x100826dc       0x1c .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x100826dc                Cy_SysLib_AssertFailed
+                0x100826d8       0x1c .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x100826d8                Cy_SysLib_AssertFailed
  .text.Cy_SysLib_ProcessingFault
-                0x100826f8        0x4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x100826f8                Cy_SysLib_ProcessingFault
+                0x100826f4        0x4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x100826f4                Cy_SysLib_ProcessingFault
  .text.Cy_SysLib_FaultHandler
-                0x100826fc       0xa4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
-                0x100826fc                Cy_SysLib_FaultHandler
+                0x100826f8       0xa4 .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+                0x100826f8                Cy_SysLib_FaultHandler
+ *fill*         0x1008279c        0x4 
  .text          0x100827a0       0x20 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
                 0x100827a0                Cy_SysLib_DelayCycles
                 0x100827b2                Cy_SysLib_EnterCriticalSection
@@ -4369,55 +4370,55 @@ OUTPUT(C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\MainArmControl
  .debug_frame   0x00003ffc       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libnosys.a(lseek.o)
  .debug_frame   0x0000401c       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libnosys.a(sbrk.o)
 
-.debug_loc      0x00000000     0xec7e
+.debug_loc      0x00000000     0xec7f
  .debug_loc     0x00000000      0x1fe .\CortexM4\ARM_GCC_541\Debug\system_psoc63_cm4.o
  .debug_loc     0x000001fe      0x2e2 .\CortexM4\ARM_GCC_541\Debug\uartTask.o
- .debug_loc     0x000004e0      0x102 .\CortexM4\ARM_GCC_541\Debug\pwmTask.o
- .debug_loc     0x000005e2      0x201 .\CortexM4\ARM_GCC_541\Debug\motorTask.o
- .debug_loc     0x000007e3       0x4e .\CortexM4\ARM_GCC_541\Debug\ezI2CTask.o
- .debug_loc     0x00000831       0x8c .\CortexM4\ARM_GCC_541\Debug\capSenseTask.o
- .debug_loc     0x000008bd       0x1e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_config.o
- .debug_loc     0x000008db       0x87 .\CortexM4\ARM_GCC_541\Debug\stdio_user.o
- .debug_loc     0x00000962       0x2b .\CortexM4\ARM_GCC_541\Debug\UART.o
- .debug_loc     0x0000098d       0x2c .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
- .debug_loc     0x000009b9       0x58 .\CortexM4\ARM_GCC_541\Debug\PWM_RED.o
- .debug_loc     0x00000a11       0x2b .\CortexM4\ARM_GCC_541\Debug\EZI2C.o
- .debug_loc     0x00000a3c       0x58 .\CortexM4\ARM_GCC_541\Debug\LEDBlink.o
- .debug_loc     0x00000a94       0x2e .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
- .debug_loc     0x00000ac2      0x223 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
- .debug_loc     0x00000ce5      0x2a1 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
- .debug_loc     0x00000f86      0x6c2 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
- .debug_loc     0x00001648      0x783 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
- .debug_loc     0x00001dcb       0xd9 .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
- .debug_loc     0x00001ea4      0x588 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
- .debug_loc     0x0000242c     0x10c9 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
- .debug_loc     0x000034f5     0x1341 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
- .debug_loc     0x00004836      0xb8b .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
- .debug_loc     0x000053c1      0x791 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
- .debug_loc     0x00005b52      0x8e3 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
- .debug_loc     0x00006435      0x1fc .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
- .debug_loc     0x00006631      0x689 .\CortexM4\ARM_GCC_541\Debug\event_groups.o
- .debug_loc     0x00006cba       0x65 .\CortexM4\ARM_GCC_541\Debug\list.o
- .debug_loc     0x00006d1f      0xd70 .\CortexM4\ARM_GCC_541\Debug\queue.o
- .debug_loc     0x00007a8f     0x137c .\CortexM4\ARM_GCC_541\Debug\tasks.o
- .debug_loc     0x00008e0b      0x95d .\CortexM4\ARM_GCC_541\Debug\timers.o
- .debug_loc     0x00009768       0xf6 .\CortexM4\ARM_GCC_541\Debug\port.o
- .debug_loc     0x0000985e       0x5f .\CortexM4\ARM_GCC_541\Debug\heap_1.o
- .debug_loc     0x000098bd      0x1e4 .\CortexM4\ARM_GCC_541\Debug\retarget.o
- .debug_loc     0x00009aa1      0x694 .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
- .debug_loc     0x0000a135      0xaec .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
- .debug_loc     0x0000ac21      0x4af .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
- .debug_loc     0x0000b0d0      0x186 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
- .debug_loc     0x0000b256      0x8cd .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
- .debug_loc     0x0000bb23     0x12d1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
- .debug_loc     0x0000cdf4       0xad .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
- .debug_loc     0x0000cea1      0xba5 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
- .debug_loc     0x0000da46      0xabe .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
- .debug_loc     0x0000e504      0x1a1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
- .debug_loc     0x0000e6a5      0x1b1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
- .debug_loc     0x0000e856       0x58 .\CortexM4\ARM_GCC_541\Debug\Dimmer.o
- .debug_loc     0x0000e8ae      0x2ac C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v2_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
- .debug_loc     0x0000eb5a      0x124 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v2_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
+ .debug_loc     0x000004e0      0x103 .\CortexM4\ARM_GCC_541\Debug\pwmTask.o
+ .debug_loc     0x000005e3      0x201 .\CortexM4\ARM_GCC_541\Debug\motorTask.o
+ .debug_loc     0x000007e4       0x4e .\CortexM4\ARM_GCC_541\Debug\ezI2CTask.o
+ .debug_loc     0x00000832       0x8c .\CortexM4\ARM_GCC_541\Debug\capSenseTask.o
+ .debug_loc     0x000008be       0x1e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_config.o
+ .debug_loc     0x000008dc       0x87 .\CortexM4\ARM_GCC_541\Debug\stdio_user.o
+ .debug_loc     0x00000963       0x2b .\CortexM4\ARM_GCC_541\Debug\UART.o
+ .debug_loc     0x0000098e       0x2c .\CortexM4\ARM_GCC_541\Debug\PWM_1.o
+ .debug_loc     0x000009ba       0x58 .\CortexM4\ARM_GCC_541\Debug\PWM_RED.o
+ .debug_loc     0x00000a12       0x2b .\CortexM4\ARM_GCC_541\Debug\EZI2C.o
+ .debug_loc     0x00000a3d       0x58 .\CortexM4\ARM_GCC_541\Debug\LEDBlink.o
+ .debug_loc     0x00000a95       0x2e .\CortexM4\ARM_GCC_541\Debug\PWM_2.o
+ .debug_loc     0x00000ac3      0x223 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+ .debug_loc     0x00000ce6      0x2a1 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+ .debug_loc     0x00000f87      0x6c2 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+ .debug_loc     0x00001649      0x783 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+ .debug_loc     0x00001dcc       0xd9 .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_pwm.o
+ .debug_loc     0x00001ea5      0x588 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
+ .debug_loc     0x0000242d     0x10c9 .\CortexM4\ARM_GCC_541\Debug\cy_scb_ezi2c.o
+ .debug_loc     0x000034f6     0x1341 .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
+ .debug_loc     0x00004837      0xb8b .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+ .debug_loc     0x000053c2      0x791 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
+ .debug_loc     0x00005b53      0x8e3 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
+ .debug_loc     0x00006436      0x1fc .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+ .debug_loc     0x00006632      0x689 .\CortexM4\ARM_GCC_541\Debug\event_groups.o
+ .debug_loc     0x00006cbb       0x65 .\CortexM4\ARM_GCC_541\Debug\list.o
+ .debug_loc     0x00006d20      0xd70 .\CortexM4\ARM_GCC_541\Debug\queue.o
+ .debug_loc     0x00007a90     0x137c .\CortexM4\ARM_GCC_541\Debug\tasks.o
+ .debug_loc     0x00008e0c      0x95d .\CortexM4\ARM_GCC_541\Debug\timers.o
+ .debug_loc     0x00009769       0xf6 .\CortexM4\ARM_GCC_541\Debug\port.o
+ .debug_loc     0x0000985f       0x5f .\CortexM4\ARM_GCC_541\Debug\heap_1.o
+ .debug_loc     0x000098be      0x1e4 .\CortexM4\ARM_GCC_541\Debug\retarget.o
+ .debug_loc     0x00009aa2      0x694 .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+ .debug_loc     0x0000a136      0xaec .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+ .debug_loc     0x0000ac22      0x4af .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+ .debug_loc     0x0000b0d1      0x186 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
+ .debug_loc     0x0000b257      0x8cd .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+ .debug_loc     0x0000bb24     0x12d1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+ .debug_loc     0x0000cdf5       0xad .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+ .debug_loc     0x0000cea2      0xba5 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+ .debug_loc     0x0000da47      0xabe .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+ .debug_loc     0x0000e505      0x1a1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
+ .debug_loc     0x0000e6a6      0x1b1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Gesture.o
+ .debug_loc     0x0000e857       0x58 .\CortexM4\ARM_GCC_541\Debug\Dimmer.o
+ .debug_loc     0x0000e8af      0x2ac C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v2_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
+ .debug_loc     0x0000eb5b      0x124 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v2_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
 
 .stab           0x00000000       0x6c
  .stab          0x00000000       0x24 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp\libnosys.a(close.o)
