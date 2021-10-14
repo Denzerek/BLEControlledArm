@@ -145,6 +145,10 @@ int main(void)
                 Cy_TCPWM_PWM_SetCompare0(PWM_1_HW,PWM_1_CNT_NUM,0);
                 Cy_TCPWM_PWM_SetCompare0(PWM_2_HW,PWM_2_CNT_NUM,0);
                 Cy_TCPWM_PWM_SetCompare0(PWM_HW,PWM_CNT_NUM,100);
+                UART_1_Start();
+                
+    printf("\x1b[2J\x1b[;H");
+    printf("UART TASK Started \r\n");
      
     for(;;)
     {
