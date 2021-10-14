@@ -125,7 +125,7 @@ int main(void)
                     break;
             }
             
-            if(ledIndex > MAX_COLOR)
+            if(ledIndex >= MAX_COLOR)
             {
                 ledIndex = MAX_COLOR-1;
             }
