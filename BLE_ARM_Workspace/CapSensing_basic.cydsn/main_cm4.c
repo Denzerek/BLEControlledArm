@@ -140,7 +140,7 @@ int main(void)
     CapSense_ScanAllWidgets();
     
     PWM_Start();
-    
+     
     for(;;)
     {
         if(!CapSense_IsBusy())
