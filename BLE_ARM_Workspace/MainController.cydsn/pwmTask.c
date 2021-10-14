@@ -37,7 +37,7 @@ void pwmTask(void * arg)
         /* Update the compare value*/
         compareVal  = (compareVal + 1) % 100;
         
-        vTaskDelay(20);
+        vTaskDelay(10);
     }
     
 }

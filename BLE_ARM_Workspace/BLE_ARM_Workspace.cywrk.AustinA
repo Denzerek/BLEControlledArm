@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\pwmTask.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BLE_ARM_Workspace\MainController">
 <ExpandedNodeIds>
 <v>BLE_ARM_Workspace</v>
 <v>BLE_ARM_Workspace\BasicKillSwitch_UDB\TopDesign</v>
@@ -205,6 +205,19 @@
 <v>BLE_ARM_Workspace\PWM_Basic\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>BLE_ARM_Workspace</v>
+<v>BLE_ARM_Workspace\BasicKillSwitch_UDB</v>
+<v>BLE_ARM_Workspace\CapSense_Basic</v>
+<v>BLE_ARM_Workspace\MainController</v>
+<v>BLE_ARM_Workspace\MainController\TopDesign</v>
+<v>BLE_ARM_Workspace\MainController\MainController.cydwr</v>
+<v>BLE_ARM_Workspace\MainController\CM0p (Core 0)</v>
+<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)</v>
+<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\ARM GCC Generic</v>
+<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\ARM GCC Generic\cy8c6xx7_cm4_dual.ld</v>
+<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\ARM IAR Generic</v>
+<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\ARM IAR Generic\cy8c6xx7_cm4_dual.icf</v>
+<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\ARM MDK Generic</v>
 <v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\ARM MDK Generic\cy8c6xx7_cm4_dual.scat</v>
 <v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Header Files</v>
 <v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Header Files\uart</v>
@@ -222,19 +235,6 @@
 <v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\ARM MDK Generic</v>
 <v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\ARM MDK Generic\startup_psoc6_01_cm4.s</v>
 <v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\uart</v>
-<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\uart\uartTask.c</v>
-<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\ezI2CTask.c</v>
-<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\main_cm4.c</v>
-<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\motortask.c</v>
-<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\pwmTask.c</v>
-<v>BLE_ARM_Workspace\MainController\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
-<v>BLE_ARM_Workspace\MainController\Shared Files</v>
-<v>BLE_ARM_Workspace\MainController\Shared Files\cyapicallbacks.h</v>
-<v>BLE_ARM_Workspace\MainController\Shared Files\stdio_user.c</v>
-<v>BLE_ARM_Workspace\MainController\Shared Files\stdio_user.h</v>
-<v>BLE_ARM_Workspace\MainController\Shared Files\system_psoc6.h</v>
-<v>BLE_ARM_Workspace\MainController\Generated_Source</v>
-<v>BLE_ARM_Workspace\PWM_Basic</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -575,34 +575,6 @@
 <VisibleNodeIds>
 <v>BLE_ARM_Workspace</v>
 <v>BLE_ARM_Workspace\BasicKillSwitch_UDB</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_clk.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_device.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_efuse.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_flash.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_gpio.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_drv.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_pipe.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_sema.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_lvd.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_profile.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_prot.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysanalog.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysclk.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysint.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syslib.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syslib_gcc.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syspm.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_systick.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_tcpwm_counter.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_tcpwm_pwm.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_tcpwm_quaddec.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_trigmux.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_wdt.lst</v>
-<v>BLE_ARM_Workspace\BasicKillSwitch_UDB\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

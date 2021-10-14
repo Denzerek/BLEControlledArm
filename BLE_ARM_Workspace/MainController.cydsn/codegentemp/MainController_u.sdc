@@ -1,3 +1,3 @@
-# Component constraints for C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\TopDesign\TopDesign.cysch
-# Project: C:\Alen\GitHub_Denzerek\BLEControlledArm\MainController.cydsn\MainController.cyprj
-# Date: Wed, 13 Oct 2021 12:29:20 GMT
+# Component constraints for C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\MainController.cydsn\TopDesign\TopDesign.cysch
+# Project: C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\MainController.cydsn\MainController.cyprj
+# Date: Thu, 14 Oct 2021 00:44:36 GMT

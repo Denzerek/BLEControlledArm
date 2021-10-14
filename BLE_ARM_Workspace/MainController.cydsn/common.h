@@ -26,7 +26,7 @@
 #define PJT_NAME    "   MAIN CONTROLLER   " 
 
 
-#define START_UP_DISP()   { \
+#define START_UP_DISP()   { serialPrint("System Init Done.");\
                             serialPrint("======================================"); \
                             serialPrintf("=======%s=========",PJT_NAME); \
                             serialPrint("======================================"); \
