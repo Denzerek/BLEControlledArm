@@ -355,7 +355,7 @@ void Cy_SystemInit(void)
 			{0xE0u, 0x08u},
 			{0xE3u, 0x01u},
 			{0x28u, 0x80u},
-			{0x68u, 0x03u},
+			{0x68u, 0x0Cu},
 			{0xACu, 0x15u},
 		};
 
@@ -673,14 +673,14 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port1_cfg =
 	    {
-	        .out        = 0x00000001u,
+	        .out        = 0x00000002u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0x00000006u,
+	        .cfg        = 0x00000060u,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
-	        .sel0Active = 0x00000003u,
+	        .sel0Active = 0x00000300u,
 	        .sel1Active = 0x00000000u,
 	    };
 	    (void)Cy_GPIO_Port_Init(GPIO_PRT1, &port1_cfg);

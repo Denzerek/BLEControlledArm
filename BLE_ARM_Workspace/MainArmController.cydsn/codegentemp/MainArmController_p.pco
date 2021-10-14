@@ -15,7 +15,7 @@ set_location "ClockGenBlock" CLK_GEN -1 -1 0
 set_location "\LEDBlink:TCPWM\" TCPWM -1 -1 0
 set_location "\UART:SCB\" SCB -1 -1 5
 set_io "RED_USER_LED2(0)" iocell 13 7
-set_io "GREEN(0)" iocell 1 0
+set_io "GREEN(0)" iocell 1 1
 set_io "M2(0)" iocell 6 4
 set_io "CY_CPUSS_SWJ_SWCLK_TCLK(0)" iocell 6 7
 set_io "\EZI2C:scl(0)\" iocell 6 0

@@ -1,5 +1,5 @@
 # MainArmController
-# 2021-10-14 04:03:18Z
+# 2021-10-14 04:14:59Z
 
 dont_use_location p4usbcell -1 -1 0
 dont_use_location USB -1 -1 0
@@ -17,7 +17,7 @@ set_io "\EZI2C:scl(0)\" iocell 6 0
 set_io "\EZI2C:sda(0)\" iocell 6 1
 set_io "SW(0)" iocell 0 4
 set_io "RED(0)" iocell 0 3
-set_io "GREEN(0)" iocell 1 0
+set_io "GREEN(0)" iocell 1 1
 set_io "M2(0)" iocell 6 4
 set_location "Net_50" 1 5 0 0
 set_location "Net_51" 1 5 0 1

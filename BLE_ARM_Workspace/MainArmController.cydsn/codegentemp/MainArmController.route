@@ -164,10 +164,10 @@ net Net_51
 	switch ":UDB_Array:DSI_new1:RVO_Sel11.vo27==>:UDB_Array:DSI_new1:LHO_Sel26.14"
 	switch ":UDB_Array:DSI_new1:LHO_Sel26.lho26==>:UDB_Array:DSI_new1:DOT_Sel3.2"
 	switch ":UDB_Array:DSI_new1:DOT_Sel3.ot3==>:UDB_Array:PortAdapter1:inputMux1.pinIn_3"
-	switch ":UDB_Array:PortAdapter1:inputMux1.paOut_0==>:ioport1:hsiomOut0.fixedIn0_DSI_GPIO"
-	switch ":ioport1:hsiomOut0.hsiomOut0==>:ioport1:smartio_mux_in0.direct_out"
-	switch ":ioport1:smartio_mux_in0.smartio_mux_in==>:ioport1:pin0.pin_input"
-	term   ":ioport1:pin0.pin_input"
+	switch ":UDB_Array:PortAdapter1:inputMux1.paOut_1==>:ioport1:hsiomOut1.fixedIn1_DSI_GPIO"
+	switch ":ioport1:hsiomOut1.hsiomOut1==>:ioport1:smartio_mux_in1.direct_out"
+	switch ":ioport1:smartio_mux_in1.smartio_mux_in==>:ioport1:pin1.pin_input"
+	term   ":ioport1:pin1.pin_input"
 end Net_51
 net \EZI2C:clock_wire_ff0\
 	term   ":Clockcontainer:Clock[0].ff_div_3"
