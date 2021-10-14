@@ -29,7 +29,7 @@ uint8_t LEDBlink_1_initVar = 0U;
 cy_stc_tcpwm_pwm_config_t const LEDBlink_1_config =
 {
     .pwmMode = 4UL,
-    .clockPrescaler = 1UL,
+    .clockPrescaler = 2UL,
     .pwmAlignment = 0UL,
     .deadTimeClocks = 0UL,
     .runMode = 0UL,
