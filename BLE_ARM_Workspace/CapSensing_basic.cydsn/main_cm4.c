@@ -125,7 +125,14 @@ int main(void)
                     break;
             }
             
-            
+            if(ledIndex > MAX_COLOR)
+            {
+                ledIndex = MAX_COLOR-1;
+            }
+            if(ledIndex < 0)
+            {
+                ledIndex = 0;
+            }
             pos = CapSense_GetCentroidPos(CapSense_LINEARSLIDER0_WDGT_ID);
             if(pos < 0xFFFF)
             {                
