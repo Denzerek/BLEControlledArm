@@ -1,6 +1,6 @@
 // ======================================================================
 // MainArmController.v generated from TopDesign.cysch
-// 10/14/2021 at 17:37
+// 10/14/2021 at 17:38
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1219,6 +1219,7 @@ endmodule
 // top
 module top ;
 
+          wire  Net_111;
           wire  Net_98;
           wire  Net_96;
           wire  Net_93;
@@ -1678,16 +1679,18 @@ module top ;
     if (1)
     begin : mux_3
         reg  tmp__mux_3_reg;
-        always @(Net_105 or Net_104 or Net_294)
+        always @(Net_105 or Net_111 or Net_294)
         begin
             case (Net_294)
                 1'b0 :  tmp__mux_3_reg = Net_105;
-                1'b1 :  tmp__mux_3_reg = Net_104;
+                1'b1 :  tmp__mux_3_reg = Net_111;
             endcase
         end
         assign Net_107 = tmp__mux_3_reg;
     end
     // -- Mux end --
+
+    assign Net_111 = 1'h1;
 
 
 

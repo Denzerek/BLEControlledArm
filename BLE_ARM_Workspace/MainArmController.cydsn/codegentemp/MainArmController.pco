@@ -1,5 +1,5 @@
 # MainArmController
-# 2021-10-14 12:07:35Z
+# 2021-10-14 12:08:52Z
 
 dont_use_location p4usbcell -1 -1 0
 dont_use_location USB -1 -1 0
@@ -18,6 +18,7 @@ set_io "\EZI2C:sda(0)\" iocell 6 1
 set_io "SW(0)" iocell 0 4
 set_io "RED(0)" iocell 0 3
 set_io "GREEN(0)" iocell 1 1
+set_location "__ONE__" 1 5 0 2
 set_io "M2(0)" iocell 6 4
 set_io "\CapSense:Cmod(0)\" iocell 7 7
 set_io "\CapSense:Rx(0)\" iocell 8 1
@@ -31,7 +32,6 @@ set_io "\CapSense:Sns(3)\" iocell 8 6
 set_io "\CapSense:Sns(4)\" iocell 8 7
 set_io "\CapSense:Tx(0)\" iocell 1 0
 set_location "Net_99" 1 5 0 0
-set_location "Net_107" 1 5 0 1
 set_location "\UART:SCB_IRQ\" interrupt -1 -1 46
 set_location "\UART:SCB\" SCB -1 -1 5
 set_location "\PWM_1:TCPWM\" TCPWM -1 -1 9
@@ -45,4 +45,4 @@ set_location "\CapSense:IDACComp\" CSIDAC7 -1 -1 1
 set_location "\CapSense:CSD\" CSD -1 -1 0
 set_location "\CapSense:ISR\" interrupt -1 -1 49
 set_location "\LEDBlink_1:TCPWM\" TCPWM -1 -1 1
-set_location "Net_294" 1 5 0 2
+set_location "Net_294" 1 5 0 1
