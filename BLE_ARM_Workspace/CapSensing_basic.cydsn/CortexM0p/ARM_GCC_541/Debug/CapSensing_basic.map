@@ -2586,7 +2586,7 @@ END GROUP
 .cy_app_header
  *(.cy_app_header)
 
-.text           0x10000000     0x27f0
+.text           0x10000000     0x27f4
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                __Vectors = .
  *(.vectors)
@@ -2827,74 +2827,74 @@ END GROUP
  *(.dtors)
  *(.rodata .rodata.* .constdata .constdata.* .conststring .conststring.*)
  .rodata        0x100019a4       0x34 .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_config.o
- .rodata        0x100019d8      0xb48 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
- .rodata        0x10002520       0x40 .\CortexM0p\ARM_GCC_541\Debug\cy_sysint.o
+ .rodata        0x100019d8      0xb4c .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .rodata        0x10002524       0x40 .\CortexM0p\ARM_GCC_541\Debug\cy_sysint.o
  .rodata.str1.4
-                0x10002560       0x41 .\CortexM0p\ARM_GCC_541\Debug\cy_sysint.o
- *fill*         0x100025a1        0x3 
+                0x10002564       0x41 .\CortexM0p\ARM_GCC_541\Debug\cy_sysint.o
+ *fill*         0x100025a5        0x3 
  .rodata.str1.4
-                0x100025a4       0x7f .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_drv.o
- *fill*         0x10002623        0x1 
+                0x100025a8       0x7f .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_drv.o
+ *fill*         0x10002627        0x1 
  .rodata.str1.4
-                0x10002624       0x3f .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_sema.o
- *fill*         0x10002663        0x1 
+                0x10002628       0x3f .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_sema.o
+ *fill*         0x10002667        0x1 
  .rodata.str1.4
-                0x10002664       0x40 .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_pipe.o
+                0x10002668       0x40 .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_pipe.o
                                  0x7f (size before relaxing)
  .rodata.str1.4
-                0x100026a4       0x85 .\CortexM0p\ARM_GCC_541\Debug\cy_sysclk.o
- *fill*         0x10002729        0x3 
+                0x100026a8       0x85 .\CortexM0p\ARM_GCC_541\Debug\cy_sysclk.o
+ *fill*         0x1000272d        0x3 
  .rodata.str1.4
-                0x1000272c       0x7d .\CortexM0p\ARM_GCC_541\Debug\cy_gpio.o
- *fill*         0x100027a9        0x3 
+                0x10002730       0x7d .\CortexM0p\ARM_GCC_541\Debug\cy_gpio.o
+ *fill*         0x100027ad        0x3 
  .rodata.str1.4
-                0x100027ac       0x40 .\CortexM0p\ARM_GCC_541\Debug\cy_syspm.o
+                0x100027b0       0x40 .\CortexM0p\ARM_GCC_541\Debug\cy_syspm.o
                                  0x3f (size before relaxing)
  *(.eh_frame*)
- .eh_frame      0x100027ec        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
- .eh_frame      0x100027ec        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+ .eh_frame      0x100027f0        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .eh_frame      0x100027f0        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
 
-.glue_7         0x100027f0        0x0
- .glue_7        0x100027f0        0x0 linker stubs
+.glue_7         0x100027f4        0x0
+ .glue_7        0x100027f4        0x0 linker stubs
 
-.glue_7t        0x100027f0        0x0
- .glue_7t       0x100027f0        0x0 linker stubs
+.glue_7t        0x100027f4        0x0
+ .glue_7t       0x100027f4        0x0 linker stubs
 
-.vfp11_veneer   0x100027f0        0x0
- .vfp11_veneer  0x100027f0        0x0 linker stubs
+.vfp11_veneer   0x100027f4        0x0
+ .vfp11_veneer  0x100027f4        0x0 linker stubs
 
-.v4_bx          0x100027f0        0x0
- .v4_bx         0x100027f0        0x0 linker stubs
+.v4_bx          0x100027f4        0x0
+ .v4_bx         0x100027f4        0x0 linker stubs
 
-.iplt           0x100027f0        0x0
- .iplt          0x100027f0        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+.iplt           0x100027f4        0x0
+ .iplt          0x100027f4        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x100027f0                __exidx_start = .
+                0x100027f4                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x100027f0                __exidx_end = .
+                0x100027f4                __exidx_end = .
 
-.copy.table     0x100027f0       0x18
-                0x100027f0                . = ALIGN (0x4)
-                0x100027f0                __copy_table_start__ = .
-                0x100027f0        0x4 LONG 0x10000000 __Vectors
-                0x100027f4        0x4 LONG 0x8000000 __ram_vectors_start__
-                0x100027f8        0x4 LONG 0xc0 (__Vectors_End - __Vectors)
-                0x100027fc        0x4 LONG 0x10002810 __etext
-                0x10002800        0x4 LONG 0x80000c0 __data_start__
-                0x10002804        0x4 LONG 0x358 (__data_end__ - __data_start__)
-                0x10002808                __copy_table_end__ = .
+.copy.table     0x100027f4       0x18
+                0x100027f4                . = ALIGN (0x4)
+                0x100027f4                __copy_table_start__ = .
+                0x100027f4        0x4 LONG 0x10000000 __Vectors
+                0x100027f8        0x4 LONG 0x8000000 __ram_vectors_start__
+                0x100027fc        0x4 LONG 0xc0 (__Vectors_End - __Vectors)
+                0x10002800        0x4 LONG 0x10002814 __etext
+                0x10002804        0x4 LONG 0x80000c0 __data_start__
+                0x10002808        0x4 LONG 0x358 (__data_end__ - __data_start__)
+                0x1000280c                __copy_table_end__ = .
 
-.zero.table     0x10002808        0x8
-                0x10002808                . = ALIGN (0x4)
-                0x10002808                __zero_table_start__ = .
-                0x10002808        0x4 LONG 0x8000454 __bss_start__
-                0x1000280c        0x4 LONG 0x1cc (__bss_end__ - __bss_start__)
-                0x10002810                __zero_table_end__ = .
-                0x10002810                __etext = .
+.zero.table     0x1000280c        0x8
+                0x1000280c                . = ALIGN (0x4)
+                0x1000280c                __zero_table_start__ = .
+                0x1000280c        0x4 LONG 0x8000454 __bss_start__
+                0x10002810        0x4 LONG 0x1cc (__bss_end__ - __bss_start__)
+                0x10002814                __zero_table_end__ = .
+                0x10002814                __etext = .
 
 .ramVectors     0x08000000       0xc0
                 0x08000000                __ram_vectors_start__ = .
@@ -2903,7 +2903,7 @@ END GROUP
                 0x08000000                __ramVectors
                 0x080000c0                __ram_vectors_end__ = .
 
-.data           0x080000c0      0x358 load address 0x10002810
+.data           0x080000c0      0x358 load address 0x10002814
                 0x080000c0                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -2946,17 +2946,17 @@ END GROUP
                 0x08000418                . = ALIGN (0x4)
                 0x08000418                __data_end__ = .
 
-.igot.plt       0x08000418        0x0 load address 0x10002b68
+.igot.plt       0x08000418        0x0 load address 0x10002b6c
  .igot.plt      0x08000418        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
 
-.noinit         0x08000418       0x3c load address 0x10002b68
+.noinit         0x08000418       0x3c load address 0x10002b70
  *(.noinit)
  .noinit        0x08000418       0x3c .\CortexM0p\ARM_GCC_541\Debug\cy_syslib.o
                 0x08000418                cy_assertFileName
                 0x08000430                cy_assertLine
                 0x08000434                cy_faultFrame
 
-.bss            0x08000454      0x1cc load address 0x10002ba4
+.bss            0x08000454      0x1cc load address 0x10002bac
                 0x08000454                . = ALIGN (0x4)
                 0x08000454                __bss_start__ = .
  *(.bss*)
@@ -3030,7 +3030,7 @@ END GROUP
                 0x00000001                __cy_memory_4_row_size = 0x1
 OUTPUT(C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\CapSensing_basic.cydsn\CortexM0p\ARM_GCC_541\Debug\CapSensing_basic_link.elf elf32-littlearm)
 
-.rel.dyn        0x08000620        0x0 load address 0x9850275c
+.rel.dyn        0x08000620        0x0 load address 0x98502764
  .rel.iplt      0x08000620        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
 
 .ARM.attributes

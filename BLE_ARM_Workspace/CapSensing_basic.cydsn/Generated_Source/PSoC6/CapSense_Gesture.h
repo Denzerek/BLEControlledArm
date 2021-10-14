@@ -182,7 +182,7 @@ void CapSense_RunBallisticMultiplier(uint32 wdgtIndex);
 #define CapSense_TWO_FINGER_ZOOM_OUT                    (CapSense_TMG_ZOOM_OUT)
 
 /* Flick gestures */
-#define  CapSense_ONE_FINGER_FLICK_UP                    (CapSense_TMG_FLICK_NORTH)
+#define CapSense_ONE_FINGER_FLICK_UP                    (CapSense_TMG_FLICK_NORTH)
 #define CapSense_ONE_FINGER_FLICK_UP_RIGHT              (CapSense_TMG_FLICK_NORTH_EAST)
 #define CapSense_ONE_FINGER_FLICK_RIGHT                 (CapSense_TMG_FLICK_EAST)
 #define CapSense_ONE_FINGER_FLICK_DOWN_RIGHT            (CapSense_TMG_FLICK_SOUTH_EAST)

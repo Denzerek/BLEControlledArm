@@ -22,10 +22,13 @@ net Net_10_ff13
 end Net_10_ff13
 net Net_11
 	term   ":TCPWMcontainer:TCPWM[1].line"
-	switch ":TCPWMcontainer:TCPWM[1].line==>:ioport0:hsiomOut2.fixedIn2_ACT_0"
-	switch ":ioport0:hsiomOut2.hsiomOut2==>:ioport0:smartio_mux_in2.direct_out"
-	switch ":ioport0:smartio_mux_in2.smartio_mux_in==>:ioport0:pin2.pin_input"
-	term   ":ioport0:pin2.pin_input"
+	switch ":TCPWMcontainer:TCPWM[1].line==>:UDB_Array:DSI_new0:LHO_Sel95.4"
+	switch ":UDB_Array:DSI_new0:LHO_Sel95.lho95==>:UDB_Array:DSI_new0:DOT_Sel0.7"
+	switch ":UDB_Array:DSI_new0:DOT_Sel0.ot0==>:UDB_Array:PortAdapter0:inputMux1.pinIn_0"
+	switch ":UDB_Array:PortAdapter0:inputMux1.paOut_3==>:ioport0:hsiomOut3.fixedIn3_DSI_GPIO"
+	switch ":ioport0:hsiomOut3.hsiomOut3==>:ioport0:smartio_mux_in3.direct_out"
+	switch ":ioport0:smartio_mux_in3.smartio_mux_in==>:ioport0:pin3.pin_input"
+	term   ":ioport0:pin3.pin_input"
 end Net_11
 net Net_23_ff11
 	term   ":Clockcontainer:Clock[0].ff_div_13"

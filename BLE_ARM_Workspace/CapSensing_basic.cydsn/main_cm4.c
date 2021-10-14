@@ -12,12 +12,10 @@
 #include "project.h"
 #include <stdio.h>
 
-void bluePwmEnable();
-void redPwmEnable();
-void greenPwmEnable();
-void bluePwmDisable();
-void redPwmDisable();
-void greenPwmDisable();
+#define cap_print(x)   { printf("[ CAP TASK ] : ");printf(x);printf("\r\n");}
+#define cap_printf(x,...)  { printf("[ CAP TASK ] : ");printf(x,__VA_ARGS__);printf("\r\n");}
+
+
 
 typedef struct{
     uint8_t select;
@@ -65,8 +63,8 @@ int main(void)
     Cy_SysTick_Init(CY_SYSTICK_CLOCK_SOURCE_CLK_IMO,80000);
     Cy_SysTick_SetCallback(0u, CapSense_IncrementGestureTimestamp);
     
-    printf("\x1b[2J\x1b[;H");
-    printf("UART TASK Started \r\n");
+    cap_print("\x1b[2J\x1b[;H");
+    cap_print("UART TASK Started \r\n");
     
     for(;;)
     {
@@ -86,25 +84,25 @@ int main(void)
             {
                 case CapSense_TMG_FLICK_EAST:
                     ledIndex++;
-                printf("CapSense_TMG_FLICK_EAST %d\r\n",ledIndex );
+                cap_printf("CapSense_TMG_FLICK_EAST %d\r\n",ledIndex );
                 break; 
                 case CapSense_TMG_FLICK_WEST:
                     ledIndex--;
-                printf("CapSense_TMG_FLICK_WEST %d\r\n",ledIndex );
+                cap_printf("CapSense_TMG_FLICK_WEST %d\r\n",ledIndex );
                 break;
                 case CapSense_ONE_FINGER_FLICK_UP:
                     ledIndex++;
-                printf("CapSense_ONE_FINGER_FLICK_UP\r\n" );
+                cap_print("CapSense_ONE_FINGER_FLICK_UP\r\n" );
                 break;
                 case CapSense_ONE_FINGER_FLICK_DOWN:
-                printf("CapSense_ONE_FINGER_FLICK_DOWN\r\n" );
+                cap_print("CapSense_ONE_FINGER_FLICK_DOWN\r\n" );
                     ledIndex--;
                 break;
                 case CapSense_ONE_FINGER_SINGLE_CLICK:
-                printf("CapSense_ONE_FINGER_SINGLE_CLICK\r\n" );
+                cap_print("CapSense_ONE_FINGER_SINGLE_CLICK\r\n" );
                     break;
                 case CapSense_ONE_FINGER_EDGE_SWIPE_LEFT:
-                printf("CapSense_ONE_FINGER_EDGE_SWIPE_LEFT\r\n" );
+                cap_print("CapSense_ONE_FINGER_EDGE_SWIPE_LEFT\r\n" );
                     break;
                 case CapSense_ONE_FINGER_EDGE_SWIPE_RIGTH:
                     break;
@@ -113,14 +111,14 @@ int main(void)
                 case CapSense_ONE_FINGER_ROTATE_CCW:
                     break;
                 case CapSense_TMG_TOUCHDOWN:
-                printf("Touched Slider\r\n");
+                cap_print("Touched Slider\r\n");
                 break;
                 case CapSense_TMG_LIFT_OFF:
-                printf("Touched Removed from slider\r\n");
+                cap_print("Touched Removed from slider\r\n");
                 break;
                 default:
                 if(prevGsture != gesture)
-                printf("%X \r\n",gesture );
+                cap_printf("%X \r\n",gesture );
                 prevGsture = gesture;
                     break;
             }
@@ -175,8 +173,8 @@ int main(void)
                 Cy_TCPWM_PWM_SetCompare0(PWM_HW,PWM_CNT_NUM,100);
                 UART_1_Start();
                 
-    printf("\x1b[2J\x1b[;H");
-    printf("UART TASK Started \r\n"); 
+    cap_printf("\x1b[2J\x1b[;H");
+    cap_printf("UART TASK Started \r\n"); 
      
     for(;;)
     {
