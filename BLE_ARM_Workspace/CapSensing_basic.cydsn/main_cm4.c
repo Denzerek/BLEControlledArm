@@ -65,6 +65,7 @@ int main(void)
     
     cap_print("\x1b[2J\x1b[;H");
     cap_print("UART TASK Started \r\n");
+    bool flickDetected = false;
     
     for(;;)
     {
@@ -85,10 +86,12 @@ int main(void)
                 case CapSense_TMG_FLICK_EAST:
                     ledIndex++;
                 cap_printf("CapSense_TMG_FLICK_EAST %d\r\n",ledIndex );
+                flickDetected = true;
                 break; 
                 case CapSense_TMG_FLICK_WEST:
                     ledIndex--;
                 cap_printf("CapSense_TMG_FLICK_WEST %d\r\n",ledIndex );
+                flickDetected = true;
                 break;
                 case CapSense_ONE_FINGER_FLICK_UP:
                     ledIndex++;
@@ -132,7 +135,7 @@ int main(void)
                 ledIndex = 0;
             }
             pos = CapSense_GetCentroidPos(CapSense_LINEARSLIDER0_WDGT_ID);
-            if(pos < 0xFFFF)
+            if((pos < 0xFFFF) && (flickDetected == false))
             {                
                 Cy_TCPWM_PWM_SetCompare0(ledSelect[ledIndex].type,ledSelect[ledIndex].num,pos);
             }
@@ -150,6 +153,7 @@ int main(void)
             }
             CapSense_UpdateAllBaselines();
             CapSense_ScanAllWidgets();
+            flickDetected = false;
         }
     }
 }
