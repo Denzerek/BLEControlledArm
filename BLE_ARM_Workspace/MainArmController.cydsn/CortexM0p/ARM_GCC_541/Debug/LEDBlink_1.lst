@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 1
 
 
    1              		.syntax unified
@@ -58,15 +58,15 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
   28:Generated_Source\PSoC6/LEDBlink_1.c **** */ 
   29:Generated_Source\PSoC6/LEDBlink_1.c **** cy_stc_tcpwm_pwm_config_t const LEDBlink_1_config =
   30:Generated_Source\PSoC6/LEDBlink_1.c **** {
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 2
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 2
 
 
   31:Generated_Source\PSoC6/LEDBlink_1.c ****     .pwmMode = 4UL,
-  32:Generated_Source\PSoC6/LEDBlink_1.c ****     .clockPrescaler = 1UL,
+  32:Generated_Source\PSoC6/LEDBlink_1.c ****     .clockPrescaler = 2UL,
   33:Generated_Source\PSoC6/LEDBlink_1.c ****     .pwmAlignment = 0UL,
   34:Generated_Source\PSoC6/LEDBlink_1.c ****     .deadTimeClocks = 0UL,
   35:Generated_Source\PSoC6/LEDBlink_1.c ****     .runMode = 0UL,
-  36:Generated_Source\PSoC6/LEDBlink_1.c ****     .period0 = 999UL,
+  36:Generated_Source\PSoC6/LEDBlink_1.c ****     .period0 = 100UL,
   37:Generated_Source\PSoC6/LEDBlink_1.c ****     .period1 = 32768UL,
   38:Generated_Source\PSoC6/LEDBlink_1.c ****     .enablePeriodSwap = false,
   39:Generated_Source\PSoC6/LEDBlink_1.c ****     .compare0 = 0UL,
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
   39 0006 002B     		cmp	r3, #0
   40 0008 07D1     		bne	.L2
   74:Generated_Source\PSoC6/LEDBlink_1.c ****     {
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 3
 
 
   75:Generated_Source\PSoC6/LEDBlink_1.c ****         (void) Cy_TCPWM_PWM_Init(LEDBlink_1_HW, LEDBlink_1_CNT_NUM, &LEDBlink_1_config);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
   37:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * index). 
   38:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
   39:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The TCPWM supports three operating modes:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 4
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 4
 
 
   40:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Timer/Counter
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
   94:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature decoder is used to decode the output of a quadrature encoder. 
   95:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature encoder senses the position, velocity, and direction of 
   96:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * an object (for example a rotating axle, or a spinning mouse ball). 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 5
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 5
 
 
   97:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature decoder can also be used for precision measurement of speed, 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  151:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
  152:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_MISRA MISRA-C Compliance 
  153:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * <table class="doxtable">
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 6
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 6
 
 
  154:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  208:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
  209:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #ifndef CY_IP_MXTCPWM
  210:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     #error "The TCPWM driver is not supported on this device"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 7
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 7
 
 
  211:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #endif
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  265:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
  266:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A rising edge triggers the event (Capture, Start, Reload, etc..) */
  267:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_RISINGEDGE       (0U)
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 8
 
 
  268:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A falling edge triggers the event (Capture, Start, Reload, etc..) */
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  322:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  ******************************************************************************/
  323:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
  324:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  /**
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 9
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 9
 
 
  325:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_enums
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  379:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     base->CTRL_SET = counters;
   56              		.loc 2 379 0
   57 001a 0222     		movs	r2, #2
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 10
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 10
 
 
   58 001c 034B     		ldr	r3, .L3+8
@@ -575,11 +575,11 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
   81              		.size	LEDBlink_1_config, 100
   82              	LEDBlink_1_config:
   83 0000 04000000 		.word	4
-  84 0004 01000000 		.word	1
+  84 0004 02000000 		.word	2
   85 0008 00000000 		.word	0
   86 000c 00000000 		.word	0
   87 0010 00000000 		.word	0
-  88 0014 E7030000 		.word	999
+  88 0014 64000000 		.word	100
   89 0018 00800000 		.word	32768
   90 001c 00       		.byte	0
   91 001d 000000   		.space	3
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  104 004c 01000000 		.word	1
  105 0050 FFFFFFFF 		.word	-1
  106 0054 00000000 		.word	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 11
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 11
 
 
  107 0058 FFFFFFFF 		.word	-1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  161 0053 03       		.uleb128 0x3
  162 0054 2D010000 		.4byte	.LASF6
  163 0058 03       		.byte	0x3
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 12
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 12
 
 
  164 0059 41       		.byte	0x41
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  218 00c2 24       		.byte	0x24
  219 00c3 A3000000 		.4byte	0xa3
  220 00c7 04       		.byte	0x4
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 13
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 13
 
 
  221 00c8 08       		.uleb128 0x8
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  275 0133 08       		.uleb128 0x8
  276 0134 11030000 		.4byte	.LASF24
  277 0138 05       		.byte	0x5
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 14
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 14
 
 
  278 0139 2E       		.byte	0x2e
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  332 01a3 9E000000 		.4byte	0x9e
  333 01a7 08       		.byte	0x8
  334 01a8 08       		.uleb128 0x8
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 15
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 15
 
 
  335 01a9 72010000 		.4byte	.LASF32
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  389 0219 70010000 		.4byte	0x170
  390 021d 28020000 		.4byte	0x228
  391 0221 0D       		.uleb128 0xd
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 16
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 16
 
 
  392 0222 97000000 		.4byte	0x97
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  446 028b 08       		.uleb128 0x8
  447 028c D6010000 		.4byte	.LASF46
  448 0290 06       		.byte	0x6
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 17
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 17
 
 
  449 0291 32       		.byte	0x32
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  503 02fd 3C       		.byte	0x3c
  504 02fe 8C000000 		.4byte	0x8c
  505 0302 34       		.byte	0x34
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 18
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 18
 
 
  506 0303 08       		.uleb128 0x8
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  560 036f 08       		.uleb128 0x8
  561 0370 2C000000 		.4byte	.LASF65
  562 0374 06       		.byte	0x6
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 19
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 19
 
 
  563 0375 4A       		.byte	0x4a
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  617 03ea 01040000 		.4byte	0x401
  618 03ee 14       		.uleb128 0x14
  619 03ef B3030000 		.4byte	0x3b3
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 20
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 20
 
 
  620 03f3 00000000 		.4byte	.LLST0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  674 0001 11       		.uleb128 0x11
  675 0002 01       		.byte	0x1
  676 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 21
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 21
 
 
  677 0004 0E       		.uleb128 0xe
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  731 003a 13       		.uleb128 0x13
  732 003b 00       		.byte	0
  733 003c 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 22
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 22
 
 
  734 003d 06       		.uleb128 0x6
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  788 0073 05       		.uleb128 0x5
  789 0074 3A       		.uleb128 0x3a
  790 0075 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 23
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 23
 
 
  791 0076 3B       		.uleb128 0x3b
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  845 00ac 0F       		.uleb128 0xf
  846 00ad 2E       		.uleb128 0x2e
  847 00ae 01       		.byte	0x1
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 24
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 24
 
 
  848 00af 03       		.uleb128 0x3
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  902 00e5 18       		.uleb128 0x18
  903 00e6 9742     		.uleb128 0x2117
  904 00e8 19       		.uleb128 0x19
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 25
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 25
 
 
  905 00e9 01       		.uleb128 0x1
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  959 0124 0B       		.uleb128 0xb
  960 0125 3B       		.uleb128 0x3b
  961 0126 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 26
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 26
 
 
  962 0127 49       		.uleb128 0x49
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  1016 0014 30000000 		.4byte	.LFE90-.LFB90
  1017 0018 00000000 		.4byte	0
  1018 001c 00000000 		.4byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 27
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 27
 
 
  1019              		.section	.debug_ranges,"",%progbits
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  1044      726B7370 
  1044      6163655C 
  1044      4D61696E 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 28
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 28
 
 
  1044      41726D43 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  1070      6D656E74 
  1070      00
  1071              	.LASF52:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 29
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 29
 
 
  1072 014e 656E6162 		.ascii	"enableCompareSwap\000"
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  1098      555300
  1099              	.LASF74:
  1100 01e5 47656E65 		.ascii	"Generated_Source\\PSoC6\\LEDBlink_1.c\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 30
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 30
 
 
  1100      72617465 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  1125              	.LASF12:
  1126 0297 75696E74 		.ascii	"uint32_t\000"
  1126      33325F74 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 31
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 31
 
 
  1126      00
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  1150      00
  1151              	.LASF71:
  1152 032c 4C454442 		.ascii	"LEDBlink_1_initVar\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 32
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 32
 
 
  1152      6C696E6B 
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 1
  1172      72745057 
  1172      4D4F7574 
  1172      00
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccGdrJY4.s 			page 33
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\cclz5Yis.s 			page 33
 
 
  1173              	.LASF63:
