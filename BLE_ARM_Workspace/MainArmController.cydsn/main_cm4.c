@@ -16,6 +16,7 @@
 #include "ezI2CTask.h"
 #include "event_groups.h"
 #include "capSenseTask.h"
+#include "servoSlaveCommTask.h"
 
 
 
@@ -34,7 +35,11 @@
 #define CAPSENSE_TASK_STACK_SIZE         400
 #define CAPSENSE_TASK_PRIORITY           2
 
+#define ARDUINO_COMM_TASK_STACK_SIZE    400
+#define ARDUINO_COMM_TASK_PRIORITY      2
+
 QueueHandle_t pwmQueue;
+QueueHandle_t servoControlQueue;
 EventGroupHandle_t pwmEventGroup;
 
 int main(void)
@@ -42,6 +47,7 @@ int main(void)
     __enable_irq(); /* Enable global interrupts. */
     
     pwmQueue = xQueueCreate(4,sizeof(PWM_Message_t));
+    servoControlQueue = xQueueCreate(4,sizeof(PWM_Message_t));
     
     pwmEventGroup = xEventGroupCreate();
 
@@ -58,7 +64,11 @@ int main(void)
     xTaskCreate(ezI2CTask,"EZ I2C TASK",EZI2C_TASK_STACK_SIZE,0,EZI2C_TASK_PRIORITY,0);
     
     /* Capsense task that runs continuously*/
-    xTaskCreate(capsenseTask,"Capsense TASK",CAPSENSE_TASK_STACK_SIZE,0,CAPSENSE_TASK_PRIORITY,0);
+    xTaskCreate(capsenseTask,"CAPSENSE TASK",CAPSENSE_TASK_STACK_SIZE,0,CAPSENSE_TASK_PRIORITY,0);
+    
+    /* task to send the percentage change for servo motor to arduino servo control*/
+    xTaskCreate(servoSlaveCommTask,"ARDUINO COMM TASK",ARDUINO_COMM_TASK_STACK_SIZE,0,ARDUINO_COMM_TASK_PRIORITY,0);
+    
     
     /* Start the Scheduler*/
     vTaskStartScheduler();

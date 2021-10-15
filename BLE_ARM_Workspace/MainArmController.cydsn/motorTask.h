@@ -35,6 +35,7 @@ typedef struct PWM_Message{
 }PWM_Message_t;
 
 int getMotorPercent(motors_t motors);
+int compareToPercent(int compare);
 
 void motorTask(void*);
 

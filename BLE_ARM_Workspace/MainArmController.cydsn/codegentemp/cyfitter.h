@@ -27,8 +27,8 @@
 #define UART_SCB__SS1_POSITION 1u
 #define UART_SCB__SS2_POSITION 2u
 #define UART_SCB__SS3_POSITION 3u
-#define UART_SCBCLK__DIV_IDX 3
-#define UART_SCBCLK__DIV_NUM 3
+#define UART_SCBCLK__DIV_IDX 4
+#define UART_SCBCLK__DIV_NUM 4
 #define UART_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* EZI2C */
@@ -61,14 +61,25 @@
 #define Dimmer_TCPWM__IDX 0u
 
 /* Clock_1 */
-#define Clock_1__DIV_IDX 2
-#define Clock_1__DIV_NUM 2
+#define Clock_1__DIV_IDX 3
+#define Clock_1__DIV_NUM 3
 #define Clock_1__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_2 */
 #define Clock_2__DIV_IDX 8
 #define Clock_2__DIV_NUM 0
 #define Clock_2__DIV_TYPE CY_SYSCLK_DIV_16_BIT
+
+/* I2C_ARD */
+#define I2C_ARD_SCB__HW SCB2
+#define I2C_ARD_SCB__IDX 2
+#define I2C_ARD_SCB__SS0_POSITION 0u
+#define I2C_ARD_SCB__SS1_POSITION 1u
+#define I2C_ARD_SCB__SS2_POSITION 2u
+#define I2C_ARD_SCB__SS3_POSITION 3u
+#define I2C_ARD_SCBCLK__DIV_IDX 2
+#define I2C_ARD_SCBCLK__DIV_NUM 2
+#define I2C_ARD_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* PWM_RED */
 #define PWM_RED_TCPWM__CNT_HW TCPWM0_CNT2

@@ -30,6 +30,7 @@ static int inline percentToPulse(int percent)
     pulse = percent * (MAX_US - MIN_US ) / (100 - 0) + MIN_US ;
     return pulse;
 }
+
 static int inline pulseToPercent(int pulse)
 {
     int percent = 0;
@@ -53,7 +54,7 @@ static int inline pulseToCompare(int pulse)
 }
 
 //Turn pwm compare value into percent
-static int inline compareToPercent(int compare)
+int compareToPercent(int compare)
 {
     int pulse;
     int percent;
@@ -137,6 +138,7 @@ void motorTask(void* arg)
 		
 		motorPrintf("Motor %d : %d %%",pwmMessage.motor,percentTmp);
         
+        xQueueSend(servoControlQueue,&pwmMessage,0);
         //Change the PWM of motor
         Cy_TCPWM_PWM_SetCompare0(hw,cntrNum,percentToCompare(percentTmp));
         xEventGroupSetBits(pwmEventGroup,PWM_EVENT_ALL);

@@ -110,10 +110,12 @@
 #include "CapSense_SmartSense_LL.h"
 #include "CapSense_Gesture.h"
 #include "Dimmer.h"
+#include "I2C_ARD.h"
 #include "UART_SCBCLK.h"
 #include "EZI2C_SCBCLK.h"
 #include "CapSense_ModClk.h"
 #include "CapSense_TMG.h"
+#include "I2C_ARD_SCBCLK.h"
 
 /*[]*/
 

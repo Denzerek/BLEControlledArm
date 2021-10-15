@@ -21,6 +21,9 @@
 
 /* ARM CM4 */
 #if (((__CORTEX_M == 4) && (CY_CORE_ID == 0)))
+    #define I2C_ARD_SCB_IRQ__INTC_ASSIGNED 1u
+    extern const cy_stc_sysint_t I2C_ARD_SCB_IRQ_cfg;
+
     #define EZI2C_SCB_IRQ__INTC_ASSIGNED 1u
     extern const cy_stc_sysint_t EZI2C_SCB_IRQ_cfg;
 
