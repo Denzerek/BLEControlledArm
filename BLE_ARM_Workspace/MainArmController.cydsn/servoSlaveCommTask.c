@@ -26,7 +26,7 @@ void i2cCallback(uint32_t event)
 }
 
 
-
+static uint8_t prevPercent[5];
 void servoSlaveCommTask(void * arg)
 {
     (void)arg;
@@ -85,7 +85,9 @@ void servoSlaveCommTask(void * arg)
             percentTmp = pwmMessage.percent;
         }
         ard_printf("Transmitting motor %d pwm %d ",pwmMessage.motor,percentTmp);
-        ardTransmitPWMPercent(pwmMessage.motor,percentTmp);
+        if(prevPercent[pwmMessage.motor] != percentTmp) 
+            ardTransmitPWMPercent(pwmMessage.motor,percentTmp);
+        prevPercent[pwmMessage.motor] = percentTmp;
         
     }
 }
