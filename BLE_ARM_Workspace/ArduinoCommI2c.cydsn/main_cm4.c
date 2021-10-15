@@ -17,7 +17,7 @@ int main(void)
     UART_1_Start();
     I2C_1_Start();
     PWM_1_Start();
-    printf("i2c code start");
+    printf("i2c code start\r\n");
     
     
     cy_stc_scb_i2c_master_xfer_config_t transfer;
@@ -36,7 +36,7 @@ int main(void)
     while (0UL != (CY_SCB_I2C_MASTER_BUSY & Cy_SCB_I2C_MasterGetStatus(I2C_1_HW, &I2C_1_context)))
     {
     }
-    printf("I2c master write operation complete");
+    printf("I2c master write operation complete\r\n");
     
     /* Configure read transaction */
     transfer.buffer       = readBuffer;
