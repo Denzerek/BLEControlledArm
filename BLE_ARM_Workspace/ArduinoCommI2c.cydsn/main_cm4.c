@@ -45,7 +45,7 @@ int main(void)
     (void) Cy_SCB_I2C_MasterWrite(I2C_1_HW, &transfer, &I2C_1_context);
     /* Wait for transaction completion */
     while (0UL != (CY_SCB_I2C_MASTER_BUSY & Cy_SCB_I2C_MasterGetStatus(I2C_1_HW, &I2C_1_context)))
-    {
+    { 
     }
     printf("I2c master write operation complete %X\r\n",i2cStatus);
     
