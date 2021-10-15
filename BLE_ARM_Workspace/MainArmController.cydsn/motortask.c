@@ -138,7 +138,7 @@ void motorTask(void* arg)
 		
 		motorPrintf("Motor %d : %d %%",pwmMessage.motor,percentTmp);
         
-        xQueueSend(servoControlQueue,&pwmMessage,0);
+        //xQueueSend(servoControlQueue,&pwmMessage,0);
         //Change the PWM of motor
         Cy_TCPWM_PWM_SetCompare0(hw,cntrNum,percentToCompare(percentTmp));
         xEventGroupSetBits(pwmEventGroup,PWM_EVENT_ALL);

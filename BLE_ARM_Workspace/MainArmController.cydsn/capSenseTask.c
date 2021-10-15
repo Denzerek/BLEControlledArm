@@ -39,6 +39,7 @@ void capsenseTask(void *arg)
                 myMessage.motor = currentMotor;
                 myMessage.percent = pos;
                 xQueueSend(pwmQueue,&myMessage,0);
+                xQueueSend(servoControlQueue,&myMessage,0);
             }
             
             if(CapSense_IsWidgetActive(CapSense_BUTTON0_WDGT_ID))
