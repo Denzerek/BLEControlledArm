@@ -31,7 +31,7 @@ int main(void)
     
     cy_stc_scb_i2c_master_xfer_config_t transfer;
     uint8_t readBuffer [5UL];
-    uint8_t writeBuffer[2UL] = {0xCD, 5U};
+    uint8_t writeBuffer[2UL] = {0xD, 5U};
     /* Configure write transaction */
     transfer.slaveAddress = 0x08U;
     transfer.buffer       = writeBuffer;
@@ -47,7 +47,7 @@ int main(void)
     while (0UL != (CY_SCB_I2C_MASTER_BUSY & Cy_SCB_I2C_MasterGetStatus(I2C_1_HW, &I2C_1_context)))
     { 
     }
-    writeBuffer[0] = 0xAC;
+    writeBuffer[0] = 0xA;
      transfer.buffer       = writeBuffer;
     transfer.xferPending  = false; /* Generate Stop condition at the end of transaction */
     
