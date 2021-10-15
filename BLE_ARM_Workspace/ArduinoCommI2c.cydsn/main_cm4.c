@@ -11,6 +11,14 @@
 */
 #include "project.h"
 #include <stdio.h>
+
+volatile static i2cStatus = 0;
+void i2cCallback(uint32_t event)
+{
+   i2cStatus |= event;
+}
+
+
 int main(void)
 {
     __enable_irq(); /* Enable global interrupts. */
@@ -18,6 +26,7 @@ int main(void)
     I2C_1_Start();
     PWM_1_Start();
     printf("i2c code start\r\n");
+    Cy_SCB_I2C_RegisterEventCallback(I2C_1_HW, i2cCallback, &I2C_1_context);
     
     
     cy_stc_scb_i2c_master_xfer_config_t transfer;
@@ -27,7 +36,9 @@ int main(void)
     transfer.slaveAddress = 0x08U;
     transfer.buffer       = writeBuffer;
     transfer.bufferSize   = sizeof(writeBuffer);
-    transfer.xferPending  = true; /* Do not generate Stop condition at the end of transaction */
+    //transfer.xferPending  = true; /* Do not generate Stop condition at the end of transaction */
+    transfer.xferPending  = false; /* Generate Stop condition at the end of transaction */
+    i2cStatus = 0;
     /* Initiate write transaction.
     * The Start condition is generated to begin this transaction.
     */
@@ -36,7 +47,7 @@ int main(void)
     while (0UL != (CY_SCB_I2C_MASTER_BUSY & Cy_SCB_I2C_MasterGetStatus(I2C_1_HW, &I2C_1_context)))
     {
     }
-    printf("I2c master write operation complete\r\n");
+    printf("I2c master write operation complete %X\r\n",i2cStatus);
     
     /* Configure read transaction */
     transfer.buffer       = readBuffer;
