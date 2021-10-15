@@ -17,6 +17,7 @@ int main(void)
     UART_1_Start();
     I2C_1_Start();
     PWM_1_Start();
+    printf("i2c code start");
     
     
     cy_stc_scb_i2c_master_xfer_config_t transfer;
