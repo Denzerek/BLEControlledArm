@@ -31,7 +31,7 @@ int main(void)
     
     cy_stc_scb_i2c_master_xfer_config_t transfer;
     uint8_t readBuffer [5UL];
-    uint8_t writeBuffer[3UL] = {54,34, 5U};
+    uint8_t writeBuffer[10UL] = {'A','B','c','d','e', 5U};
     /* Configure write transaction */
     transfer.slaveAddress = 0x08U;
     transfer.buffer       = writeBuffer;
