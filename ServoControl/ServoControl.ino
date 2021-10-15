@@ -18,29 +18,52 @@
 #define COM_PACKET_TAIL         *(receptionBuffer + 3 )
 #define PROTOCOL_TAIL       0x0D      //tail will remaiin fixed for every transmission
 #define COM_PWM_DATA            *(receptionBuffer + 2 )
+#define SERVO_PERCENT_TO_ANGLE  ( 180/90 )
 
 #define PWM_COMMAND 0x0C
 
 //Uncomment to observe debug messages
-//#define MOTOR_DEBUG_ENABLE
+#define MOTOR_DEBUG_ENABLE
 
 typedef enum{
   MOTOR_MIN,
   MOTOR_1,
   MOTOR_2,
+  MOTOR_3,
+  MOTOR_4,
   MOTOR_MAX
 }motors_t;
 
-char temp[100];
-char receptionBuffer[20];
-volatile uint8_t index = 0;
-volatile uint8_t motorFoundFlag = 0;
+
+void setMotorPWMPercent(uint8_t motorNum,uint8_t percent);
+void motorsInit();
+
 
 // create servo object to control the horizontal servo
 Servo servHorizontal;                
 Servo servvertical;                  
 Servo servArm;                    
-Servo servHand;                
+Servo servHand; 
+
+typedef struct{
+  motors_t num; 
+  Servo servoObj;
+  uint8_t motorPin;
+}servo_s;
+
+servo_s servos[MOTOR_MAX] = {
+//  {NULL,NULL,0}
+  {MOTOR_1,servHorizontal,9}
+  ,{MOTOR_2,servvertical,10}
+  ,{MOTOR_3,servArm,8}
+  ,{MOTOR_4,servHand,7}
+  
+};
+
+char temp[100];
+char receptionBuffer[20];
+volatile uint8_t index = 0;
+volatile uint8_t motorFoundFlag = 0;               
 
 void setup() {
   
@@ -57,20 +80,18 @@ void setup() {
 
   //Register command reception callback
   Wire.onReceive(commandReceptionCalback);
+
   
   servo_print("I2c Initialized");
   servo_print("==========================================");
   servo_print("========== SERVO SLAVE ONLINE ============");
   servo_print("==========================================");
 
+  
+  motorsInit();
+
 }
 
-void setMotorPWMPercent(uint8_t motorNum,uint8_t percent)
-{
-  
-  sprintf(temp,"Motor : %d\tPWM : %d",motorNum,percent);
-  servo_print(temp);
-}
 void loop() {
 
   if(*receptionBuffer && (COM_PACKET_TAIL == PROTOCOL_TAIL))
@@ -126,4 +147,40 @@ void commandReceptionCalback(int howMany)
 
   //Necessary for the next i2c read operation (dont remove)
   int x = Wire.read();
+}
+
+
+
+
+
+/*
+ * ======================================================================
+ * Motor Code Section
+ * ======================================================================
+ */
+ 
+
+void motorsInit()
+{
+    for(int motorIndex = MOTOR_MIN ; motorIndex < MOTOR_MAX-1 ; motorIndex++)
+    {
+      //Initialize the servo motor objects
+      servos[motorIndex].servoObj.attach(servos[motorIndex].motorPin);
+
+      //Set to 0 degree initially
+      setMotorPWMPercent(servos[motorIndex].num,0);
+    }
+}
+
+
+/*
+ * The servo motor object takes in the servo position i..e. from 0 to 180 degrees.
+ */
+void setMotorPWMPercent(uint8_t motorNum,uint8_t percent)
+{ 
+  sprintf(temp,"Motor : %d\tPWM : %d",motorNum,percent);
+  servo_print(temp);
+  
+  servos[motorNum].servoObj.write(SERVO_PERCENT_TO_ANGLE * percent);
+  delay(10);    
 }
