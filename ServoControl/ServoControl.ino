@@ -94,6 +94,40 @@ void setup() {
 
 void loop() {
 
+ //Process i2c commands from master
+  commandProcessTask();
+  
+}
+
+
+void commandReceptionCalback(int howMany)
+{
+  char *temp;
+  while (1 < Wire.available()) 
+  { 
+    //char c = Wire.read(); // receive byte as a character
+#ifndef MOTOR_DEBUG_ENABLE
+    receptionBuffer[index++] = Wire.read();
+#else 
+    receptionBuffer[index] = Wire.read();
+  Serial.print(receptionBuffer[index++],HEX);
+  Serial.print(" ");
+#endif
+  }
+  
+#ifdef MOTOR_DEBUG_ENABLE
+  Serial.print("\r\n");
+#endif
+  index = 0;
+
+  //Necessary for the next i2c read operation (dont remove)
+  int x = Wire.read();
+}
+
+void commandProcessTask()
+{
+
+
   if(*receptionBuffer && (COM_PACKET_TAIL == PROTOCOL_TAIL))
   {
     switch(*receptionBuffer)
@@ -124,35 +158,6 @@ void loop() {
   
 }
 
-
-void commandReceptionCalback(int howMany)
-{
-  char *temp;
-  while (1 < Wire.available()) 
-  { 
-    //char c = Wire.read(); // receive byte as a character
-#ifndef MOTOR_DEBUG_ENABLE
-    receptionBuffer[index++] = Wire.read();
-#else 
-    receptionBuffer[index] = Wire.read();
-  Serial.print(receptionBuffer[index++],HEX);
-  Serial.print(" ");
-#endif
-  }
-  
-#ifdef MOTOR_DEBUG_ENABLE
-  Serial.print("\r\n");
-#endif
-  index = 0;
-
-  //Necessary for the next i2c read operation (dont remove)
-  int x = Wire.read();
-}
-
-
-
-
-
 /*
  * ======================================================================
  * Motor Code Section
@@ -172,6 +177,9 @@ void motorsInit()
     }
 }
 
+uint8_t currentPercent;
+uint8_t previousPercent;;
+
 
 /*
  * The servo motor object takes in the servo position i..e. from 0 to 180 degrees.
@@ -180,7 +188,9 @@ void setMotorPWMPercent(uint8_t motorNum,uint8_t percent)
 { 
   sprintf(temp,"Motor : %d\tPWM : %d",motorNum,percent);
   servo_print(temp);
+
   
   servos[motorNum].servoObj.write(SERVO_PERCENT_TO_ANGLE * percent);
   delay(10);    
+
 }
