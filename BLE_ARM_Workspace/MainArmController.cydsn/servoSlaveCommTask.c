@@ -49,6 +49,21 @@ void servoSlaveCommTask(void * arg)
         xQueueReceive(servoControlQueue,&pwmMessage,portMAX_DELAY);
         
         
+        //Identify which PWM to change
+        switch(pwmMessage.motor)
+        {
+            case M1:
+                hw = PWM_1_HW;
+                cntrNum = PWM_1_CNT_NUM;
+            break;
+            case M2:
+                hw = PWM_2_HW;
+                cntrNum = PWM_2_CNT_NUM;
+            break;
+            default:
+            break;
+        }
+        
         //Check if relative or absolute .. if relative, get current % 
         if(pwmMessage.changeType == POS_RELATIVE)
         {
@@ -100,7 +115,7 @@ void ardTransmitPWMPercent(motors_t motorNum,uint8_t percent)
     { 
     }
     
-    ard_print("I2c master write operation complete ");
+    ard_printf("I2c master write operation complete %X ",i2cStatus);
     i2cStatusDecode();
     
 }
