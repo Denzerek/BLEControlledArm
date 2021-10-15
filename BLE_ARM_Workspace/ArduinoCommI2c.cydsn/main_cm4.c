@@ -10,7 +10,7 @@
  * ========================================
 */
 #include "project.h"
-
+#include <stdio.h>
 int main(void)
 {
     __enable_irq(); /* Enable global interrupts. */
