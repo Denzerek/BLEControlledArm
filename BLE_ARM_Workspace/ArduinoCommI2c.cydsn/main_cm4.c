@@ -31,7 +31,7 @@ int main(void)
     
     cy_stc_scb_i2c_master_xfer_config_t transfer;
     uint8_t readBuffer [5UL];
-    uint8_t writeBuffer[3];
+    uint8_t writeBuffer[4];
     writeBuffer[0] = 0xC;
     writeBuffer[1] = 1;
     writeBuffer[2] = 100;
