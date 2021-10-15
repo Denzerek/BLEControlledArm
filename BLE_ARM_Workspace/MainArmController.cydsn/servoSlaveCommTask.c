@@ -90,7 +90,7 @@ void servoSlaveCommTask(void * arg)
         {
             prevPercent[pwmMessage.motor] += i;
             ardTransmitPWMPercent(pwmMessage.motor,prevPercent[pwmMessage.motor]);
-            vTaskDelay(20);
+           Cy_SysLib_Delay(20);
         }
     }
 }
