@@ -31,10 +31,10 @@ int main(void)
     
     cy_stc_scb_i2c_master_xfer_config_t transfer;
     uint8_t readBuffer [5UL];
-    uint8_t writeBuffer[7];
-    strcpy(writeBuffer,"cmd ");
-    writeBuffer[4] = 1;
-    writeBuffer[5] = 100;
+    uint8_t writeBuffer[3];
+    writeBuffer[0] = 0xC;
+    writeBuffer[1] = 1;
+    writeBuffer[2] = 100;
     /* Configure write transaction */
     transfer.slaveAddress = 0x08U;
     transfer.buffer       = writeBuffer;
