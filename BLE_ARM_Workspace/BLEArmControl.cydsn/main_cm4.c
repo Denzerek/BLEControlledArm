@@ -46,6 +46,7 @@ int main(void)
         /* Update the compare value*/
         compareVal  = (compareVal + 1) % 100;
         
+    pwm_print("Kill Switch LEDs Started ...");
         vTaskDelay(10);
     }
 }
