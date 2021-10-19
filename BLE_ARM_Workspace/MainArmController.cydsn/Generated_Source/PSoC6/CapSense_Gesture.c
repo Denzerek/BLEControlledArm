@@ -1,12 +1,12 @@
 /***************************************************************************//**
 * \file CapSense_Gesture.c
-* \version 2.0
+* \version 3.0
 *
 * \brief
 *   This file provides the source code for the centroid calculation methods
 *   of the Component.
 *
-* \see CapSense v2.0 Datasheet
+* \see CapSense v3.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.

@@ -1,18 +1,20 @@
 /***************************************************************************//**
 * \file cy_scb_common.c
-* \version 2.10
+* \version 2.30
 *
 * Provides common API implementation of the SCB driver.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2016-2018, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2016-2021, Cypress Semiconductor Corporation. All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
 *******************************************************************************/
 
 #include "cy_scb_common.h"
+
+#ifdef CY_IP_MXSCB
 
 #if defined(__cplusplus)
 extern "C" {
@@ -409,6 +411,7 @@ uint32_t Cy_SCB_WriteDefaultArray(CySCB_Type *base, uint32_t txData, uint32_t si
 }
 #endif
 
+#endif /* CY_IP_MXSCB */
 
 /* [] END OF FILE */
 

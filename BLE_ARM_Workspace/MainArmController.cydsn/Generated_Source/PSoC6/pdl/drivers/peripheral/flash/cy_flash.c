@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_flash.c
-* \version 3.0
+* \version 3.20
 *
 * \brief
 * Provides the public functions for the API for the PSoC 6 Flash Driver.
@@ -12,12 +12,14 @@
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
 *******************************************************************************/
-#include "flash/cy_flash.h"
-#include "sysclk/cy_sysclk.h"
-#include "sysint/cy_sysint.h"
-#include "ipc/cy_ipc_drv.h"
-#include "ipc/cy_ipc_sema.h"
-#include "ipc/cy_ipc_pipe.h"
+#include "cy_flash.h"
+#include "cy_sysclk.h"
+#include "cy_sysint.h"
+#include "cy_ipc_drv.h"
+#include "cy_ipc_sema.h"
+#include "cy_ipc_pipe.h"
+#include "cy_device.h"
+
 
 /***************************************
 * Data Structure definitions
@@ -68,8 +70,6 @@ typedef struct
 #define CY_FLASH_OPCODE_CHECKSUM_ROW_SHIFT (8UL)
 /** SROM API flash row shift for flash checksum operation */
 #define CY_FLASH_OPCODE_CHECKSUM_REGION_SHIFT (22UL)
-/** SROM API flash data size parameter for flash write operation */
-#define CY_FLASH_CONFIG_DATASIZE           (CPUSS_FLASHC_PA_SIZE_LOG2 - 1UL)
 /** Data to be programmed to flash is located in SRAM memory region */
 #define CY_FLASH_DATA_LOC_SRAM             (0x100UL)
 /** SROM API flash verification option for flash write operation */
@@ -109,7 +109,7 @@ typedef struct
 #define CY_FLASH_CM4_FLASH_PROXY_ADDR              (*(Cy_Flash_Proxy *)(0x00000D1CUL))
 typedef cy_en_flashdrv_status_t (*Cy_Flash_Proxy)(cy_stc_flash_context_t *context);
 
-/** IPC notify bit for IPC_STRUCT0 (dedicated to flash operation) */
+/** IPC notify bit for IPC0 structure (dedicated to flash operation) */
 #define CY_FLASH_IPC_NOTIFY_STRUCT0                (0x1UL << CY_IPC_INTR_SYSCALL1)
 
 /** Disable delay */
@@ -118,10 +118,6 @@ typedef cy_en_flashdrv_status_t (*Cy_Flash_Proxy)(cy_stc_flash_context_t *contex
 #if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
     /** Number of ticks to wait 1 uS */
     #define CY_FLASH_TICKS_FOR_1US                     (8U)
-    /** Slow control register */
-    #define CY_FLASH_TST_DDFT_SLOW_CTL_REG             (*(reg32 *) 0x40260108U)
-    /** Slow control register */
-    #define CY_FLASH_TST_DDFT_FAST_CTL_REG             (*(reg32 *) 0x40260104U)
     /** Define to set the IMO to perform a delay after the flash operation started */
     #define CY_FLASH_TST_DDFT_SLOW_CTL_MASK            (0x00001F1EUL)
     /** Fast control register */
@@ -164,14 +160,6 @@ typedef cy_en_flashdrv_status_t (*Cy_Flash_Proxy)(cy_stc_flash_context_t *contex
     /* Semaphore check timeout (in tries) */
     #define CY_FLASH_SEMA_WAIT_MAX_TRIES               (150000UL)
 
-    typedef struct
-    {
-        uint8_t  clientID;
-        uint8_t  pktType;
-        uint16_t intrRelMask;
-    } cy_flash_notify_t;
-
-    static void Cy_Flash_NotifyHandler(uint32_t * msgPtr);
     static void Cy_Flash_RAMDelay(uint32_t microseconds);
 
     #if (CY_CPU_CORTEX_M0P)
@@ -182,19 +170,20 @@ typedef cy_en_flashdrv_status_t (*Cy_Flash_Proxy)(cy_stc_flash_context_t *contex
         #define NOTIFY_PEER_CORE(a)         Cy_IPC_Pipe_SendMessage(CY_IPC_EP_CYPIPE_CM0_ADDR, CY_IPC_EP_CYPIPE_CM4_ADDR, (a), NULL)
     #endif
 
-    #if (CY_CPU_CORTEX_M4)
-        static void Cy_Flash_ResumeIrqHandler(void);
-    #endif
-#else /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
+    static void Cy_Flash_NotifyHandler(uint32_t * msgPtr);
+    
+    static cy_stc_flash_notify_t * ipcWaitMessage;
+
+#else
     /** Delay time for Start Write function in us with corrective time */
     #define CY_FLASH_START_WRITE_DELAY                 (CY_FLASH_NO_DELAY)
     /** Delay time for Start Program function in us with corrective time */
     #define CY_FLASH_START_PROGRAM_DELAY               (CY_FLASH_NO_DELAY)
-    /** Delay time fot Start Erase function in uS with corrective time */
+    /** Delay time for Start Erase function in uS with corrective time */
     #define CY_FLASH_START_ERASE_DELAY                 (CY_FLASH_NO_DELAY)
+    
 #endif /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
 /** \endcond */
-
 
 /* Static functions */
 static bool Cy_Flash_BoundsCheck(uint32_t flashAddr);
@@ -205,7 +194,55 @@ static cy_en_flashdrv_status_t Cy_Flash_SendCmd(uint32_t mode, uint32_t microsec
 
 static volatile cy_stc_flash_context_t flashContext;
 
+
 #if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
+    /*******************************************************************************
+    * Function Name: Cy_Flash_InitExt
+    ****************************************************************************//**
+    *
+    * Initiates all needed prerequisites to support flash erase/write.
+    * Should be called from each core. Defines the address of the message structure.
+    *
+    * Requires a call to Cy_IPC_Sema_Init(), Cy_IPC_Pipe_Config() and 
+    * Cy_IPC_Pipe_Init() functions before use.
+    *
+    * This function is called in the Cy_Flash_Init() function - see the 
+    * \ref Cy_Flash_Init usage considerations.
+    *
+    *******************************************************************************/
+    void Cy_Flash_InitExt(cy_stc_flash_notify_t *ipcWaitMessageAddr)
+    {
+        ipcWaitMessage = ipcWaitMessageAddr;
+       
+        if(ipcWaitMessage != NULL)
+        {
+            ipcWaitMessage->clientID = CY_FLASH_IPC_CLIENT_ID;
+            ipcWaitMessage->pktType = CY_FLASH_ENTER_WAIT_LOOP;
+            ipcWaitMessage->intrRelMask = 0u;            
+        }                    
+            
+        if (cy_device->flashRwwRequired != 0u)
+        {
+            #if (CY_CPU_CORTEX_M4)
+                cy_stc_sysint_t flashIntConfig =
+                {
+                    (IRQn_Type)cy_device->cpussFmIrq,   /* .intrSrc */
+                    0u                                  /* .intrPriority */
+                };
+
+                (void)Cy_SysInt_Init(&flashIntConfig, &Cy_Flash_ResumeIrqHandler);
+                NVIC_EnableIRQ(flashIntConfig.intrSrc);
+            #endif
+
+                if (cy_device->flashPipeRequired != 0u)
+                {
+                    (void)Cy_IPC_Pipe_RegisterCallback(CY_IPC_EP_CYPIPE_ADDR, &Cy_Flash_NotifyHandler,
+                                                      (uint32_t)CY_FLASH_IPC_CLIENT_ID);
+                }
+        }
+    }
+    
+    
     /*******************************************************************************
     * Function Name: Cy_Flash_NotifyHandler
     ****************************************************************************//**
@@ -213,17 +250,12 @@ static volatile cy_stc_flash_context_t flashContext;
     * This is the interrupt service routine for the pipe notifications.
     *
     *******************************************************************************/
-    typedef struct
-    {
-        uint32_t maxSema;      /* Maximum semaphores in system */
-        uint32_t *arrayPtr;    /* Pointer to semaphores array  */
-    } cy_stc_ipc_sema_t;
 
     #if defined (__ICCARM__)
         #pragma diag_suppress=Ta023
         __ramfunc
     #else
-        CY_SECTION(".cy_ramfunc")
+        CY_SECTION(".cy_ramfunc") CY_NOINLINE
     #endif
     static void Cy_Flash_NotifyHandler(uint32_t * msgPtr)
     {
@@ -233,14 +265,14 @@ static volatile cy_stc_flash_context_t flashContext;
         static volatile uint32_t *semaPtr;
         static cy_stc_ipc_sema_t *semaStruct;
 
-        cy_flash_notify_t *ipcMsgPtr = (cy_flash_notify_t *)msgPtr;
+        cy_stc_flash_notify_t *ipcMsgPtr = (cy_stc_flash_notify_t *)msgPtr;
 
         if (CY_FLASH_ENTER_WAIT_LOOP == ipcMsgPtr->pktType)
         {
             intr = Cy_SysLib_EnterCriticalSection();
 
             /* Get pointer to structure */
-            semaStruct = (cy_stc_ipc_sema_t *)Cy_IPC_Drv_ReadDataValue(Cy_IPC_Drv_GetIpcBaseAddress( CY_IPC_CHAN_SEMA));
+            semaStruct = (cy_stc_ipc_sema_t *)Cy_IPC_Drv_ReadDataValue(Cy_IPC_Drv_GetIpcBaseAddress(CY_IPC_CHAN_SEMA));
 
             /* Get the index into the semaphore array and calculate the mask */
             semaIndex = CY_FLASH_WAIT_SEMA / CY_IPC_SEMA_PER_WORD;
@@ -261,7 +293,8 @@ static volatile cy_stc_flash_context_t flashContext;
     #if defined (__ICCARM__)
         #pragma diag_default=Ta023
     #endif
-#endif
+#endif /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
+
 
 /*******************************************************************************
 * Function Name: Cy_Flash_Init
@@ -270,36 +303,25 @@ static volatile cy_stc_flash_context_t flashContext;
 * Initiates all needed prerequisites to support flash erase/write.
 * Should be called from each core.
 *
-* Requires a call to Cy_IPC_SystemSemaInit() and Cy_IPC_SystemPipeInit() functions
-* before use.
+* Requires a call to Cy_IPC_Sema_Init(), Cy_IPC_Pipe_Config() and 
+* Cy_IPC_Pipe_Init() functions before use.
 *
 * This function is called in the SystemInit() function, for proper flash write
 * and erase operations. If the default startup file is not used, or the function
-* SystemInit() is not called in your project, call the following three functions
-* prior to executing any flash or EmEEPROM write or erase operations:
-* -# Cy_IPC_SystemSemaInit()
-* -# Cy_IPC_SystemPipeInit()
-* -# Cy_Flash_Init()
+* SystemInit() is not called in your project, ensure to perform the following steps 
+* before any flash or EmEEPROM write/erase operations:
+* \snippet flash\3.20\snippet\main.c Flash Initialization
 *
 *******************************************************************************/
 void Cy_Flash_Init(void)
 {
-    #if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
-        #if (CY_CPU_CORTEX_M4)
-            cy_stc_sysint_t flashIntConfig =
-            {
-                cpuss_interrupt_fm_IRQn,        /* .intrSrc */
-                0                               /* .intrPriority */
-            };
-
-            (void)Cy_SysInt_Init(&flashIntConfig, &Cy_Flash_ResumeIrqHandler);
-            NVIC_EnableIRQ(flashIntConfig.intrSrc);
-        #endif
-
-        (void)Cy_IPC_Pipe_RegisterCallback(CY_IPC_EP_CYPIPE_ADDR, &Cy_Flash_NotifyHandler,
-                                          (uint32_t)CY_FLASH_IPC_CLIENT_ID);
-    #endif
+    #if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)    
+        CY_ALIGN(4) static cy_stc_flash_notify_t ipcWaitMessageStc;
+        
+        Cy_Flash_InitExt(&ipcWaitMessageStc);
+    #endif /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
 }
+
 
 /*******************************************************************************
 * Function Name: Cy_Flash_SendCmd
@@ -320,48 +342,47 @@ void Cy_Flash_Init(void)
 * see \ref cy_en_flashdrv_status_t.
 *
 *******************************************************************************/
-#if defined(CY_DEVICE_PSOC6ABLE2) \
-    && !defined(CY_PSOC6ABLE2_REV_0A_SUPPORT_DISABLE) \
-    && !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
-    #if defined (__ICCARM__)
-        #pragma diag_suppress=Ta023
-        __ramfunc
-    #else
-        CY_SECTION(".cy_ramfunc")
-    #endif
+#if defined (__ICCARM__)
+    #pragma diag_suppress=Ta023
+    __ramfunc
+#else
+    CY_SECTION(".cy_ramfunc") CY_NOINLINE
 #endif
 static cy_en_flashdrv_status_t Cy_Flash_SendCmd(uint32_t mode, uint32_t microseconds)
 {
     cy_en_flashdrv_status_t result = CY_FLASH_DRV_IPC_BUSY;
-    IPC_STRUCT_Type *ipcBase = Cy_IPC_Drv_GetIpcBaseAddress(CY_IPC_CHAN_SYSCALL);
+    IPC_STRUCT_Type * locIpcBase = Cy_IPC_Drv_GetIpcBaseAddress(CY_IPC_CHAN_SYSCALL);
+    volatile uint32_t *ipcLockStatus = &REG_IPC_STRUCT_LOCK_STATUS(locIpcBase);
 
 #if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
-
-    uint32_t semaTryCount = 0uL;
     uint32_t intr;
-
-    CY_ALIGN(4) static cy_flash_notify_t ipcWaitMessage =
+    uint32_t semaTryCount = 0uL;
+    
+    if (cy_device->flashRwwRequired != 0u)
     {
-        /* .clientID    */ CY_FLASH_IPC_CLIENT_ID,
-        /* .pktType     */ CY_FLASH_ENTER_WAIT_LOOP,
-        /* .intrRelMask */ 0
-    };
-
+        /* Check for active core is CM0+, or CM4 on single core device */
     #if (CY_CPU_CORTEX_M0P)
-        bool isCM4Powered = (CY_SYS_CM4_STATUS_ENABLED == Cy_SysGetCM4Status());
-
-        if (!isCM4Powered)
+        bool isPeerCoreEnabled = (CY_SYS_CM4_STATUS_ENABLED == Cy_SysGetCM4Status());
+    #else
+        bool isPeerCoreEnabled = false;
+        
+        if (SFLASH_SINGLE_CORE == 0u)
+        {
+            isPeerCoreEnabled = true;
+        }
+    #endif
+        
+        if (!isPeerCoreEnabled)
         {
             result = CY_FLASH_DRV_SUCCESS;
         }
         else
         {
-    #endif
             if (IS_CY_PIPE_FREE())
             {
                 if (CY_IPC_SEMA_STATUS_LOCKED != Cy_IPC_Sema_Status(CY_FLASH_WAIT_SEMA))
                 {
-                    if (CY_IPC_PIPE_SUCCESS == NOTIFY_PEER_CORE(&ipcWaitMessage))
+                    if (CY_IPC_PIPE_SUCCESS == NOTIFY_PEER_CORE(ipcWaitMessage))
                     {
                         /* Wait for SEMA lock by peer core */
                         while ((CY_IPC_SEMA_STATUS_LOCKED != Cy_IPC_Sema_Status(CY_FLASH_WAIT_SEMA)) && ((semaTryCount < CY_FLASH_SEMA_WAIT_MAX_TRIES)))
@@ -377,33 +398,75 @@ static cy_en_flashdrv_status_t Cy_Flash_SendCmd(uint32_t mode, uint32_t microsec
                     }
                 }
             }
-    #if (CY_CPU_CORTEX_M0P)
         }
-    #endif
 
-    if (CY_FLASH_DRV_SUCCESS == result)
-    {
-        /* Notifier is ready, start of the operation */
-        intr = Cy_SysLib_EnterCriticalSection();
+        if (CY_FLASH_DRV_SUCCESS == result)
+        {
+            /* Notifier is ready, start of the operation */
+            intr = Cy_SysLib_EnterCriticalSection();
 
+            if (0UL != _FLD2VAL(SRSS_CLK_CAL_CNT1_CAL_COUNTER_DONE, SRSS_CLK_CAL_CNT1))
+            {
+               /* Tries to acquire the IPC structure and pass the arguments to SROM API */
+                if (Cy_IPC_Drv_SendMsgPtr(locIpcBase, CY_FLASH_IPC_NOTIFY_STRUCT0, (void*)&flashContext) == CY_IPC_DRV_SUCCESS)
+                {
+                    Cy_Flash_RAMDelay(microseconds);
+
+                    if (mode == CY_FLASH_NON_BLOCKING_MODE)
+                    {
+                        /* The Flash operation is successfully initiated */
+                        result = CY_FLASH_DRV_OPERATION_STARTED;
+                    }
+                    else
+                    {
+                        while (0u != _FLD2VAL(IPC_STRUCT_ACQUIRE_SUCCESS, *ipcLockStatus))
+                        {
+                            /* Polls whether the IPC is released and the Flash operation is performed */
+                        }
+                        result = Cy_Flash_OperationStatus();
+                    }
+                }
+                else
+                {
+                    /* The IPC structure is already locked by another process */
+                    result = CY_FLASH_DRV_IPC_BUSY;
+                }
+            }
+            else
+            {
+                /* SysClk measurement counter is busy */
+                result = CY_FLASH_DRV_IPC_BUSY;
+            }
+            
+            if (isPeerCoreEnabled)
+            {
+                while (CY_IPC_SEMA_SUCCESS != Cy_IPC_Sema_Clear(CY_FLASH_WAIT_SEMA, true))
+                {
+                    /* Clear SEMA lock */
+                }
+            }
+
+            Cy_SysLib_ExitCriticalSection(intr);
+            /* End of the flash operation */
+        }
+    }
+    else
 #endif /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
-
-       /* Tries to acquire the IPC structure and pass the arguments to SROM API */
-        if (Cy_IPC_Drv_SendMsgPtr(Cy_IPC_Drv_GetIpcBaseAddress(CY_IPC_CHAN_SYSCALL), CY_FLASH_IPC_NOTIFY_STRUCT0,
-                                  (void*)&flashContext) == CY_IPC_DRV_SUCCESS)
+    {
+    #if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
+        intr = Cy_SysLib_EnterCriticalSection();
+    #endif /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
+        /* Tries to acquire the IPC structure and pass the arguments to SROM API */
+        if (Cy_IPC_Drv_SendMsgPtr(locIpcBase, CY_FLASH_IPC_NOTIFY_STRUCT0, (void*)&flashContext) == CY_IPC_DRV_SUCCESS)
         {
             if (mode == CY_FLASH_NON_BLOCKING_MODE)
             {
-                #if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
-                    Cy_Flash_RAMDelay(microseconds);
-                #endif
-
                 /* The Flash operation is successfully initiated */
                 result = CY_FLASH_DRV_OPERATION_STARTED;
             }
             else
             {
-                while (0u != _FLD2VAL(IPC_STRUCT_ACQUIRE_SUCCESS, ipcBase->LOCK_STATUS))
+                while (0u != _FLD2VAL(IPC_STRUCT_ACQUIRE_SUCCESS, *ipcLockStatus))
                 {
                     /* Polls whether the IPC is released and the Flash operation is performed */
                 }
@@ -416,24 +479,10 @@ static cy_en_flashdrv_status_t Cy_Flash_SendCmd(uint32_t mode, uint32_t microsec
             /* The IPC structure is already locked by another process */
             result = CY_FLASH_DRV_IPC_BUSY;
         }
-
-#if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
-    #if (CY_CPU_CORTEX_M0P)
-        if (isCM4Powered)
-        {
-    #endif
-            while (CY_IPC_SEMA_SUCCESS != Cy_IPC_Sema_Clear(CY_FLASH_WAIT_SEMA, true))
-            {
-                /* Clear SEMA lock */
-            }
-    #if (CY_CPU_CORTEX_M0P)
-        }
-    #endif
-
+    #if !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED)
         Cy_SysLib_ExitCriticalSection(intr);
-        /* End of the flash operation */
+    #endif /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
     }
-#endif /* !defined(CY_FLASH_RWW_DRV_SUPPORT_DISABLED) */
 
     return (result);
 }
@@ -457,26 +506,35 @@ static cy_en_flashdrv_status_t Cy_Flash_SendCmd(uint32_t mode, uint32_t microsec
         #pragma diag_suppress=Ta023
         __ramfunc
     #else
-        CY_SECTION(".cy_ramfunc")
+        CY_SECTION(".cy_ramfunc") CY_NOINLINE
     #endif
     static void Cy_Flash_RAMDelay(uint32_t microseconds)
     {
         uint32_t ticks = (microseconds & 0xFFFFUL) * CY_FLASH_TICKS_FOR_1US;
         if (ticks != CY_FLASH_NO_DELAY)
         {
-            CY_FLASH_TST_DDFT_FAST_CTL_REG  = CY_FLASH_TST_DDFT_FAST_CTL_MASK;
-            CY_FLASH_TST_DDFT_SLOW_CTL_REG  = CY_FLASH_TST_DDFT_SLOW_CTL_MASK;
+            /* Acquire the IPC to prevent changing of the shared resources at the same time */
+            while(0U == _FLD2VAL(IPC_STRUCT_ACQUIRE_SUCCESS, REG_IPC_STRUCT_ACQUIRE(CY_IPC_STRUCT_PTR(CY_IPC_CHAN_DDFT))))
+            {
+                /* Wait until the IPC structure is released by another process */
+            }
+            
+            SRSS_TST_DDFT_FAST_CTL_REG  = SRSS_TST_DDFT_FAST_CTL_MASK;
+            SRSS_TST_DDFT_SLOW_CTL_REG  = SRSS_TST_DDFT_SLOW_CTL_MASK;
 
-            SRSS->CLK_OUTPUT_SLOW = _VAL2FLD(SRSS_CLK_OUTPUT_SLOW_SLOW_SEL0, CY_SYSCLK_MEAS_CLK_IMO) |
-                                    _VAL2FLD(SRSS_CLK_OUTPUT_SLOW_SLOW_SEL1, CY_FLASH_CLK_OUTPUT_DISABLED);
+            SRSS_CLK_OUTPUT_SLOW = _VAL2FLD(SRSS_CLK_OUTPUT_SLOW_SLOW_SEL0, CY_SYSCLK_MEAS_CLK_IMO) |
+                                   _VAL2FLD(SRSS_CLK_OUTPUT_SLOW_SLOW_SEL1, CY_FLASH_CLK_OUTPUT_DISABLED);
 
             /* Load the down-counter without status bit value */
-            SRSS->CLK_CAL_CNT1 = _VAL2FLD(SRSS_CLK_CAL_CNT1_CAL_COUNTER1, ticks);
+            SRSS_CLK_CAL_CNT1 = _VAL2FLD(SRSS_CLK_CAL_CNT1_CAL_COUNTER1, ticks);
 
             /* Make sure that the counter is started */
-            ticks = _FLD2VAL(SRSS_CLK_CAL_CNT1_CAL_COUNTER_DONE, SRSS->CLK_CAL_CNT1);
+            ticks = _FLD2VAL(SRSS_CLK_CAL_CNT1_CAL_COUNTER_DONE, SRSS_CLK_CAL_CNT1);
 
-            while (0UL == _FLD2VAL(SRSS_CLK_CAL_CNT1_CAL_COUNTER_DONE, SRSS->CLK_CAL_CNT1))
+            /* Release the IPC */
+            REG_IPC_STRUCT_RELEASE(CY_IPC_STRUCT_PTR(CY_IPC_CHAN_DDFT)) = 0U;
+            
+            while (0UL == _FLD2VAL(SRSS_CLK_CAL_CNT1_CAL_COUNTER_DONE, SRSS_CLK_CAL_CNT1))
             {
                 /* Wait until the counter stops counting */
             }
@@ -495,13 +553,10 @@ static cy_en_flashdrv_status_t Cy_Flash_SendCmd(uint32_t mode, uint32_t microsec
         #define CY_FLASH_WRITE_ROW_PROGRAM_BOOKMARK  (0x00000004UL)
 
         /* Number of the CM0P ticks for function delay corrective time at final stage */
-        #define CY_FLASH_START_PROGRAM_FINAL_DELAY_TICKS     (1000UL)
-        #define CY_FLASH_PROGRAM_ROW_DELAY           (130UL + CY_FLASH_DELAY_CORRECTIVE(CY_FLASH_START_PROGRAM_FINAL_DELAY_TICKS))
-        #define CY_FLASH_ERASE_ROW_DELAY             (130UL + CY_FLASH_DELAY_CORRECTIVE(CY_FLASH_START_PROGRAM_FINAL_DELAY_TICKS))
-        #define CY_FLASH_WRITE_ROW_ERASE_DELAY       (130UL + CY_FLASH_DELAY_CORRECTIVE(CY_FLASH_START_PROGRAM_FINAL_DELAY_TICKS))
-        #define CY_FLASH_WRITE_ROW_PROGRAM_DELAY     (130UL + CY_FLASH_DELAY_CORRECTIVE(CY_FLASH_START_PROGRAM_FINAL_DELAY_TICKS))
+        #define CY_FLASH_FINAL_STAGE_DELAY_TICKS     (1000UL)
+        #define CY_FLASH_FINAL_STAGE_DELAY           (130UL + CY_FLASH_DELAY_CORRECTIVE(CY_FLASH_FINAL_STAGE_DELAY_TICKS))
 
-
+        
         /*******************************************************************************
         * Function Name: Cy_Flash_ResumeIrqHandler
         ****************************************************************************//**
@@ -514,50 +569,34 @@ static cy_en_flashdrv_status_t Cy_Flash_SendCmd(uint32_t mode, uint32_t microsec
             #pragma diag_suppress=Ta023
             __ramfunc
         #else
-            CY_SECTION(".cy_ramfunc")
+            CY_SECTION(".cy_ramfunc") CY_NOINLINE
         #endif
-        static void Cy_Flash_ResumeIrqHandler(void)
+        void Cy_Flash_ResumeIrqHandler(void)
         {
-            IPC_STRUCT_Type *ipcBase = Cy_IPC_Drv_GetIpcBaseAddress(CY_IPC_CHAN_CYPIPE_EP0);
+            IPC_STRUCT_Type * locIpcBase = Cy_IPC_Drv_GetIpcBaseAddress(CY_IPC_CHAN_CYPIPE_EP0);
 
             uint32_t bookmark;
-            bookmark = FLASHC->FM_CTL.BOOKMARK & 0xffffUL;
+            bookmark = FLASHC_FM_CTL_BOOKMARK & 0xffffUL;
 
-            uint32_t cm0s = CPUSS->CM0_STATUS;
+            uint32_t intr = Cy_SysLib_EnterCriticalSection();
 
-            switch (bookmark)
+            uint32_t cm0s = CPUSS_CM0_STATUS;
+
+            if ((bookmark == CY_FLASH_PROGRAM_ROW_BOOKMARK) || (bookmark == CY_FLASH_ERASE_ROW_BOOKMARK) ||
+                (bookmark == CY_FLASH_WRITE_ROW_ERASE_BOOKMARK) || (bookmark == CY_FLASH_WRITE_ROW_PROGRAM_BOOKMARK))
             {
-            case CY_FLASH_PROGRAM_ROW_BOOKMARK:
-                if (cm0s == (CPUSS_CM0_STATUS_SLEEPING_Msk | CPUSS_CM0_STATUS_SLEEPDEEP_Msk))
+                if ((cm0s == (CPUSS_CM0_STATUS_SLEEPING_Msk | CPUSS_CM0_STATUS_SLEEPDEEP_Msk)) && (0U == SFLASH_SINGLE_CORE))
                 {
-                    ipcBase->NOTIFY = _VAL2FLD(IPC_STRUCT_NOTIFY_INTR_NOTIFY, (1UL << CY_IPC_INTR_CYPIPE_EP0));
+                    REG_IPC_STRUCT_NOTIFY(locIpcBase) = _VAL2FLD(IPC_STRUCT_NOTIFY_INTR_NOTIFY, (1UL << CY_IPC_INTR_CYPIPE_EP0));
+                    while (CPUSS_CM0_STATUS == (CPUSS_CM0_STATUS_SLEEPING_Msk | CPUSS_CM0_STATUS_SLEEPDEEP_Msk))
+                    {
+                        /* Wait until the core is active */
+                    }
                 }
-                Cy_Flash_RAMDelay(CY_FLASH_PROGRAM_ROW_DELAY);
-                break;
-            case CY_FLASH_ERASE_ROW_BOOKMARK:
-                if (cm0s == (CPUSS_CM0_STATUS_SLEEPING_Msk | CPUSS_CM0_STATUS_SLEEPDEEP_Msk))
-                {
-                    ipcBase->NOTIFY = _VAL2FLD(IPC_STRUCT_NOTIFY_INTR_NOTIFY, (1UL << CY_IPC_INTR_CYPIPE_EP0));
-                }
-                Cy_Flash_RAMDelay(CY_FLASH_ERASE_ROW_DELAY);               /* Delay when erase row is finished */
-                break;
-            case CY_FLASH_WRITE_ROW_ERASE_BOOKMARK:
-                if (cm0s == (CPUSS_CM0_STATUS_SLEEPING_Msk | CPUSS_CM0_STATUS_SLEEPDEEP_Msk))
-                {
-                    ipcBase->NOTIFY = _VAL2FLD(IPC_STRUCT_NOTIFY_INTR_NOTIFY, (1UL << CY_IPC_INTR_CYPIPE_EP0));
-                }
-                Cy_Flash_RAMDelay(CY_FLASH_WRITE_ROW_ERASE_DELAY);         /* Delay when erase phase for row is finished */
-                break;
-            case CY_FLASH_WRITE_ROW_PROGRAM_BOOKMARK:
-                if (cm0s == (CPUSS_CM0_STATUS_SLEEPING_Msk | CPUSS_CM0_STATUS_SLEEPDEEP_Msk))
-                {
-                    ipcBase->NOTIFY = _VAL2FLD(IPC_STRUCT_NOTIFY_INTR_NOTIFY, (1UL << CY_IPC_INTR_CYPIPE_EP0));
-                }
-                Cy_Flash_RAMDelay(CY_FLASH_WRITE_ROW_PROGRAM_DELAY);
-                break;
-            default:
-                break;
+                Cy_Flash_RAMDelay(CY_FLASH_FINAL_STAGE_DELAY);
             }
+
+            Cy_SysLib_ExitCriticalSection(intr);
         }
         #if defined (__ICCARM__)
             #pragma diag_default=Ta023
@@ -574,19 +613,18 @@ static cy_en_flashdrv_status_t Cy_Flash_SendCmd(uint32_t mode, uint32_t microsec
 * a reason for failure. Does not return until the Write operation is
 * complete. Returns immediately and reports a \ref CY_FLASH_DRV_IPC_BUSY error in
 * the case when another process is writing to flash or erasing the row.
+* User firmware should not enter the Hibernate or Deep-Sleep mode until flash Erase
+* is complete. The Flash operation is allowed in Sleep mode.
+* During the Flash operation, the device should not be reset, including the
+* XRES pin, a software reset, and watchdog reset sources. Also, low-voltage
+* detect circuits should be configured to generate an interrupt instead of a
+* reset. Otherwise, portions of flash may undergo unexpected changes.
 *
-* User firmware should not enter the Hibernate or Deep-Sleep mode until flash
-* Erase is complete.
-* For all safe execution conditions see \ref group_flash_configuration
-* documentation section.
-*
-* \param rowAddr Address of the flash row.
-* Address must match row start address otherwise API returns \ref
-* CY_FLASH_DRV_INVALID_INPUT_PARAMETERS status. The number of the flash rows
-* is defined by the \ref CY_FLASH_NUMBER_ROWS macro for the selected device.
+* \param rowAddr Address of the flash row number. 
 * The Read-while-Write violation occurs when the flash read operation is
 * initiated in the same flash sector where the flash write operation is
 * performing. Refer to the device datasheet for the details.
+* Address must match row start address.
 *
 * \return Returns the status of the Flash operation,
 * see \ref cy_en_flashdrv_status_t.
@@ -606,7 +644,14 @@ cy_en_flashdrv_status_t Cy_Flash_EraseRow(uint32_t rowAddr)
         flashContext.arg2 = 0UL;
         flashContext.arg3 = 0UL;
 
-        result = Cy_Flash_SendCmd(CY_FLASH_BLOCKING_MODE, CY_FLASH_START_ERASE_DELAY);
+        if (cy_device->flashEraseDelay != 0u)
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_BLOCKING_MODE, CY_FLASH_START_ERASE_DELAY);
+        }
+        else
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_BLOCKING_MODE, CY_FLASH_NO_DELAY);
+        }
     }
 
     return (result);
@@ -617,32 +662,29 @@ cy_en_flashdrv_status_t Cy_Flash_EraseRow(uint32_t rowAddr)
 * Function Name: Cy_Flash_ProgramRow
 ****************************************************************************//**
 *
-* This function writes an array of data to a single row of flash. Before calling
-* this function, the target flash region must be erased by the
-* Cy_Flash_StartErase() or Cy_Flash_EraseRow() function.
-*
-* Reports success or a reason for failure. Does not return until the Program
-* operation is complete. Returns immediately and reports a
-* \ref CY_FLASH_DRV_IPC_BUSY error in the case when another process is writing
-* to flash.
-*
-* User firmware should not enter the Hibernate or Deep-sleep mode until flash
-* Program is complete.
-* For all safe execution conditions see \ref group_flash_configuration
-* documentation section.
-*
+* This function writes an array of data to a single row of flash. Reports
+* success or a reason for failure. Does not return until the Program operation
+* is complete.
+* Returns immediately and reports a \ref CY_FLASH_DRV_IPC_BUSY error in the case
+* when another process is writing to flash. User firmware should not enter the
+* Hibernate or Deep-sleep mode until flash Write is complete. The Flash operation
+* is allowed in Sleep mode. During the Flash operation, the device should not be
+* reset, including the XRES pin, a software reset, and watchdog reset sources.
+* Also, low-voltage detect circuits should be configured to generate an interrupt
+* instead of a reset. Otherwise, portions of flash may undergo unexpected
+* changes.\n
+* Before calling this function, the target flash region must be erased by
+* the StartErase/EraseRow function.\n
 * Data to be programmed must be located in the SRAM memory region.
 * \note Before reading data from previously programmed/erased flash rows, the
 * user must clear the flash cache with the Cy_SysLib_ClearFlashCacheAndBuffer()
 * function.
 *
-* \param rowAddr Address of the flash row.
-* Address must match row start address otherwise API returns \ref
-* CY_FLASH_DRV_INVALID_INPUT_PARAMETERS status. The number of the flash rows
-* is defined by the \ref CY_FLASH_NUMBER_ROWS macro for the selected device.
+* \param rowAddr Address of the flash row number. 
 * The Read-while-Write violation occurs when the flash read operation is
 * initiated in the same flash sector where the flash write operation is
 * performing. Refer to the device datasheet for the details.
+* Address must match row start address.
 *
 * \param data The pointer to the data which has to be written to flash. The size
 * of the data array must be equal to the flash row size. The flash row size for
@@ -664,11 +706,18 @@ cy_en_flashdrv_status_t Cy_Flash_ProgramRow(uint32_t rowAddr, const uint32_t* da
 
         /* Prepares arguments to be passed to SROM API */
         flashContext.opcode = CY_FLASH_OPCODE_PROGRAM_ROW | CY_FLASH_BLOCKING_MODE;
-        flashContext.arg1   = CY_FLASH_CONFIG_DATASIZE | CY_FLASH_DATA_LOC_SRAM;
+        flashContext.arg1   = CY_FLASH_DATA_LOC_SRAM;
         flashContext.arg2   = rowAddr;
         flashContext.arg3   = (uint32_t)data;
 
-        result = Cy_Flash_SendCmd(CY_FLASH_BLOCKING_MODE, CY_FLASH_START_PROGRAM_DELAY);
+        if (cy_device->flashProgramDelay != 0u)
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_BLOCKING_MODE, CY_FLASH_START_PROGRAM_DELAY);
+        }
+        else
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_BLOCKING_MODE, CY_FLASH_NO_DELAY);
+        }
     }
 
     return (result);
@@ -680,29 +729,24 @@ cy_en_flashdrv_status_t Cy_Flash_ProgramRow(uint32_t rowAddr, const uint32_t* da
 ****************************************************************************//**
 *
 * This function writes an array of data to a single row of flash. This is done
-* in two steps - erase and then program flash row with the input data.
-* Reports success or a reason for failure. Does not return until the Write
+* in three steps - pre-program, erase and then program flash row with the input
+* data. Reports success or a reason for failure. Does not return until the Write
 * operation is complete.
 * Returns immediately and reports a \ref CY_FLASH_DRV_IPC_BUSY error in the case
-* when another process is writing to flash.
+* when another process is writing to flash. User firmware should not enter the
+* Hibernate or Deep-sleep mode until flash Write is complete. The Flash operation
+* is allowed in Sleep mode. During the Flash operation, the
+* device should not be reset, including the XRES pin, a software
+* reset, and watchdog reset sources. Also, low-voltage detect
+* circuits should be configured to generate an interrupt
+* instead of a reset. Otherwise, portions of flash may undergo
+* unexpected changes.
 *
-* User firmware should not enter the Hibernate or Deep-sleep mode until flash
-* Write is complete.
-* For all safe execution conditions see \ref group_flash_configuration
-* documentation section.
-*
-* Data to be programmed must be located in the SRAM memory region.
-* \note Before reading data from previously programmed/erased flash rows, the
-* user must clear the flash cache with the Cy_SysLib_ClearFlashCacheAndBuffer()
-* function.
-*
-* \param rowAddr Address of the flash row.
-* Address must match row start address otherwise API returns \ref
-* CY_FLASH_DRV_INVALID_INPUT_PARAMETERS status. The number of the flash rows
-* is defined by the \ref CY_FLASH_NUMBER_ROWS macro for the selected device.
+* \param rowAddr Address of the flash row number.
 * The Read-while-Write violation occurs when the flash read operation is
 * initiated in the same flash sector where the flash write operation is
 * performing. Refer to the device datasheet for the details.
+* Address must match row start address.
 *
 * \param data The pointer to the data which has to be written to flash. The size
 * of the data array must be equal to the flash row size. The flash row size for
@@ -728,7 +772,14 @@ cy_en_flashdrv_status_t Cy_Flash_WriteRow(uint32_t rowAddr, const uint32_t* data
         flashContext.arg2   = rowAddr;
         flashContext.arg3   = (uint32_t)data;
 
-        result = Cy_Flash_SendCmd(CY_FLASH_BLOCKING_MODE, CY_FLASH_START_WRITE_DELAY);
+        if (cy_device->flashWriteDelay != 0u)
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_BLOCKING_MODE, CY_FLASH_START_WRITE_DELAY);
+        }
+        else
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_BLOCKING_MODE, CY_FLASH_NO_DELAY);
+        }
     }
 
     return (result);
@@ -739,28 +790,25 @@ cy_en_flashdrv_status_t Cy_Flash_WriteRow(uint32_t rowAddr, const uint32_t* data
 * Function Name: Cy_Flash_StartWrite
 ****************************************************************************//**
 *
-* Erase flash row and performs programming of the row with the input data.
-* Returns immediately and reports a successful start or reason for failure.
-* Reports a \ref CY_FLASH_DRV_IPC_BUSY error in the case when another process is
-* writing to flash.
-*
-* User firmware should not enter the Hibernate or Deep-Sleep mode until flash
-* Write is complete.
-* For all safe execution conditions see \ref group_flash_configuration
-* documentation section.
-*
-* Data to be programmed must be located in the SRAM memory region.
+* Performs pre-program, erase and then starts programming the flash row with
+* the input data. Returns immediately and reports a successful start
+* or reason for failure. Reports a \ref CY_FLASH_DRV_IPC_BUSY error
+* in the case when another process is writing to flash. User
+* firmware should not enter the Hibernate or Deep-Sleep mode until
+* flash Write is complete. The Flash operation is allowed in Sleep mode.
+* During the flash operation, the device should not be reset, including the
+* XRES pin, a software reset, and watchdog reset sources. Also, the low-voltage
+* detect circuits should be configured to generate an interrupt instead of a reset.
+* Otherwise, portions of flash may undergo unexpected changes.
 * \note Before reading data from previously programmed/erased flash rows, the
 * user must clear the flash cache with the Cy_SysLib_ClearFlashCacheAndBuffer()
 * function.
 *
-* \param rowAddr Address of the flash row.
-* Address must match row start address otherwise API returns \ref
-* CY_FLASH_DRV_INVALID_INPUT_PARAMETERS status. The number of the flash rows
-* is defined by the \ref CY_FLASH_NUMBER_ROWS macro for the selected device.
+* \param rowAddr Address of the flash row number. 
 * The Read-while-Write violation occurs when the flash read operation is
 * initiated in the same flash sector where the flash write operation is
 * performing. Refer to the device datasheet for the details.
+* Address must match row start address.
 *
 * \param data The pointer to the data to be written to flash. The size
 * of the data array must be equal to the flash row size. The flash row size for
@@ -820,26 +868,24 @@ cy_en_flashdrv_status_t Cy_Flash_IsOperationComplete(void)
 * Function Name: Cy_Flash_StartErase
 ****************************************************************************//**
 *
-* Starts erasing a single row of flash. Returns immediately and reports a
-* successful start or reason for failure. Reports a \ref CY_FLASH_DRV_IPC_BUSY
-* error in the case when IPC structure is locked by another process.
-*
-* User firmware should not enter the Hibernate or Deep-Sleep mode until
-* flash Erase is complete.
-* For all safe execution conditions see \ref group_flash_configuration
-* documentation section.
-*
+* Starts erasing a single row of flash. Returns immediately
+* and reports a successful start or reason for failure.
+* Reports a \ref CY_FLASH_DRV_IPC_BUSY error in the case when IPC structure is locked
+* by another process. User firmware should not enter the Hibernate or Deep-Sleep mode until
+* flash Erase is complete. The Flash operation is allowed in Sleep mode.
+* During the flash operation, the device should not be reset, including the
+* XRES pin, a software reset, and watchdog reset sources. Also, the low-voltage
+* detect circuits should be configured to generate an interrupt instead of a reset.
+* Otherwise, portions of flash may undergo unexpected changes.
 * \note Before reading data from previously programmed/erased flash rows, the
 * user must clear the flash cache with the Cy_SysLib_ClearFlashCacheAndBuffer()
 * function.
 *
-* \param rowAddr Address of the flash row.
-* Address must match row start address otherwise API returns \ref
-* CY_FLASH_DRV_INVALID_INPUT_PARAMETERS status. The number of the flash rows
-* is defined by the \ref CY_FLASH_NUMBER_ROWS macro for the selected device.
+* \param rowAddr Address of the flash row number. 
 * The Read-while-Write violation occurs when the flash read operation is
 * initiated in the same flash sector where the flash erase operation is
 * performing. Refer to the device datasheet for the details.
+* Address must match row start address.
 *
 * \return Returns the status of the Flash operation,
 * see \ref cy_en_flashdrv_status_t.
@@ -855,10 +901,23 @@ cy_en_flashdrv_status_t Cy_Flash_StartErase(uint32_t rowAddr)
 
         /* Prepares arguments to be passed to SROM API */
         flashContext.opcode = CY_FLASH_OPCODE_ERASE_ROW;
+        if (SFLASH_SINGLE_CORE != 0u)
+        {
+            flashContext.opcode |= CY_FLASH_BLOCKING_MODE;
+        }
+        
         flashContext.arg1 = rowAddr;
         flashContext.arg2 = 0UL;
         flashContext.arg3 = 0UL;
-        result = Cy_Flash_SendCmd(CY_FLASH_NON_BLOCKING_MODE, CY_FLASH_START_ERASE_DELAY);
+
+        if (cy_device->flashEraseDelay != 0u)
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_NON_BLOCKING_MODE, CY_FLASH_START_ERASE_DELAY);
+        }
+        else
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_NON_BLOCKING_MODE, CY_FLASH_NO_DELAY);
+        }
     }
 
     return (result);
@@ -869,30 +928,26 @@ cy_en_flashdrv_status_t Cy_Flash_StartErase(uint32_t rowAddr)
 * Function Name: Cy_Flash_StartProgram
 ****************************************************************************//**
 *
-* Starts writing an array of data to a single row of flash. Before calling this
-* function, the target flash region must be erased by the Cy_Flash_StartErase()
-* or Cy_Flash_EraseRow() function.
-*
-* Returns immediately and reports a successful start or reason for failure.
+* Starts writing an array of data to a single row of flash. Returns immediately
+* and reports a successful start or reason for failure.
 * Reports a \ref CY_FLASH_DRV_IPC_BUSY error if another process is writing
-* to flash.
-*
-* The user firmware should not enter Hibernate or Deep-Sleep mode until flash
-* Program is complete.
-* For all safe execution conditions see \ref group_flash_configuration
-* documentation section.
-*
+* to flash. The user firmware should not enter Hibernate or Deep-Sleep mode until flash
+* Program is complete. The Flash operation is allowed in Sleep mode.
+* During the Flash operation, the device should not be reset, including the
+* XRES pin, a software reset, and watchdog reset sources. Also, the low-voltage
+* detect circuits should be configured to generate an interrupt instead of a reset.
+* Otherwise, portions of flash may undergo unexpected changes.\n
+* Before calling this function, the target flash region must be erased by
+* the StartErase/EraseRow function.\n
 * Data to be programmed must be located in the SRAM memory region.
 * \note Before reading data from previously programmed/erased flash rows, the
 * user must clear the flash cache with the Cy_SysLib_ClearFlashCacheAndBuffer()
 * function.
 *
-* \param rowAddr Address of the flash row.
-* Address must match row start address otherwise API returns \ref
-* CY_FLASH_DRV_INVALID_INPUT_PARAMETERS status. The number of the flash rows
-* is defined by the \ref CY_FLASH_NUMBER_ROWS macro for the selected device.
+* \param rowAddr The address of the flash row number. 
 * The Read-while-Write violation occurs when the Flash Write operation is
 * performing. Refer to the device datasheet for the details.
+* The address must match the row start address.
 *
 * \param data The pointer to the data to be written to flash. The size
 * of the data array must be equal to the flash row size. The flash row size for
@@ -912,12 +967,25 @@ cy_en_flashdrv_status_t Cy_Flash_StartProgram(uint32_t rowAddr, const uint32_t* 
         SystemCoreClockUpdate();
 
         /* Prepares arguments to be passed to SROM API */
-        flashContext.opcode = CY_FLASH_OPCODE_PROGRAM_ROW | CY_FLASH_NON_BLOCKING_MODE;
-        flashContext.arg1   = CY_FLASH_CONFIG_DATASIZE | CY_FLASH_DATA_LOC_SRAM;
+        flashContext.opcode = CY_FLASH_OPCODE_PROGRAM_ROW;
+        
+        if (SFLASH_SINGLE_CORE != 0u)
+        {
+            flashContext.opcode |= CY_FLASH_BLOCKING_MODE;
+        }
+        
+        flashContext.arg1   = CY_FLASH_DATA_LOC_SRAM;
         flashContext.arg2   = rowAddr;
         flashContext.arg3   = (uint32_t)data;
 
-        result = Cy_Flash_SendCmd(CY_FLASH_NON_BLOCKING_MODE, CY_FLASH_START_PROGRAM_DELAY);
+        if (cy_device->flashProgramDelay != 0u)
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_NON_BLOCKING_MODE, CY_FLASH_START_PROGRAM_DELAY);
+        }
+        else
+        {
+            result = Cy_Flash_SendCmd(CY_FLASH_NON_BLOCKING_MODE, CY_FLASH_NO_DELAY);
+        }
     }
 
     return (result);
@@ -934,10 +1002,7 @@ cy_en_flashdrv_status_t Cy_Flash_StartProgram(uint32_t rowAddr, const uint32_t* 
 *       as a parameter. In previous versions of the driver, this function used
 *       the row <b>number</b> (rowNum) for this parameter.
 *
-* \param rowAddr Address of the flash row.
-* Address must match row start address otherwise API returns \ref
-* CY_FLASH_DRV_INVALID_INPUT_PARAMETERS status. The number of the flash rows
-* is defined by the \ref CY_FLASH_NUMBER_ROWS macro for the selected device.
+* \param rowAddr The address of the flash row.
 *
 * \param checksumPtr The pointer to the address where checksum is to be stored
 *
@@ -970,17 +1035,26 @@ cy_en_flashdrv_status_t Cy_Flash_RowChecksum (uint32_t rowAddr, uint32_t* checks
                 /* Wait till IPC is released */
             }
 
-            resTmp = flashContext.opcode;
+            resTmp = flashContext.opcode >> CY_FLASH_ERROR_SHIFT;
 
-            if ((resTmp >> CY_FLASH_ERROR_SHIFT) == CY_FLASH_ERROR_NO_ERROR)
+            if (resTmp == CY_FLASH_ERROR_NO_ERROR)
             {
                 result = CY_FLASH_DRV_SUCCESS;
-                *checksumPtr = flashContext.opcode & CY_FLASH_RESULT_MASK;
+
+                if (1u == cy_device->ipcVersion)
+                {
+                    *checksumPtr = flashContext.opcode & CY_FLASH_RESULT_MASK;
+                }
+                else
+                {
+                    *checksumPtr = REG_IPC_STRUCT_DATA1(Cy_IPC_Drv_GetIpcBaseAddress(CY_IPC_CHAN_SYSCALL));
+                }
             }
             else
             {
                 result = Cy_Flash_ProcessOpcode(flashContext.opcode);
             }
+
         }
         else
         {
@@ -997,14 +1071,12 @@ cy_en_flashdrv_status_t Cy_Flash_RowChecksum (uint32_t rowAddr, uint32_t* checks
 * Function Name: Cy_Flash_CalculateHash
 ****************************************************************************//**
 *
-* Returns a hash value of the specified region of flash. Hash calculation
-* algorithm provided by SROM code.
+* Returns a hash value of the specified region of flash.
 *
-* \param data Start the data address. API returns invalid address status if
-* called on out of bound FLASH region.
+* \param data Start the data address.
 *
-* \param numberOfBytes The hash value is calculated for the number of bytes
-* after the start data address (0 - 1 byte, 1- 2 bytes etc).
+* \param numberOfBytes The hash value is calculated for the number of bytes after the
+* start data address (0 - 1 byte, 1- 2 bytes etc).
 *
 * \param hashPtr The pointer to the address where hash is to be stored
 *
@@ -1066,8 +1138,7 @@ cy_en_flashdrv_status_t Cy_Flash_CalculateHash (const uint32_t* data, uint32_t n
 * \param flashAddr Address to be checked
 *
 * \return
-*   The valid return value is encoded as follows (or 0xFFFFFFFFUL for invalid
-*   address)
+*   The valid return value is encoded as follows
 *   <table>
 *   <tr><th>Field            <th>Value
 *   <tr><td>Flash row number <td>[15:0]  bits
@@ -1079,12 +1150,6 @@ static uint32_t Cy_Flash_GetRowNum(uint32_t flashAddr)
 {
     uint32_t result;
 
-    if ((flashAddr >= CY_FLASH_BASE) && (flashAddr < (CY_FLASH_BASE + CY_FLASH_SIZE)))
-    {
-        result = (CY_FLASH_REGION_ID_MAIN << CY_FLASH_REGION_ID_SHIFT) |
-                 ((flashAddr - CY_FLASH_BASE) / CY_FLASH_SIZEOF_ROW);
-    }
-    else
     if ((flashAddr >= CY_EM_EEPROM_BASE) && (flashAddr < (CY_EM_EEPROM_BASE + CY_EM_EEPROM_SIZE)))
     {
         result = (CY_FLASH_REGION_ID_EM_EEPROM << CY_FLASH_REGION_ID_SHIFT) |
@@ -1098,7 +1163,8 @@ static uint32_t Cy_Flash_GetRowNum(uint32_t flashAddr)
     }
     else
     {
-        result = 0xFFFFFFFFUL;
+        result = (CY_FLASH_REGION_ID_MAIN << CY_FLASH_REGION_ID_SHIFT) |
+                 ((flashAddr - CY_FLASH_BASE) / CY_FLASH_SIZEOF_ROW);
     }
 
     return (result);
@@ -1109,7 +1175,8 @@ static uint32_t Cy_Flash_GetRowNum(uint32_t flashAddr)
 * Function Name: Cy_Flash_BoundsCheck
 ****************************************************************************//**
 *
-* Returns false if Flash address is out of boundary, otherwise returns true.
+* The function checks the following conditions:
+*  - if Flash address is equal to start address of the row
 *
 * \param flashAddr Address to be checked
 *
@@ -1118,7 +1185,7 @@ static uint32_t Cy_Flash_GetRowNum(uint32_t flashAddr)
 *******************************************************************************/
 static bool Cy_Flash_BoundsCheck(uint32_t flashAddr)
 {
-    return ((Cy_Flash_GetRowNum(flashAddr) != 0xFFFFFFFFUL) && ((flashAddr % CY_FLASH_SIZEOF_ROW) == 0UL));
+    return ((flashAddr % CY_FLASH_SIZEOF_ROW) == 0UL);
 }
 
 
@@ -1231,13 +1298,9 @@ static cy_en_flashdrv_status_t Cy_Flash_OperationStatus(void)
         result = Cy_Flash_ProcessOpcode(flashContext.opcode);
 
         /* Clear pre-fetch cache after flash operation */
-#if (CY_CPU_CORTEX_M0P)
-        FLASHC->CM0_CA_CMD = FLASHC_CM0_CA_CMD_INV_Msk;
-#else
-        FLASHC->CM4_CA_CMD = FLASHC_CM4_CA_CMD_INV_Msk;
-#endif /* (CY_CPU_CORTEX_M0P) */
+        FLASHC_FLASH_CMD = FLASHC_FLASH_CMD_INV_Msk;
 
-        while ((FLASHC->CM0_CA_CMD != 0U) || (FLASHC->CM4_CA_CMD != 0U))
+        while (FLASHC_FLASH_CMD != 0U)
         {
         }
     }

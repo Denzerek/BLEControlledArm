@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 1
 
 
    1              		.syntax unified
@@ -26,7 +26,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 1
   23              		.thumb_func
   24              		.type	main, %function
   25              	main:
-  26              	.LFB621:
+  26              	.LFB636:
   27              		.file 1 "main_cm0p.c"
    1:main_cm0p.c   **** /* ========================================
    2:main_cm0p.c   ****  *
@@ -58,11 +58,11 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 1
    1:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**************************************************************************//**
    2:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 2
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 2
 
 
-   4:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @version  V5.0.1
-   5:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @date     02. February 2017
+   4:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @version  V5.0.3
+   5:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @date     16. January 2018
    6:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  ******************************************************************************/
    7:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /*
    8:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
@@ -91,64 +91,113 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 1
   31:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
   32:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
   33:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
-  34:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
-  35:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ASM
-  36:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ASM                     __asm
+  34:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef __has_builtin
+  36:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
   37:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-  38:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __INLINE
-  39:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __INLINE                  inline
-  40:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-  41:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
-  42:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __STATIC_INLINE           static inline
-  43:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-  44:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __NO_RETURN
-  45:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __NO_RETURN               __attribute__((noreturn))
-  46:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-  47:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __USED
-  48:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __USED                    __attribute__((used))
-  49:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-  50:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __WEAK
-  51:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __WEAK                    __attribute__((weak))
-  52:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-  53:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32
-  54:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic push
-  55:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wpacked"
-  56:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wattributes"
-  57:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
-  58:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic pop
-  59:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
+  38:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  39:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ASM
+  41:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  43:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __INLINE
+  44:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  46:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  49:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif                                           
+  52:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+  54:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  55:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __USED
+  56:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  58:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __WEAK
+  59:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
   60:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 3
 
 
-  61:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ALIGNED
-  62:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ALIGNED(x)              __attribute__((aligned(x)))
+  61:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED
+  62:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
   63:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-  64:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED
-  65:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED                  __attribute__((packed, aligned(1)))
+  64:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
   66:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-  67:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
-  68:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_STRUCT           struct __attribute__((packed, aligned(1)))
+  67:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
   69:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-  70:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
-  71:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
-  72:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
-  73:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
-  74:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
-  75:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   @{
-  76:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
-  77:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
-  78:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
-  79:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
-  80:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
-  81:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
-  82:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
-  83:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** __attribute__((always_inline)) __STATIC_INLINE void __enable_irq(void)
-  84:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** {
-  85:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
-  40              		.loc 2 85 0
+  70:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  75:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  78:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  86:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  88:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  89:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  94:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 102:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 110:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ 111:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 113:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 116:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ 117:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 4
+
+
+ 118:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 119:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 120:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 121:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   @{
+ 122:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+ 123:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ 124:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
+ 125:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 126:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 127:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 128:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+ 129:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 130:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** {
+ 131:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+  40              		.loc 2 131 0
   41              		.syntax divided
-  42              	@ 85 "Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h" 1
+  42              	@ 131 "Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h" 1
   43 0002 62B6     		cpsie i
   44              	@ 0 "" 2
   45              		.thumb
@@ -169,1917 +218,3009 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 1
   57              	.L3:
   58 000c 00000810 		.word	268959744
   59              		.cfi_endproc
-  60              	.LFE621:
+  60              	.LFE636:
   61              		.size	main, .-main
   62              		.text
   63              	.Letext0:
-  64              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
-  65              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
-  66              		.file 5 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h"
+  64              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  65              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  66              		.file 5 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/device/cy_device.h"
   67              		.file 6 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/scb/cy_scb_i2c.h"
   68              		.file 7 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/scb/cy_scb_ezi2c.h"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 4
-
-
   69              		.file 8 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/scb/cy_scb_uart.h"
-  70              		.file 9 "Generated_Source\\PSoC6/UART.h"
-  71              		.file 10 "Generated_Source\\PSoC6/PWM_1.h"
-  72              		.file 11 "Generated_Source\\PSoC6/PWM_RED.h"
-  73              		.file 12 "Generated_Source\\PSoC6/EZI2C.h"
-  74              		.file 13 "Generated_Source\\PSoC6/LEDBlink.h"
-  75              		.file 14 "Generated_Source\\PSoC6/PWM_2.h"
-  76              		.file 15 "Generated_Source\\PSoC6/Dimmer.h"
-  77              		.file 16 "Generated_Source\\PSoC6/I2C_ARD.h"
-  78              		.file 17 "./system_psoc63.h"
-  79              		.section	.debug_info,"",%progbits
-  80              	.Ldebug_info0:
-  81 0000 92060000 		.4byte	0x692
-  82 0004 0400     		.2byte	0x4
-  83 0006 00000000 		.4byte	.Ldebug_abbrev0
-  84 000a 04       		.byte	0x4
-  85 000b 01       		.uleb128 0x1
-  86 000c D6050000 		.4byte	.LASF126
-  87 0010 0C       		.byte	0xc
-  88 0011 C2000000 		.4byte	.LASF127
-  89 0015 6F000000 		.4byte	.LASF128
-  90 0019 00000000 		.4byte	.Ldebug_ranges0+0
-  91 001d 00000000 		.4byte	0
-  92 0021 00000000 		.4byte	.Ldebug_line0
-  93 0025 02       		.uleb128 0x2
-  94 0026 02       		.byte	0x2
-  95 0027 05       		.byte	0x5
-  96 0028 14050000 		.4byte	.LASF0
-  97 002c 02       		.uleb128 0x2
-  98 002d 01       		.byte	0x1
-  99 002e 08       		.byte	0x8
- 100 002f 06050000 		.4byte	.LASF1
- 101 0033 02       		.uleb128 0x2
- 102 0034 01       		.byte	0x1
- 103 0035 06       		.byte	0x6
- 104 0036 BE010000 		.4byte	.LASF2
- 105 003a 03       		.uleb128 0x3
- 106 003b E0000000 		.4byte	.LASF5
- 107 003f 03       		.byte	0x3
- 108 0040 1D       		.byte	0x1d
- 109 0041 2C000000 		.4byte	0x2c
- 110 0045 02       		.uleb128 0x2
- 111 0046 02       		.byte	0x2
- 112 0047 07       		.byte	0x7
- 113 0048 65030000 		.4byte	.LASF3
- 114 004c 02       		.uleb128 0x2
- 115 004d 04       		.byte	0x4
- 116 004e 05       		.byte	0x5
- 117 004f 5D020000 		.4byte	.LASF4
- 118 0053 03       		.uleb128 0x3
- 119 0054 C8020000 		.4byte	.LASF6
- 120 0058 03       		.byte	0x3
- 121 0059 41       		.byte	0x41
- 122 005a 5E000000 		.4byte	0x5e
- 123 005e 02       		.uleb128 0x2
- 124 005f 04       		.byte	0x4
- 125 0060 07       		.byte	0x7
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 5
+  70              		.file 9 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h"
+  71              		.file 10 "Generated_Source\\PSoC6/UART.h"
+  72              		.file 11 "Generated_Source\\PSoC6/PWM_1.h"
+  73              		.file 12 "Generated_Source\\PSoC6/PWM_RED.h"
+  74              		.file 13 "Generated_Source\\PSoC6/EZI2C.h"
+  75              		.file 14 "Generated_Source\\PSoC6/LEDBlink.h"
+  76              		.file 15 "Generated_Source\\PSoC6/PWM_2.h"
+  77              		.file 16 "Generated_Source\\PSoC6/Dimmer.h"
+  78              		.file 17 "Generated_Source\\PSoC6/I2C_ARD.h"
+  79              		.file 18 "./system_psoc6.h"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 5
 
 
- 126 0061 0C030000 		.4byte	.LASF7
- 127 0065 02       		.uleb128 0x2
- 128 0066 08       		.byte	0x8
- 129 0067 05       		.byte	0x5
- 130 0068 B0010000 		.4byte	.LASF8
- 131 006c 02       		.uleb128 0x2
- 132 006d 08       		.byte	0x8
- 133 006e 07       		.byte	0x7
- 134 006f 04010000 		.4byte	.LASF9
- 135 0073 04       		.uleb128 0x4
- 136 0074 04       		.byte	0x4
- 137 0075 05       		.byte	0x5
- 138 0076 696E7400 		.ascii	"int\000"
- 139 007a 02       		.uleb128 0x2
- 140 007b 04       		.byte	0x4
- 141 007c 07       		.byte	0x7
- 142 007d E6020000 		.4byte	.LASF10
- 143 0081 03       		.uleb128 0x3
- 144 0082 9A070000 		.4byte	.LASF11
- 145 0086 04       		.byte	0x4
- 146 0087 18       		.byte	0x18
- 147 0088 3A000000 		.4byte	0x3a
- 148 008c 03       		.uleb128 0x3
- 149 008d B8050000 		.4byte	.LASF12
- 150 0091 04       		.byte	0x4
- 151 0092 30       		.byte	0x30
- 152 0093 53000000 		.4byte	0x53
- 153 0097 02       		.uleb128 0x2
- 154 0098 04       		.byte	0x4
- 155 0099 07       		.byte	0x7
- 156 009a 24040000 		.4byte	.LASF13
- 157 009e 05       		.uleb128 0x5
- 158 009f 8C000000 		.4byte	0x8c
- 159 00a3 02       		.uleb128 0x2
- 160 00a4 08       		.byte	0x8
- 161 00a5 04       		.byte	0x4
- 162 00a6 71060000 		.4byte	.LASF14
- 163 00aa 02       		.uleb128 0x2
- 164 00ab 01       		.byte	0x1
- 165 00ac 08       		.byte	0x8
- 166 00ad 88060000 		.4byte	.LASF15
- 167 00b1 02       		.uleb128 0x2
- 168 00b2 04       		.byte	0x4
- 169 00b3 04       		.byte	0x4
- 170 00b4 BC040000 		.4byte	.LASF16
- 171 00b8 02       		.uleb128 0x2
- 172 00b9 08       		.byte	0x8
- 173 00ba 04       		.byte	0x4
- 174 00bb 99020000 		.4byte	.LASF17
- 175 00bf 06       		.uleb128 0x6
- 176 00c0 04       		.byte	0x4
- 177 00c1 02       		.uleb128 0x2
- 178 00c2 01       		.byte	0x1
- 179 00c3 02       		.byte	0x2
- 180 00c4 00050000 		.4byte	.LASF18
- 181 00c8 07       		.uleb128 0x7
- 182 00c9 A0050000 		.4byte	.LASF50
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 6
+  80              		.section	.debug_info,"",%progbits
+  81              	.Ldebug_info0:
+  82 0000 F00A0000 		.4byte	0xaf0
+  83 0004 0400     		.2byte	0x4
+  84 0006 00000000 		.4byte	.Ldebug_abbrev0
+  85 000a 04       		.byte	0x4
+  86 000b 01       		.uleb128 0x1
+  87 000c BC090000 		.4byte	.LASF218
+  88 0010 0C       		.byte	0xc
+  89 0011 DF000000 		.4byte	.LASF219
+  90 0015 7B0D0000 		.4byte	.LASF220
+  91 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  92 001d 00000000 		.4byte	0
+  93 0021 00000000 		.4byte	.Ldebug_line0
+  94 0025 02       		.uleb128 0x2
+  95 0026 02       		.byte	0x2
+  96 0027 05       		.byte	0x5
+  97 0028 AD080000 		.4byte	.LASF0
+  98 002c 02       		.uleb128 0x2
+  99 002d 01       		.byte	0x1
+ 100 002e 08       		.byte	0x8
+ 101 002f 8B080000 		.4byte	.LASF1
+ 102 0033 02       		.uleb128 0x2
+ 103 0034 01       		.byte	0x1
+ 104 0035 06       		.byte	0x6
+ 105 0036 7D020000 		.4byte	.LASF2
+ 106 003a 03       		.uleb128 0x3
+ 107 003b 06010000 		.4byte	.LASF3
+ 108 003f 03       		.byte	0x3
+ 109 0040 1D       		.byte	0x1d
+ 110 0041 2C000000 		.4byte	0x2c
+ 111 0045 03       		.uleb128 0x3
+ 112 0046 5C040000 		.4byte	.LASF4
+ 113 004a 03       		.byte	0x3
+ 114 004b 29       		.byte	0x29
+ 115 004c 25000000 		.4byte	0x25
+ 116 0050 03       		.uleb128 0x3
+ 117 0051 A80A0000 		.4byte	.LASF5
+ 118 0055 03       		.byte	0x3
+ 119 0056 2B       		.byte	0x2b
+ 120 0057 5B000000 		.4byte	0x5b
+ 121 005b 02       		.uleb128 0x2
+ 122 005c 02       		.byte	0x2
+ 123 005d 07       		.byte	0x7
+ 124 005e 210B0000 		.4byte	.LASF6
+ 125 0062 02       		.uleb128 0x2
+ 126 0063 04       		.byte	0x4
+ 127 0064 05       		.byte	0x5
+ 128 0065 58030000 		.4byte	.LASF7
+ 129 0069 03       		.uleb128 0x3
+ 130 006a 41040000 		.4byte	.LASF8
+ 131 006e 03       		.byte	0x3
+ 132 006f 41       		.byte	0x41
+ 133 0070 74000000 		.4byte	0x74
+ 134 0074 02       		.uleb128 0x2
+ 135 0075 04       		.byte	0x4
+ 136 0076 07       		.byte	0x7
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 6
 
 
- 183 00cd 64       		.byte	0x64
- 184 00ce 05       		.byte	0x5
- 185 00cf 2B       		.byte	0x2b
- 186 00d0 01020000 		.4byte	0x201
- 187 00d4 08       		.uleb128 0x8
- 188 00d5 B4040000 		.4byte	.LASF19
- 189 00d9 05       		.byte	0x5
- 190 00da 2D       		.byte	0x2d
- 191 00db 8C000000 		.4byte	0x8c
- 192 00df 00       		.byte	0
- 193 00e0 08       		.uleb128 0x8
- 194 00e1 1B010000 		.4byte	.LASF20
- 195 00e5 05       		.byte	0x5
- 196 00e6 2F       		.byte	0x2f
- 197 00e7 8C000000 		.4byte	0x8c
- 198 00eb 04       		.byte	0x4
- 199 00ec 08       		.uleb128 0x8
- 200 00ed CE000000 		.4byte	.LASF21
- 201 00f1 05       		.byte	0x5
- 202 00f2 30       		.byte	0x30
- 203 00f3 8C000000 		.4byte	0x8c
- 204 00f7 08       		.byte	0x8
- 205 00f8 08       		.uleb128 0x8
- 206 00f9 E5030000 		.4byte	.LASF22
- 207 00fd 05       		.byte	0x5
- 208 00fe 31       		.byte	0x31
- 209 00ff 8C000000 		.4byte	0x8c
- 210 0103 0C       		.byte	0xc
- 211 0104 08       		.uleb128 0x8
- 212 0105 00000000 		.4byte	.LASF23
- 213 0109 05       		.byte	0x5
- 214 010a 32       		.byte	0x32
- 215 010b 8C000000 		.4byte	0x8c
- 216 010f 10       		.byte	0x10
- 217 0110 08       		.uleb128 0x8
- 218 0111 26070000 		.4byte	.LASF24
- 219 0115 05       		.byte	0x5
- 220 0116 33       		.byte	0x33
- 221 0117 8C000000 		.4byte	0x8c
- 222 011b 14       		.byte	0x14
- 223 011c 08       		.uleb128 0x8
- 224 011d 2E070000 		.4byte	.LASF25
- 225 0121 05       		.byte	0x5
- 226 0122 34       		.byte	0x34
- 227 0123 8C000000 		.4byte	0x8c
- 228 0127 18       		.byte	0x18
- 229 0128 08       		.uleb128 0x8
- 230 0129 49050000 		.4byte	.LASF26
- 231 012d 05       		.byte	0x5
- 232 012e 35       		.byte	0x35
- 233 012f C1000000 		.4byte	0xc1
- 234 0133 1C       		.byte	0x1c
- 235 0134 08       		.uleb128 0x8
- 236 0135 68060000 		.4byte	.LASF27
- 237 0139 05       		.byte	0x5
- 238 013a 36       		.byte	0x36
- 239 013b 8C000000 		.4byte	0x8c
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 7
+ 137 0077 32050000 		.4byte	.LASF9
+ 138 007b 02       		.uleb128 0x2
+ 139 007c 08       		.byte	0x8
+ 140 007d 05       		.byte	0x5
+ 141 007e 6F020000 		.4byte	.LASF10
+ 142 0082 02       		.uleb128 0x2
+ 143 0083 08       		.byte	0x8
+ 144 0084 07       		.byte	0x7
+ 145 0085 6F010000 		.4byte	.LASF11
+ 146 0089 04       		.uleb128 0x4
+ 147 008a 04       		.byte	0x4
+ 148 008b 05       		.byte	0x5
+ 149 008c 696E7400 		.ascii	"int\000"
+ 150 0090 02       		.uleb128 0x2
+ 151 0091 04       		.byte	0x4
+ 152 0092 07       		.byte	0x7
+ 153 0093 BF040000 		.4byte	.LASF12
+ 154 0097 03       		.uleb128 0x3
+ 155 0098 7C0C0000 		.4byte	.LASF13
+ 156 009c 04       		.byte	0x4
+ 157 009d 18       		.byte	0x18
+ 158 009e 3A000000 		.4byte	0x3a
+ 159 00a2 03       		.uleb128 0x3
+ 160 00a3 67020000 		.4byte	.LASF14
+ 161 00a7 04       		.byte	0x4
+ 162 00a8 20       		.byte	0x20
+ 163 00a9 45000000 		.4byte	0x45
+ 164 00ad 03       		.uleb128 0x3
+ 165 00ae DD040000 		.4byte	.LASF15
+ 166 00b2 04       		.byte	0x4
+ 167 00b3 24       		.byte	0x24
+ 168 00b4 50000000 		.4byte	0x50
+ 169 00b8 03       		.uleb128 0x3
+ 170 00b9 86090000 		.4byte	.LASF16
+ 171 00bd 04       		.byte	0x4
+ 172 00be 30       		.byte	0x30
+ 173 00bf 69000000 		.4byte	0x69
+ 174 00c3 02       		.uleb128 0x2
+ 175 00c4 04       		.byte	0x4
+ 176 00c5 07       		.byte	0x7
+ 177 00c6 F1060000 		.4byte	.LASF17
+ 178 00ca 05       		.uleb128 0x5
+ 179 00cb B8000000 		.4byte	0xb8
+ 180 00cf 02       		.uleb128 0x2
+ 181 00d0 08       		.byte	0x8
+ 182 00d1 04       		.byte	0x4
+ 183 00d2 570A0000 		.4byte	.LASF18
+ 184 00d6 06       		.uleb128 0x6
+ 185 00d7 B8       		.byte	0xb8
+ 186 00d8 05       		.byte	0x5
+ 187 00d9 34       		.byte	0x34
+ 188 00da E7040000 		.4byte	0x4e7
+ 189 00de 07       		.uleb128 0x7
+ 190 00df 48010000 		.4byte	.LASF19
+ 191 00e3 05       		.byte	0x5
+ 192 00e4 37       		.byte	0x37
+ 193 00e5 B8000000 		.4byte	0xb8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 7
 
 
- 240 013f 20       		.byte	0x20
- 241 0140 08       		.uleb128 0x8
- 242 0141 36070000 		.4byte	.LASF28
- 243 0145 05       		.byte	0x5
- 244 0146 37       		.byte	0x37
- 245 0147 8C000000 		.4byte	0x8c
- 246 014b 24       		.byte	0x24
- 247 014c 08       		.uleb128 0x8
- 248 014d 1E030000 		.4byte	.LASF29
- 249 0151 05       		.byte	0x5
- 250 0152 38       		.byte	0x38
- 251 0153 C1000000 		.4byte	0xc1
- 252 0157 28       		.byte	0x28
- 253 0158 08       		.uleb128 0x8
- 254 0159 5E040000 		.4byte	.LASF30
- 255 015d 05       		.byte	0x5
- 256 015e 3A       		.byte	0x3a
- 257 015f 8C000000 		.4byte	0x8c
- 258 0163 2C       		.byte	0x2c
- 259 0164 08       		.uleb128 0x8
- 260 0165 D8030000 		.4byte	.LASF31
- 261 0169 05       		.byte	0x5
- 262 016a 3B       		.byte	0x3b
- 263 016b 8C000000 		.4byte	0x8c
- 264 016f 30       		.byte	0x30
- 265 0170 08       		.uleb128 0x8
- 266 0171 8C070000 		.4byte	.LASF32
- 267 0175 05       		.byte	0x5
- 268 0176 3C       		.byte	0x3c
- 269 0177 8C000000 		.4byte	0x8c
- 270 017b 34       		.byte	0x34
- 271 017c 08       		.uleb128 0x8
- 272 017d D1040000 		.4byte	.LASF33
- 273 0181 05       		.byte	0x5
- 274 0182 3D       		.byte	0x3d
- 275 0183 8C000000 		.4byte	0x8c
- 276 0187 38       		.byte	0x38
- 277 0188 08       		.uleb128 0x8
- 278 0189 57030000 		.4byte	.LASF34
- 279 018d 05       		.byte	0x5
- 280 018e 3E       		.byte	0x3e
- 281 018f 8C000000 		.4byte	0x8c
- 282 0193 3C       		.byte	0x3c
- 283 0194 08       		.uleb128 0x8
- 284 0195 76050000 		.4byte	.LASF35
- 285 0199 05       		.byte	0x5
- 286 019a 40       		.byte	0x40
- 287 019b 8C000000 		.4byte	0x8c
- 288 019f 40       		.byte	0x40
- 289 01a0 08       		.uleb128 0x8
- 290 01a1 D7070000 		.4byte	.LASF36
- 291 01a5 05       		.byte	0x5
- 292 01a6 41       		.byte	0x41
- 293 01a7 8C000000 		.4byte	0x8c
- 294 01ab 44       		.byte	0x44
- 295 01ac 08       		.uleb128 0x8
- 296 01ad C5060000 		.4byte	.LASF37
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 8
+ 194 00e9 00       		.byte	0
+ 195 00ea 07       		.uleb128 0x7
+ 196 00eb 36040000 		.4byte	.LASF20
+ 197 00ef 05       		.byte	0x5
+ 198 00f0 38       		.byte	0x38
+ 199 00f1 B8000000 		.4byte	0xb8
+ 200 00f5 04       		.byte	0x4
+ 201 00f6 07       		.uleb128 0x7
+ 202 00f7 97030000 		.4byte	.LASF21
+ 203 00fb 05       		.byte	0x5
+ 204 00fc 39       		.byte	0x39
+ 205 00fd B8000000 		.4byte	0xb8
+ 206 0101 08       		.byte	0x8
+ 207 0102 07       		.uleb128 0x7
+ 208 0103 6E080000 		.4byte	.LASF22
+ 209 0107 05       		.byte	0x5
+ 210 0108 3A       		.byte	0x3a
+ 211 0109 B8000000 		.4byte	0xb8
+ 212 010d 0C       		.byte	0xc
+ 213 010e 07       		.uleb128 0x7
+ 214 010f AF020000 		.4byte	.LASF23
+ 215 0113 05       		.byte	0x5
+ 216 0114 3B       		.byte	0x3b
+ 217 0115 B8000000 		.4byte	0xb8
+ 218 0119 10       		.byte	0x10
+ 219 011a 07       		.uleb128 0x7
+ 220 011b B7080000 		.4byte	.LASF24
+ 221 011f 05       		.byte	0x5
+ 222 0120 3C       		.byte	0x3c
+ 223 0121 B8000000 		.4byte	0xb8
+ 224 0125 14       		.byte	0x14
+ 225 0126 07       		.uleb128 0x7
+ 226 0127 9D050000 		.4byte	.LASF25
+ 227 012b 05       		.byte	0x5
+ 228 012c 3D       		.byte	0x3d
+ 229 012d B8000000 		.4byte	0xb8
+ 230 0131 18       		.byte	0x18
+ 231 0132 07       		.uleb128 0x7
+ 232 0133 D6000000 		.4byte	.LASF26
+ 233 0137 05       		.byte	0x5
+ 234 0138 3E       		.byte	0x3e
+ 235 0139 B8000000 		.4byte	0xb8
+ 236 013d 1C       		.byte	0x1c
+ 237 013e 07       		.uleb128 0x7
+ 238 013f 310D0000 		.4byte	.LASF27
+ 239 0143 05       		.byte	0x5
+ 240 0144 3F       		.byte	0x3f
+ 241 0145 B8000000 		.4byte	0xb8
+ 242 0149 20       		.byte	0x20
+ 243 014a 07       		.uleb128 0x7
+ 244 014b 96070000 		.4byte	.LASF28
+ 245 014f 05       		.byte	0x5
+ 246 0150 40       		.byte	0x40
+ 247 0151 B8000000 		.4byte	0xb8
+ 248 0155 24       		.byte	0x24
+ 249 0156 07       		.uleb128 0x7
+ 250 0157 C3060000 		.4byte	.LASF29
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 8
 
 
- 297 01b1 05       		.byte	0x5
- 298 01b2 43       		.byte	0x43
- 299 01b3 8C000000 		.4byte	0x8c
- 300 01b7 48       		.byte	0x48
- 301 01b8 08       		.uleb128 0x8
- 302 01b9 17070000 		.4byte	.LASF38
- 303 01bd 05       		.byte	0x5
- 304 01be 44       		.byte	0x44
- 305 01bf 8C000000 		.4byte	0x8c
- 306 01c3 4C       		.byte	0x4c
- 307 01c4 08       		.uleb128 0x8
- 308 01c5 8E020000 		.4byte	.LASF39
- 309 01c9 05       		.byte	0x5
- 310 01ca 46       		.byte	0x46
- 311 01cb 8C000000 		.4byte	0x8c
- 312 01cf 50       		.byte	0x50
- 313 01d0 08       		.uleb128 0x8
- 314 01d1 90030000 		.4byte	.LASF40
- 315 01d5 05       		.byte	0x5
- 316 01d6 47       		.byte	0x47
- 317 01d7 8C000000 		.4byte	0x8c
- 318 01db 54       		.byte	0x54
- 319 01dc 08       		.uleb128 0x8
- 320 01dd 65000000 		.4byte	.LASF41
- 321 01e1 05       		.byte	0x5
- 322 01e2 49       		.byte	0x49
- 323 01e3 8C000000 		.4byte	0x8c
- 324 01e7 58       		.byte	0x58
- 325 01e8 08       		.uleb128 0x8
- 326 01e9 02040000 		.4byte	.LASF42
- 327 01ed 05       		.byte	0x5
- 328 01ee 4A       		.byte	0x4a
- 329 01ef 8C000000 		.4byte	0x8c
- 330 01f3 5C       		.byte	0x5c
- 331 01f4 08       		.uleb128 0x8
- 332 01f5 7D060000 		.4byte	.LASF43
- 333 01f9 05       		.byte	0x5
- 334 01fa 4C       		.byte	0x4c
- 335 01fb 8C000000 		.4byte	0x8c
- 336 01ff 60       		.byte	0x60
- 337 0200 00       		.byte	0
- 338 0201 03       		.uleb128 0x3
- 339 0202 2B000000 		.4byte	.LASF44
- 340 0206 05       		.byte	0x5
- 341 0207 4D       		.byte	0x4d
- 342 0208 C8000000 		.4byte	0xc8
- 343 020c 09       		.uleb128 0x9
- 344 020d 01       		.byte	0x1
- 345 020e 2C000000 		.4byte	0x2c
- 346 0212 06       		.byte	0x6
- 347 0213 DE01     		.2byte	0x1de
- 348 0215 26020000 		.4byte	0x226
- 349 0219 0A       		.uleb128 0xa
- 350 021a A8060000 		.4byte	.LASF45
- 351 021e 00       		.byte	0
- 352 021f 0A       		.uleb128 0xa
- 353 0220 72020000 		.4byte	.LASF46
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 9
+ 251 015b 05       		.byte	0x5
+ 252 015c 43       		.byte	0x43
+ 253 015d 97000000 		.4byte	0x97
+ 254 0161 28       		.byte	0x28
+ 255 0162 07       		.uleb128 0x7
+ 256 0163 BC000000 		.4byte	.LASF30
+ 257 0167 05       		.byte	0x5
+ 258 0168 44       		.byte	0x44
+ 259 0169 97000000 		.4byte	0x97
+ 260 016d 29       		.byte	0x29
+ 261 016e 07       		.uleb128 0x7
+ 262 016f 270D0000 		.4byte	.LASF31
+ 263 0173 05       		.byte	0x5
+ 264 0174 45       		.byte	0x45
+ 265 0175 97000000 		.4byte	0x97
+ 266 0179 2A       		.byte	0x2a
+ 267 017a 07       		.uleb128 0x7
+ 268 017b 88070000 		.4byte	.LASF32
+ 269 017f 05       		.byte	0x5
+ 270 0180 46       		.byte	0x46
+ 271 0181 97000000 		.4byte	0x97
+ 272 0185 2B       		.byte	0x2b
+ 273 0186 07       		.uleb128 0x7
+ 274 0187 33060000 		.4byte	.LASF33
+ 275 018b 05       		.byte	0x5
+ 276 018c 47       		.byte	0x47
+ 277 018d 97000000 		.4byte	0x97
+ 278 0191 2C       		.byte	0x2c
+ 279 0192 07       		.uleb128 0x7
+ 280 0193 D30A0000 		.4byte	.LASF34
+ 281 0197 05       		.byte	0x5
+ 282 0198 48       		.byte	0x48
+ 283 0199 97000000 		.4byte	0x97
+ 284 019d 2D       		.byte	0x2d
+ 285 019e 07       		.uleb128 0x7
+ 286 019f B8020000 		.4byte	.LASF35
+ 287 01a3 05       		.byte	0x5
+ 288 01a4 49       		.byte	0x49
+ 289 01a5 97000000 		.4byte	0x97
+ 290 01a9 2E       		.byte	0x2e
+ 291 01aa 07       		.uleb128 0x7
+ 292 01ab D0060000 		.4byte	.LASF36
+ 293 01af 05       		.byte	0x5
+ 294 01b0 4A       		.byte	0x4a
+ 295 01b1 97000000 		.4byte	0x97
+ 296 01b5 2F       		.byte	0x2f
+ 297 01b6 07       		.uleb128 0x7
+ 298 01b7 730A0000 		.4byte	.LASF37
+ 299 01bb 05       		.byte	0x5
+ 300 01bc 4B       		.byte	0x4b
+ 301 01bd 97000000 		.4byte	0x97
+ 302 01c1 30       		.byte	0x30
+ 303 01c2 07       		.uleb128 0x7
+ 304 01c3 92050000 		.4byte	.LASF38
+ 305 01c7 05       		.byte	0x5
+ 306 01c8 4E       		.byte	0x4e
+ 307 01c9 97000000 		.4byte	0x97
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 9
 
 
- 354 0224 01       		.byte	0x1
- 355 0225 00       		.byte	0
- 356 0226 0B       		.uleb128 0xb
- 357 0227 74070000 		.4byte	.LASF47
- 358 022b 06       		.byte	0x6
- 359 022c E101     		.2byte	0x1e1
- 360 022e 0C020000 		.4byte	0x20c
- 361 0232 0B       		.uleb128 0xb
- 362 0233 3F020000 		.4byte	.LASF48
- 363 0237 06       		.byte	0x6
- 364 0238 F301     		.2byte	0x1f3
- 365 023a 3E020000 		.4byte	0x23e
- 366 023e 0C       		.uleb128 0xc
- 367 023f 04       		.byte	0x4
- 368 0240 44020000 		.4byte	0x244
- 369 0244 0D       		.uleb128 0xd
- 370 0245 4F020000 		.4byte	0x24f
- 371 0249 0E       		.uleb128 0xe
- 372 024a 8C000000 		.4byte	0x8c
- 373 024e 00       		.byte	0
- 374 024f 0B       		.uleb128 0xb
- 375 0250 5A050000 		.4byte	.LASF49
- 376 0254 06       		.byte	0x6
- 377 0255 FE01     		.2byte	0x1fe
- 378 0257 5B020000 		.4byte	0x25b
- 379 025b 0C       		.uleb128 0xc
- 380 025c 04       		.byte	0x4
- 381 025d 61020000 		.4byte	0x261
- 382 0261 0F       		.uleb128 0xf
- 383 0262 26020000 		.4byte	0x226
- 384 0266 70020000 		.4byte	0x270
- 385 026a 0E       		.uleb128 0xe
- 386 026b 8C000000 		.4byte	0x8c
- 387 026f 00       		.byte	0
- 388 0270 10       		.uleb128 0x10
- 389 0271 99010000 		.4byte	.LASF51
- 390 0275 4C       		.byte	0x4c
- 391 0276 06       		.byte	0x6
- 392 0277 6502     		.2byte	0x265
- 393 0279 8F030000 		.4byte	0x38f
- 394 027d 11       		.uleb128 0x11
- 395 027e 0D070000 		.4byte	.LASF52
- 396 0282 06       		.byte	0x6
- 397 0283 6802     		.2byte	0x268
- 398 0285 C1000000 		.4byte	0xc1
- 399 0289 00       		.byte	0
- 400 028a 11       		.uleb128 0x11
- 401 028b 4D030000 		.4byte	.LASF53
- 402 028f 06       		.byte	0x6
- 403 0290 6902     		.2byte	0x269
- 404 0292 C1000000 		.4byte	0xc1
- 405 0296 01       		.byte	0x1
- 406 0297 11       		.uleb128 0x11
- 407 0298 39020000 		.4byte	.LASF54
- 408 029c 06       		.byte	0x6
- 409 029d 6B02     		.2byte	0x26b
- 410 029f 9E000000 		.4byte	0x9e
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 10
+ 308 01cd 31       		.byte	0x31
+ 309 01ce 07       		.uleb128 0x7
+ 310 01cf F8000000 		.4byte	.LASF39
+ 311 01d3 05       		.byte	0x5
+ 312 01d4 4F       		.byte	0x4f
+ 313 01d5 97000000 		.4byte	0x97
+ 314 01d9 32       		.byte	0x32
+ 315 01da 07       		.uleb128 0x7
+ 316 01db B3040000 		.4byte	.LASF40
+ 317 01df 05       		.byte	0x5
+ 318 01e0 50       		.byte	0x50
+ 319 01e1 97000000 		.4byte	0x97
+ 320 01e5 33       		.byte	0x33
+ 321 01e6 07       		.uleb128 0x7
+ 322 01e7 15070000 		.4byte	.LASF41
+ 323 01eb 05       		.byte	0x5
+ 324 01ec 51       		.byte	0x51
+ 325 01ed 97000000 		.4byte	0x97
+ 326 01f1 34       		.byte	0x34
+ 327 01f2 07       		.uleb128 0x7
+ 328 01f3 810B0000 		.4byte	.LASF42
+ 329 01f7 05       		.byte	0x5
+ 330 01f8 52       		.byte	0x52
+ 331 01f9 A2000000 		.4byte	0xa2
+ 332 01fd 36       		.byte	0x36
+ 333 01fe 07       		.uleb128 0x7
+ 334 01ff 7B090000 		.4byte	.LASF43
+ 335 0203 05       		.byte	0x5
+ 336 0204 53       		.byte	0x53
+ 337 0205 A2000000 		.4byte	0xa2
+ 338 0209 38       		.byte	0x38
+ 339 020a 07       		.uleb128 0x7
+ 340 020b F20A0000 		.4byte	.LASF44
+ 341 020f 05       		.byte	0x5
+ 342 0210 54       		.byte	0x54
+ 343 0211 A2000000 		.4byte	0xa2
+ 344 0215 3A       		.byte	0x3a
+ 345 0216 07       		.uleb128 0x7
+ 346 0217 E2050000 		.4byte	.LASF45
+ 347 021b 05       		.byte	0x5
+ 348 021c 55       		.byte	0x55
+ 349 021d 97000000 		.4byte	0x97
+ 350 0221 3C       		.byte	0x3c
+ 351 0222 07       		.uleb128 0x7
+ 352 0223 D8030000 		.4byte	.LASF46
+ 353 0227 05       		.byte	0x5
+ 354 0228 56       		.byte	0x56
+ 355 0229 97000000 		.4byte	0x97
+ 356 022d 3D       		.byte	0x3d
+ 357 022e 07       		.uleb128 0x7
+ 358 022f 170C0000 		.4byte	.LASF47
+ 359 0233 05       		.byte	0x5
+ 360 0234 57       		.byte	0x57
+ 361 0235 97000000 		.4byte	0x97
+ 362 0239 3E       		.byte	0x3e
+ 363 023a 07       		.uleb128 0x7
+ 364 023b CA000000 		.4byte	.LASF48
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 10
 
 
- 411 02a3 04       		.byte	0x4
- 412 02a4 11       		.uleb128 0x11
- 413 02a5 44010000 		.4byte	.LASF55
- 414 02a9 06       		.byte	0x6
- 415 02aa 6D02     		.2byte	0x26d
- 416 02ac 9E000000 		.4byte	0x9e
- 417 02b0 08       		.byte	0x8
- 418 02b1 11       		.uleb128 0x11
- 419 02b2 3D050000 		.4byte	.LASF56
- 420 02b6 06       		.byte	0x6
- 421 02b7 6E02     		.2byte	0x26e
- 422 02b9 C1000000 		.4byte	0xc1
- 423 02bd 0C       		.byte	0xc
- 424 02be 11       		.uleb128 0x11
- 425 02bf 66020000 		.4byte	.LASF57
- 426 02c3 06       		.byte	0x6
- 427 02c4 6F02     		.2byte	0x26f
- 428 02c6 C1000000 		.4byte	0xc1
- 429 02ca 0D       		.byte	0xd
- 430 02cb 11       		.uleb128 0x11
- 431 02cc AF070000 		.4byte	.LASF58
- 432 02d0 06       		.byte	0x6
- 433 02d1 7102     		.2byte	0x271
- 434 02d3 8F030000 		.4byte	0x38f
- 435 02d7 10       		.byte	0x10
- 436 02d8 11       		.uleb128 0x11
- 437 02d9 1E050000 		.4byte	.LASF59
- 438 02dd 06       		.byte	0x6
- 439 02de 7202     		.2byte	0x272
- 440 02e0 8C000000 		.4byte	0x8c
- 441 02e4 14       		.byte	0x14
- 442 02e5 11       		.uleb128 0x11
- 443 02e6 2D040000 		.4byte	.LASF60
- 444 02ea 06       		.byte	0x6
- 445 02eb 7302     		.2byte	0x273
- 446 02ed 9E000000 		.4byte	0x9e
- 447 02f1 18       		.byte	0x18
- 448 02f2 11       		.uleb128 0x11
- 449 02f3 80050000 		.4byte	.LASF61
- 450 02f7 06       		.byte	0x6
- 451 02f8 7402     		.2byte	0x274
- 452 02fa 9E000000 		.4byte	0x9e
- 453 02fe 1C       		.byte	0x1c
- 454 02ff 11       		.uleb128 0x11
- 455 0300 EA000000 		.4byte	.LASF62
- 456 0304 06       		.byte	0x6
- 457 0305 7602     		.2byte	0x276
- 458 0307 9E000000 		.4byte	0x9e
- 459 030b 20       		.byte	0x20
- 460 030c 11       		.uleb128 0x11
- 461 030d 0C080000 		.4byte	.LASF63
- 462 0311 06       		.byte	0x6
- 463 0312 7702     		.2byte	0x277
- 464 0314 95030000 		.4byte	0x395
- 465 0318 24       		.byte	0x24
- 466 0319 11       		.uleb128 0x11
- 467 031a 4D070000 		.4byte	.LASF64
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 11
+ 365 023f 05       		.byte	0x5
+ 366 0240 58       		.byte	0x58
+ 367 0241 97000000 		.4byte	0x97
+ 368 0245 3F       		.byte	0x3f
+ 369 0246 07       		.uleb128 0x7
+ 370 0247 A1070000 		.4byte	.LASF49
+ 371 024b 05       		.byte	0x5
+ 372 024c 59       		.byte	0x59
+ 373 024d 97000000 		.4byte	0x97
+ 374 0251 40       		.byte	0x40
+ 375 0252 07       		.uleb128 0x7
+ 376 0253 4C040000 		.4byte	.LASF50
+ 377 0257 05       		.byte	0x5
+ 378 0258 5A       		.byte	0x5a
+ 379 0259 97000000 		.4byte	0x97
+ 380 025d 41       		.byte	0x41
+ 381 025e 07       		.uleb128 0x7
+ 382 025f A6050000 		.4byte	.LASF51
+ 383 0263 05       		.byte	0x5
+ 384 0264 5B       		.byte	0x5b
+ 385 0265 97000000 		.4byte	0x97
+ 386 0269 42       		.byte	0x42
+ 387 026a 07       		.uleb128 0x7
+ 388 026b 74070000 		.4byte	.LASF52
+ 389 026f 05       		.byte	0x5
+ 390 0270 5C       		.byte	0x5c
+ 391 0271 97000000 		.4byte	0x97
+ 392 0275 43       		.byte	0x43
+ 393 0276 07       		.uleb128 0x7
+ 394 0277 A0030000 		.4byte	.LASF53
+ 395 027b 05       		.byte	0x5
+ 396 027c 5D       		.byte	0x5d
+ 397 027d 97000000 		.4byte	0x97
+ 398 0281 44       		.byte	0x44
+ 399 0282 07       		.uleb128 0x7
+ 400 0283 00000000 		.4byte	.LASF54
+ 401 0287 05       		.byte	0x5
+ 402 0288 5E       		.byte	0x5e
+ 403 0289 B8000000 		.4byte	0xb8
+ 404 028d 48       		.byte	0x48
+ 405 028e 07       		.uleb128 0x7
+ 406 028f 7C030000 		.4byte	.LASF55
+ 407 0293 05       		.byte	0x5
+ 408 0294 5F       		.byte	0x5f
+ 409 0295 B8000000 		.4byte	0xb8
+ 410 0299 4C       		.byte	0x4c
+ 411 029a 07       		.uleb128 0x7
+ 412 029b D90D0000 		.4byte	.LASF56
+ 413 029f 05       		.byte	0x5
+ 414 02a0 60       		.byte	0x60
+ 415 02a1 97000000 		.4byte	0x97
+ 416 02a5 50       		.byte	0x50
+ 417 02a6 07       		.uleb128 0x7
+ 418 02a7 19020000 		.4byte	.LASF57
+ 419 02ab 05       		.byte	0x5
+ 420 02ac 61       		.byte	0x61
+ 421 02ad 97000000 		.4byte	0x97
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 11
 
 
- 468 031e 06       		.byte	0x6
- 469 031f 7902     		.2byte	0x279
- 470 0321 8F030000 		.4byte	0x38f
- 471 0325 28       		.byte	0x28
- 472 0326 11       		.uleb128 0x11
- 473 0327 5B070000 		.4byte	.LASF65
- 474 032b 06       		.byte	0x6
- 475 032c 7A02     		.2byte	0x27a
- 476 032e 8C000000 		.4byte	0x8c
- 477 0332 2C       		.byte	0x2c
- 478 0333 11       		.uleb128 0x11
- 479 0334 F3020000 		.4byte	.LASF66
- 480 0338 06       		.byte	0x6
- 481 0339 7B02     		.2byte	0x27b
- 482 033b 9E000000 		.4byte	0x9e
- 483 033f 30       		.byte	0x30
- 484 0340 11       		.uleb128 0x11
- 485 0341 8F050000 		.4byte	.LASF67
- 486 0345 06       		.byte	0x6
- 487 0346 7C02     		.2byte	0x27c
- 488 0348 9E000000 		.4byte	0x9e
- 489 034c 34       		.byte	0x34
- 490 034d 11       		.uleb128 0x11
- 491 034e 11040000 		.4byte	.LASF68
- 492 0352 06       		.byte	0x6
- 493 0353 7E02     		.2byte	0x27e
- 494 0355 8F030000 		.4byte	0x38f
- 495 0359 38       		.byte	0x38
- 496 035a 11       		.uleb128 0x11
- 497 035b F5010000 		.4byte	.LASF69
- 498 035f 06       		.byte	0x6
- 499 0360 7F02     		.2byte	0x27f
- 500 0362 8C000000 		.4byte	0x8c
- 501 0366 3C       		.byte	0x3c
- 502 0367 11       		.uleb128 0x11
- 503 0368 88010000 		.4byte	.LASF70
- 504 036c 06       		.byte	0x6
- 505 036d 8002     		.2byte	0x280
- 506 036f 9E000000 		.4byte	0x9e
- 507 0373 40       		.byte	0x40
- 508 0374 11       		.uleb128 0x11
- 509 0375 9E030000 		.4byte	.LASF71
- 510 0379 06       		.byte	0x6
- 511 037a 8602     		.2byte	0x286
- 512 037c 32020000 		.4byte	0x232
- 513 0380 44       		.byte	0x44
- 514 0381 11       		.uleb128 0x11
- 515 0382 C1020000 		.4byte	.LASF72
- 516 0386 06       		.byte	0x6
- 517 0387 8D02     		.2byte	0x28d
- 518 0389 4F020000 		.4byte	0x24f
- 519 038d 48       		.byte	0x48
- 520 038e 00       		.byte	0
- 521 038f 0C       		.uleb128 0xc
- 522 0390 04       		.byte	0x4
- 523 0391 81000000 		.4byte	0x81
- 524 0395 05       		.uleb128 0x5
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 12
+ 422 02b1 51       		.byte	0x51
+ 423 02b2 07       		.uleb128 0x7
+ 424 02b3 6C0C0000 		.4byte	.LASF58
+ 425 02b7 05       		.byte	0x5
+ 426 02b8 62       		.byte	0x62
+ 427 02b9 97000000 		.4byte	0x97
+ 428 02bd 52       		.byte	0x52
+ 429 02be 07       		.uleb128 0x7
+ 430 02bf E00A0000 		.4byte	.LASF59
+ 431 02c3 05       		.byte	0x5
+ 432 02c4 63       		.byte	0x63
+ 433 02c5 97000000 		.4byte	0x97
+ 434 02c9 53       		.byte	0x53
+ 435 02ca 07       		.uleb128 0x7
+ 436 02cb 6B090000 		.4byte	.LASF60
+ 437 02cf 05       		.byte	0x5
+ 438 02d0 64       		.byte	0x64
+ 439 02d1 97000000 		.4byte	0x97
+ 440 02d5 54       		.byte	0x54
+ 441 02d6 07       		.uleb128 0x7
+ 442 02d7 53020000 		.4byte	.LASF61
+ 443 02db 05       		.byte	0x5
+ 444 02dc 65       		.byte	0x65
+ 445 02dd 97000000 		.4byte	0x97
+ 446 02e1 55       		.byte	0x55
+ 447 02e2 07       		.uleb128 0x7
+ 448 02e3 16050000 		.4byte	.LASF62
+ 449 02e7 05       		.byte	0x5
+ 450 02e8 66       		.byte	0x66
+ 451 02e9 97000000 		.4byte	0x97
+ 452 02ed 56       		.byte	0x56
+ 453 02ee 07       		.uleb128 0x7
+ 454 02ef F4080000 		.4byte	.LASF63
+ 455 02f3 05       		.byte	0x5
+ 456 02f4 67       		.byte	0x67
+ 457 02f5 97000000 		.4byte	0x97
+ 458 02f9 57       		.byte	0x57
+ 459 02fa 07       		.uleb128 0x7
+ 460 02fb 77000000 		.4byte	.LASF64
+ 461 02ff 05       		.byte	0x5
+ 462 0300 68       		.byte	0x68
+ 463 0301 97000000 		.4byte	0x97
+ 464 0305 58       		.byte	0x58
+ 465 0306 07       		.uleb128 0x7
+ 466 0307 99080000 		.4byte	.LASF65
+ 467 030b 05       		.byte	0x5
+ 468 030c 69       		.byte	0x69
+ 469 030d 97000000 		.4byte	0x97
+ 470 0311 59       		.byte	0x59
+ 471 0312 07       		.uleb128 0x7
+ 472 0313 FA060000 		.4byte	.LASF66
+ 473 0317 05       		.byte	0x5
+ 474 0318 6E       		.byte	0x6e
+ 475 0319 AD000000 		.4byte	0xad
+ 476 031d 5A       		.byte	0x5a
+ 477 031e 07       		.uleb128 0x7
+ 478 031f 340B0000 		.4byte	.LASF67
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 12
 
 
- 525 0396 C1000000 		.4byte	0xc1
- 526 039a 0B       		.uleb128 0xb
- 527 039b 19020000 		.4byte	.LASF73
- 528 039f 06       		.byte	0x6
- 529 03a0 9002     		.2byte	0x290
- 530 03a2 70020000 		.4byte	0x270
- 531 03a6 09       		.uleb128 0x9
- 532 03a7 01       		.byte	0x1
- 533 03a8 2C000000 		.4byte	0x2c
- 534 03ac 07       		.byte	0x7
- 535 03ad 2A01     		.2byte	0x12a
- 536 03af C0030000 		.4byte	0x3c0
- 537 03b3 0A       		.uleb128 0xa
- 538 03b4 60010000 		.4byte	.LASF74
- 539 03b8 00       		.byte	0
- 540 03b9 0A       		.uleb128 0xa
- 541 03ba F0060000 		.4byte	.LASF75
- 542 03be 01       		.byte	0x1
- 543 03bf 00       		.byte	0
- 544 03c0 0B       		.uleb128 0xb
- 545 03c1 45000000 		.4byte	.LASF76
- 546 03c5 07       		.byte	0x7
- 547 03c6 2D01     		.2byte	0x12d
- 548 03c8 A6030000 		.4byte	0x3a6
- 549 03cc 09       		.uleb128 0x9
- 550 03cd 01       		.byte	0x1
- 551 03ce 2C000000 		.4byte	0x2c
- 552 03d2 07       		.byte	0x7
- 553 03d3 3201     		.2byte	0x132
- 554 03d5 04040000 		.4byte	0x404
- 555 03d9 0A       		.uleb128 0xa
- 556 03da 3D040000 		.4byte	.LASF77
- 557 03de 00       		.byte	0
- 558 03df 0A       		.uleb128 0xa
- 559 03e0 78030000 		.4byte	.LASF78
- 560 03e4 01       		.byte	0x1
- 561 03e5 0A       		.uleb128 0xa
- 562 03e6 A0020000 		.4byte	.LASF79
- 563 03ea 02       		.byte	0x2
- 564 03eb 0A       		.uleb128 0xa
- 565 03ec B7030000 		.4byte	.LASF80
- 566 03f0 03       		.byte	0x3
- 567 03f1 0A       		.uleb128 0xa
- 568 03f2 7C040000 		.4byte	.LASF81
- 569 03f6 04       		.byte	0x4
- 570 03f7 0A       		.uleb128 0xa
- 571 03f8 98040000 		.4byte	.LASF82
- 572 03fc 05       		.byte	0x5
- 573 03fd 0A       		.uleb128 0xa
- 574 03fe 8D060000 		.4byte	.LASF83
- 575 0402 06       		.byte	0x6
- 576 0403 00       		.byte	0
- 577 0404 0B       		.uleb128 0xb
- 578 0405 DA040000 		.4byte	.LASF84
- 579 0409 07       		.byte	0x7
- 580 040a 3A01     		.2byte	0x13a
- 581 040c CC030000 		.4byte	0x3cc
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 13
+ 479 0323 05       		.byte	0x5
+ 480 0324 6F       		.byte	0x6f
+ 481 0325 AD000000 		.4byte	0xad
+ 482 0329 5C       		.byte	0x5c
+ 483 032a 07       		.uleb128 0x7
+ 484 032b 52010000 		.4byte	.LASF68
+ 485 032f 05       		.byte	0x5
+ 486 0330 70       		.byte	0x70
+ 487 0331 97000000 		.4byte	0x97
+ 488 0335 5E       		.byte	0x5e
+ 489 0336 07       		.uleb128 0x7
+ 490 0337 37080000 		.4byte	.LASF69
+ 491 033b 05       		.byte	0x5
+ 492 033c 71       		.byte	0x71
+ 493 033d 97000000 		.4byte	0x97
+ 494 0341 5F       		.byte	0x5f
+ 495 0342 07       		.uleb128 0x7
+ 496 0343 63070000 		.4byte	.LASF70
+ 497 0347 05       		.byte	0x5
+ 498 0348 72       		.byte	0x72
+ 499 0349 97000000 		.4byte	0x97
+ 500 034d 60       		.byte	0x60
+ 501 034e 07       		.uleb128 0x7
+ 502 034f 01080000 		.4byte	.LASF71
+ 503 0353 05       		.byte	0x5
+ 504 0354 73       		.byte	0x73
+ 505 0355 B8000000 		.4byte	0xb8
+ 506 0359 64       		.byte	0x64
+ 507 035a 07       		.uleb128 0x7
+ 508 035b A5010000 		.4byte	.LASF72
+ 509 035f 05       		.byte	0x5
+ 510 0360 76       		.byte	0x76
+ 511 0361 AD000000 		.4byte	0xad
+ 512 0365 68       		.byte	0x68
+ 513 0366 07       		.uleb128 0x7
+ 514 0367 04050000 		.4byte	.LASF73
+ 515 036b 05       		.byte	0x5
+ 516 036c 77       		.byte	0x77
+ 517 036d AD000000 		.4byte	0xad
+ 518 0371 6A       		.byte	0x6a
+ 519 0372 07       		.uleb128 0x7
+ 520 0373 D3050000 		.4byte	.LASF74
+ 521 0377 05       		.byte	0x5
+ 522 0378 78       		.byte	0x78
+ 523 0379 AD000000 		.4byte	0xad
+ 524 037d 6C       		.byte	0x6c
+ 525 037e 07       		.uleb128 0x7
+ 526 037f 16060000 		.4byte	.LASF75
+ 527 0383 05       		.byte	0x5
+ 528 0384 79       		.byte	0x79
+ 529 0385 AD000000 		.4byte	0xad
+ 530 0389 6E       		.byte	0x6e
+ 531 038a 07       		.uleb128 0x7
+ 532 038b D2080000 		.4byte	.LASF76
+ 533 038f 05       		.byte	0x5
+ 534 0390 7B       		.byte	0x7b
+ 535 0391 97000000 		.4byte	0x97
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 13
 
 
- 582 0410 10       		.uleb128 0x10
- 583 0411 08000000 		.4byte	.LASF85
- 584 0415 3C       		.byte	0x3c
- 585 0416 07       		.byte	0x7
- 586 0417 6601     		.2byte	0x166
- 587 0419 FB040000 		.4byte	0x4fb
- 588 041d 11       		.uleb128 0x11
- 589 041e 39020000 		.4byte	.LASF54
- 590 0422 07       		.byte	0x7
- 591 0423 6901     		.2byte	0x169
- 592 0425 FB040000 		.4byte	0x4fb
- 593 0429 00       		.byte	0
- 594 042a 11       		.uleb128 0x11
- 595 042b 6D070000 		.4byte	.LASF86
- 596 042f 07       		.byte	0x7
- 597 0430 6A01     		.2byte	0x16a
- 598 0432 9E000000 		.4byte	0x9e
- 599 0436 04       		.byte	0x4
- 600 0437 11       		.uleb128 0x11
- 601 0438 07020000 		.4byte	.LASF87
- 602 043c 07       		.byte	0x7
- 603 043d 6C01     		.2byte	0x16c
- 604 043f 81000000 		.4byte	0x81
- 605 0443 08       		.byte	0x8
- 606 0444 11       		.uleb128 0x11
- 607 0445 10020000 		.4byte	.LASF88
- 608 0449 07       		.byte	0x7
- 609 044a 6D01     		.2byte	0x16d
- 610 044c 81000000 		.4byte	0x81
- 611 0450 09       		.byte	0x9
- 612 0451 11       		.uleb128 0x11
- 613 0452 7C010000 		.4byte	.LASF89
- 614 0456 07       		.byte	0x7
- 615 0457 6E01     		.2byte	0x16e
- 616 0459 C0030000 		.4byte	0x3c0
- 617 045d 0A       		.byte	0xa
- 618 045e 12       		.uleb128 0x12
- 619 045f 69647800 		.ascii	"idx\000"
- 620 0463 07       		.byte	0x7
- 621 0464 7001     		.2byte	0x170
- 622 0466 8C000000 		.4byte	0x8c
- 623 046a 0C       		.byte	0xc
- 624 046b 11       		.uleb128 0x11
- 625 046c 1C080000 		.4byte	.LASF90
- 626 0470 07       		.byte	0x7
- 627 0471 7101     		.2byte	0x171
- 628 0473 8C000000 		.4byte	0x8c
- 629 0477 10       		.byte	0x10
- 630 0478 11       		.uleb128 0x11
- 631 0479 26080000 		.4byte	.LASF91
- 632 047d 07       		.byte	0x7
- 633 047e 7201     		.2byte	0x172
- 634 0480 8C000000 		.4byte	0x8c
- 635 0484 14       		.byte	0x14
- 636 0485 11       		.uleb128 0x11
- 637 0486 C1050000 		.4byte	.LASF92
- 638 048a 07       		.byte	0x7
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 14
+ 536 0395 70       		.byte	0x70
+ 537 0396 07       		.uleb128 0x7
+ 538 0397 89020000 		.4byte	.LASF77
+ 539 039b 05       		.byte	0x5
+ 540 039c 7C       		.byte	0x7c
+ 541 039d 97000000 		.4byte	0x97
+ 542 03a1 71       		.byte	0x71
+ 543 03a2 07       		.uleb128 0x7
+ 544 03a3 4D0D0000 		.4byte	.LASF78
+ 545 03a7 05       		.byte	0x5
+ 546 03a8 7D       		.byte	0x7d
+ 547 03a9 97000000 		.4byte	0x97
+ 548 03ad 72       		.byte	0x72
+ 549 03ae 07       		.uleb128 0x7
+ 550 03af 26070000 		.4byte	.LASF79
+ 551 03b3 05       		.byte	0x5
+ 552 03b4 7E       		.byte	0x7e
+ 553 03b5 97000000 		.4byte	0x97
+ 554 03b9 73       		.byte	0x73
+ 555 03ba 07       		.uleb128 0x7
+ 556 03bb E8030000 		.4byte	.LASF80
+ 557 03bf 05       		.byte	0x5
+ 558 03c0 80       		.byte	0x80
+ 559 03c1 AD000000 		.4byte	0xad
+ 560 03c5 74       		.byte	0x74
+ 561 03c6 07       		.uleb128 0x7
+ 562 03c7 B30A0000 		.4byte	.LASF81
+ 563 03cb 05       		.byte	0x5
+ 564 03cc 81       		.byte	0x81
+ 565 03cd AD000000 		.4byte	0xad
+ 566 03d1 76       		.byte	0x76
+ 567 03d2 07       		.uleb128 0x7
+ 568 03d3 C3030000 		.4byte	.LASF82
+ 569 03d7 05       		.byte	0x5
+ 570 03d8 82       		.byte	0x82
+ 571 03d9 AD000000 		.4byte	0xad
+ 572 03dd 78       		.byte	0x78
+ 573 03de 07       		.uleb128 0x7
+ 574 03df 1C010000 		.4byte	.LASF83
+ 575 03e3 05       		.byte	0x5
+ 576 03e4 83       		.byte	0x83
+ 577 03e5 AD000000 		.4byte	0xad
+ 578 03e9 7A       		.byte	0x7a
+ 579 03ea 07       		.uleb128 0x7
+ 580 03eb A60C0000 		.4byte	.LASF84
+ 581 03ef 05       		.byte	0x5
+ 582 03f0 86       		.byte	0x86
+ 583 03f1 97000000 		.4byte	0x97
+ 584 03f5 7C       		.byte	0x7c
+ 585 03f6 07       		.uleb128 0x7
+ 586 03f7 BE0B0000 		.4byte	.LASF85
+ 587 03fb 05       		.byte	0x5
+ 588 03fc 87       		.byte	0x87
+ 589 03fd 97000000 		.4byte	0x97
+ 590 0401 7D       		.byte	0x7d
+ 591 0402 07       		.uleb128 0x7
+ 592 0403 8B000000 		.4byte	.LASF86
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 14
 
 
- 639 048b 7401     		.2byte	0x174
- 640 048d C1000000 		.4byte	0xc1
- 641 0491 18       		.byte	0x18
- 642 0492 11       		.uleb128 0x11
- 643 0493 32020000 		.4byte	.LASF93
- 644 0497 07       		.byte	0x7
- 645 0498 7501     		.2byte	0x175
- 646 049a 8F030000 		.4byte	0x38f
- 647 049e 1C       		.byte	0x1c
- 648 049f 11       		.uleb128 0x11
- 649 04a0 04030000 		.4byte	.LASF94
- 650 04a4 07       		.byte	0x7
- 651 04a5 7601     		.2byte	0x176
- 652 04a7 8C000000 		.4byte	0x8c
- 653 04ab 20       		.byte	0x20
- 654 04ac 11       		.uleb128 0x11
- 655 04ad DB000000 		.4byte	.LASF95
- 656 04b1 07       		.byte	0x7
- 657 04b2 7801     		.2byte	0x178
- 658 04b4 8F030000 		.4byte	0x38f
- 659 04b8 24       		.byte	0x24
- 660 04b9 11       		.uleb128 0x11
- 661 04ba 51010000 		.4byte	.LASF96
- 662 04be 07       		.byte	0x7
- 663 04bf 7901     		.2byte	0x179
- 664 04c1 8C000000 		.4byte	0x8c
- 665 04c5 28       		.byte	0x28
- 666 04c6 11       		.uleb128 0x11
- 667 04c7 F5070000 		.4byte	.LASF97
- 668 04cb 07       		.byte	0x7
- 669 04cc 7A01     		.2byte	0x17a
- 670 04ce 8C000000 		.4byte	0x8c
- 671 04d2 2C       		.byte	0x2c
- 672 04d3 11       		.uleb128 0x11
- 673 04d4 1F040000 		.4byte	.LASF98
- 674 04d8 07       		.byte	0x7
- 675 04d9 7C01     		.2byte	0x17c
- 676 04db 8F030000 		.4byte	0x38f
- 677 04df 30       		.byte	0x30
- 678 04e0 11       		.uleb128 0x11
- 679 04e1 CD050000 		.4byte	.LASF99
- 680 04e5 07       		.byte	0x7
- 681 04e6 7D01     		.2byte	0x17d
- 682 04e8 8C000000 		.4byte	0x8c
- 683 04ec 34       		.byte	0x34
- 684 04ed 11       		.uleb128 0x11
- 685 04ee F2040000 		.4byte	.LASF100
- 686 04f2 07       		.byte	0x7
- 687 04f3 7E01     		.2byte	0x17e
- 688 04f5 8C000000 		.4byte	0x8c
- 689 04f9 38       		.byte	0x38
- 690 04fa 00       		.byte	0
- 691 04fb 05       		.uleb128 0x5
- 692 04fc 04040000 		.4byte	0x404
- 693 0500 0B       		.uleb128 0xb
- 694 0501 BC070000 		.4byte	.LASF101
- 695 0505 07       		.byte	0x7
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 15
+ 593 0407 05       		.byte	0x5
+ 594 0408 88       		.byte	0x88
+ 595 0409 97000000 		.4byte	0x97
+ 596 040d 7E       		.byte	0x7e
+ 597 040e 07       		.uleb128 0x7
+ 598 040f 1B040000 		.4byte	.LASF87
+ 599 0413 05       		.byte	0x5
+ 600 0414 89       		.byte	0x89
+ 601 0415 97000000 		.4byte	0x97
+ 602 0419 7F       		.byte	0x7f
+ 603 041a 07       		.uleb128 0x7
+ 604 041b 9F040000 		.4byte	.LASF88
+ 605 041f 05       		.byte	0x5
+ 606 0420 8A       		.byte	0x8a
+ 607 0421 97000000 		.4byte	0x97
+ 608 0425 80       		.byte	0x80
+ 609 0426 07       		.uleb128 0x7
+ 610 0427 A70B0000 		.4byte	.LASF89
+ 611 042b 05       		.byte	0x5
+ 612 042c 8D       		.byte	0x8d
+ 613 042d B8000000 		.4byte	0xb8
+ 614 0431 84       		.byte	0x84
+ 615 0432 07       		.uleb128 0x7
+ 616 0433 31010000 		.4byte	.LASF90
+ 617 0437 05       		.byte	0x5
+ 618 0438 8E       		.byte	0x8e
+ 619 0439 B8000000 		.4byte	0xb8
+ 620 043d 88       		.byte	0x88
+ 621 043e 07       		.uleb128 0x7
+ 622 043f 910C0000 		.4byte	.LASF91
+ 623 0443 05       		.byte	0x5
+ 624 0444 8F       		.byte	0x8f
+ 625 0445 B8000000 		.4byte	0xb8
+ 626 0449 8C       		.byte	0x8c
+ 627 044a 07       		.uleb128 0x7
+ 628 044b DC060000 		.4byte	.LASF92
+ 629 044f 05       		.byte	0x5
+ 630 0450 90       		.byte	0x90
+ 631 0451 B8000000 		.4byte	0xb8
+ 632 0455 90       		.byte	0x90
+ 633 0456 07       		.uleb128 0x7
+ 634 0457 6F040000 		.4byte	.LASF93
+ 635 045b 05       		.byte	0x5
+ 636 045c 91       		.byte	0x91
+ 637 045d B8000000 		.4byte	0xb8
+ 638 0461 94       		.byte	0x94
+ 639 0462 07       		.uleb128 0x7
+ 640 0463 9A060000 		.4byte	.LASF94
+ 641 0467 05       		.byte	0x5
+ 642 0468 92       		.byte	0x92
+ 643 0469 B8000000 		.4byte	0xb8
+ 644 046d 98       		.byte	0x98
+ 645 046e 07       		.uleb128 0x7
+ 646 046f 020D0000 		.4byte	.LASF95
+ 647 0473 05       		.byte	0x5
+ 648 0474 93       		.byte	0x93
+ 649 0475 B8000000 		.4byte	0xb8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 15
 
 
- 696 0506 8001     		.2byte	0x180
- 697 0508 10040000 		.4byte	0x410
- 698 050c 0B       		.uleb128 0xb
- 699 050d D1060000 		.4byte	.LASF102
- 700 0511 08       		.byte	0x8
- 701 0512 AB01     		.2byte	0x1ab
- 702 0514 3E020000 		.4byte	0x23e
- 703 0518 10       		.uleb128 0x10
- 704 0519 35080000 		.4byte	.LASF103
- 705 051d 38       		.byte	0x38
- 706 051e 08       		.byte	0x8
- 707 051f 4702     		.2byte	0x247
- 708 0521 DC050000 		.4byte	0x5dc
- 709 0525 11       		.uleb128 0x11
- 710 0526 03080000 		.4byte	.LASF104
- 711 052a 08       		.byte	0x8
- 712 052b 4A02     		.2byte	0x24a
- 713 052d 9E000000 		.4byte	0x9e
- 714 0531 00       		.byte	0
- 715 0532 11       		.uleb128 0x11
- 716 0533 55040000 		.4byte	.LASF105
- 717 0537 08       		.byte	0x8
- 718 0538 4B02     		.2byte	0x24b
- 719 053a 9E000000 		.4byte	0x9e
- 720 053e 04       		.byte	0x4
- 721 053f 11       		.uleb128 0x11
- 722 0540 3A010000 		.4byte	.LASF106
- 723 0544 08       		.byte	0x8
- 724 0545 4D02     		.2byte	0x24d
- 725 0547 BF000000 		.4byte	0xbf
- 726 054b 08       		.byte	0x8
- 727 054c 11       		.uleb128 0x11
- 728 054d B7060000 		.4byte	.LASF107
- 729 0551 08       		.byte	0x8
- 730 0552 4E02     		.2byte	0x24e
- 731 0554 8C000000 		.4byte	0x8c
- 732 0558 0C       		.byte	0xc
- 733 0559 11       		.uleb128 0x11
- 734 055a F4030000 		.4byte	.LASF108
- 735 055e 08       		.byte	0x8
- 736 055f 4F02     		.2byte	0x24f
- 737 0561 9E000000 		.4byte	0x9e
- 738 0565 10       		.byte	0x10
- 739 0566 11       		.uleb128 0x11
- 740 0567 E7070000 		.4byte	.LASF109
- 741 056b 08       		.byte	0x8
- 742 056c 5002     		.2byte	0x250
- 743 056e 9E000000 		.4byte	0x9e
- 744 0572 14       		.byte	0x14
- 745 0573 11       		.uleb128 0x11
- 746 0574 47070000 		.4byte	.LASF110
- 747 0578 08       		.byte	0x8
- 748 0579 5202     		.2byte	0x252
- 749 057b BF000000 		.4byte	0xbf
- 750 057f 18       		.byte	0x18
- 751 0580 11       		.uleb128 0x11
- 752 0581 21000000 		.4byte	.LASF111
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 16
+ 650 0479 9C       		.byte	0x9c
+ 651 047a 07       		.uleb128 0x7
+ 652 047b BF010000 		.4byte	.LASF96
+ 653 047f 05       		.byte	0x5
+ 654 0480 94       		.byte	0x94
+ 655 0481 B8000000 		.4byte	0xb8
+ 656 0485 A0       		.byte	0xa0
+ 657 0486 07       		.uleb128 0x7
+ 658 0487 D5020000 		.4byte	.LASF97
+ 659 048b 05       		.byte	0x5
+ 660 048c 95       		.byte	0x95
+ 661 048d AD000000 		.4byte	0xad
+ 662 0491 A4       		.byte	0xa4
+ 663 0492 07       		.uleb128 0x7
+ 664 0493 490C0000 		.4byte	.LASF98
+ 665 0497 05       		.byte	0x5
+ 666 0498 96       		.byte	0x96
+ 667 0499 AD000000 		.4byte	0xad
+ 668 049d A6       		.byte	0xa6
+ 669 049e 07       		.uleb128 0x7
+ 670 049f 1C080000 		.4byte	.LASF99
+ 671 04a3 05       		.byte	0x5
+ 672 04a4 97       		.byte	0x97
+ 673 04a5 AD000000 		.4byte	0xad
+ 674 04a9 A8       		.byte	0xa8
+ 675 04aa 07       		.uleb128 0x7
+ 676 04ab 7F0A0000 		.4byte	.LASF100
+ 677 04af 05       		.byte	0x5
+ 678 04b0 98       		.byte	0x98
+ 679 04b1 AD000000 		.4byte	0xad
+ 680 04b5 AA       		.byte	0xaa
+ 681 04b6 07       		.uleb128 0x7
+ 682 04b7 F1050000 		.4byte	.LASF101
+ 683 04bb 05       		.byte	0x5
+ 684 04bc 99       		.byte	0x99
+ 685 04bd AD000000 		.4byte	0xad
+ 686 04c1 AC       		.byte	0xac
+ 687 04c2 07       		.uleb128 0x7
+ 688 04c3 3D070000 		.4byte	.LASF102
+ 689 04c7 05       		.byte	0x5
+ 690 04c8 9A       		.byte	0x9a
+ 691 04c9 AD000000 		.4byte	0xad
+ 692 04cd AE       		.byte	0xae
+ 693 04ce 07       		.uleb128 0x7
+ 694 04cf 5A0B0000 		.4byte	.LASF103
+ 695 04d3 05       		.byte	0x5
+ 696 04d4 9D       		.byte	0x9d
+ 697 04d5 AD000000 		.4byte	0xad
+ 698 04d9 B0       		.byte	0xb0
+ 699 04da 07       		.uleb128 0x7
+ 700 04db A8000000 		.4byte	.LASF104
+ 701 04df 05       		.byte	0x5
+ 702 04e0 9E       		.byte	0x9e
+ 703 04e1 B8000000 		.4byte	0xb8
+ 704 04e5 B4       		.byte	0xb4
+ 705 04e6 00       		.byte	0
+ 706 04e7 03       		.uleb128 0x3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 16
 
 
- 753 0585 08       		.byte	0x8
- 754 0586 5302     		.2byte	0x253
- 755 0588 8C000000 		.4byte	0x8c
- 756 058c 1C       		.byte	0x1c
- 757 058d 11       		.uleb128 0x11
- 758 058e D3020000 		.4byte	.LASF112
- 759 0592 08       		.byte	0x8
- 760 0593 5402     		.2byte	0x254
- 761 0595 9E000000 		.4byte	0x9e
- 762 0599 20       		.byte	0x20
- 763 059a 11       		.uleb128 0x11
- 764 059b 5A010000 		.4byte	.LASF113
- 765 059f 08       		.byte	0x8
- 766 05a0 5602     		.2byte	0x256
- 767 05a2 BF000000 		.4byte	0xbf
- 768 05a6 24       		.byte	0x24
- 769 05a7 11       		.uleb128 0x11
- 770 05a8 DC020000 		.4byte	.LASF114
- 771 05ac 08       		.byte	0x8
- 772 05ad 5702     		.2byte	0x257
- 773 05af 8C000000 		.4byte	0x8c
- 774 05b3 28       		.byte	0x28
- 775 05b4 11       		.uleb128 0x11
- 776 05b5 E4010000 		.4byte	.LASF115
- 777 05b9 08       		.byte	0x8
- 778 05ba 5802     		.2byte	0x258
- 779 05bc 9E000000 		.4byte	0x9e
- 780 05c0 2C       		.byte	0x2c
- 781 05c1 11       		.uleb128 0x11
- 782 05c2 9E030000 		.4byte	.LASF71
- 783 05c6 08       		.byte	0x8
- 784 05c7 5D02     		.2byte	0x25d
- 785 05c9 0C050000 		.4byte	0x50c
- 786 05cd 30       		.byte	0x30
- 787 05ce 11       		.uleb128 0x11
- 788 05cf 3F070000 		.4byte	.LASF116
- 789 05d3 08       		.byte	0x8
- 790 05d4 6002     		.2byte	0x260
- 791 05d6 8C000000 		.4byte	0x8c
- 792 05da 34       		.byte	0x34
- 793 05db 00       		.byte	0
- 794 05dc 0B       		.uleb128 0xb
- 795 05dd CA010000 		.4byte	.LASF117
- 796 05e1 08       		.byte	0x8
- 797 05e2 6302     		.2byte	0x263
- 798 05e4 18050000 		.4byte	0x518
- 799 05e8 13       		.uleb128 0x13
- 800 05e9 6F040000 		.4byte	.LASF129
- 801 05ed 02       		.byte	0x2
- 802 05ee 53       		.byte	0x53
- 803 05ef 03       		.byte	0x3
- 804 05f0 14       		.uleb128 0x14
- 805 05f1 30080000 		.4byte	.LASF130
- 806 05f5 01       		.byte	0x1
- 807 05f6 0E       		.byte	0xe
- 808 05f7 73000000 		.4byte	0x73
- 809 05fb 00000000 		.4byte	.LFB621
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 17
+ 707 04e8 3F060000 		.4byte	.LASF105
+ 708 04ec 05       		.byte	0x5
+ 709 04ed 9F       		.byte	0x9f
+ 710 04ee D6000000 		.4byte	0xd6
+ 711 04f2 02       		.uleb128 0x2
+ 712 04f3 01       		.byte	0x1
+ 713 04f4 08       		.byte	0x8
+ 714 04f5 630A0000 		.4byte	.LASF106
+ 715 04f9 02       		.uleb128 0x2
+ 716 04fa 04       		.byte	0x4
+ 717 04fb 04       		.byte	0x4
+ 718 04fc FB070000 		.4byte	.LASF107
+ 719 0500 02       		.uleb128 0x2
+ 720 0501 08       		.byte	0x8
+ 721 0502 04       		.byte	0x4
+ 722 0503 BC030000 		.4byte	.LASF108
+ 723 0507 08       		.uleb128 0x8
+ 724 0508 04       		.byte	0x4
+ 725 0509 02       		.uleb128 0x2
+ 726 050a 01       		.byte	0x1
+ 727 050b 02       		.byte	0x2
+ 728 050c 85080000 		.4byte	.LASF109
+ 729 0510 09       		.uleb128 0x9
+ 730 0511 01       		.byte	0x1
+ 731 0512 2C000000 		.4byte	0x2c
+ 732 0516 06       		.byte	0x6
+ 733 0517 2402     		.2byte	0x224
+ 734 0519 2A050000 		.4byte	0x52a
+ 735 051d 0A       		.uleb128 0xa
+ 736 051e 76080000 		.4byte	.LASF110
+ 737 0522 00       		.byte	0
+ 738 0523 0A       		.uleb128 0xa
+ 739 0524 6D030000 		.4byte	.LASF111
+ 740 0528 01       		.byte	0x1
+ 741 0529 00       		.byte	0
+ 742 052a 0B       		.uleb128 0xb
+ 743 052b 310C0000 		.4byte	.LASF112
+ 744 052f 06       		.byte	0x6
+ 745 0530 2702     		.2byte	0x227
+ 746 0532 10050000 		.4byte	0x510
+ 747 0536 0B       		.uleb128 0xb
+ 748 0537 3A030000 		.4byte	.LASF113
+ 749 053b 06       		.byte	0x6
+ 750 053c 3902     		.2byte	0x239
+ 751 053e 42050000 		.4byte	0x542
+ 752 0542 0C       		.uleb128 0xc
+ 753 0543 04       		.byte	0x4
+ 754 0544 48050000 		.4byte	0x548
+ 755 0548 0D       		.uleb128 0xd
+ 756 0549 53050000 		.4byte	0x553
+ 757 054d 0E       		.uleb128 0xe
+ 758 054e B8000000 		.4byte	0xb8
+ 759 0552 00       		.byte	0
+ 760 0553 0B       		.uleb128 0xb
+ 761 0554 25090000 		.4byte	.LASF114
+ 762 0558 06       		.byte	0x6
+ 763 0559 4402     		.2byte	0x244
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 17
 
 
- 810 05ff 10000000 		.4byte	.LFE621-.LFB621
- 811 0603 01       		.uleb128 0x1
- 812 0604 9C       		.byte	0x9c
- 813 0605 2C060000 		.4byte	0x62c
- 814 0609 15       		.uleb128 0x15
- 815 060a E8050000 		.4byte	0x5e8
- 816 060e 02000000 		.4byte	.LBB4
- 817 0612 02000000 		.4byte	.LBE4-.LBB4
- 818 0616 01       		.byte	0x1
- 819 0617 10       		.byte	0x10
- 820 0618 16       		.uleb128 0x16
- 821 0619 0A000000 		.4byte	.LVL0
- 822 061d 89060000 		.4byte	0x689
- 823 0621 17       		.uleb128 0x17
- 824 0622 01       		.uleb128 0x1
- 825 0623 50       		.byte	0x50
- 826 0624 05       		.uleb128 0x5
- 827 0625 0C       		.byte	0xc
- 828 0626 00000810 		.4byte	0x10080000
- 829 062a 00       		.byte	0
- 830 062b 00       		.byte	0
- 831 062c 18       		.uleb128 0x18
- 832 062d 40030000 		.4byte	.LASF118
- 833 0631 09       		.byte	0x9
- 834 0632 87       		.byte	0x87
- 835 0633 DC050000 		.4byte	0x5dc
- 836 0637 18       		.uleb128 0x18
- 837 0638 81020000 		.4byte	.LASF119
- 838 063c 0A       		.byte	0xa
- 839 063d 1F       		.byte	0x1f
- 840 063e 42060000 		.4byte	0x642
- 841 0642 19       		.uleb128 0x19
- 842 0643 01020000 		.4byte	0x201
- 843 0647 18       		.uleb128 0x18
- 844 0648 C2040000 		.4byte	.LASF120
- 845 064c 0B       		.byte	0xb
- 846 064d 1F       		.byte	0x1f
- 847 064e 42060000 		.4byte	0x642
- 848 0652 18       		.uleb128 0x18
- 849 0653 F6000000 		.4byte	.LASF121
- 850 0657 0C       		.byte	0xc
- 851 0658 4B       		.byte	0x4b
- 852 0659 00050000 		.4byte	0x500
- 853 065d 18       		.uleb128 0x18
- 854 065e 2A010000 		.4byte	.LASF122
- 855 0662 0D       		.byte	0xd
- 856 0663 1F       		.byte	0x1f
- 857 0664 42060000 		.4byte	0x642
- 858 0668 18       		.uleb128 0x18
- 859 0669 A2070000 		.4byte	.LASF123
- 860 066d 0E       		.byte	0xe
- 861 066e 1F       		.byte	0x1f
- 862 066f 42060000 		.4byte	0x642
- 863 0673 18       		.uleb128 0x18
- 864 0674 2F050000 		.4byte	.LASF124
- 865 0678 0F       		.byte	0xf
- 866 0679 1F       		.byte	0x1f
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 18
+ 764 055b 5F050000 		.4byte	0x55f
+ 765 055f 0C       		.uleb128 0xc
+ 766 0560 04       		.byte	0x4
+ 767 0561 65050000 		.4byte	0x565
+ 768 0565 0F       		.uleb128 0xf
+ 769 0566 2A050000 		.4byte	0x52a
+ 770 056a 74050000 		.4byte	0x574
+ 771 056e 0E       		.uleb128 0xe
+ 772 056f B8000000 		.4byte	0xb8
+ 773 0573 00       		.byte	0
+ 774 0574 10       		.uleb128 0x10
+ 775 0575 3C020000 		.4byte	.LASF148
+ 776 0579 4C       		.byte	0x4c
+ 777 057a 06       		.byte	0x6
+ 778 057b C302     		.2byte	0x2c3
+ 779 057d 93060000 		.4byte	0x693
+ 780 0581 11       		.uleb128 0x11
+ 781 0582 680B0000 		.4byte	.LASF115
+ 782 0586 06       		.byte	0x6
+ 783 0587 C602     		.2byte	0x2c6
+ 784 0589 09050000 		.4byte	0x509
+ 785 058d 00       		.byte	0
+ 786 058e 11       		.uleb128 0x11
+ 787 058f BB050000 		.4byte	.LASF116
+ 788 0593 06       		.byte	0x6
+ 789 0594 C702     		.2byte	0x2c7
+ 790 0596 09050000 		.4byte	0x509
+ 791 059a 01       		.byte	0x1
+ 792 059b 11       		.uleb128 0x11
+ 793 059c 34030000 		.4byte	.LASF117
+ 794 05a0 06       		.byte	0x6
+ 795 05a1 C902     		.2byte	0x2c9
+ 796 05a3 CA000000 		.4byte	0xca
+ 797 05a7 04       		.byte	0x4
+ 798 05a8 11       		.uleb128 0x11
+ 799 05a9 D5010000 		.4byte	.LASF118
+ 800 05ad 06       		.byte	0x6
+ 801 05ae CB02     		.2byte	0x2cb
+ 802 05b0 CA000000 		.4byte	0xca
+ 803 05b4 08       		.byte	0x8
+ 804 05b5 11       		.uleb128 0x11
+ 805 05b6 08090000 		.4byte	.LASF119
+ 806 05ba 06       		.byte	0x6
+ 807 05bb CC02     		.2byte	0x2cc
+ 808 05bd 09050000 		.4byte	0x509
+ 809 05c1 0C       		.byte	0xc
+ 810 05c2 11       		.uleb128 0x11
+ 811 05c3 61030000 		.4byte	.LASF120
+ 812 05c7 06       		.byte	0x6
+ 813 05c8 CD02     		.2byte	0x2cd
+ 814 05ca 09050000 		.4byte	0x509
+ 815 05ce 0D       		.byte	0xd
+ 816 05cf 11       		.uleb128 0x11
+ 817 05d0 C60A0000 		.4byte	.LASF121
+ 818 05d4 06       		.byte	0x6
+ 819 05d5 CF02     		.2byte	0x2cf
+ 820 05d7 93060000 		.4byte	0x693
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 18
 
 
- 867 067a 42060000 		.4byte	0x642
- 868 067e 18       		.uleb128 0x18
- 869 067f 30030000 		.4byte	.LASF125
- 870 0683 10       		.byte	0x10
- 871 0684 7F       		.byte	0x7f
- 872 0685 9A030000 		.4byte	0x39a
- 873 0689 1A       		.uleb128 0x1a
- 874 068a A7030000 		.4byte	.LASF131
- 875 068e A7030000 		.4byte	.LASF131
- 876 0692 11       		.byte	0x11
- 877 0693 FE01     		.2byte	0x1fe
- 878 0695 00       		.byte	0
- 879              		.section	.debug_abbrev,"",%progbits
- 880              	.Ldebug_abbrev0:
- 881 0000 01       		.uleb128 0x1
- 882 0001 11       		.uleb128 0x11
- 883 0002 01       		.byte	0x1
- 884 0003 25       		.uleb128 0x25
- 885 0004 0E       		.uleb128 0xe
- 886 0005 13       		.uleb128 0x13
- 887 0006 0B       		.uleb128 0xb
- 888 0007 03       		.uleb128 0x3
- 889 0008 0E       		.uleb128 0xe
- 890 0009 1B       		.uleb128 0x1b
- 891 000a 0E       		.uleb128 0xe
- 892 000b 55       		.uleb128 0x55
- 893 000c 17       		.uleb128 0x17
- 894 000d 11       		.uleb128 0x11
- 895 000e 01       		.uleb128 0x1
- 896 000f 10       		.uleb128 0x10
- 897 0010 17       		.uleb128 0x17
- 898 0011 00       		.byte	0
- 899 0012 00       		.byte	0
- 900 0013 02       		.uleb128 0x2
- 901 0014 24       		.uleb128 0x24
- 902 0015 00       		.byte	0
- 903 0016 0B       		.uleb128 0xb
- 904 0017 0B       		.uleb128 0xb
- 905 0018 3E       		.uleb128 0x3e
- 906 0019 0B       		.uleb128 0xb
- 907 001a 03       		.uleb128 0x3
- 908 001b 0E       		.uleb128 0xe
- 909 001c 00       		.byte	0
- 910 001d 00       		.byte	0
- 911 001e 03       		.uleb128 0x3
- 912 001f 16       		.uleb128 0x16
- 913 0020 00       		.byte	0
- 914 0021 03       		.uleb128 0x3
- 915 0022 0E       		.uleb128 0xe
- 916 0023 3A       		.uleb128 0x3a
- 917 0024 0B       		.uleb128 0xb
- 918 0025 3B       		.uleb128 0x3b
- 919 0026 0B       		.uleb128 0xb
- 920 0027 49       		.uleb128 0x49
- 921 0028 13       		.uleb128 0x13
- 922 0029 00       		.byte	0
- 923 002a 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 19
+ 821 05db 10       		.byte	0x10
+ 822 05dc 11       		.uleb128 0x11
+ 823 05dd C1080000 		.4byte	.LASF122
+ 824 05e1 06       		.byte	0x6
+ 825 05e2 D002     		.2byte	0x2d0
+ 826 05e4 B8000000 		.4byte	0xb8
+ 827 05e8 14       		.byte	0x14
+ 828 05e9 11       		.uleb128 0x11
+ 829 05ea 05070000 		.4byte	.LASF123
+ 830 05ee 06       		.byte	0x6
+ 831 05ef D102     		.2byte	0x2d1
+ 832 05f1 CA000000 		.4byte	0xca
+ 833 05f5 18       		.byte	0x18
+ 834 05f6 11       		.uleb128 0x11
+ 835 05f7 4B090000 		.4byte	.LASF124
+ 836 05fb 06       		.byte	0x6
+ 837 05fc D202     		.2byte	0x2d2
+ 838 05fe CA000000 		.4byte	0xca
+ 839 0602 1C       		.byte	0x1c
+ 840 0603 11       		.uleb128 0x11
+ 841 0604 10010000 		.4byte	.LASF125
+ 842 0608 06       		.byte	0x6
+ 843 0609 D402     		.2byte	0x2d4
+ 844 060b CA000000 		.4byte	0xca
+ 845 060f 20       		.byte	0x20
+ 846 0610 11       		.uleb128 0x11
+ 847 0611 E6040000 		.4byte	.LASF126
+ 848 0615 06       		.byte	0x6
+ 849 0616 D502     		.2byte	0x2d5
+ 850 0618 99060000 		.4byte	0x699
+ 851 061c 24       		.byte	0x24
+ 852 061d 11       		.uleb128 0x11
+ 853 061e DD0B0000 		.4byte	.LASF127
+ 854 0622 06       		.byte	0x6
+ 855 0623 D702     		.2byte	0x2d7
+ 856 0625 93060000 		.4byte	0x693
+ 857 0629 28       		.byte	0x28
+ 858 062a 11       		.uleb128 0x11
+ 859 062b EB0B0000 		.4byte	.LASF128
+ 860 062f 06       		.byte	0x6
+ 861 0630 D802     		.2byte	0x2d8
+ 862 0632 B8000000 		.4byte	0xb8
+ 863 0636 2C       		.byte	0x2c
+ 864 0637 11       		.uleb128 0x11
+ 865 0638 CC040000 		.4byte	.LASF129
+ 866 063c 06       		.byte	0x6
+ 867 063d D902     		.2byte	0x2d9
+ 868 063f CA000000 		.4byte	0xca
+ 869 0643 30       		.byte	0x30
+ 870 0644 11       		.uleb128 0x11
+ 871 0645 5A090000 		.4byte	.LASF130
+ 872 0649 06       		.byte	0x6
+ 873 064a DA02     		.2byte	0x2da
+ 874 064c CA000000 		.4byte	0xca
+ 875 0650 34       		.byte	0x34
+ 876 0651 11       		.uleb128 0x11
+ 877 0652 B0060000 		.4byte	.LASF131
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 19
 
 
- 924 002b 04       		.uleb128 0x4
- 925 002c 24       		.uleb128 0x24
- 926 002d 00       		.byte	0
- 927 002e 0B       		.uleb128 0xb
- 928 002f 0B       		.uleb128 0xb
- 929 0030 3E       		.uleb128 0x3e
- 930 0031 0B       		.uleb128 0xb
- 931 0032 03       		.uleb128 0x3
- 932 0033 08       		.uleb128 0x8
- 933 0034 00       		.byte	0
- 934 0035 00       		.byte	0
- 935 0036 05       		.uleb128 0x5
- 936 0037 35       		.uleb128 0x35
- 937 0038 00       		.byte	0
- 938 0039 49       		.uleb128 0x49
- 939 003a 13       		.uleb128 0x13
- 940 003b 00       		.byte	0
- 941 003c 00       		.byte	0
- 942 003d 06       		.uleb128 0x6
- 943 003e 0F       		.uleb128 0xf
- 944 003f 00       		.byte	0
- 945 0040 0B       		.uleb128 0xb
- 946 0041 0B       		.uleb128 0xb
- 947 0042 00       		.byte	0
- 948 0043 00       		.byte	0
- 949 0044 07       		.uleb128 0x7
- 950 0045 13       		.uleb128 0x13
- 951 0046 01       		.byte	0x1
- 952 0047 03       		.uleb128 0x3
- 953 0048 0E       		.uleb128 0xe
- 954 0049 0B       		.uleb128 0xb
- 955 004a 0B       		.uleb128 0xb
- 956 004b 3A       		.uleb128 0x3a
- 957 004c 0B       		.uleb128 0xb
- 958 004d 3B       		.uleb128 0x3b
- 959 004e 0B       		.uleb128 0xb
- 960 004f 01       		.uleb128 0x1
- 961 0050 13       		.uleb128 0x13
- 962 0051 00       		.byte	0
- 963 0052 00       		.byte	0
- 964 0053 08       		.uleb128 0x8
- 965 0054 0D       		.uleb128 0xd
- 966 0055 00       		.byte	0
- 967 0056 03       		.uleb128 0x3
- 968 0057 0E       		.uleb128 0xe
- 969 0058 3A       		.uleb128 0x3a
- 970 0059 0B       		.uleb128 0xb
- 971 005a 3B       		.uleb128 0x3b
- 972 005b 0B       		.uleb128 0xb
- 973 005c 49       		.uleb128 0x49
- 974 005d 13       		.uleb128 0x13
- 975 005e 38       		.uleb128 0x38
- 976 005f 0B       		.uleb128 0xb
- 977 0060 00       		.byte	0
- 978 0061 00       		.byte	0
- 979 0062 09       		.uleb128 0x9
- 980 0063 04       		.uleb128 0x4
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 20
+ 878 0656 06       		.byte	0x6
+ 879 0657 DC02     		.2byte	0x2dc
+ 880 0659 93060000 		.4byte	0x693
+ 881 065d 38       		.byte	0x38
+ 882 065e 11       		.uleb128 0x11
+ 883 065f C3020000 		.4byte	.LASF132
+ 884 0663 06       		.byte	0x6
+ 885 0664 DD02     		.2byte	0x2dd
+ 886 0666 B8000000 		.4byte	0xb8
+ 887 066a 3C       		.byte	0x3c
+ 888 066b 11       		.uleb128 0x11
+ 889 066c 2B020000 		.4byte	.LASF133
+ 890 0670 06       		.byte	0x6
+ 891 0671 DE02     		.2byte	0x2de
+ 892 0673 CA000000 		.4byte	0xca
+ 893 0677 40       		.byte	0x40
+ 894 0678 11       		.uleb128 0x11
+ 895 0679 0D060000 		.4byte	.LASF134
+ 896 067d 06       		.byte	0x6
+ 897 067e E402     		.2byte	0x2e4
+ 898 0680 36050000 		.4byte	0x536
+ 899 0684 44       		.byte	0x44
+ 900 0685 11       		.uleb128 0x11
+ 901 0686 2F040000 		.4byte	.LASF135
+ 902 068a 06       		.byte	0x6
+ 903 068b EB02     		.2byte	0x2eb
+ 904 068d 53050000 		.4byte	0x553
+ 905 0691 48       		.byte	0x48
+ 906 0692 00       		.byte	0
+ 907 0693 0C       		.uleb128 0xc
+ 908 0694 04       		.byte	0x4
+ 909 0695 97000000 		.4byte	0x97
+ 910 0699 05       		.uleb128 0x5
+ 911 069a 09050000 		.4byte	0x509
+ 912 069e 0B       		.uleb128 0xb
+ 913 069f 14030000 		.4byte	.LASF136
+ 914 06a3 06       		.byte	0x6
+ 915 06a4 EE02     		.2byte	0x2ee
+ 916 06a6 74050000 		.4byte	0x574
+ 917 06aa 09       		.uleb128 0x9
+ 918 06ab 01       		.byte	0x1
+ 919 06ac 2C000000 		.4byte	0x2c
+ 920 06b0 07       		.byte	0x7
+ 921 06b1 6601     		.2byte	0x166
+ 922 06b3 C4060000 		.4byte	0x6c4
+ 923 06b7 0A       		.uleb128 0xa
+ 924 06b8 F1010000 		.4byte	.LASF137
+ 925 06bc 00       		.byte	0
+ 926 06bd 0A       		.uleb128 0xa
+ 927 06be 3D0B0000 		.4byte	.LASF138
+ 928 06c2 01       		.byte	0x1
+ 929 06c3 00       		.byte	0
+ 930 06c4 0B       		.uleb128 0xb
+ 931 06c5 57000000 		.4byte	.LASF139
+ 932 06c9 07       		.byte	0x7
+ 933 06ca 6901     		.2byte	0x169
+ 934 06cc AA060000 		.4byte	0x6aa
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 20
 
 
- 981 0064 01       		.byte	0x1
- 982 0065 0B       		.uleb128 0xb
- 983 0066 0B       		.uleb128 0xb
- 984 0067 49       		.uleb128 0x49
- 985 0068 13       		.uleb128 0x13
- 986 0069 3A       		.uleb128 0x3a
- 987 006a 0B       		.uleb128 0xb
- 988 006b 3B       		.uleb128 0x3b
- 989 006c 05       		.uleb128 0x5
- 990 006d 01       		.uleb128 0x1
- 991 006e 13       		.uleb128 0x13
- 992 006f 00       		.byte	0
- 993 0070 00       		.byte	0
- 994 0071 0A       		.uleb128 0xa
- 995 0072 28       		.uleb128 0x28
- 996 0073 00       		.byte	0
- 997 0074 03       		.uleb128 0x3
- 998 0075 0E       		.uleb128 0xe
- 999 0076 1C       		.uleb128 0x1c
- 1000 0077 0B       		.uleb128 0xb
- 1001 0078 00       		.byte	0
- 1002 0079 00       		.byte	0
- 1003 007a 0B       		.uleb128 0xb
- 1004 007b 16       		.uleb128 0x16
- 1005 007c 00       		.byte	0
- 1006 007d 03       		.uleb128 0x3
- 1007 007e 0E       		.uleb128 0xe
- 1008 007f 3A       		.uleb128 0x3a
- 1009 0080 0B       		.uleb128 0xb
- 1010 0081 3B       		.uleb128 0x3b
- 1011 0082 05       		.uleb128 0x5
- 1012 0083 49       		.uleb128 0x49
- 1013 0084 13       		.uleb128 0x13
- 1014 0085 00       		.byte	0
- 1015 0086 00       		.byte	0
- 1016 0087 0C       		.uleb128 0xc
- 1017 0088 0F       		.uleb128 0xf
- 1018 0089 00       		.byte	0
- 1019 008a 0B       		.uleb128 0xb
- 1020 008b 0B       		.uleb128 0xb
- 1021 008c 49       		.uleb128 0x49
- 1022 008d 13       		.uleb128 0x13
- 1023 008e 00       		.byte	0
- 1024 008f 00       		.byte	0
- 1025 0090 0D       		.uleb128 0xd
- 1026 0091 15       		.uleb128 0x15
- 1027 0092 01       		.byte	0x1
- 1028 0093 27       		.uleb128 0x27
- 1029 0094 19       		.uleb128 0x19
- 1030 0095 01       		.uleb128 0x1
- 1031 0096 13       		.uleb128 0x13
- 1032 0097 00       		.byte	0
- 1033 0098 00       		.byte	0
- 1034 0099 0E       		.uleb128 0xe
- 1035 009a 05       		.uleb128 0x5
- 1036 009b 00       		.byte	0
- 1037 009c 49       		.uleb128 0x49
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 21
+ 935 06d0 09       		.uleb128 0x9
+ 936 06d1 01       		.byte	0x1
+ 937 06d2 2C000000 		.4byte	0x2c
+ 938 06d6 07       		.byte	0x7
+ 939 06d7 6E01     		.2byte	0x16e
+ 940 06d9 08070000 		.4byte	0x708
+ 941 06dd 0A       		.uleb128 0xa
+ 942 06de 4B070000 		.4byte	.LASF140
+ 943 06e2 00       		.byte	0
+ 944 06e3 0A       		.uleb128 0xa
+ 945 06e4 9B090000 		.4byte	.LASF141
+ 946 06e8 01       		.byte	0x1
+ 947 06e9 0A       		.uleb128 0xa
+ 948 06ea FA030000 		.4byte	.LASF142
+ 949 06ee 02       		.byte	0x2
+ 950 06ef 0A       		.uleb128 0xa
+ 951 06f0 4F060000 		.4byte	.LASF143
+ 952 06f4 03       		.byte	0x3
+ 953 06f5 0A       		.uleb128 0xa
+ 954 06f6 BB070000 		.4byte	.LASF144
+ 955 06fa 04       		.byte	0x4
+ 956 06fb 0A       		.uleb128 0xa
+ 957 06fc D7070000 		.4byte	.LASF145
+ 958 0700 05       		.byte	0x5
+ 959 0701 0A       		.uleb128 0xa
+ 960 0702 8D0A0000 		.4byte	.LASF146
+ 961 0706 06       		.byte	0x6
+ 962 0707 00       		.byte	0
+ 963 0708 0B       		.uleb128 0xb
+ 964 0709 56080000 		.4byte	.LASF147
+ 965 070d 07       		.byte	0x7
+ 966 070e 7601     		.2byte	0x176
+ 967 0710 D0060000 		.4byte	0x6d0
+ 968 0714 10       		.uleb128 0x10
+ 969 0715 1A000000 		.4byte	.LASF149
+ 970 0719 3C       		.byte	0x3c
+ 971 071a 07       		.byte	0x7
+ 972 071b A201     		.2byte	0x1a2
+ 973 071d FF070000 		.4byte	0x7ff
+ 974 0721 11       		.uleb128 0x11
+ 975 0722 34030000 		.4byte	.LASF117
+ 976 0726 07       		.byte	0x7
+ 977 0727 A501     		.2byte	0x1a5
+ 978 0729 FF070000 		.4byte	0x7ff
+ 979 072d 00       		.byte	0
+ 980 072e 11       		.uleb128 0x11
+ 981 072f 2A0C0000 		.4byte	.LASF150
+ 982 0733 07       		.byte	0x7
+ 983 0734 A601     		.2byte	0x1a6
+ 984 0736 CA000000 		.4byte	0xca
+ 985 073a 04       		.byte	0x4
+ 986 073b 11       		.uleb128 0x11
+ 987 073c EA020000 		.4byte	.LASF151
+ 988 0740 07       		.byte	0x7
+ 989 0741 A801     		.2byte	0x1a8
+ 990 0743 97000000 		.4byte	0x97
+ 991 0747 08       		.byte	0x8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 21
 
 
- 1038 009d 13       		.uleb128 0x13
- 1039 009e 00       		.byte	0
- 1040 009f 00       		.byte	0
- 1041 00a0 0F       		.uleb128 0xf
- 1042 00a1 15       		.uleb128 0x15
- 1043 00a2 01       		.byte	0x1
- 1044 00a3 27       		.uleb128 0x27
- 1045 00a4 19       		.uleb128 0x19
- 1046 00a5 49       		.uleb128 0x49
- 1047 00a6 13       		.uleb128 0x13
- 1048 00a7 01       		.uleb128 0x1
- 1049 00a8 13       		.uleb128 0x13
- 1050 00a9 00       		.byte	0
- 1051 00aa 00       		.byte	0
- 1052 00ab 10       		.uleb128 0x10
- 1053 00ac 13       		.uleb128 0x13
- 1054 00ad 01       		.byte	0x1
- 1055 00ae 03       		.uleb128 0x3
- 1056 00af 0E       		.uleb128 0xe
- 1057 00b0 0B       		.uleb128 0xb
- 1058 00b1 0B       		.uleb128 0xb
- 1059 00b2 3A       		.uleb128 0x3a
- 1060 00b3 0B       		.uleb128 0xb
- 1061 00b4 3B       		.uleb128 0x3b
- 1062 00b5 05       		.uleb128 0x5
- 1063 00b6 01       		.uleb128 0x1
- 1064 00b7 13       		.uleb128 0x13
- 1065 00b8 00       		.byte	0
- 1066 00b9 00       		.byte	0
- 1067 00ba 11       		.uleb128 0x11
- 1068 00bb 0D       		.uleb128 0xd
- 1069 00bc 00       		.byte	0
- 1070 00bd 03       		.uleb128 0x3
- 1071 00be 0E       		.uleb128 0xe
- 1072 00bf 3A       		.uleb128 0x3a
- 1073 00c0 0B       		.uleb128 0xb
- 1074 00c1 3B       		.uleb128 0x3b
- 1075 00c2 05       		.uleb128 0x5
- 1076 00c3 49       		.uleb128 0x49
- 1077 00c4 13       		.uleb128 0x13
- 1078 00c5 38       		.uleb128 0x38
- 1079 00c6 0B       		.uleb128 0xb
- 1080 00c7 00       		.byte	0
- 1081 00c8 00       		.byte	0
- 1082 00c9 12       		.uleb128 0x12
- 1083 00ca 0D       		.uleb128 0xd
- 1084 00cb 00       		.byte	0
- 1085 00cc 03       		.uleb128 0x3
- 1086 00cd 08       		.uleb128 0x8
- 1087 00ce 3A       		.uleb128 0x3a
- 1088 00cf 0B       		.uleb128 0xb
- 1089 00d0 3B       		.uleb128 0x3b
- 1090 00d1 05       		.uleb128 0x5
- 1091 00d2 49       		.uleb128 0x49
- 1092 00d3 13       		.uleb128 0x13
- 1093 00d4 38       		.uleb128 0x38
- 1094 00d5 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 22
+ 992 0748 11       		.uleb128 0x11
+ 993 0749 F3020000 		.4byte	.LASF152
+ 994 074d 07       		.byte	0x7
+ 995 074e A901     		.2byte	0x1a9
+ 996 0750 97000000 		.4byte	0x97
+ 997 0754 09       		.byte	0x9
+ 998 0755 11       		.uleb128 0x11
+ 999 0756 0D020000 		.4byte	.LASF153
+ 1000 075a 07       		.byte	0x7
+ 1001 075b AA01     		.2byte	0x1aa
+ 1002 075d C4060000 		.4byte	0x6c4
+ 1003 0761 0A       		.byte	0xa
+ 1004 0762 12       		.uleb128 0x12
+ 1005 0763 69647800 		.ascii	"idx\000"
+ 1006 0767 07       		.byte	0x7
+ 1007 0768 AC01     		.2byte	0x1ac
+ 1008 076a B8000000 		.4byte	0xb8
+ 1009 076e 0C       		.byte	0xc
+ 1010 076f 11       		.uleb128 0x11
+ 1011 0770 390D0000 		.4byte	.LASF154
+ 1012 0774 07       		.byte	0x7
+ 1013 0775 AD01     		.2byte	0x1ad
+ 1014 0777 B8000000 		.4byte	0xb8
+ 1015 077b 10       		.byte	0x10
+ 1016 077c 11       		.uleb128 0x11
+ 1017 077d 430D0000 		.4byte	.LASF155
+ 1018 0781 07       		.byte	0x7
+ 1019 0782 AE01     		.2byte	0x1ae
+ 1020 0784 B8000000 		.4byte	0xb8
+ 1021 0788 14       		.byte	0x14
+ 1022 0789 11       		.uleb128 0x11
+ 1023 078a 8F090000 		.4byte	.LASF156
+ 1024 078e 07       		.byte	0x7
+ 1025 078f B001     		.2byte	0x1b0
+ 1026 0791 09050000 		.4byte	0x509
+ 1027 0795 18       		.byte	0x18
+ 1028 0796 11       		.uleb128 0x11
+ 1029 0797 2D030000 		.4byte	.LASF157
+ 1030 079b 07       		.byte	0x7
+ 1031 079c B101     		.2byte	0x1b1
+ 1032 079e 93060000 		.4byte	0x693
+ 1033 07a2 1C       		.byte	0x1c
+ 1034 07a3 11       		.uleb128 0x11
+ 1035 07a4 2A050000 		.4byte	.LASF158
+ 1036 07a8 07       		.byte	0x7
+ 1037 07a9 B201     		.2byte	0x1b2
+ 1038 07ab B8000000 		.4byte	0xb8
+ 1039 07af 20       		.byte	0x20
+ 1040 07b0 11       		.uleb128 0x11
+ 1041 07b1 250C0000 		.4byte	.LASF159
+ 1042 07b5 07       		.byte	0x7
+ 1043 07b6 B401     		.2byte	0x1b4
+ 1044 07b8 93060000 		.4byte	0x693
+ 1045 07bc 24       		.byte	0x24
+ 1046 07bd 11       		.uleb128 0x11
+ 1047 07be E2010000 		.4byte	.LASF160
+ 1048 07c2 07       		.byte	0x7
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 22
 
 
- 1095 00d6 00       		.byte	0
- 1096 00d7 00       		.byte	0
- 1097 00d8 13       		.uleb128 0x13
- 1098 00d9 2E       		.uleb128 0x2e
- 1099 00da 00       		.byte	0
- 1100 00db 03       		.uleb128 0x3
- 1101 00dc 0E       		.uleb128 0xe
- 1102 00dd 3A       		.uleb128 0x3a
- 1103 00de 0B       		.uleb128 0xb
- 1104 00df 3B       		.uleb128 0x3b
- 1105 00e0 0B       		.uleb128 0xb
- 1106 00e1 27       		.uleb128 0x27
- 1107 00e2 19       		.uleb128 0x19
- 1108 00e3 20       		.uleb128 0x20
- 1109 00e4 0B       		.uleb128 0xb
- 1110 00e5 00       		.byte	0
- 1111 00e6 00       		.byte	0
- 1112 00e7 14       		.uleb128 0x14
- 1113 00e8 2E       		.uleb128 0x2e
- 1114 00e9 01       		.byte	0x1
- 1115 00ea 3F       		.uleb128 0x3f
- 1116 00eb 19       		.uleb128 0x19
- 1117 00ec 03       		.uleb128 0x3
- 1118 00ed 0E       		.uleb128 0xe
- 1119 00ee 3A       		.uleb128 0x3a
- 1120 00ef 0B       		.uleb128 0xb
- 1121 00f0 3B       		.uleb128 0x3b
- 1122 00f1 0B       		.uleb128 0xb
- 1123 00f2 27       		.uleb128 0x27
- 1124 00f3 19       		.uleb128 0x19
- 1125 00f4 49       		.uleb128 0x49
- 1126 00f5 13       		.uleb128 0x13
- 1127 00f6 8701     		.uleb128 0x87
- 1128 00f8 19       		.uleb128 0x19
- 1129 00f9 11       		.uleb128 0x11
- 1130 00fa 01       		.uleb128 0x1
- 1131 00fb 12       		.uleb128 0x12
- 1132 00fc 06       		.uleb128 0x6
- 1133 00fd 40       		.uleb128 0x40
- 1134 00fe 18       		.uleb128 0x18
- 1135 00ff 9742     		.uleb128 0x2117
- 1136 0101 19       		.uleb128 0x19
- 1137 0102 01       		.uleb128 0x1
- 1138 0103 13       		.uleb128 0x13
- 1139 0104 00       		.byte	0
- 1140 0105 00       		.byte	0
- 1141 0106 15       		.uleb128 0x15
- 1142 0107 1D       		.uleb128 0x1d
- 1143 0108 00       		.byte	0
- 1144 0109 31       		.uleb128 0x31
- 1145 010a 13       		.uleb128 0x13
- 1146 010b 11       		.uleb128 0x11
- 1147 010c 01       		.uleb128 0x1
- 1148 010d 12       		.uleb128 0x12
- 1149 010e 06       		.uleb128 0x6
- 1150 010f 58       		.uleb128 0x58
- 1151 0110 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 23
+ 1049 07c3 B501     		.2byte	0x1b5
+ 1050 07c5 B8000000 		.4byte	0xb8
+ 1051 07c9 28       		.byte	0x28
+ 1052 07ca 11       		.uleb128 0x11
+ 1053 07cb F40C0000 		.4byte	.LASF161
+ 1054 07cf 07       		.byte	0x7
+ 1055 07d0 B601     		.2byte	0x1b6
+ 1056 07d2 B8000000 		.4byte	0xb8
+ 1057 07d6 2C       		.byte	0x2c
+ 1058 07d7 11       		.uleb128 0x11
+ 1059 07d8 BE060000 		.4byte	.LASF162
+ 1060 07dc 07       		.byte	0x7
+ 1061 07dd B801     		.2byte	0x1b8
+ 1062 07df 93060000 		.4byte	0x693
+ 1063 07e3 30       		.byte	0x30
+ 1064 07e4 11       		.uleb128 0x11
+ 1065 07e5 B3090000 		.4byte	.LASF163
+ 1066 07e9 07       		.byte	0x7
+ 1067 07ea B901     		.2byte	0x1b9
+ 1068 07ec B8000000 		.4byte	0xb8
+ 1069 07f0 34       		.byte	0x34
+ 1070 07f1 11       		.uleb128 0x11
+ 1071 07f2 F6040000 		.4byte	.LASF164
+ 1072 07f6 07       		.byte	0x7
+ 1073 07f7 BA01     		.2byte	0x1ba
+ 1074 07f9 B8000000 		.4byte	0xb8
+ 1075 07fd 38       		.byte	0x38
+ 1076 07fe 00       		.byte	0
+ 1077 07ff 05       		.uleb128 0x5
+ 1078 0800 08070000 		.4byte	0x708
+ 1079 0804 0B       		.uleb128 0xb
+ 1080 0805 BB0C0000 		.4byte	.LASF165
+ 1081 0809 07       		.byte	0x7
+ 1082 080a BC01     		.2byte	0x1bc
+ 1083 080c 14070000 		.4byte	0x714
+ 1084 0810 0B       		.uleb128 0xb
+ 1085 0811 66050000 		.4byte	.LASF166
+ 1086 0815 08       		.byte	0x8
+ 1087 0816 D901     		.2byte	0x1d9
+ 1088 0818 42050000 		.4byte	0x542
+ 1089 081c 10       		.uleb128 0x10
+ 1090 081d 630D0000 		.4byte	.LASF167
+ 1091 0821 38       		.byte	0x38
+ 1092 0822 08       		.byte	0x8
+ 1093 0823 7502     		.2byte	0x275
+ 1094 0825 E0080000 		.4byte	0x8e0
+ 1095 0829 11       		.uleb128 0x11
+ 1096 082a B2050000 		.4byte	.LASF168
+ 1097 082e 08       		.byte	0x8
+ 1098 082f 7802     		.2byte	0x278
+ 1099 0831 CA000000 		.4byte	0xca
+ 1100 0835 00       		.byte	0
+ 1101 0836 11       		.uleb128 0x11
+ 1102 0837 7F070000 		.4byte	.LASF169
+ 1103 083b 08       		.byte	0x8
+ 1104 083c 7902     		.2byte	0x279
+ 1105 083e CA000000 		.4byte	0xca
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 23
 
 
- 1152 0111 59       		.uleb128 0x59
- 1153 0112 0B       		.uleb128 0xb
- 1154 0113 00       		.byte	0
- 1155 0114 00       		.byte	0
- 1156 0115 16       		.uleb128 0x16
- 1157 0116 898201   		.uleb128 0x4109
- 1158 0119 01       		.byte	0x1
- 1159 011a 11       		.uleb128 0x11
- 1160 011b 01       		.uleb128 0x1
- 1161 011c 31       		.uleb128 0x31
- 1162 011d 13       		.uleb128 0x13
- 1163 011e 00       		.byte	0
- 1164 011f 00       		.byte	0
- 1165 0120 17       		.uleb128 0x17
- 1166 0121 8A8201   		.uleb128 0x410a
- 1167 0124 00       		.byte	0
- 1168 0125 02       		.uleb128 0x2
- 1169 0126 18       		.uleb128 0x18
- 1170 0127 9142     		.uleb128 0x2111
- 1171 0129 18       		.uleb128 0x18
- 1172 012a 00       		.byte	0
- 1173 012b 00       		.byte	0
- 1174 012c 18       		.uleb128 0x18
- 1175 012d 34       		.uleb128 0x34
- 1176 012e 00       		.byte	0
- 1177 012f 03       		.uleb128 0x3
- 1178 0130 0E       		.uleb128 0xe
- 1179 0131 3A       		.uleb128 0x3a
- 1180 0132 0B       		.uleb128 0xb
- 1181 0133 3B       		.uleb128 0x3b
- 1182 0134 0B       		.uleb128 0xb
- 1183 0135 49       		.uleb128 0x49
- 1184 0136 13       		.uleb128 0x13
- 1185 0137 3F       		.uleb128 0x3f
- 1186 0138 19       		.uleb128 0x19
- 1187 0139 3C       		.uleb128 0x3c
- 1188 013a 19       		.uleb128 0x19
- 1189 013b 00       		.byte	0
- 1190 013c 00       		.byte	0
- 1191 013d 19       		.uleb128 0x19
- 1192 013e 26       		.uleb128 0x26
- 1193 013f 00       		.byte	0
- 1194 0140 49       		.uleb128 0x49
- 1195 0141 13       		.uleb128 0x13
- 1196 0142 00       		.byte	0
- 1197 0143 00       		.byte	0
- 1198 0144 1A       		.uleb128 0x1a
- 1199 0145 2E       		.uleb128 0x2e
- 1200 0146 00       		.byte	0
- 1201 0147 3F       		.uleb128 0x3f
- 1202 0148 19       		.uleb128 0x19
- 1203 0149 3C       		.uleb128 0x3c
- 1204 014a 19       		.uleb128 0x19
- 1205 014b 6E       		.uleb128 0x6e
- 1206 014c 0E       		.uleb128 0xe
- 1207 014d 03       		.uleb128 0x3
- 1208 014e 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 24
+ 1106 0842 04       		.byte	0x4
+ 1107 0843 11       		.uleb128 0x11
+ 1108 0844 B5010000 		.4byte	.LASF170
+ 1109 0848 08       		.byte	0x8
+ 1110 0849 7B02     		.2byte	0x27b
+ 1111 084b 07050000 		.4byte	0x507
+ 1112 084f 08       		.byte	0x8
+ 1113 0850 11       		.uleb128 0x11
+ 1114 0851 070B0000 		.4byte	.LASF171
+ 1115 0855 08       		.byte	0x8
+ 1116 0856 7C02     		.2byte	0x27c
+ 1117 0858 B8000000 		.4byte	0xb8
+ 1118 085c 0C       		.byte	0xc
+ 1119 085d 11       		.uleb128 0x11
+ 1120 085e 8C060000 		.4byte	.LASF172
+ 1121 0862 08       		.byte	0x8
+ 1122 0863 7D02     		.2byte	0x27d
+ 1123 0865 CA000000 		.4byte	0xca
+ 1124 0869 10       		.byte	0x10
+ 1125 086a 11       		.uleb128 0x11
+ 1126 086b E60C0000 		.4byte	.LASF173
+ 1127 086f 08       		.byte	0x8
+ 1128 0870 7E02     		.2byte	0x27e
+ 1129 0872 CA000000 		.4byte	0xca
+ 1130 0876 14       		.byte	0x14
+ 1131 0877 11       		.uleb128 0x11
+ 1132 0878 D70B0000 		.4byte	.LASF174
+ 1133 087c 08       		.byte	0x8
+ 1134 087d 8002     		.2byte	0x280
+ 1135 087f 07050000 		.4byte	0x507
+ 1136 0883 18       		.byte	0x18
+ 1137 0884 11       		.uleb128 0x11
+ 1138 0885 33000000 		.4byte	.LASF175
+ 1139 0889 08       		.byte	0x8
+ 1140 088a 8102     		.2byte	0x281
+ 1141 088c B8000000 		.4byte	0xb8
+ 1142 0890 1C       		.byte	0x1c
+ 1143 0891 11       		.uleb128 0x11
+ 1144 0892 66040000 		.4byte	.LASF176
+ 1145 0896 08       		.byte	0x8
+ 1146 0897 8202     		.2byte	0x282
+ 1147 0899 CA000000 		.4byte	0xca
+ 1148 089d 20       		.byte	0x20
+ 1149 089e 11       		.uleb128 0x11
+ 1150 089f EB010000 		.4byte	.LASF177
+ 1151 08a3 08       		.byte	0x8
+ 1152 08a4 8402     		.2byte	0x284
+ 1153 08a6 07050000 		.4byte	0x507
+ 1154 08aa 24       		.byte	0x24
+ 1155 08ab 11       		.uleb128 0x11
+ 1156 08ac 84040000 		.4byte	.LASF178
+ 1157 08b0 08       		.byte	0x8
+ 1158 08b1 8502     		.2byte	0x285
+ 1159 08b3 B8000000 		.4byte	0xb8
+ 1160 08b7 28       		.byte	0x28
+ 1161 08b8 11       		.uleb128 0x11
+ 1162 08b9 9E020000 		.4byte	.LASF179
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 24
 
 
- 1209 014f 3A       		.uleb128 0x3a
- 1210 0150 0B       		.uleb128 0xb
- 1211 0151 3B       		.uleb128 0x3b
- 1212 0152 05       		.uleb128 0x5
- 1213 0153 00       		.byte	0
- 1214 0154 00       		.byte	0
- 1215 0155 00       		.byte	0
- 1216              		.section	.debug_aranges,"",%progbits
- 1217 0000 1C000000 		.4byte	0x1c
- 1218 0004 0200     		.2byte	0x2
- 1219 0006 00000000 		.4byte	.Ldebug_info0
- 1220 000a 04       		.byte	0x4
- 1221 000b 00       		.byte	0
- 1222 000c 0000     		.2byte	0
- 1223 000e 0000     		.2byte	0
- 1224 0010 00000000 		.4byte	.LFB621
- 1225 0014 10000000 		.4byte	.LFE621-.LFB621
- 1226 0018 00000000 		.4byte	0
- 1227 001c 00000000 		.4byte	0
- 1228              		.section	.debug_ranges,"",%progbits
- 1229              	.Ldebug_ranges0:
- 1230 0000 00000000 		.4byte	.LFB621
- 1231 0004 10000000 		.4byte	.LFE621
- 1232 0008 00000000 		.4byte	0
- 1233 000c 00000000 		.4byte	0
- 1234              		.section	.debug_line,"",%progbits
- 1235              	.Ldebug_line0:
- 1236 0000 AE020000 		.section	.debug_str,"MS",%progbits,1
- 1236      02008D02 
- 1236      00000201 
- 1236      FB0E0D00 
- 1236      01010101 
- 1237              	.LASF23:
- 1238 0000 72756E4D 		.ascii	"runMode\000"
- 1238      6F646500 
- 1239              	.LASF85:
- 1240 0008 63795F73 		.ascii	"cy_stc_scb_ezi2c_context\000"
- 1240      74635F73 
- 1240      63625F65 
- 1240      7A693263 
- 1240      5F636F6E 
- 1241              	.LASF111:
- 1242 0021 72784275 		.ascii	"rxBufSize\000"
- 1242      6653697A 
- 1242      6500
- 1243              	.LASF44:
- 1244 002b 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config_t\000"
- 1244      74635F74 
- 1244      6370776D 
- 1244      5F70776D 
- 1244      5F636F6E 
- 1245              	.LASF76:
- 1246 0045 63795F65 		.ascii	"cy_en_scb_ezi2c_sub_addr_size_t\000"
- 1246      6E5F7363 
- 1246      625F657A 
- 1246      6932635F 
- 1246      7375625F 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 25
+ 1163 08bd 08       		.byte	0x8
+ 1164 08be 8602     		.2byte	0x286
+ 1165 08c0 CA000000 		.4byte	0xca
+ 1166 08c4 2C       		.byte	0x2c
+ 1167 08c5 11       		.uleb128 0x11
+ 1168 08c6 0D060000 		.4byte	.LASF134
+ 1169 08ca 08       		.byte	0x8
+ 1170 08cb 8B02     		.2byte	0x28b
+ 1171 08cd 10080000 		.4byte	0x810
+ 1172 08d1 30       		.byte	0x30
+ 1173 08d2 11       		.uleb128 0x11
+ 1174 08d3 CF0B0000 		.4byte	.LASF180
+ 1175 08d7 08       		.byte	0x8
+ 1176 08d8 8E02     		.2byte	0x28e
+ 1177 08da B8000000 		.4byte	0xb8
+ 1178 08de 34       		.byte	0x34
+ 1179 08df 00       		.byte	0
+ 1180 08e0 0B       		.uleb128 0xb
+ 1181 08e1 FD0B0000 		.4byte	.LASF181
+ 1182 08e5 08       		.byte	0x8
+ 1183 08e6 9102     		.2byte	0x291
+ 1184 08e8 1C080000 		.4byte	0x81c
+ 1185 08ec 13       		.uleb128 0x13
+ 1186 08ed FC020000 		.4byte	.LASF182
+ 1187 08f1 64       		.byte	0x64
+ 1188 08f2 09       		.byte	0x9
+ 1189 08f3 2F       		.byte	0x2f
+ 1190 08f4 250A0000 		.4byte	0xa25
+ 1191 08f8 07       		.uleb128 0x7
+ 1192 08f9 F3070000 		.4byte	.LASF183
+ 1193 08fd 09       		.byte	0x9
+ 1194 08fe 31       		.byte	0x31
+ 1195 08ff B8000000 		.4byte	0xb8
+ 1196 0903 00       		.byte	0
+ 1197 0904 07       		.uleb128 0x7
+ 1198 0905 86010000 		.4byte	.LASF184
+ 1199 0909 09       		.byte	0x9
+ 1200 090a 33       		.byte	0x33
+ 1201 090b B8000000 		.4byte	0xb8
+ 1202 090f 04       		.byte	0x4
+ 1203 0910 07       		.uleb128 0x7
+ 1204 0911 EB000000 		.4byte	.LASF185
+ 1205 0915 09       		.byte	0x9
+ 1206 0916 34       		.byte	0x34
+ 1207 0917 B8000000 		.4byte	0xb8
+ 1208 091b 08       		.byte	0x8
+ 1209 091c 07       		.uleb128 0x7
+ 1210 091d 7D060000 		.4byte	.LASF186
+ 1211 0921 09       		.byte	0x9
+ 1212 0922 35       		.byte	0x35
+ 1213 0923 B8000000 		.4byte	0xb8
+ 1214 0927 0C       		.byte	0xc
+ 1215 0928 07       		.uleb128 0x7
+ 1216 0929 12000000 		.4byte	.LASF187
+ 1217 092d 09       		.byte	0x9
+ 1218 092e 36       		.byte	0x36
+ 1219 092f B8000000 		.4byte	0xb8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 25
 
 
- 1247              	.LASF41:
- 1248 0065 6B696C6C 		.ascii	"killInput\000"
- 1248      496E7075 
- 1248      7400
- 1249              	.LASF128:
- 1250 006f 433A5C41 		.ascii	"C:\\Alen\\GitHub_Denzerek\\BLEControlledArm\\BLE_AR"
- 1250      6C656E5C 
- 1250      47697448 
- 1250      75625F44 
- 1250      656E7A65 
- 1251 009e 4D5F576F 		.ascii	"M_Workspace\\MainArmController.cydsn\000"
- 1251      726B7370 
- 1251      6163655C 
- 1251      4D61696E 
- 1251      41726D43 
- 1252              	.LASF127:
- 1253 00c2 6D61696E 		.ascii	"main_cm0p.c\000"
- 1253      5F636D30 
- 1253      702E6300 
- 1254              	.LASF21:
- 1255 00ce 70776D41 		.ascii	"pwmAlignment\000"
- 1255      6C69676E 
- 1255      6D656E74 
- 1255      00
- 1256              	.LASF95:
- 1257 00db 62756631 		.ascii	"buf1\000"
- 1257      00
- 1258              	.LASF5:
- 1259 00e0 5F5F7569 		.ascii	"__uint8_t\000"
- 1259      6E74385F 
- 1259      7400
- 1260              	.LASF62:
- 1261 00ea 736C6176 		.ascii	"slaveStatus\000"
- 1261      65537461 
- 1261      74757300 
- 1262              	.LASF121:
- 1263 00f6 455A4932 		.ascii	"EZI2C_context\000"
- 1263      435F636F 
- 1263      6E746578 
- 1263      7400
- 1264              	.LASF9:
- 1265 0104 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1265      206C6F6E 
- 1265      6720756E 
- 1265      7369676E 
- 1265      65642069 
- 1266              	.LASF20:
- 1267 011b 636C6F63 		.ascii	"clockPrescaler\000"
- 1267      6B507265 
- 1267      7363616C 
- 1267      657200
- 1268              	.LASF122:
- 1269 012a 4C454442 		.ascii	"LEDBlink_config\000"
- 1269      6C696E6B 
- 1269      5F636F6E 
- 1269      66696700 
- 1270              	.LASF106:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 26
+ 1220 0933 10       		.byte	0x10
+ 1221 0934 07       		.uleb128 0x7
+ 1222 0935 8E0B0000 		.4byte	.LASF188
+ 1223 0939 09       		.byte	0x9
+ 1224 093a 37       		.byte	0x37
+ 1225 093b B8000000 		.4byte	0xb8
+ 1226 093f 14       		.byte	0x14
+ 1227 0940 07       		.uleb128 0x7
+ 1228 0941 960B0000 		.4byte	.LASF189
+ 1229 0945 09       		.byte	0x9
+ 1230 0946 38       		.byte	0x38
+ 1231 0947 B8000000 		.4byte	0xb8
+ 1232 094b 18       		.byte	0x18
+ 1233 094c 07       		.uleb128 0x7
+ 1234 094d 14090000 		.4byte	.LASF190
+ 1235 0951 09       		.byte	0x9
+ 1236 0952 39       		.byte	0x39
+ 1237 0953 09050000 		.4byte	0x509
+ 1238 0957 1C       		.byte	0x1c
+ 1239 0958 07       		.uleb128 0x7
+ 1240 0959 4E0A0000 		.4byte	.LASF191
+ 1241 095d 09       		.byte	0x9
+ 1242 095e 3A       		.byte	0x3a
+ 1243 095f B8000000 		.4byte	0xb8
+ 1244 0963 20       		.byte	0x20
+ 1245 0964 07       		.uleb128 0x7
+ 1246 0965 9E0B0000 		.4byte	.LASF192
+ 1247 0969 09       		.byte	0x9
+ 1248 096a 3B       		.byte	0x3b
+ 1249 096b B8000000 		.4byte	0xb8
+ 1250 096f 24       		.byte	0x24
+ 1251 0970 07       		.uleb128 0x7
+ 1252 0971 44050000 		.4byte	.LASF193
+ 1253 0975 09       		.byte	0x9
+ 1254 0976 3C       		.byte	0x3c
+ 1255 0977 09050000 		.4byte	0x509
+ 1256 097b 28       		.byte	0x28
+ 1257 097c 07       		.uleb128 0x7
+ 1258 097d 8E040000 		.4byte	.LASF194
+ 1259 0981 09       		.byte	0x9
+ 1260 0982 3E       		.byte	0x3e
+ 1261 0983 B8000000 		.4byte	0xb8
+ 1262 0987 2C       		.byte	0x2c
+ 1263 0988 07       		.uleb128 0x7
+ 1264 0989 70060000 		.4byte	.LASF195
+ 1265 098d 09       		.byte	0x9
+ 1266 098e 3F       		.byte	0x3f
+ 1267 098f B8000000 		.4byte	0xb8
+ 1268 0993 30       		.byte	0x30
+ 1269 0994 07       		.uleb128 0x7
+ 1270 0995 5E0C0000 		.4byte	.LASF196
+ 1271 0999 09       		.byte	0x9
+ 1272 099a 40       		.byte	0x40
+ 1273 099b B8000000 		.4byte	0xb8
+ 1274 099f 34       		.byte	0x34
+ 1275 09a0 07       		.uleb128 0x7
+ 1276 09a1 4D080000 		.4byte	.LASF197
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 26
 
 
- 1271 013a 72785269 		.ascii	"rxRingBuf\000"
- 1271      6E674275 
- 1271      6600
- 1272              	.LASF55:
- 1273 0144 6D617374 		.ascii	"masterStatus\000"
- 1273      65725374 
- 1273      61747573 
- 1273      00
- 1274              	.LASF96:
- 1275 0151 62756631 		.ascii	"buf1Size\000"
- 1275      53697A65 
- 1275      00
- 1276              	.LASF113:
- 1277 015a 74784275 		.ascii	"txBuf\000"
- 1277      6600
- 1278              	.LASF74:
- 1279 0160 43595F53 		.ascii	"CY_SCB_EZI2C_SUB_ADDR8_BITS\000"
- 1279      43425F45 
- 1279      5A493243 
- 1279      5F535542 
- 1279      5F414444 
- 1280              	.LASF89:
- 1281 017c 73756241 		.ascii	"subAddrSize\000"
- 1281      64647253 
- 1281      697A6500 
- 1282              	.LASF70:
- 1283 0188 736C6176 		.ascii	"slaveRxBufferIdx\000"
- 1283      65527842 
- 1283      75666665 
- 1283      72496478 
- 1283      00
- 1284              	.LASF51:
- 1285 0199 63795F73 		.ascii	"cy_stc_scb_i2c_context\000"
- 1285      74635F73 
- 1285      63625F69 
- 1285      32635F63 
- 1285      6F6E7465 
- 1286              	.LASF8:
- 1287 01b0 6C6F6E67 		.ascii	"long long int\000"
- 1287      206C6F6E 
- 1287      6720696E 
- 1287      7400
- 1288              	.LASF2:
- 1289 01be 7369676E 		.ascii	"signed char\000"
- 1289      65642063 
- 1289      68617200 
- 1290              	.LASF117:
- 1291 01ca 63795F73 		.ascii	"cy_stc_scb_uart_context_t\000"
- 1291      74635F73 
- 1291      63625F75 
- 1291      6172745F 
- 1291      636F6E74 
- 1292              	.LASF115:
- 1293 01e4 74784C65 		.ascii	"txLeftToTransmit\000"
- 1293      6674546F 
- 1293      5472616E 
- 1293      736D6974 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 27
+ 1277 09a5 09       		.byte	0x9
+ 1278 09a6 41       		.byte	0x41
+ 1279 09a7 B8000000 		.4byte	0xb8
+ 1280 09ab 38       		.byte	0x38
+ 1281 09ac 07       		.uleb128 0x7
+ 1282 09ad C5050000 		.4byte	.LASF198
+ 1283 09b1 09       		.byte	0x9
+ 1284 09b2 42       		.byte	0x42
+ 1285 09b3 B8000000 		.4byte	0xb8
+ 1286 09b7 3C       		.byte	0x3c
+ 1287 09b8 07       		.uleb128 0x7
+ 1288 09b9 41090000 		.4byte	.LASF199
+ 1289 09bd 09       		.byte	0x9
+ 1290 09be 44       		.byte	0x44
+ 1291 09bf B8000000 		.4byte	0xb8
+ 1292 09c3 40       		.byte	0x40
+ 1293 09c4 07       		.uleb128 0x7
+ 1294 09c5 D60C0000 		.4byte	.LASF200
+ 1295 09c9 09       		.byte	0x9
+ 1296 09ca 45       		.byte	0x45
+ 1297 09cb B8000000 		.4byte	0xb8
+ 1298 09cf 44       		.byte	0x44
+ 1299 09d0 07       		.uleb128 0x7
+ 1300 09d1 150B0000 		.4byte	.LASF201
+ 1301 09d5 09       		.byte	0x9
+ 1302 09d6 47       		.byte	0x47
+ 1303 09d7 B8000000 		.4byte	0xb8
+ 1304 09db 48       		.byte	0x48
+ 1305 09dc 07       		.uleb128 0x7
+ 1306 09dd 720B0000 		.4byte	.LASF202
+ 1307 09e1 09       		.byte	0x9
+ 1308 09e2 48       		.byte	0x48
+ 1309 09e3 B8000000 		.4byte	0xb8
+ 1310 09e7 4C       		.byte	0x4c
+ 1311 09e8 07       		.uleb128 0x7
+ 1312 09e9 B1030000 		.4byte	.LASF203
+ 1313 09ed 09       		.byte	0x9
+ 1314 09ee 4A       		.byte	0x4a
+ 1315 09ef B8000000 		.4byte	0xb8
+ 1316 09f3 50       		.byte	0x50
+ 1317 09f4 07       		.uleb128 0x7
+ 1318 09f5 FF050000 		.4byte	.LASF204
+ 1319 09f9 09       		.byte	0x9
+ 1320 09fa 4B       		.byte	0x4b
+ 1321 09fb B8000000 		.4byte	0xb8
+ 1322 09ff 54       		.byte	0x54
+ 1323 0a00 07       		.uleb128 0x7
+ 1324 0a01 9E000000 		.4byte	.LASF205
+ 1325 0a05 09       		.byte	0x9
+ 1326 0a06 4D       		.byte	0x4d
+ 1327 0a07 B8000000 		.4byte	0xb8
+ 1328 0a0b 58       		.byte	0x58
+ 1329 0a0c 07       		.uleb128 0x7
+ 1330 0a0d 180D0000 		.4byte	.LASF206
+ 1331 0a11 09       		.byte	0x9
+ 1332 0a12 4E       		.byte	0x4e
+ 1333 0a13 B8000000 		.4byte	0xb8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 27
 
 
- 1293      00
- 1294              	.LASF69:
- 1295 01f5 736C6176 		.ascii	"slaveRxBufferSize\000"
- 1295      65527842 
- 1295      75666665 
- 1295      7253697A 
- 1295      6500
- 1296              	.LASF87:
- 1297 0207 61646472 		.ascii	"address1\000"
- 1297      65737331 
- 1297      00
- 1298              	.LASF88:
- 1299 0210 61646472 		.ascii	"address2\000"
- 1299      65737332 
- 1299      00
- 1300              	.LASF73:
- 1301 0219 63795F73 		.ascii	"cy_stc_scb_i2c_context_t\000"
- 1301      74635F73 
- 1301      63625F69 
- 1301      32635F63 
- 1301      6F6E7465 
- 1302              	.LASF93:
- 1303 0232 63757242 		.ascii	"curBuf\000"
- 1303      756600
- 1304              	.LASF54:
- 1305 0239 73746174 		.ascii	"state\000"
- 1305      6500
- 1306              	.LASF48:
- 1307 023f 63795F63 		.ascii	"cy_cb_scb_i2c_handle_events_t\000"
- 1307      625F7363 
- 1307      625F6932 
- 1307      635F6861 
- 1307      6E646C65 
- 1308              	.LASF4:
- 1309 025d 6C6F6E67 		.ascii	"long int\000"
- 1309      20696E74 
- 1309      00
- 1310              	.LASF57:
- 1311 0266 6D617374 		.ascii	"masterRdDir\000"
- 1311      65725264 
- 1311      44697200 
- 1312              	.LASF46:
- 1313 0272 43595F53 		.ascii	"CY_SCB_I2C_NAK\000"
- 1313      43425F49 
- 1313      32435F4E 
- 1313      414B00
- 1314              	.LASF119:
- 1315 0281 50574D5F 		.ascii	"PWM_1_config\000"
- 1315      315F636F 
- 1315      6E666967 
- 1315      00
- 1316              	.LASF39:
- 1317 028e 73746172 		.ascii	"startInput\000"
- 1317      74496E70 
- 1317      757400
- 1318              	.LASF17:
- 1319 0299 646F7562 		.ascii	"double\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 28
+ 1334 0a17 5C       		.byte	0x5c
+ 1335 0a18 07       		.uleb128 0x7
+ 1336 0a19 680A0000 		.4byte	.LASF207
+ 1337 0a1d 09       		.byte	0x9
+ 1338 0a1e 50       		.byte	0x50
+ 1339 0a1f B8000000 		.4byte	0xb8
+ 1340 0a23 60       		.byte	0x60
+ 1341 0a24 00       		.byte	0
+ 1342 0a25 03       		.uleb128 0x3
+ 1343 0a26 3D000000 		.4byte	.LASF208
+ 1344 0a2a 09       		.byte	0x9
+ 1345 0a2b 51       		.byte	0x51
+ 1346 0a2c EC080000 		.4byte	0x8ec
+ 1347 0a30 14       		.uleb128 0x14
+ 1348 0a31 AE070000 		.4byte	.LASF221
+ 1349 0a35 02       		.byte	0x2
+ 1350 0a36 81       		.byte	0x81
+ 1351 0a37 03       		.byte	0x3
+ 1352 0a38 15       		.uleb128 0x15
+ 1353 0a39 E3030000 		.4byte	.LASF222
+ 1354 0a3d 01       		.byte	0x1
+ 1355 0a3e 0E       		.byte	0xe
+ 1356 0a3f 89000000 		.4byte	0x89
+ 1357 0a43 00000000 		.4byte	.LFB636
+ 1358 0a47 10000000 		.4byte	.LFE636-.LFB636
+ 1359 0a4b 01       		.uleb128 0x1
+ 1360 0a4c 9C       		.byte	0x9c
+ 1361 0a4d 740A0000 		.4byte	0xa74
+ 1362 0a51 16       		.uleb128 0x16
+ 1363 0a52 300A0000 		.4byte	0xa30
+ 1364 0a56 02000000 		.4byte	.LBB4
+ 1365 0a5a 02000000 		.4byte	.LBE4-.LBB4
+ 1366 0a5e 01       		.byte	0x1
+ 1367 0a5f 10       		.byte	0x10
+ 1368 0a60 17       		.uleb128 0x17
+ 1369 0a61 0A000000 		.4byte	.LVL0
+ 1370 0a65 E70A0000 		.4byte	0xae7
+ 1371 0a69 18       		.uleb128 0x18
+ 1372 0a6a 01       		.uleb128 0x1
+ 1373 0a6b 50       		.byte	0x50
+ 1374 0a6c 05       		.uleb128 0x5
+ 1375 0a6d 0C       		.byte	0xc
+ 1376 0a6e 00000810 		.4byte	0x10080000
+ 1377 0a72 00       		.byte	0
+ 1378 0a73 00       		.byte	0
+ 1379 0a74 19       		.uleb128 0x19
+ 1380 0a75 12080000 		.4byte	.LASF209
+ 1381 0a79 05       		.byte	0x5
+ 1382 0a7a A7       		.byte	0xa7
+ 1383 0a7b 7F0A0000 		.4byte	0xa7f
+ 1384 0a7f 0C       		.uleb128 0xc
+ 1385 0a80 04       		.byte	0x4
+ 1386 0a81 850A0000 		.4byte	0xa85
+ 1387 0a85 1A       		.uleb128 0x1a
+ 1388 0a86 E7040000 		.4byte	0x4e7
+ 1389 0a8a 19       		.uleb128 0x19
+ 1390 0a8b 85050000 		.4byte	.LASF210
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 28
 
 
- 1319      6C6500
- 1320              	.LASF79:
- 1321 02a0 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_RX_OFFSET_MSB\000"
- 1321      43425F45 
- 1321      5A493243 
- 1321      5F535441 
- 1321      54455F52 
- 1322              	.LASF72:
- 1323 02c1 63624164 		.ascii	"cbAddr\000"
- 1323      647200
- 1324              	.LASF6:
- 1325 02c8 5F5F7569 		.ascii	"__uint32_t\000"
- 1325      6E743332 
- 1325      5F7400
- 1326              	.LASF112:
- 1327 02d3 72784275 		.ascii	"rxBufIdx\000"
- 1327      66496478 
- 1327      00
- 1328              	.LASF114:
- 1329 02dc 74784275 		.ascii	"txBufSize\000"
- 1329      6653697A 
- 1329      6500
- 1330              	.LASF10:
- 1331 02e6 756E7369 		.ascii	"unsigned int\000"
- 1331      676E6564 
- 1331      20696E74 
- 1331      00
- 1332              	.LASF66:
- 1333 02f3 736C6176 		.ascii	"slaveTxBufferIdx\000"
- 1333      65547842 
- 1333      75666665 
- 1333      72496478 
- 1333      00
- 1334              	.LASF94:
- 1335 0304 62756653 		.ascii	"bufSize\000"
- 1335      697A6500 
- 1336              	.LASF7:
- 1337 030c 6C6F6E67 		.ascii	"long unsigned int\000"
- 1337      20756E73 
- 1337      69676E65 
- 1337      6420696E 
- 1337      7400
- 1338              	.LASF29:
- 1339 031e 656E6162 		.ascii	"enableCompareSwap\000"
- 1339      6C65436F 
- 1339      6D706172 
- 1339      65537761 
- 1339      7000
- 1340              	.LASF125:
- 1341 0330 4932435F 		.ascii	"I2C_ARD_context\000"
- 1341      4152445F 
- 1341      636F6E74 
- 1341      65787400 
- 1342              	.LASF118:
- 1343 0340 55415254 		.ascii	"UART_context\000"
- 1343      5F636F6E 
- 1343      74657874 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 29
+ 1391 0a8f 0A       		.byte	0xa
+ 1392 0a90 87       		.byte	0x87
+ 1393 0a91 E0080000 		.4byte	0x8e0
+ 1394 0a95 19       		.uleb128 0x19
+ 1395 0a96 8A030000 		.4byte	.LASF211
+ 1396 0a9a 0B       		.byte	0xb
+ 1397 0a9b 1F       		.byte	0x1f
+ 1398 0a9c A00A0000 		.4byte	0xaa0
+ 1399 0aa0 1A       		.uleb128 0x1a
+ 1400 0aa1 250A0000 		.4byte	0xa25
+ 1401 0aa5 19       		.uleb128 0x19
+ 1402 0aa6 28080000 		.4byte	.LASF212
+ 1403 0aaa 0C       		.byte	0xc
+ 1404 0aab 1F       		.byte	0x1f
+ 1405 0aac A00A0000 		.4byte	0xaa0
+ 1406 0ab0 19       		.uleb128 0x19
+ 1407 0ab1 61010000 		.4byte	.LASF213
+ 1408 0ab5 0D       		.byte	0xd
+ 1409 0ab6 4B       		.byte	0x4b
+ 1410 0ab7 04080000 		.4byte	0x804
+ 1411 0abb 19       		.uleb128 0x19
+ 1412 0abc 95010000 		.4byte	.LASF214
+ 1413 0ac0 0E       		.byte	0xe
+ 1414 0ac1 1F       		.byte	0x1f
+ 1415 0ac2 A00A0000 		.4byte	0xaa0
+ 1416 0ac6 19       		.uleb128 0x19
+ 1417 0ac7 840C0000 		.4byte	.LASF215
+ 1418 0acb 0F       		.byte	0xf
+ 1419 0acc 1F       		.byte	0x1f
+ 1420 0acd A00A0000 		.4byte	0xaa0
+ 1421 0ad1 19       		.uleb128 0x19
+ 1422 0ad2 E6080000 		.4byte	.LASF216
+ 1423 0ad6 10       		.byte	0x10
+ 1424 0ad7 1F       		.byte	0x1f
+ 1425 0ad8 A00A0000 		.4byte	0xaa0
+ 1426 0adc 19       		.uleb128 0x19
+ 1427 0add 56050000 		.4byte	.LASF217
+ 1428 0ae1 11       		.byte	0x11
+ 1429 0ae2 7F       		.byte	0x7f
+ 1430 0ae3 9E060000 		.4byte	0x69e
+ 1431 0ae7 1B       		.uleb128 0x1b
+ 1432 0ae8 23060000 		.4byte	.LASF223
+ 1433 0aec 23060000 		.4byte	.LASF223
+ 1434 0af0 12       		.byte	0x12
+ 1435 0af1 2502     		.2byte	0x225
+ 1436 0af3 00       		.byte	0
+ 1437              		.section	.debug_abbrev,"",%progbits
+ 1438              	.Ldebug_abbrev0:
+ 1439 0000 01       		.uleb128 0x1
+ 1440 0001 11       		.uleb128 0x11
+ 1441 0002 01       		.byte	0x1
+ 1442 0003 25       		.uleb128 0x25
+ 1443 0004 0E       		.uleb128 0xe
+ 1444 0005 13       		.uleb128 0x13
+ 1445 0006 0B       		.uleb128 0xb
+ 1446 0007 03       		.uleb128 0x3
+ 1447 0008 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 29
 
 
- 1343      00
- 1344              	.LASF53:
- 1345 034d 75736554 		.ascii	"useTxFifo\000"
- 1345      78466966 
- 1345      6F00
- 1346              	.LASF34:
- 1347 0357 73776170 		.ascii	"swapInputMode\000"
- 1347      496E7075 
- 1347      744D6F64 
- 1347      6500
- 1348              	.LASF3:
- 1349 0365 73686F72 		.ascii	"short unsigned int\000"
- 1349      7420756E 
- 1349      7369676E 
- 1349      65642069 
- 1349      6E7400
- 1350              	.LASF78:
- 1351 0378 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_ADDR\000"
- 1351      43425F45 
- 1351      5A493243 
- 1351      5F535441 
- 1351      54455F41 
- 1352              	.LASF40:
- 1353 0390 6B696C6C 		.ascii	"killInputMode\000"
- 1353      496E7075 
- 1353      744D6F64 
- 1353      6500
- 1354              	.LASF71:
- 1355 039e 63624576 		.ascii	"cbEvents\000"
- 1355      656E7473 
- 1355      00
- 1356              	.LASF131:
- 1357 03a7 43795F53 		.ascii	"Cy_SysEnableCM4\000"
- 1357      7973456E 
- 1357      61626C65 
- 1357      434D3400 
- 1358              	.LASF80:
- 1359 03b7 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_RX_OFFSET_LSB\000"
- 1359      43425F45 
- 1359      5A493243 
- 1359      5F535441 
- 1359      54455F52 
- 1360              	.LASF31:
- 1361 03d8 696E7665 		.ascii	"invertPWMOut\000"
- 1361      72745057 
- 1361      4D4F7574 
- 1361      00
- 1362              	.LASF22:
- 1363 03e5 64656164 		.ascii	"deadTimeClocks\000"
- 1363      54696D65 
- 1363      436C6F63 
- 1363      6B7300
- 1364              	.LASF108:
- 1365 03f4 72785269 		.ascii	"rxRingBufHead\000"
- 1365      6E674275 
- 1365      66486561 
- 1365      6400
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 30
+ 1448 0009 1B       		.uleb128 0x1b
+ 1449 000a 0E       		.uleb128 0xe
+ 1450 000b 55       		.uleb128 0x55
+ 1451 000c 17       		.uleb128 0x17
+ 1452 000d 11       		.uleb128 0x11
+ 1453 000e 01       		.uleb128 0x1
+ 1454 000f 10       		.uleb128 0x10
+ 1455 0010 17       		.uleb128 0x17
+ 1456 0011 00       		.byte	0
+ 1457 0012 00       		.byte	0
+ 1458 0013 02       		.uleb128 0x2
+ 1459 0014 24       		.uleb128 0x24
+ 1460 0015 00       		.byte	0
+ 1461 0016 0B       		.uleb128 0xb
+ 1462 0017 0B       		.uleb128 0xb
+ 1463 0018 3E       		.uleb128 0x3e
+ 1464 0019 0B       		.uleb128 0xb
+ 1465 001a 03       		.uleb128 0x3
+ 1466 001b 0E       		.uleb128 0xe
+ 1467 001c 00       		.byte	0
+ 1468 001d 00       		.byte	0
+ 1469 001e 03       		.uleb128 0x3
+ 1470 001f 16       		.uleb128 0x16
+ 1471 0020 00       		.byte	0
+ 1472 0021 03       		.uleb128 0x3
+ 1473 0022 0E       		.uleb128 0xe
+ 1474 0023 3A       		.uleb128 0x3a
+ 1475 0024 0B       		.uleb128 0xb
+ 1476 0025 3B       		.uleb128 0x3b
+ 1477 0026 0B       		.uleb128 0xb
+ 1478 0027 49       		.uleb128 0x49
+ 1479 0028 13       		.uleb128 0x13
+ 1480 0029 00       		.byte	0
+ 1481 002a 00       		.byte	0
+ 1482 002b 04       		.uleb128 0x4
+ 1483 002c 24       		.uleb128 0x24
+ 1484 002d 00       		.byte	0
+ 1485 002e 0B       		.uleb128 0xb
+ 1486 002f 0B       		.uleb128 0xb
+ 1487 0030 3E       		.uleb128 0x3e
+ 1488 0031 0B       		.uleb128 0xb
+ 1489 0032 03       		.uleb128 0x3
+ 1490 0033 08       		.uleb128 0x8
+ 1491 0034 00       		.byte	0
+ 1492 0035 00       		.byte	0
+ 1493 0036 05       		.uleb128 0x5
+ 1494 0037 35       		.uleb128 0x35
+ 1495 0038 00       		.byte	0
+ 1496 0039 49       		.uleb128 0x49
+ 1497 003a 13       		.uleb128 0x13
+ 1498 003b 00       		.byte	0
+ 1499 003c 00       		.byte	0
+ 1500 003d 06       		.uleb128 0x6
+ 1501 003e 13       		.uleb128 0x13
+ 1502 003f 01       		.byte	0x1
+ 1503 0040 0B       		.uleb128 0xb
+ 1504 0041 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 30
 
 
- 1366              	.LASF42:
- 1367 0402 636F756E 		.ascii	"countInputMode\000"
- 1367      74496E70 
- 1367      75744D6F 
- 1367      646500
- 1368              	.LASF68:
- 1369 0411 736C6176 		.ascii	"slaveRxBuffer\000"
- 1369      65527842 
- 1369      75666665 
- 1369      7200
- 1370              	.LASF98:
- 1371 041f 62756632 		.ascii	"buf2\000"
- 1371      00
- 1372              	.LASF13:
- 1373 0424 73697A65 		.ascii	"sizetype\000"
- 1373      74797065 
- 1373      00
- 1374              	.LASF60:
- 1375 042d 6D617374 		.ascii	"masterBufferIdx\000"
- 1375      65724275 
- 1375      66666572 
- 1375      49647800 
- 1376              	.LASF77:
- 1377 043d 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_IDLE\000"
- 1377      43425F45 
- 1377      5A493243 
- 1377      5F535441 
- 1377      54455F49 
- 1378              	.LASF105:
- 1379 0455 72785374 		.ascii	"rxStatus\000"
- 1379      61747573 
- 1379      00
- 1380              	.LASF30:
- 1381 045e 696E7465 		.ascii	"interruptSources\000"
- 1381      72727570 
- 1381      74536F75 
- 1381      72636573 
- 1381      00
- 1382              	.LASF129:
- 1383 046f 5F5F656E 		.ascii	"__enable_irq\000"
- 1383      61626C65 
- 1383      5F697271 
- 1383      00
- 1384              	.LASF81:
- 1385 047c 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_RX_DATA0\000"
- 1385      43425F45 
- 1385      5A493243 
- 1385      5F535441 
- 1385      54455F52 
- 1386              	.LASF82:
- 1387 0498 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_RX_DATA1\000"
- 1387      43425F45 
- 1387      5A493243 
- 1387      5F535441 
- 1387      54455F52 
- 1388              	.LASF19:
- 1389 04b4 70776D4D 		.ascii	"pwmMode\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 31
+ 1505 0042 3A       		.uleb128 0x3a
+ 1506 0043 0B       		.uleb128 0xb
+ 1507 0044 3B       		.uleb128 0x3b
+ 1508 0045 0B       		.uleb128 0xb
+ 1509 0046 01       		.uleb128 0x1
+ 1510 0047 13       		.uleb128 0x13
+ 1511 0048 00       		.byte	0
+ 1512 0049 00       		.byte	0
+ 1513 004a 07       		.uleb128 0x7
+ 1514 004b 0D       		.uleb128 0xd
+ 1515 004c 00       		.byte	0
+ 1516 004d 03       		.uleb128 0x3
+ 1517 004e 0E       		.uleb128 0xe
+ 1518 004f 3A       		.uleb128 0x3a
+ 1519 0050 0B       		.uleb128 0xb
+ 1520 0051 3B       		.uleb128 0x3b
+ 1521 0052 0B       		.uleb128 0xb
+ 1522 0053 49       		.uleb128 0x49
+ 1523 0054 13       		.uleb128 0x13
+ 1524 0055 38       		.uleb128 0x38
+ 1525 0056 0B       		.uleb128 0xb
+ 1526 0057 00       		.byte	0
+ 1527 0058 00       		.byte	0
+ 1528 0059 08       		.uleb128 0x8
+ 1529 005a 0F       		.uleb128 0xf
+ 1530 005b 00       		.byte	0
+ 1531 005c 0B       		.uleb128 0xb
+ 1532 005d 0B       		.uleb128 0xb
+ 1533 005e 00       		.byte	0
+ 1534 005f 00       		.byte	0
+ 1535 0060 09       		.uleb128 0x9
+ 1536 0061 04       		.uleb128 0x4
+ 1537 0062 01       		.byte	0x1
+ 1538 0063 0B       		.uleb128 0xb
+ 1539 0064 0B       		.uleb128 0xb
+ 1540 0065 49       		.uleb128 0x49
+ 1541 0066 13       		.uleb128 0x13
+ 1542 0067 3A       		.uleb128 0x3a
+ 1543 0068 0B       		.uleb128 0xb
+ 1544 0069 3B       		.uleb128 0x3b
+ 1545 006a 05       		.uleb128 0x5
+ 1546 006b 01       		.uleb128 0x1
+ 1547 006c 13       		.uleb128 0x13
+ 1548 006d 00       		.byte	0
+ 1549 006e 00       		.byte	0
+ 1550 006f 0A       		.uleb128 0xa
+ 1551 0070 28       		.uleb128 0x28
+ 1552 0071 00       		.byte	0
+ 1553 0072 03       		.uleb128 0x3
+ 1554 0073 0E       		.uleb128 0xe
+ 1555 0074 1C       		.uleb128 0x1c
+ 1556 0075 0B       		.uleb128 0xb
+ 1557 0076 00       		.byte	0
+ 1558 0077 00       		.byte	0
+ 1559 0078 0B       		.uleb128 0xb
+ 1560 0079 16       		.uleb128 0x16
+ 1561 007a 00       		.byte	0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 31
 
 
- 1389      6F646500 
- 1390              	.LASF16:
- 1391 04bc 666C6F61 		.ascii	"float\000"
- 1391      7400
- 1392              	.LASF120:
- 1393 04c2 50574D5F 		.ascii	"PWM_RED_config\000"
- 1393      5245445F 
- 1393      636F6E66 
- 1393      696700
- 1394              	.LASF33:
- 1395 04d1 6B696C6C 		.ascii	"killMode\000"
- 1395      4D6F6465 
- 1395      00
- 1396              	.LASF84:
- 1397 04da 63795F65 		.ascii	"cy_en_scb_ezi2c_state_t\000"
- 1397      6E5F7363 
- 1397      625F657A 
- 1397      6932635F 
- 1397      73746174 
- 1398              	.LASF100:
- 1399 04f2 62756632 		.ascii	"buf2rwBondary\000"
- 1399      7277426F 
- 1399      6E646172 
- 1399      7900
- 1400              	.LASF18:
- 1401 0500 5F426F6F 		.ascii	"_Bool\000"
- 1401      6C00
- 1402              	.LASF1:
- 1403 0506 756E7369 		.ascii	"unsigned char\000"
- 1403      676E6564 
- 1403      20636861 
- 1403      7200
- 1404              	.LASF0:
- 1405 0514 73686F72 		.ascii	"short int\000"
- 1405      7420696E 
- 1405      7400
- 1406              	.LASF59:
- 1407 051e 6D617374 		.ascii	"masterBufferSize\000"
- 1407      65724275 
- 1407      66666572 
- 1407      53697A65 
- 1407      00
- 1408              	.LASF124:
- 1409 052f 44696D6D 		.ascii	"Dimmer_config\000"
- 1409      65725F63 
- 1409      6F6E6669 
- 1409      6700
- 1410              	.LASF56:
- 1411 053d 6D617374 		.ascii	"masterPause\000"
- 1411      65725061 
- 1411      75736500 
- 1412              	.LASF26:
- 1413 0549 656E6162 		.ascii	"enablePeriodSwap\000"
- 1413      6C655065 
- 1413      72696F64 
- 1413      53776170 
- 1413      00
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 32
+ 1562 007b 03       		.uleb128 0x3
+ 1563 007c 0E       		.uleb128 0xe
+ 1564 007d 3A       		.uleb128 0x3a
+ 1565 007e 0B       		.uleb128 0xb
+ 1566 007f 3B       		.uleb128 0x3b
+ 1567 0080 05       		.uleb128 0x5
+ 1568 0081 49       		.uleb128 0x49
+ 1569 0082 13       		.uleb128 0x13
+ 1570 0083 00       		.byte	0
+ 1571 0084 00       		.byte	0
+ 1572 0085 0C       		.uleb128 0xc
+ 1573 0086 0F       		.uleb128 0xf
+ 1574 0087 00       		.byte	0
+ 1575 0088 0B       		.uleb128 0xb
+ 1576 0089 0B       		.uleb128 0xb
+ 1577 008a 49       		.uleb128 0x49
+ 1578 008b 13       		.uleb128 0x13
+ 1579 008c 00       		.byte	0
+ 1580 008d 00       		.byte	0
+ 1581 008e 0D       		.uleb128 0xd
+ 1582 008f 15       		.uleb128 0x15
+ 1583 0090 01       		.byte	0x1
+ 1584 0091 27       		.uleb128 0x27
+ 1585 0092 19       		.uleb128 0x19
+ 1586 0093 01       		.uleb128 0x1
+ 1587 0094 13       		.uleb128 0x13
+ 1588 0095 00       		.byte	0
+ 1589 0096 00       		.byte	0
+ 1590 0097 0E       		.uleb128 0xe
+ 1591 0098 05       		.uleb128 0x5
+ 1592 0099 00       		.byte	0
+ 1593 009a 49       		.uleb128 0x49
+ 1594 009b 13       		.uleb128 0x13
+ 1595 009c 00       		.byte	0
+ 1596 009d 00       		.byte	0
+ 1597 009e 0F       		.uleb128 0xf
+ 1598 009f 15       		.uleb128 0x15
+ 1599 00a0 01       		.byte	0x1
+ 1600 00a1 27       		.uleb128 0x27
+ 1601 00a2 19       		.uleb128 0x19
+ 1602 00a3 49       		.uleb128 0x49
+ 1603 00a4 13       		.uleb128 0x13
+ 1604 00a5 01       		.uleb128 0x1
+ 1605 00a6 13       		.uleb128 0x13
+ 1606 00a7 00       		.byte	0
+ 1607 00a8 00       		.byte	0
+ 1608 00a9 10       		.uleb128 0x10
+ 1609 00aa 13       		.uleb128 0x13
+ 1610 00ab 01       		.byte	0x1
+ 1611 00ac 03       		.uleb128 0x3
+ 1612 00ad 0E       		.uleb128 0xe
+ 1613 00ae 0B       		.uleb128 0xb
+ 1614 00af 0B       		.uleb128 0xb
+ 1615 00b0 3A       		.uleb128 0x3a
+ 1616 00b1 0B       		.uleb128 0xb
+ 1617 00b2 3B       		.uleb128 0x3b
+ 1618 00b3 05       		.uleb128 0x5
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 32
 
 
- 1414              	.LASF49:
- 1415 055a 63795F63 		.ascii	"cy_cb_scb_i2c_handle_addr_t\000"
- 1415      625F7363 
- 1415      625F6932 
- 1415      635F6861 
- 1415      6E646C65 
- 1416              	.LASF35:
- 1417 0576 73776170 		.ascii	"swapInput\000"
- 1417      496E7075 
- 1417      7400
- 1418              	.LASF61:
- 1419 0580 6D617374 		.ascii	"masterNumBytes\000"
- 1419      65724E75 
- 1419      6D427974 
- 1419      657300
- 1420              	.LASF67:
- 1421 058f 736C6176 		.ascii	"slaveTxBufferCnt\000"
- 1421      65547842 
- 1421      75666665 
- 1421      72436E74 
- 1421      00
- 1422              	.LASF50:
- 1423 05a0 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config\000"
- 1423      74635F74 
- 1423      6370776D 
- 1423      5F70776D 
- 1423      5F636F6E 
- 1424              	.LASF12:
- 1425 05b8 75696E74 		.ascii	"uint32_t\000"
- 1425      33325F74 
- 1425      00
- 1426              	.LASF92:
- 1427 05c1 61646472 		.ascii	"addr1Active\000"
- 1427      31416374 
- 1427      69766500 
- 1428              	.LASF99:
- 1429 05cd 62756632 		.ascii	"buf2Size\000"
- 1429      53697A65 
- 1429      00
- 1430              	.LASF126:
- 1431 05d6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1431      43313120 
- 1431      352E342E 
- 1431      31203230 
- 1431      31363036 
- 1432 0609 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
- 1432      20726576 
- 1432      6973696F 
- 1432      6E203233 
- 1432      37373135 
- 1433 063c 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
- 1433      67202D66 
- 1433      66756E63 
- 1433      74696F6E 
- 1433      2D736563 
- 1434              	.LASF27:
- 1435 0668 636F6D70 		.ascii	"compare0\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 33
+ 1619 00b4 01       		.uleb128 0x1
+ 1620 00b5 13       		.uleb128 0x13
+ 1621 00b6 00       		.byte	0
+ 1622 00b7 00       		.byte	0
+ 1623 00b8 11       		.uleb128 0x11
+ 1624 00b9 0D       		.uleb128 0xd
+ 1625 00ba 00       		.byte	0
+ 1626 00bb 03       		.uleb128 0x3
+ 1627 00bc 0E       		.uleb128 0xe
+ 1628 00bd 3A       		.uleb128 0x3a
+ 1629 00be 0B       		.uleb128 0xb
+ 1630 00bf 3B       		.uleb128 0x3b
+ 1631 00c0 05       		.uleb128 0x5
+ 1632 00c1 49       		.uleb128 0x49
+ 1633 00c2 13       		.uleb128 0x13
+ 1634 00c3 38       		.uleb128 0x38
+ 1635 00c4 0B       		.uleb128 0xb
+ 1636 00c5 00       		.byte	0
+ 1637 00c6 00       		.byte	0
+ 1638 00c7 12       		.uleb128 0x12
+ 1639 00c8 0D       		.uleb128 0xd
+ 1640 00c9 00       		.byte	0
+ 1641 00ca 03       		.uleb128 0x3
+ 1642 00cb 08       		.uleb128 0x8
+ 1643 00cc 3A       		.uleb128 0x3a
+ 1644 00cd 0B       		.uleb128 0xb
+ 1645 00ce 3B       		.uleb128 0x3b
+ 1646 00cf 05       		.uleb128 0x5
+ 1647 00d0 49       		.uleb128 0x49
+ 1648 00d1 13       		.uleb128 0x13
+ 1649 00d2 38       		.uleb128 0x38
+ 1650 00d3 0B       		.uleb128 0xb
+ 1651 00d4 00       		.byte	0
+ 1652 00d5 00       		.byte	0
+ 1653 00d6 13       		.uleb128 0x13
+ 1654 00d7 13       		.uleb128 0x13
+ 1655 00d8 01       		.byte	0x1
+ 1656 00d9 03       		.uleb128 0x3
+ 1657 00da 0E       		.uleb128 0xe
+ 1658 00db 0B       		.uleb128 0xb
+ 1659 00dc 0B       		.uleb128 0xb
+ 1660 00dd 3A       		.uleb128 0x3a
+ 1661 00de 0B       		.uleb128 0xb
+ 1662 00df 3B       		.uleb128 0x3b
+ 1663 00e0 0B       		.uleb128 0xb
+ 1664 00e1 01       		.uleb128 0x1
+ 1665 00e2 13       		.uleb128 0x13
+ 1666 00e3 00       		.byte	0
+ 1667 00e4 00       		.byte	0
+ 1668 00e5 14       		.uleb128 0x14
+ 1669 00e6 2E       		.uleb128 0x2e
+ 1670 00e7 00       		.byte	0
+ 1671 00e8 03       		.uleb128 0x3
+ 1672 00e9 0E       		.uleb128 0xe
+ 1673 00ea 3A       		.uleb128 0x3a
+ 1674 00eb 0B       		.uleb128 0xb
+ 1675 00ec 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 33
 
 
- 1435      61726530 
- 1435      00
- 1436              	.LASF14:
- 1437 0671 6C6F6E67 		.ascii	"long double\000"
- 1437      20646F75 
- 1437      626C6500 
- 1438              	.LASF43:
- 1439 067d 636F756E 		.ascii	"countInput\000"
- 1439      74496E70 
- 1439      757400
- 1440              	.LASF15:
- 1441 0688 63686172 		.ascii	"char\000"
- 1441      00
- 1442              	.LASF83:
- 1443 068d 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_TX_DATA\000"
- 1443      43425F45 
- 1443      5A493243 
- 1443      5F535441 
- 1443      54455F54 
- 1444              	.LASF45:
- 1445 06a8 43595F53 		.ascii	"CY_SCB_I2C_ACK\000"
- 1445      43425F49 
- 1445      32435F41 
- 1445      434B00
- 1446              	.LASF107:
- 1447 06b7 72785269 		.ascii	"rxRingBufSize\000"
- 1447      6E674275 
- 1447      6653697A 
- 1447      6500
- 1448              	.LASF37:
- 1449 06c5 72656C6F 		.ascii	"reloadInput\000"
- 1449      6164496E 
- 1449      70757400 
- 1450              	.LASF102:
- 1451 06d1 63795F63 		.ascii	"cy_cb_scb_uart_handle_events_t\000"
- 1451      625F7363 
- 1451      625F7561 
- 1451      72745F68 
- 1451      616E646C 
- 1452              	.LASF75:
- 1453 06f0 43595F53 		.ascii	"CY_SCB_EZI2C_SUB_ADDR16_BITS\000"
- 1453      43425F45 
- 1453      5A493243 
- 1453      5F535542 
- 1453      5F414444 
- 1454              	.LASF52:
- 1455 070d 75736552 		.ascii	"useRxFifo\000"
- 1455      78466966 
- 1455      6F00
- 1456              	.LASF38:
- 1457 0717 73746172 		.ascii	"startInputMode\000"
- 1457      74496E70 
- 1457      75744D6F 
- 1457      646500
- 1458              	.LASF24:
- 1459 0726 70657269 		.ascii	"period0\000"
- 1459      6F643000 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 34
+ 1676 00ed 0B       		.uleb128 0xb
+ 1677 00ee 27       		.uleb128 0x27
+ 1678 00ef 19       		.uleb128 0x19
+ 1679 00f0 20       		.uleb128 0x20
+ 1680 00f1 0B       		.uleb128 0xb
+ 1681 00f2 00       		.byte	0
+ 1682 00f3 00       		.byte	0
+ 1683 00f4 15       		.uleb128 0x15
+ 1684 00f5 2E       		.uleb128 0x2e
+ 1685 00f6 01       		.byte	0x1
+ 1686 00f7 3F       		.uleb128 0x3f
+ 1687 00f8 19       		.uleb128 0x19
+ 1688 00f9 03       		.uleb128 0x3
+ 1689 00fa 0E       		.uleb128 0xe
+ 1690 00fb 3A       		.uleb128 0x3a
+ 1691 00fc 0B       		.uleb128 0xb
+ 1692 00fd 3B       		.uleb128 0x3b
+ 1693 00fe 0B       		.uleb128 0xb
+ 1694 00ff 27       		.uleb128 0x27
+ 1695 0100 19       		.uleb128 0x19
+ 1696 0101 49       		.uleb128 0x49
+ 1697 0102 13       		.uleb128 0x13
+ 1698 0103 8701     		.uleb128 0x87
+ 1699 0105 19       		.uleb128 0x19
+ 1700 0106 11       		.uleb128 0x11
+ 1701 0107 01       		.uleb128 0x1
+ 1702 0108 12       		.uleb128 0x12
+ 1703 0109 06       		.uleb128 0x6
+ 1704 010a 40       		.uleb128 0x40
+ 1705 010b 18       		.uleb128 0x18
+ 1706 010c 9742     		.uleb128 0x2117
+ 1707 010e 19       		.uleb128 0x19
+ 1708 010f 01       		.uleb128 0x1
+ 1709 0110 13       		.uleb128 0x13
+ 1710 0111 00       		.byte	0
+ 1711 0112 00       		.byte	0
+ 1712 0113 16       		.uleb128 0x16
+ 1713 0114 1D       		.uleb128 0x1d
+ 1714 0115 00       		.byte	0
+ 1715 0116 31       		.uleb128 0x31
+ 1716 0117 13       		.uleb128 0x13
+ 1717 0118 11       		.uleb128 0x11
+ 1718 0119 01       		.uleb128 0x1
+ 1719 011a 12       		.uleb128 0x12
+ 1720 011b 06       		.uleb128 0x6
+ 1721 011c 58       		.uleb128 0x58
+ 1722 011d 0B       		.uleb128 0xb
+ 1723 011e 59       		.uleb128 0x59
+ 1724 011f 0B       		.uleb128 0xb
+ 1725 0120 00       		.byte	0
+ 1726 0121 00       		.byte	0
+ 1727 0122 17       		.uleb128 0x17
+ 1728 0123 898201   		.uleb128 0x4109
+ 1729 0126 01       		.byte	0x1
+ 1730 0127 11       		.uleb128 0x11
+ 1731 0128 01       		.uleb128 0x1
+ 1732 0129 31       		.uleb128 0x31
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 34
 
 
- 1460              	.LASF25:
- 1461 072e 70657269 		.ascii	"period1\000"
- 1461      6F643100 
- 1462              	.LASF28:
- 1463 0736 636F6D70 		.ascii	"compare1\000"
- 1463      61726531 
- 1463      00
- 1464              	.LASF116:
- 1465 073f 696E6974 		.ascii	"initKey\000"
- 1465      4B657900 
- 1466              	.LASF110:
- 1467 0747 72784275 		.ascii	"rxBuf\000"
- 1467      6600
- 1468              	.LASF64:
- 1469 074d 736C6176 		.ascii	"slaveTxBuffer\000"
- 1469      65547842 
- 1469      75666665 
- 1469      7200
- 1470              	.LASF65:
- 1471 075b 736C6176 		.ascii	"slaveTxBufferSize\000"
- 1471      65547842 
- 1471      75666665 
- 1471      7253697A 
- 1471      6500
- 1472              	.LASF86:
- 1473 076d 73746174 		.ascii	"status\000"
- 1473      757300
- 1474              	.LASF47:
- 1475 0774 63795F65 		.ascii	"cy_en_scb_i2c_command_t\000"
- 1475      6E5F7363 
- 1475      625F6932 
- 1475      635F636F 
- 1475      6D6D616E 
- 1476              	.LASF32:
- 1477 078c 696E7665 		.ascii	"invertPWMOutN\000"
- 1477      72745057 
- 1477      4D4F7574 
- 1477      4E00
- 1478              	.LASF11:
- 1479 079a 75696E74 		.ascii	"uint8_t\000"
- 1479      385F7400 
- 1480              	.LASF123:
- 1481 07a2 50574D5F 		.ascii	"PWM_2_config\000"
- 1481      325F636F 
- 1481      6E666967 
- 1481      00
- 1482              	.LASF58:
- 1483 07af 6D617374 		.ascii	"masterBuffer\000"
- 1483      65724275 
- 1483      66666572 
- 1483      00
- 1484              	.LASF101:
- 1485 07bc 63795F73 		.ascii	"cy_stc_scb_ezi2c_context_t\000"
- 1485      74635F73 
- 1485      63625F65 
- 1485      7A693263 
- 1485      5F636F6E 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccNnjSd2.s 			page 35
+ 1733 012a 13       		.uleb128 0x13
+ 1734 012b 00       		.byte	0
+ 1735 012c 00       		.byte	0
+ 1736 012d 18       		.uleb128 0x18
+ 1737 012e 8A8201   		.uleb128 0x410a
+ 1738 0131 00       		.byte	0
+ 1739 0132 02       		.uleb128 0x2
+ 1740 0133 18       		.uleb128 0x18
+ 1741 0134 9142     		.uleb128 0x2111
+ 1742 0136 18       		.uleb128 0x18
+ 1743 0137 00       		.byte	0
+ 1744 0138 00       		.byte	0
+ 1745 0139 19       		.uleb128 0x19
+ 1746 013a 34       		.uleb128 0x34
+ 1747 013b 00       		.byte	0
+ 1748 013c 03       		.uleb128 0x3
+ 1749 013d 0E       		.uleb128 0xe
+ 1750 013e 3A       		.uleb128 0x3a
+ 1751 013f 0B       		.uleb128 0xb
+ 1752 0140 3B       		.uleb128 0x3b
+ 1753 0141 0B       		.uleb128 0xb
+ 1754 0142 49       		.uleb128 0x49
+ 1755 0143 13       		.uleb128 0x13
+ 1756 0144 3F       		.uleb128 0x3f
+ 1757 0145 19       		.uleb128 0x19
+ 1758 0146 3C       		.uleb128 0x3c
+ 1759 0147 19       		.uleb128 0x19
+ 1760 0148 00       		.byte	0
+ 1761 0149 00       		.byte	0
+ 1762 014a 1A       		.uleb128 0x1a
+ 1763 014b 26       		.uleb128 0x26
+ 1764 014c 00       		.byte	0
+ 1765 014d 49       		.uleb128 0x49
+ 1766 014e 13       		.uleb128 0x13
+ 1767 014f 00       		.byte	0
+ 1768 0150 00       		.byte	0
+ 1769 0151 1B       		.uleb128 0x1b
+ 1770 0152 2E       		.uleb128 0x2e
+ 1771 0153 00       		.byte	0
+ 1772 0154 3F       		.uleb128 0x3f
+ 1773 0155 19       		.uleb128 0x19
+ 1774 0156 3C       		.uleb128 0x3c
+ 1775 0157 19       		.uleb128 0x19
+ 1776 0158 6E       		.uleb128 0x6e
+ 1777 0159 0E       		.uleb128 0xe
+ 1778 015a 03       		.uleb128 0x3
+ 1779 015b 0E       		.uleb128 0xe
+ 1780 015c 3A       		.uleb128 0x3a
+ 1781 015d 0B       		.uleb128 0xb
+ 1782 015e 3B       		.uleb128 0x3b
+ 1783 015f 05       		.uleb128 0x5
+ 1784 0160 00       		.byte	0
+ 1785 0161 00       		.byte	0
+ 1786 0162 00       		.byte	0
+ 1787              		.section	.debug_aranges,"",%progbits
+ 1788 0000 1C000000 		.4byte	0x1c
+ 1789 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 35
 
 
- 1486              	.LASF36:
- 1487 07d7 72656C6F 		.ascii	"reloadInputMode\000"
- 1487      6164496E 
- 1487      7075744D 
- 1487      6F646500 
- 1488              	.LASF109:
- 1489 07e7 72785269 		.ascii	"rxRingBufTail\000"
- 1489      6E674275 
- 1489      66546169 
- 1489      6C00
- 1490              	.LASF97:
- 1491 07f5 62756631 		.ascii	"buf1rwBondary\000"
- 1491      7277426F 
- 1491      6E646172 
- 1491      7900
- 1492              	.LASF104:
- 1493 0803 74785374 		.ascii	"txStatus\000"
- 1493      61747573 
- 1493      00
- 1494              	.LASF63:
- 1495 080c 736C6176 		.ascii	"slaveRdBufEmpty\000"
- 1495      65526442 
- 1495      7566456D 
- 1495      70747900 
- 1496              	.LASF90:
- 1497 081c 62617365 		.ascii	"baseAddr1\000"
- 1497      41646472 
- 1497      3100
- 1498              	.LASF91:
- 1499 0826 62617365 		.ascii	"baseAddr2\000"
- 1499      41646472 
- 1499      3200
- 1500              	.LASF130:
- 1501 0830 6D61696E 		.ascii	"main\000"
- 1501      00
- 1502              	.LASF103:
- 1503 0835 63795F73 		.ascii	"cy_stc_scb_uart_context\000"
- 1503      74635F73 
- 1503      63625F75 
- 1503      6172745F 
- 1503      636F6E74 
- 1504              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1790 0006 00000000 		.4byte	.Ldebug_info0
+ 1791 000a 04       		.byte	0x4
+ 1792 000b 00       		.byte	0
+ 1793 000c 0000     		.2byte	0
+ 1794 000e 0000     		.2byte	0
+ 1795 0010 00000000 		.4byte	.LFB636
+ 1796 0014 10000000 		.4byte	.LFE636-.LFB636
+ 1797 0018 00000000 		.4byte	0
+ 1798 001c 00000000 		.4byte	0
+ 1799              		.section	.debug_ranges,"",%progbits
+ 1800              	.Ldebug_ranges0:
+ 1801 0000 00000000 		.4byte	.LFB636
+ 1802 0004 10000000 		.4byte	.LFE636
+ 1803 0008 00000000 		.4byte	0
+ 1804 000c 00000000 		.4byte	0
+ 1805              		.section	.debug_line,"",%progbits
+ 1806              	.Ldebug_line0:
+ 1807 0000 F1020000 		.section	.debug_str,"MS",%progbits,1
+ 1807      0200D002 
+ 1807      00000201 
+ 1807      FB0E0D00 
+ 1807      01010101 
+ 1808              	.LASF54:
+ 1809 0000 70726F74 		.ascii	"protBusMasterMask\000"
+ 1809      4275734D 
+ 1809      61737465 
+ 1809      724D6173 
+ 1809      6B00
+ 1810              	.LASF187:
+ 1811 0012 72756E4D 		.ascii	"runMode\000"
+ 1811      6F646500 
+ 1812              	.LASF149:
+ 1813 001a 63795F73 		.ascii	"cy_stc_scb_ezi2c_context\000"
+ 1813      74635F73 
+ 1813      63625F65 
+ 1813      7A693263 
+ 1813      5F636F6E 
+ 1814              	.LASF175:
+ 1815 0033 72784275 		.ascii	"rxBufSize\000"
+ 1815      6653697A 
+ 1815      6500
+ 1816              	.LASF208:
+ 1817 003d 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config_t\000"
+ 1817      74635F74 
+ 1817      6370776D 
+ 1817      5F70776D 
+ 1817      5F636F6E 
+ 1818              	.LASF139:
+ 1819 0057 63795F65 		.ascii	"cy_en_scb_ezi2c_sub_addr_size_t\000"
+ 1819      6E5F7363 
+ 1819      625F657A 
+ 1819      6932635F 
+ 1819      7375625F 
+ 1820              	.LASF64:
+ 1821 0077 666C6173 		.ascii	"flashCtlMainWs3Freq\000"
+ 1821      6843746C 
+ 1821      4D61696E 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 36
+
+
+ 1821      57733346 
+ 1821      72657100 
+ 1822              	.LASF86:
+ 1823 008b 6770696F 		.ascii	"gpioPrtCfgInOffset\000"
+ 1823      50727443 
+ 1823      6667496E 
+ 1823      4F666673 
+ 1823      657400
+ 1824              	.LASF205:
+ 1825 009e 6B696C6C 		.ascii	"killInput\000"
+ 1825      496E7075 
+ 1825      7400
+ 1826              	.LASF104:
+ 1827 00a8 6970634C 		.ascii	"ipcLockStatusOffset\000"
+ 1827      6F636B53 
+ 1827      74617475 
+ 1827      734F6666 
+ 1827      73657400 
+ 1828              	.LASF30:
+ 1829 00bc 63727970 		.ascii	"cryptoVersion\000"
+ 1829      746F5665 
+ 1829      7273696F 
+ 1829      6E00
+ 1830              	.LASF48:
+ 1831 00ca 70657269 		.ascii	"periClockNr\000"
+ 1831      436C6F63 
+ 1831      6B4E7200 
+ 1832              	.LASF26:
+ 1833 00d6 70617373 		.ascii	"passBase\000"
+ 1833      42617365 
+ 1833      00
+ 1834              	.LASF219:
+ 1835 00df 6D61696E 		.ascii	"main_cm0p.c\000"
+ 1835      5F636D30 
+ 1835      702E6300 
+ 1836              	.LASF185:
+ 1837 00eb 70776D41 		.ascii	"pwmAlignment\000"
+ 1837      6C69676E 
+ 1837      6D656E74 
+ 1837      00
+ 1838              	.LASF39:
+ 1839 00f8 63707573 		.ascii	"cpussIpcIrqNr\000"
+ 1839      73497063 
+ 1839      4972714E 
+ 1839      7200
+ 1840              	.LASF3:
+ 1841 0106 5F5F7569 		.ascii	"__uint8_t\000"
+ 1841      6E74385F 
+ 1841      7400
+ 1842              	.LASF125:
+ 1843 0110 736C6176 		.ascii	"slaveStatus\000"
+ 1843      65537461 
+ 1843      74757300 
+ 1844              	.LASF83:
+ 1845 011c 70657269 		.ascii	"periDiv24_5CtlOffset\000"
+ 1845      44697632 
+ 1845      345F3543 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 37
+
+
+ 1845      746C4F66 
+ 1845      66736574 
+ 1846              	.LASF90:
+ 1847 0131 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
+ 1847      73436D34 
+ 1847      436C6F63 
+ 1847      6B43746C 
+ 1847      4F666673 
+ 1848              	.LASF19:
+ 1849 0148 63707573 		.ascii	"cpussBase\000"
+ 1849      73426173 
+ 1849      6500
+ 1850              	.LASF68:
+ 1851 0152 64774368 		.ascii	"dwChCtlPrioPos\000"
+ 1851      43746C50 
+ 1851      72696F50 
+ 1851      6F7300
+ 1852              	.LASF213:
+ 1853 0161 455A4932 		.ascii	"EZI2C_context\000"
+ 1853      435F636F 
+ 1853      6E746578 
+ 1853      7400
+ 1854              	.LASF11:
+ 1855 016f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1855      206C6F6E 
+ 1855      6720756E 
+ 1855      7369676E 
+ 1855      65642069 
+ 1856              	.LASF184:
+ 1857 0186 636C6F63 		.ascii	"clockPrescaler\000"
+ 1857      6B507265 
+ 1857      7363616C 
+ 1857      657200
+ 1858              	.LASF214:
+ 1859 0195 4C454442 		.ascii	"LEDBlink_config\000"
+ 1859      6C696E6B 
+ 1859      5F636F6E 
+ 1859      66696700 
+ 1860              	.LASF72:
+ 1861 01a5 70657269 		.ascii	"periTrCmdOffset\000"
+ 1861      5472436D 
+ 1861      644F6666 
+ 1861      73657400 
+ 1862              	.LASF170:
+ 1863 01b5 72785269 		.ascii	"rxRingBuf\000"
+ 1863      6E674275 
+ 1863      6600
+ 1864              	.LASF96:
+ 1865 01bf 63707573 		.ascii	"cpussSysTickCtlOffset\000"
+ 1865      73537973 
+ 1865      5469636B 
+ 1865      43746C4F 
+ 1865      66667365 
+ 1866              	.LASF118:
+ 1867 01d5 6D617374 		.ascii	"masterStatus\000"
+ 1867      65725374 
+ 1867      61747573 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 38
+
+
+ 1867      00
+ 1868              	.LASF160:
+ 1869 01e2 62756631 		.ascii	"buf1Size\000"
+ 1869      53697A65 
+ 1869      00
+ 1870              	.LASF177:
+ 1871 01eb 74784275 		.ascii	"txBuf\000"
+ 1871      6600
+ 1872              	.LASF137:
+ 1873 01f1 43595F53 		.ascii	"CY_SCB_EZI2C_SUB_ADDR8_BITS\000"
+ 1873      43425F45 
+ 1873      5A493243 
+ 1873      5F535542 
+ 1873      5F414444 
+ 1874              	.LASF153:
+ 1875 020d 73756241 		.ascii	"subAddrSize\000"
+ 1875      64647253 
+ 1875      697A6500 
+ 1876              	.LASF57:
+ 1877 0219 666C6173 		.ascii	"flashPipeRequired\000"
+ 1877      68506970 
+ 1877      65526571 
+ 1877      75697265 
+ 1877      6400
+ 1878              	.LASF133:
+ 1879 022b 736C6176 		.ascii	"slaveRxBufferIdx\000"
+ 1879      65527842 
+ 1879      75666665 
+ 1879      72496478 
+ 1879      00
+ 1880              	.LASF148:
+ 1881 023c 63795F73 		.ascii	"cy_stc_scb_i2c_context\000"
+ 1881      74635F73 
+ 1881      63625F69 
+ 1881      32635F63 
+ 1881      6F6E7465 
+ 1882              	.LASF61:
+ 1883 0253 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 1883      6843746C 
+ 1883      4D61696E 
+ 1883      57733046 
+ 1883      72657100 
+ 1884              	.LASF14:
+ 1885 0267 696E7431 		.ascii	"int16_t\000"
+ 1885      365F7400 
+ 1886              	.LASF10:
+ 1887 026f 6C6F6E67 		.ascii	"long long int\000"
+ 1887      206C6F6E 
+ 1887      6720696E 
+ 1887      7400
+ 1888              	.LASF2:
+ 1889 027d 7369676E 		.ascii	"signed char\000"
+ 1889      65642063 
+ 1889      68617200 
+ 1890              	.LASF77:
+ 1891 0289 70657269 		.ascii	"periDivCmdTypeSelPos\000"
+ 1891      44697643 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 39
+
+
+ 1891      6D645479 
+ 1891      70655365 
+ 1891      6C506F73 
+ 1892              	.LASF179:
+ 1893 029e 74784C65 		.ascii	"txLeftToTransmit\000"
+ 1893      6674546F 
+ 1893      5472616E 
+ 1893      736D6974 
+ 1893      00
+ 1894              	.LASF23:
+ 1895 02af 70726F74 		.ascii	"protBase\000"
+ 1895      42617365 
+ 1895      00
+ 1896              	.LASF35:
+ 1897 02b8 69706356 		.ascii	"ipcVersion\000"
+ 1897      65727369 
+ 1897      6F6E00
+ 1898              	.LASF132:
+ 1899 02c3 736C6176 		.ascii	"slaveRxBufferSize\000"
+ 1899      65527842 
+ 1899      75666665 
+ 1899      7253697A 
+ 1899      6500
+ 1900              	.LASF97:
+ 1901 02d5 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
+ 1901      73436D30 
+ 1901      4E6D6943 
+ 1901      746C4F66 
+ 1901      66736574 
+ 1902              	.LASF151:
+ 1903 02ea 61646472 		.ascii	"address1\000"
+ 1903      65737331 
+ 1903      00
+ 1904              	.LASF152:
+ 1905 02f3 61646472 		.ascii	"address2\000"
+ 1905      65737332 
+ 1905      00
+ 1906              	.LASF182:
+ 1907 02fc 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config\000"
+ 1907      74635F74 
+ 1907      6370776D 
+ 1907      5F70776D 
+ 1907      5F636F6E 
+ 1908              	.LASF136:
+ 1909 0314 63795F73 		.ascii	"cy_stc_scb_i2c_context_t\000"
+ 1909      74635F73 
+ 1909      63625F69 
+ 1909      32635F63 
+ 1909      6F6E7465 
+ 1910              	.LASF157:
+ 1911 032d 63757242 		.ascii	"curBuf\000"
+ 1911      756600
+ 1912              	.LASF117:
+ 1913 0334 73746174 		.ascii	"state\000"
+ 1913      6500
+ 1914              	.LASF113:
+ 1915 033a 63795F63 		.ascii	"cy_cb_scb_i2c_handle_events_t\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 40
+
+
+ 1915      625F7363 
+ 1915      625F6932 
+ 1915      635F6861 
+ 1915      6E646C65 
+ 1916              	.LASF7:
+ 1917 0358 6C6F6E67 		.ascii	"long int\000"
+ 1917      20696E74 
+ 1917      00
+ 1918              	.LASF120:
+ 1919 0361 6D617374 		.ascii	"masterRdDir\000"
+ 1919      65725264 
+ 1919      44697200 
+ 1920              	.LASF111:
+ 1921 036d 43595F53 		.ascii	"CY_SCB_I2C_NAK\000"
+ 1921      43425F49 
+ 1921      32435F4E 
+ 1921      414B00
+ 1922              	.LASF55:
+ 1923 037c 63727970 		.ascii	"cryptoMemSize\000"
+ 1923      746F4D65 
+ 1923      6D53697A 
+ 1923      6500
+ 1924              	.LASF211:
+ 1925 038a 50574D5F 		.ascii	"PWM_1_config\000"
+ 1925      315F636F 
+ 1925      6E666967 
+ 1925      00
+ 1926              	.LASF21:
+ 1927 0397 70657269 		.ascii	"periBase\000"
+ 1927      42617365 
+ 1927      00
+ 1928              	.LASF53:
+ 1929 03a0 73797350 		.ascii	"sysPmSimoPresent\000"
+ 1929      6D53696D 
+ 1929      6F507265 
+ 1929      73656E74 
+ 1929      00
+ 1930              	.LASF203:
+ 1931 03b1 73746172 		.ascii	"startInput\000"
+ 1931      74496E70 
+ 1931      757400
+ 1932              	.LASF108:
+ 1933 03bc 646F7562 		.ascii	"double\000"
+ 1933      6C6500
+ 1934              	.LASF82:
+ 1935 03c3 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+ 1935      44697631 
+ 1935      365F3543 
+ 1935      746C4F66 
+ 1935      66736574 
+ 1936              	.LASF46:
+ 1937 03d8 73727373 		.ascii	"srssNumPll\000"
+ 1937      4E756D50 
+ 1937      6C6C00
+ 1938              	.LASF222:
+ 1939 03e3 6D61696E 		.ascii	"main\000"
+ 1939      00
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 41
+
+
+ 1940              	.LASF80:
+ 1941 03e8 70657269 		.ascii	"periDiv8CtlOffset\000"
+ 1941      44697638 
+ 1941      43746C4F 
+ 1941      66667365 
+ 1941      7400
+ 1942              	.LASF142:
+ 1943 03fa 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_RX_OFFSET_MSB\000"
+ 1943      43425F45 
+ 1943      5A493243 
+ 1943      5F535441 
+ 1943      54455F52 
+ 1944              	.LASF87:
+ 1945 041b 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
+ 1945      50727443 
+ 1945      66674F75 
+ 1945      744F6666 
+ 1945      73657400 
+ 1946              	.LASF135:
+ 1947 042f 63624164 		.ascii	"cbAddr\000"
+ 1947      647200
+ 1948              	.LASF20:
+ 1949 0436 666C6173 		.ascii	"flashcBase\000"
+ 1949      68634261 
+ 1949      736500
+ 1950              	.LASF8:
+ 1951 0441 5F5F7569 		.ascii	"__uint32_t\000"
+ 1951      6E743332 
+ 1951      5F7400
+ 1952              	.LASF50:
+ 1953 044c 70617373 		.ascii	"passSarChannels\000"
+ 1953      53617243 
+ 1953      68616E6E 
+ 1953      656C7300 
+ 1954              	.LASF4:
+ 1955 045c 5F5F696E 		.ascii	"__int16_t\000"
+ 1955      7431365F 
+ 1955      7400
+ 1956              	.LASF176:
+ 1957 0466 72784275 		.ascii	"rxBufIdx\000"
+ 1957      66496478 
+ 1957      00
+ 1958              	.LASF93:
+ 1959 046f 63707573 		.ascii	"cpussCm4PwrCtlOffset\000"
+ 1959      73436D34 
+ 1959      50777243 
+ 1959      746C4F66 
+ 1959      66736574 
+ 1960              	.LASF178:
+ 1961 0484 74784275 		.ascii	"txBufSize\000"
+ 1961      6653697A 
+ 1961      6500
+ 1962              	.LASF194:
+ 1963 048e 696E7465 		.ascii	"interruptSources\000"
+ 1963      72727570 
+ 1963      74536F75 
+ 1963      72636573 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 42
+
+
+ 1963      00
+ 1964              	.LASF88:
+ 1965 049f 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 1965      50727443 
+ 1965      66675369 
+ 1965      6F4F6666 
+ 1965      73657400 
+ 1966              	.LASF40:
+ 1967 04b3 63707573 		.ascii	"cpussDwChNr\000"
+ 1967      73447743 
+ 1967      684E7200 
+ 1968              	.LASF12:
+ 1969 04bf 756E7369 		.ascii	"unsigned int\000"
+ 1969      676E6564 
+ 1969      20696E74 
+ 1969      00
+ 1970              	.LASF129:
+ 1971 04cc 736C6176 		.ascii	"slaveTxBufferIdx\000"
+ 1971      65547842 
+ 1971      75666665 
+ 1971      72496478 
+ 1971      00
+ 1972              	.LASF15:
+ 1973 04dd 75696E74 		.ascii	"uint16_t\000"
+ 1973      31365F74 
+ 1973      00
+ 1974              	.LASF126:
+ 1975 04e6 736C6176 		.ascii	"slaveRdBufEmpty\000"
+ 1975      65526442 
+ 1975      7566456D 
+ 1975      70747900 
+ 1976              	.LASF164:
+ 1977 04f6 62756632 		.ascii	"buf2rwBondary\000"
+ 1977      7277426F 
+ 1977      6E646172 
+ 1977      7900
+ 1978              	.LASF73:
+ 1979 0504 70657269 		.ascii	"periTrCmdGrSelMsk\000"
+ 1979      5472436D 
+ 1979      64477253 
+ 1979      656C4D73 
+ 1979      6B00
+ 1980              	.LASF62:
+ 1981 0516 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
+ 1981      6843746C 
+ 1981      4D61696E 
+ 1981      57733146 
+ 1981      72657100 
+ 1982              	.LASF158:
+ 1983 052a 62756653 		.ascii	"bufSize\000"
+ 1983      697A6500 
+ 1984              	.LASF9:
+ 1985 0532 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1985      20756E73 
+ 1985      69676E65 
+ 1985      6420696E 
+ 1985      7400
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 43
+
+
+ 1986              	.LASF193:
+ 1987 0544 656E6162 		.ascii	"enableCompareSwap\000"
+ 1987      6C65436F 
+ 1987      6D706172 
+ 1987      65537761 
+ 1987      7000
+ 1988              	.LASF217:
+ 1989 0556 4932435F 		.ascii	"I2C_ARD_context\000"
+ 1989      4152445F 
+ 1989      636F6E74 
+ 1989      65787400 
+ 1990              	.LASF166:
+ 1991 0566 63795F63 		.ascii	"cy_cb_scb_uart_handle_events_t\000"
+ 1991      625F7363 
+ 1991      625F7561 
+ 1991      72745F68 
+ 1991      616E646C 
+ 1992              	.LASF210:
+ 1993 0585 55415254 		.ascii	"UART_context\000"
+ 1993      5F636F6E 
+ 1993      74657874 
+ 1993      00
+ 1994              	.LASF38:
+ 1995 0592 63707573 		.ascii	"cpussIpcNr\000"
+ 1995      73497063 
+ 1995      4E7200
+ 1996              	.LASF25:
+ 1997 059d 6770696F 		.ascii	"gpioBase\000"
+ 1997      42617365 
+ 1997      00
+ 1998              	.LASF51:
+ 1999 05a6 65704D6F 		.ascii	"epMonitorNr\000"
+ 1999      6E69746F 
+ 1999      724E7200 
+ 2000              	.LASF168:
+ 2001 05b2 74785374 		.ascii	"txStatus\000"
+ 2001      61747573 
+ 2001      00
+ 2002              	.LASF116:
+ 2003 05bb 75736554 		.ascii	"useTxFifo\000"
+ 2003      78466966 
+ 2003      6F00
+ 2004              	.LASF198:
+ 2005 05c5 73776170 		.ascii	"swapInputMode\000"
+ 2005      496E7075 
+ 2005      744D6F64 
+ 2005      6500
+ 2006              	.LASF74:
+ 2007 05d3 70657269 		.ascii	"periTrGrOffset\000"
+ 2007      54724772 
+ 2007      4F666673 
+ 2007      657400
+ 2008              	.LASF45:
+ 2009 05e2 73727373 		.ascii	"srssNumClkpath\000"
+ 2009      4E756D43 
+ 2009      6C6B7061 
+ 2009      746800
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 44
+
+
+ 2010              	.LASF101:
+ 2011 05f1 63707573 		.ascii	"cpussRam1Ctl0\000"
+ 2011      7352616D 
+ 2011      3143746C 
+ 2011      3000
+ 2012              	.LASF204:
+ 2013 05ff 6B696C6C 		.ascii	"killInputMode\000"
+ 2013      496E7075 
+ 2013      744D6F64 
+ 2013      6500
+ 2014              	.LASF134:
+ 2015 060d 63624576 		.ascii	"cbEvents\000"
+ 2015      656E7473 
+ 2015      00
+ 2016              	.LASF75:
+ 2017 0616 70657269 		.ascii	"periTrGrSize\000"
+ 2017      54724772 
+ 2017      53697A65 
+ 2017      00
+ 2018              	.LASF223:
+ 2019 0623 43795F53 		.ascii	"Cy_SysEnableCM4\000"
+ 2019      7973456E 
+ 2019      61626C65 
+ 2019      434D3400 
+ 2020              	.LASF33:
+ 2021 0633 6770696F 		.ascii	"gpioVersion\000"
+ 2021      56657273 
+ 2021      696F6E00 
+ 2022              	.LASF105:
+ 2023 063f 63795F73 		.ascii	"cy_stc_device_t\000"
+ 2023      74635F64 
+ 2023      65766963 
+ 2023      655F7400 
+ 2024              	.LASF143:
+ 2025 064f 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_RX_OFFSET_LSB\000"
+ 2025      43425F45 
+ 2025      5A493243 
+ 2025      5F535441 
+ 2025      54455F52 
+ 2026              	.LASF195:
+ 2027 0670 696E7665 		.ascii	"invertPWMOut\000"
+ 2027      72745057 
+ 2027      4D4F7574 
+ 2027      00
+ 2028              	.LASF186:
+ 2029 067d 64656164 		.ascii	"deadTimeClocks\000"
+ 2029      54696D65 
+ 2029      436C6F63 
+ 2029      6B7300
+ 2030              	.LASF172:
+ 2031 068c 72785269 		.ascii	"rxRingBufHead\000"
+ 2031      6E674275 
+ 2031      66486561 
+ 2031      6400
+ 2032              	.LASF94:
+ 2033 069a 63707573 		.ascii	"cpussTrimRamCtlOffset\000"
+ 2033      73547269 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 45
+
+
+ 2033      6D52616D 
+ 2033      43746C4F 
+ 2033      66667365 
+ 2034              	.LASF131:
+ 2035 06b0 736C6176 		.ascii	"slaveRxBuffer\000"
+ 2035      65527842 
+ 2035      75666665 
+ 2035      7200
+ 2036              	.LASF162:
+ 2037 06be 62756632 		.ascii	"buf2\000"
+ 2037      00
+ 2038              	.LASF29:
+ 2039 06c3 63707573 		.ascii	"cpussVersion\000"
+ 2039      73566572 
+ 2039      73696F6E 
+ 2039      00
+ 2040              	.LASF36:
+ 2041 06d0 70657269 		.ascii	"periVersion\000"
+ 2041      56657273 
+ 2041      696F6E00 
+ 2042              	.LASF92:
+ 2043 06dc 63707573 		.ascii	"cpussCm0StatusOffset\000"
+ 2043      73436D30 
+ 2043      53746174 
+ 2043      75734F66 
+ 2043      66736574 
+ 2044              	.LASF17:
+ 2045 06f1 73697A65 		.ascii	"sizetype\000"
+ 2045      74797065 
+ 2045      00
+ 2046              	.LASF66:
+ 2047 06fa 64774368 		.ascii	"dwChOffset\000"
+ 2047      4F666673 
+ 2047      657400
+ 2048              	.LASF123:
+ 2049 0705 6D617374 		.ascii	"masterBufferIdx\000"
+ 2049      65724275 
+ 2049      66666572 
+ 2049      49647800 
+ 2050              	.LASF41:
+ 2051 0715 63707573 		.ascii	"cpussFlashPaSize\000"
+ 2051      73466C61 
+ 2051      73685061 
+ 2051      53697A65 
+ 2051      00
+ 2052              	.LASF79:
+ 2053 0726 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
+ 2053      44697643 
+ 2053      6D645061 
+ 2053      54797065 
+ 2053      53656C50 
+ 2054              	.LASF102:
+ 2055 073d 63707573 		.ascii	"cpussRam2Ctl0\000"
+ 2055      7352616D 
+ 2055      3243746C 
+ 2055      3000
+ 2056              	.LASF140:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 46
+
+
+ 2057 074b 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_IDLE\000"
+ 2057      43425F45 
+ 2057      5A493243 
+ 2057      5F535441 
+ 2057      54455F49 
+ 2058              	.LASF70:
+ 2059 0763 64775374 		.ascii	"dwStatusChIdxPos\000"
+ 2059      61747573 
+ 2059      43684964 
+ 2059      78506F73 
+ 2059      00
+ 2060              	.LASF52:
+ 2061 0774 75646250 		.ascii	"udbPresent\000"
+ 2061      72657365 
+ 2061      6E7400
+ 2062              	.LASF169:
+ 2063 077f 72785374 		.ascii	"rxStatus\000"
+ 2063      61747573 
+ 2063      00
+ 2064              	.LASF32:
+ 2065 0788 666C6173 		.ascii	"flashcVersion\000"
+ 2065      68635665 
+ 2065      7273696F 
+ 2065      6E00
+ 2066              	.LASF28:
+ 2067 0796 63727970 		.ascii	"cryptoBase\000"
+ 2067      746F4261 
+ 2067      736500
+ 2068              	.LASF49:
+ 2069 07a1 736D6966 		.ascii	"smifDeviceNr\000"
+ 2069      44657669 
+ 2069      63654E72 
+ 2069      00
+ 2070              	.LASF221:
+ 2071 07ae 5F5F656E 		.ascii	"__enable_irq\000"
+ 2071      61626C65 
+ 2071      5F697271 
+ 2071      00
+ 2072              	.LASF144:
+ 2073 07bb 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_RX_DATA0\000"
+ 2073      43425F45 
+ 2073      5A493243 
+ 2073      5F535441 
+ 2073      54455F52 
+ 2074              	.LASF145:
+ 2075 07d7 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_RX_DATA1\000"
+ 2075      43425F45 
+ 2075      5A493243 
+ 2075      5F535441 
+ 2075      54455F52 
+ 2076              	.LASF183:
+ 2077 07f3 70776D4D 		.ascii	"pwmMode\000"
+ 2077      6F646500 
+ 2078              	.LASF107:
+ 2079 07fb 666C6F61 		.ascii	"float\000"
+ 2079      7400
+ 2080              	.LASF71:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 47
+
+
+ 2081 0801 64775374 		.ascii	"dwStatusChIdxMsk\000"
+ 2081      61747573 
+ 2081      43684964 
+ 2081      784D736B 
+ 2081      00
+ 2082              	.LASF209:
+ 2083 0812 63795F64 		.ascii	"cy_device\000"
+ 2083      65766963 
+ 2083      6500
+ 2084              	.LASF99:
+ 2085 081c 63707573 		.ascii	"cpussRomCtl\000"
+ 2085      73526F6D 
+ 2085      43746C00 
+ 2086              	.LASF212:
+ 2087 0828 50574D5F 		.ascii	"PWM_RED_config\000"
+ 2087      5245445F 
+ 2087      636F6E66 
+ 2087      696700
+ 2088              	.LASF69:
+ 2089 0837 64774368 		.ascii	"dwChCtlPreemptablePos\000"
+ 2089      43746C50 
+ 2089      7265656D 
+ 2089      70746162 
+ 2089      6C65506F 
+ 2090              	.LASF197:
+ 2091 084d 6B696C6C 		.ascii	"killMode\000"
+ 2091      4D6F6465 
+ 2091      00
+ 2092              	.LASF147:
+ 2093 0856 63795F65 		.ascii	"cy_en_scb_ezi2c_state_t\000"
+ 2093      6E5F7363 
+ 2093      625F657A 
+ 2093      6932635F 
+ 2093      73746174 
+ 2094              	.LASF22:
+ 2095 086e 75646242 		.ascii	"udbBase\000"
+ 2095      61736500 
+ 2096              	.LASF110:
+ 2097 0876 43595F53 		.ascii	"CY_SCB_I2C_ACK\000"
+ 2097      43425F49 
+ 2097      32435F41 
+ 2097      434B00
+ 2098              	.LASF109:
+ 2099 0885 5F426F6F 		.ascii	"_Bool\000"
+ 2099      6C00
+ 2100              	.LASF1:
+ 2101 088b 756E7369 		.ascii	"unsigned char\000"
+ 2101      676E6564 
+ 2101      20636861 
+ 2101      7200
+ 2102              	.LASF65:
+ 2103 0899 666C6173 		.ascii	"flashCtlMainWs4Freq\000"
+ 2103      6843746C 
+ 2103      4D61696E 
+ 2103      57733446 
+ 2103      72657100 
+ 2104              	.LASF0:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 48
+
+
+ 2105 08ad 73686F72 		.ascii	"short int\000"
+ 2105      7420696E 
+ 2105      7400
+ 2106              	.LASF24:
+ 2107 08b7 6873696F 		.ascii	"hsiomBase\000"
+ 2107      6D426173 
+ 2107      6500
+ 2108              	.LASF122:
+ 2109 08c1 6D617374 		.ascii	"masterBufferSize\000"
+ 2109      65724275 
+ 2109      66666572 
+ 2109      53697A65 
+ 2109      00
+ 2110              	.LASF76:
+ 2111 08d2 70657269 		.ascii	"periDivCmdDivSelMsk\000"
+ 2111      44697643 
+ 2111      6D644469 
+ 2111      7653656C 
+ 2111      4D736B00 
+ 2112              	.LASF216:
+ 2113 08e6 44696D6D 		.ascii	"Dimmer_config\000"
+ 2113      65725F63 
+ 2113      6F6E6669 
+ 2113      6700
+ 2114              	.LASF63:
+ 2115 08f4 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
+ 2115      6843746C 
+ 2115      4D61696E 
+ 2115      57733246 
+ 2115      72657100 
+ 2116              	.LASF119:
+ 2117 0908 6D617374 		.ascii	"masterPause\000"
+ 2117      65725061 
+ 2117      75736500 
+ 2118              	.LASF190:
+ 2119 0914 656E6162 		.ascii	"enablePeriodSwap\000"
+ 2119      6C655065 
+ 2119      72696F64 
+ 2119      53776170 
+ 2119      00
+ 2120              	.LASF114:
+ 2121 0925 63795F63 		.ascii	"cy_cb_scb_i2c_handle_addr_t\000"
+ 2121      625F7363 
+ 2121      625F6932 
+ 2121      635F6861 
+ 2121      6E646C65 
+ 2122              	.LASF199:
+ 2123 0941 73776170 		.ascii	"swapInput\000"
+ 2123      496E7075 
+ 2123      7400
+ 2124              	.LASF124:
+ 2125 094b 6D617374 		.ascii	"masterNumBytes\000"
+ 2125      65724E75 
+ 2125      6D427974 
+ 2125      657300
+ 2126              	.LASF130:
+ 2127 095a 736C6176 		.ascii	"slaveTxBufferCnt\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 49
+
+
+ 2127      65547842 
+ 2127      75666665 
+ 2127      72436E74 
+ 2127      00
+ 2128              	.LASF60:
+ 2129 096b 666C6173 		.ascii	"flashEraseDelay\000"
+ 2129      68457261 
+ 2129      73654465 
+ 2129      6C617900 
+ 2130              	.LASF43:
+ 2131 097b 63707573 		.ascii	"cpussFmIrq\000"
+ 2131      73466D49 
+ 2131      727100
+ 2132              	.LASF16:
+ 2133 0986 75696E74 		.ascii	"uint32_t\000"
+ 2133      33325F74 
+ 2133      00
+ 2134              	.LASF156:
+ 2135 098f 61646472 		.ascii	"addr1Active\000"
+ 2135      31416374 
+ 2135      69766500 
+ 2136              	.LASF141:
+ 2137 099b 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_ADDR\000"
+ 2137      43425F45 
+ 2137      5A493243 
+ 2137      5F535441 
+ 2137      54455F41 
+ 2138              	.LASF163:
+ 2139 09b3 62756632 		.ascii	"buf2Size\000"
+ 2139      53697A65 
+ 2139      00
+ 2140              	.LASF218:
+ 2141 09bc 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2141      43313120 
+ 2141      352E342E 
+ 2141      31203230 
+ 2141      31363036 
+ 2142 09ef 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 2142      20726576 
+ 2142      6973696F 
+ 2142      6E203233 
+ 2142      37373135 
+ 2143 0a22 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 2143      67202D66 
+ 2143      66756E63 
+ 2143      74696F6E 
+ 2143      2D736563 
+ 2144              	.LASF191:
+ 2145 0a4e 636F6D70 		.ascii	"compare0\000"
+ 2145      61726530 
+ 2145      00
+ 2146              	.LASF18:
+ 2147 0a57 6C6F6E67 		.ascii	"long double\000"
+ 2147      20646F75 
+ 2147      626C6500 
+ 2148              	.LASF106:
+ 2149 0a63 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 50
+
+
+ 2149      00
+ 2150              	.LASF207:
+ 2151 0a68 636F756E 		.ascii	"countInput\000"
+ 2151      74496E70 
+ 2151      757400
+ 2152              	.LASF37:
+ 2153 0a73 70726F74 		.ascii	"protVersion\000"
+ 2153      56657273 
+ 2153      696F6E00 
+ 2154              	.LASF100:
+ 2155 0a7f 63707573 		.ascii	"cpussRam0Ctl0\000"
+ 2155      7352616D 
+ 2155      3043746C 
+ 2155      3000
+ 2156              	.LASF146:
+ 2157 0a8d 43595F53 		.ascii	"CY_SCB_EZI2C_STATE_TX_DATA\000"
+ 2157      43425F45 
+ 2157      5A493243 
+ 2157      5F535441 
+ 2157      54455F54 
+ 2158              	.LASF5:
+ 2159 0aa8 5F5F7569 		.ascii	"__uint16_t\000"
+ 2159      6E743136 
+ 2159      5F7400
+ 2160              	.LASF81:
+ 2161 0ab3 70657269 		.ascii	"periDiv16CtlOffset\000"
+ 2161      44697631 
+ 2161      3643746C 
+ 2161      4F666673 
+ 2161      657400
+ 2162              	.LASF121:
+ 2163 0ac6 6D617374 		.ascii	"masterBuffer\000"
+ 2163      65724275 
+ 2163      66666572 
+ 2163      00
+ 2164              	.LASF34:
+ 2165 0ad3 6873696F 		.ascii	"hsiomVersion\000"
+ 2165      6D566572 
+ 2165      73696F6E 
+ 2165      00
+ 2166              	.LASF59:
+ 2167 0ae0 666C6173 		.ascii	"flashProgramDelay\000"
+ 2167      6850726F 
+ 2167      6772616D 
+ 2167      44656C61 
+ 2167      7900
+ 2168              	.LASF44:
+ 2169 0af2 63707573 		.ascii	"cpussNotConnectedIrq\000"
+ 2169      734E6F74 
+ 2169      436F6E6E 
+ 2169      65637465 
+ 2169      64497271 
+ 2170              	.LASF171:
+ 2171 0b07 72785269 		.ascii	"rxRingBufSize\000"
+ 2171      6E674275 
+ 2171      6653697A 
+ 2171      6500
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 51
+
+
+ 2172              	.LASF201:
+ 2173 0b15 72656C6F 		.ascii	"reloadInput\000"
+ 2173      6164496E 
+ 2173      70757400 
+ 2174              	.LASF6:
+ 2175 0b21 73686F72 		.ascii	"short unsigned int\000"
+ 2175      7420756E 
+ 2175      7369676E 
+ 2175      65642069 
+ 2175      6E7400
+ 2176              	.LASF67:
+ 2177 0b34 64774368 		.ascii	"dwChSize\000"
+ 2177      53697A65 
+ 2177      00
+ 2178              	.LASF138:
+ 2179 0b3d 43595F53 		.ascii	"CY_SCB_EZI2C_SUB_ADDR16_BITS\000"
+ 2179      43425F45 
+ 2179      5A493243 
+ 2179      5F535542 
+ 2179      5F414444 
+ 2180              	.LASF103:
+ 2181 0b5a 69706353 		.ascii	"ipcStructSize\000"
+ 2181      74727563 
+ 2181      7453697A 
+ 2181      6500
+ 2182              	.LASF115:
+ 2183 0b68 75736552 		.ascii	"useRxFifo\000"
+ 2183      78466966 
+ 2183      6F00
+ 2184              	.LASF202:
+ 2185 0b72 73746172 		.ascii	"startInputMode\000"
+ 2185      74496E70 
+ 2185      75744D6F 
+ 2185      646500
+ 2186              	.LASF42:
+ 2187 0b81 63707573 		.ascii	"cpussIpc0Irq\000"
+ 2187      73497063 
+ 2187      30497271 
+ 2187      00
+ 2188              	.LASF188:
+ 2189 0b8e 70657269 		.ascii	"period0\000"
+ 2189      6F643000 
+ 2190              	.LASF189:
+ 2191 0b96 70657269 		.ascii	"period1\000"
+ 2191      6F643100 
+ 2192              	.LASF192:
+ 2193 0b9e 636F6D70 		.ascii	"compare1\000"
+ 2193      61726531 
+ 2193      00
+ 2194              	.LASF89:
+ 2195 0ba7 63707573 		.ascii	"cpussCm0ClockCtlOffset\000"
+ 2195      73436D30 
+ 2195      436C6F63 
+ 2195      6B43746C 
+ 2195      4F666673 
+ 2196              	.LASF85:
+ 2197 0bbe 6770696F 		.ascii	"gpioPrtCfgOffset\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 52
+
+
+ 2197      50727443 
+ 2197      66674F66 
+ 2197      66736574 
+ 2197      00
+ 2198              	.LASF180:
+ 2199 0bcf 696E6974 		.ascii	"initKey\000"
+ 2199      4B657900 
+ 2200              	.LASF174:
+ 2201 0bd7 72784275 		.ascii	"rxBuf\000"
+ 2201      6600
+ 2202              	.LASF127:
+ 2203 0bdd 736C6176 		.ascii	"slaveTxBuffer\000"
+ 2203      65547842 
+ 2203      75666665 
+ 2203      7200
+ 2204              	.LASF128:
+ 2205 0beb 736C6176 		.ascii	"slaveTxBufferSize\000"
+ 2205      65547842 
+ 2205      75666665 
+ 2205      7253697A 
+ 2205      6500
+ 2206              	.LASF181:
+ 2207 0bfd 63795F73 		.ascii	"cy_stc_scb_uart_context_t\000"
+ 2207      74635F73 
+ 2207      63625F75 
+ 2207      6172745F 
+ 2207      636F6E74 
+ 2208              	.LASF47:
+ 2209 0c17 73727373 		.ascii	"srssNumHfroot\000"
+ 2209      4E756D48 
+ 2209      66726F6F 
+ 2209      7400
+ 2210              	.LASF159:
+ 2211 0c25 62756631 		.ascii	"buf1\000"
+ 2211      00
+ 2212              	.LASF150:
+ 2213 0c2a 73746174 		.ascii	"status\000"
+ 2213      757300
+ 2214              	.LASF112:
+ 2215 0c31 63795F65 		.ascii	"cy_en_scb_i2c_command_t\000"
+ 2215      6E5F7363 
+ 2215      625F6932 
+ 2215      635F636F 
+ 2215      6D6D616E 
+ 2216              	.LASF98:
+ 2217 0c49 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
+ 2217      73436D34 
+ 2217      4E6D6943 
+ 2217      746C4F66 
+ 2217      66736574 
+ 2218              	.LASF196:
+ 2219 0c5e 696E7665 		.ascii	"invertPWMOutN\000"
+ 2219      72745057 
+ 2219      4D4F7574 
+ 2219      4E00
+ 2220              	.LASF58:
+ 2221 0c6c 666C6173 		.ascii	"flashWriteDelay\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 53
+
+
+ 2221      68577269 
+ 2221      74654465 
+ 2221      6C617900 
+ 2222              	.LASF13:
+ 2223 0c7c 75696E74 		.ascii	"uint8_t\000"
+ 2223      385F7400 
+ 2224              	.LASF215:
+ 2225 0c84 50574D5F 		.ascii	"PWM_2_config\000"
+ 2225      325F636F 
+ 2225      6E666967 
+ 2225      00
+ 2226              	.LASF91:
+ 2227 0c91 63707573 		.ascii	"cpussCm4StatusOffset\000"
+ 2227      73436D34 
+ 2227      53746174 
+ 2227      75734F66 
+ 2227      66736574 
+ 2228              	.LASF84:
+ 2229 0ca6 6770696F 		.ascii	"gpioPrtIntrCfgOffset\000"
+ 2229      50727449 
+ 2229      6E747243 
+ 2229      66674F66 
+ 2229      66736574 
+ 2230              	.LASF165:
+ 2231 0cbb 63795F73 		.ascii	"cy_stc_scb_ezi2c_context_t\000"
+ 2231      74635F73 
+ 2231      63625F65 
+ 2231      7A693263 
+ 2231      5F636F6E 
+ 2232              	.LASF200:
+ 2233 0cd6 72656C6F 		.ascii	"reloadInputMode\000"
+ 2233      6164496E 
+ 2233      7075744D 
+ 2233      6F646500 
+ 2234              	.LASF173:
+ 2235 0ce6 72785269 		.ascii	"rxRingBufTail\000"
+ 2235      6E674275 
+ 2235      66546169 
+ 2235      6C00
+ 2236              	.LASF161:
+ 2237 0cf4 62756631 		.ascii	"buf1rwBondary\000"
+ 2237      7277426F 
+ 2237      6E646172 
+ 2237      7900
+ 2238              	.LASF95:
+ 2239 0d02 63707573 		.ascii	"cpussTrimRomCtlOffset\000"
+ 2239      73547269 
+ 2239      6D526F6D 
+ 2239      43746C4F 
+ 2239      66667365 
+ 2240              	.LASF206:
+ 2241 0d18 636F756E 		.ascii	"countInputMode\000"
+ 2241      74496E70 
+ 2241      75744D6F 
+ 2241      646500
+ 2242              	.LASF31:
+ 2243 0d27 64775665 		.ascii	"dwVersion\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccUcDa2M.s 			page 54
+
+
+ 2243      7273696F 
+ 2243      6E00
+ 2244              	.LASF27:
+ 2245 0d31 69706342 		.ascii	"ipcBase\000"
+ 2245      61736500 
+ 2246              	.LASF154:
+ 2247 0d39 62617365 		.ascii	"baseAddr1\000"
+ 2247      41646472 
+ 2247      3100
+ 2248              	.LASF155:
+ 2249 0d43 62617365 		.ascii	"baseAddr2\000"
+ 2249      41646472 
+ 2249      3200
+ 2250              	.LASF78:
+ 2251 0d4d 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
+ 2251      44697643 
+ 2251      6D645061 
+ 2251      44697653 
+ 2251      656C506F 
+ 2252              	.LASF167:
+ 2253 0d63 63795F73 		.ascii	"cy_stc_scb_uart_context\000"
+ 2253      74635F73 
+ 2253      63625F75 
+ 2253      6172745F 
+ 2253      636F6E74 
+ 2254              	.LASF220:
+ 2255 0d7b 433A5C41 		.ascii	"C:\\Alen\\GitHub_Denzerek\\testThearm\\BLEControlle"
+ 2255      6C656E5C 
+ 2255      47697448 
+ 2255      75625F44 
+ 2255      656E7A65 
+ 2256 0daa 6441726D 		.ascii	"dArm\\BLE_ARM_Workspace\\MainArmController.cydsn\000"
+ 2256      5C424C45 
+ 2256      5F41524D 
+ 2256      5F576F72 
+ 2256      6B737061 
+ 2257              	.LASF56:
+ 2258 0dd9 666C6173 		.ascii	"flashRwwRequired\000"
+ 2258      68527777 
+ 2258      52657175 
+ 2258      69726564 
+ 2258      00
+ 2259              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CapSense_Processing.c
-* \version 2.0
+* \version 3.0
 *
 * \brief
 *   This file provides the source code for the Data Processing module APIs
@@ -9,7 +9,7 @@
 *   baseline and difference values and performing high-level widget processing
 *   like updating button status or calculating slider position.
 *
-* \see CapSense v2.0 Datasheet
+* \see CapSense v3.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.

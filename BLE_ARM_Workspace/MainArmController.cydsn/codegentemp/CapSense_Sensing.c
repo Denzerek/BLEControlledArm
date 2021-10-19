@@ -1,12 +1,12 @@
 /***************************************************************************//**
 * \file CapSense_Sensing.c
-* \version 2.0
+* \version 3.0
 *
 * \brief
 *   This file contains the source of functions common for
 *   different sensing methods.
 *
-* \see CapSense v2.0 Datasheet
+* \see CapSense v3.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.
@@ -60,6 +60,8 @@
 #if (CapSense_ENABLE == CapSense_SELF_TEST_EN)
     #include "CapSense_SelfTest.h"
 #endif
+#include "cyapicallbacks.h"
+
 
 /***************************************
 * API Constants
@@ -206,6 +208,63 @@ uint32 CapSense_IsBusy(void)
 {
     return (CapSense_dsRam.status & CapSense_SW_STS_BUSY);
 }
+
+
+/*******************************************************************************
+* Function Name: CapSense_SetBusyFlags
+****************************************************************************//**
+*
+* Sets the BUSY flags of the CapSense_dsRam.status register specified
+* by the flags parameter.
+*
+* This is an internal function. Do not call this function directly from
+* the application layer.
+*
+* \param flags
+*  Specifies the bit-mask of flags to be set. The bit-mask can be constructed
+*  from the following flags:
+*   - CapSense_SW_STS_BUSY
+*   - CapSense_WDGT_SW_STS_BUSY
+*
+*******************************************************************************/
+void CapSense_SetBusyFlags(uint32 flags)
+{
+    flags &= (CapSense_SW_STS_BUSY | CapSense_WDGT_SW_STS_BUSY);
+    CapSense_dsRam.status |= flags;
+}
+
+
+/*******************************************************************************
+* Function Name: CapSense_ClrBusyFlags
+****************************************************************************//**
+*
+* Clears the BUSY flags of the CapSense_dsRam.status register specified
+* by the flags parameter.
+*
+* This is an internal function. Do not call this function directly from
+* the application layer.
+*
+* \param flags
+*  Specifies the bit-mask of flags to be cleared. The bit-mask can be constructed
+*  from the following flags:
+*   - CapSense_SW_STS_BUSY
+*   - CapSense_WDGT_SW_STS_BUSY
+*
+*******************************************************************************/
+void CapSense_ClrBusyFlags(uint32 flags)
+{
+    /* Clear busy flag */
+    flags &= (CapSense_SW_STS_BUSY | CapSense_WDGT_SW_STS_BUSY);
+    CapSense_dsRam.status &= (~flags);
+
+    #ifdef CapSense_END_OF_SCAN_CALLBACK
+        if(0uL == (flags & CapSense_SW_STS_BUSY))
+        {
+            CapSense_EndOfScanCallback(CapSense_widgetIndex, CapSense_sensorIndex);
+        }
+    #endif /* CapSense_END_OF_SCAN_CALLBACK */
+}
+
 
 /*******************************************************************************
 * Function Name: CapSense_SetupWidget
@@ -1037,7 +1096,7 @@ void CapSense_SsPostAllWidgetsScan(void)
                 /* Update scan Counter */
                 CapSense_dsRam.scanCounter++;
                 /* all the widgets are totally processed. Reset BUSY flag */
-                CapSense_dsRam.status &= ~CapSense_SW_STS_BUSY;
+                CapSense_ClrBusyFlags(CapSense_SW_STS_BUSY);
 
                 /* Update status with with the failure */
                 CapSense_dsRam.status &= ~CapSense_STATUS_ERR_MASK;
