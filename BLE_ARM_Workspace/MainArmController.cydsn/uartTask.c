@@ -41,6 +41,8 @@ void UartTask(void * arg)
     serialPrint("UART TASK Started ... ");
     serialPrint("Press ? to ensure reception operation");
     
+    CyDelay(1);
+    
     uartSemaphore = xSemaphoreCreateBinary();
     
     PWM_Message_t pwmMessage;
