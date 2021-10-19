@@ -21,7 +21,6 @@ void capsenseTask(void *arg)
     PWM_Message_t myMessage;
     
     
-        xSemaphoreTake(bleInitSemaphore,portMAX_DELAY);
     
     CapSense_Start();
     CapSense_ScanAllWidgets();

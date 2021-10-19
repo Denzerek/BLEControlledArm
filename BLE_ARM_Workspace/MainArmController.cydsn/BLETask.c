@@ -15,7 +15,6 @@
 #define LED_OFF 1
 
 SemaphoreHandle_t bleSemaphore;
-SemaphoreHandle_t bleInitSemaphore;
 
 void genericEventHandler(uint32_t event,void* eventParam)
 {
@@ -28,12 +27,6 @@ void genericEventHandler(uint32_t event,void* eventParam)
         Cy_GPIO_Write(LED9_PORT,LED9_NUM,LED_OFF);
         Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST,CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
         
-    BaseType_t xHigherPriorityTaskWoken;
-    xHigherPriorityTaskWoken = pdFALSE;
-    xSemaphoreGiveFromISR(bleInitSemaphore,&xHigherPriorityTaskWoken);
-    //This part does a context switch by calling the scheduler to go the task where the semaphore caused an unblock.
-    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-    
         break;
         
         case CY_BLE_EVT_GATT_CONNECT_IND:
@@ -76,7 +69,6 @@ void bleTask(void * arg)
     UART_HIGH_START();
     ble_print("BLE Task started");
     bleSemaphore = xSemaphoreCreateBinary();
-    bleInitSemaphore = xSemaphoreCreateBinary();
     
     //register the generic handler
     Cy_BLE_Start(genericEventHandler);
