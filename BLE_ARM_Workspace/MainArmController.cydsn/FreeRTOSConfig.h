@@ -168,7 +168,14 @@ See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html
 /* Put KERNEL_INTERRUPT_PRIORITY in top __NVIC_PRIO_BITS bits of CM4 register */
 #define configKERNEL_INTERRUPT_PRIORITY         0xFF
 /* Put MAX_SYSCALL_INTERRUPT_PRIORITY in top __NVIC_PRIO_BITS bits of CM4 register */
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY    0xBF
+
+//#define configMAX_SYSCALL_INTERRUPT_PRIORITY    0x3F
+    #ifdef __NVIC_PRIO_BITS
+        #define configPRIO_BITS     __NVIC_PRIO_BITS
+        #else
+            #define configPRIO_BITS    4
+            #endif
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY    (1<<(8-configPRIO_BITS))
 /* configMAX_API_CALL_INTERRUPT_PRIORITY is a new name for configMAX_SYSCALL_INTERRUPT_PRIORITY
  that is used by newer ports only. The two are equivalent. */
 #define configMAX_API_CALL_INTERRUPT_PRIORITY 	configMAX_SYSCALL_INTERRUPT_PRIORITY

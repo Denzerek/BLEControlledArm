@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 1
 
 
    1              		.syntax unified
@@ -26,7 +26,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
   23              		.thumb_func
   24              		.type	PWM_2_Start, %function
   25              	PWM_2_Start:
-  26              	.LFB90:
+  26              	.LFB99:
   27              		.file 1 "Generated_Source\\PSoC6\\PWM_2.c"
    1:Generated_Source\PSoC6/PWM_2.c **** /*******************************************************************************
    2:Generated_Source\PSoC6/PWM_2.c **** * File Name: PWM_2.c
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
   28:Generated_Source\PSoC6/PWM_2.c **** */ 
   29:Generated_Source\PSoC6/PWM_2.c **** cy_stc_tcpwm_pwm_config_t const PWM_2_config =
   30:Generated_Source\PSoC6/PWM_2.c **** {
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 2
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 2
 
 
   31:Generated_Source\PSoC6/PWM_2.c ****     .pwmMode = 4UL,
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
   39 0006 002B     		cmp	r3, #0
   40 0008 07D1     		bne	.L2
   74:Generated_Source\PSoC6/PWM_2.c ****     {
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 3
 
 
   75:Generated_Source\PSoC6/PWM_2.c ****         (void) Cy_TCPWM_PWM_Init(PWM_2_HW, PWM_2_CNT_NUM, &PWM_2_config);
@@ -141,7 +141,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
   55              		.file 2 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/tcpwm/cy_tcpwm.h"
    1:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /***************************************************************************//**
    2:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \file cy_tcpwm.h
-   3:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \version 1.0.1
+   3:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \version 1.10
    4:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
    5:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The header file of the TCPWM driver.
    6:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
@@ -154,7 +154,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
   13:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
   14:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
   15:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
-  16:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm Timer Counter PWM (TCPWM)
+  16:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm
   17:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
   18:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_common  Common
   19:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_counter Timer/Counter (TCPWM)
@@ -169,378 +169,418 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
   28:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The TCPWM driver is a multifunction driver that implements Timer Counter, 
   29:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * PWM, and Quadrature Decoder functionality using the TCPWM block.
   30:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  31:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Each TCPWM block is a collection of counters that can all be triggered 
-  32:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * simultaneously. For each function call, the base register address of 
-  33:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the TCPWM being used must be passed first, followed by the index of 
-  34:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the counter you want to touch next. 
-  35:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For some functions, you can manage multiple counters simultaneously. You 
-  36:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * provide a bit field representing each counter, rather than the single counter 
-  37:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * index). 
-  38:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  39:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The TCPWM supports three operating modes:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 4
+  31:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The functions and other declarations used in this driver are in cy_tcpwm_counter.h, 
+  32:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * cy_tcpwm_pwm.h, cy_tcpwm_quaddec.h respectively. Include cy_pdl.h 
+  33:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * (ModusToolbox only) to get access to all functions and declarations in the PDL.
+  34:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  35:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Each TCPWM block is a collection of counters that can all be triggered 
+  36:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * simultaneously. For each function call, the base register address of 
+  37:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the TCPWM being used must be passed first, followed by the index of 
+  38:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the counter you want to touch next. 
+  39:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For some functions, you can manage multiple counters simultaneously. You 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 4
 
 
-  40:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Timer/Counter
-  41:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * PWM
-  42:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Quadrature Decoder
-  43:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  44:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
-  45:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b Timer/Counter
-  46:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  47:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Use this mode whenever a specific timing interval or measurement is 
-  48:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * needed. Examples include:
-  49:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Creating a periodic interrupt for running other system tasks
-  50:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Measuring frequency of an input signal
-  51:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Measuring pulse width of an input signal
-  52:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Measuring time between two external events
-  53:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Counting events
-  54:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Triggering other system resources after x number events
-  55:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Capturing time stamps when events occur
-  56:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  57:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The Timer/Counter has the following features:
-  58:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * 16- or 32-bit Timer/Counter
-  59:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Programmable Period Register
-  60:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Programmable Compare Register. Compare value can be swapped with a 
-  61:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * buffered compare value on comparison event
-  62:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Capture with buffer register
-  63:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Count Up, Count Down, or Count Up and Down Counting modes
-  64:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Continuous or One Shot Run modes
-  65:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Interrupt and Output on Overflow, Underflow, Capture, or Compare 
-  66:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Start, Reload, Stop, Capture, and Count Inputs
-  67:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  68:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
-  69:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b PWM
-  70:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  71:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Use this mode when an output square wave is needed with a specific 
-  72:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * period and duty cycle, such as:
-  73:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Creating arbitrary square wave outputs
-  74:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Driving an LED (changing the brightness)
-  75:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Driving Motors (dead time assertion available)
-  76:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  77:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The PWM has the following features:
-  78:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * 16- or 32-bit Counter
-  79:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two Programmable Period registers that can be swapped
-  80:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two Output Compare registers that can be swapped on overflow and/or 
-  81:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * underflow
-  82:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Left Aligned, Right Aligned, Center Aligned, and Asymmetric Aligned modes
-  83:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Continuous or One Shot run modes
-  84:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Pseudo Random mode
-  85:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two PWM outputs with Dead Time insertion, and programmable polarity
-  86:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Interrupt and Output on Overflow, Underflow, or Compare 
-  87:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Start, Reload, Stop, Swap (Capture), and Count Inputs
-  88:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Multiple Components can be synchronized together for applications 
-  89:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * such as three phase motor control
-  90:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  91:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
-  92:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b Quadrature \b Decoder
-  93:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
-  94:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature decoder is used to decode the output of a quadrature encoder. 
-  95:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature encoder senses the position, velocity, and direction of 
-  96:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * an object (for example a rotating axle, or a spinning mouse ball). 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 5
+  40:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * provide a bit field representing each counter, rather than the single counter 
+  41:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * index). 
+  42:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  43:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The TCPWM supports three operating modes:
+  44:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Timer/Counter
+  45:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * PWM
+  46:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Quadrature Decoder
+  47:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  48:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
+  49:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b Timer/Counter
+  50:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  51:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Use this mode whenever a specific timing interval or measurement is 
+  52:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * needed. Examples include:
+  53:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Creating a periodic interrupt for running other system tasks
+  54:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Measuring frequency of an input signal
+  55:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Measuring pulse width of an input signal
+  56:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Measuring time between two external events
+  57:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Counting events
+  58:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Triggering other system resources after x number events
+  59:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Capturing time stamps when events occur
+  60:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  61:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The Timer/Counter has the following features:
+  62:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * 16- or 32-bit Timer/Counter
+  63:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Programmable Period Register
+  64:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Programmable Compare Register. Compare value can be swapped with a 
+  65:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * buffered compare value on comparison event
+  66:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Capture with buffer register
+  67:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Count Up, Count Down, or Count Up and Down Counting modes
+  68:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Continuous or One Shot Run modes
+  69:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Interrupt and Output on Overflow, Underflow, Capture, or Compare 
+  70:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Start, Reload, Stop, Capture, and Count Inputs
+  71:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  72:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
+  73:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b PWM
+  74:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  75:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Use this mode when an output square wave is needed with a specific 
+  76:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * period and duty cycle, such as:
+  77:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Creating arbitrary square wave outputs
+  78:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Driving an LED (changing the brightness)
+  79:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Driving Motors (dead time assertion available)
+  80:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  81:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The PWM has the following features:
+  82:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * 16- or 32-bit Counter
+  83:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two Programmable Period registers that can be swapped
+  84:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two Output Compare registers that can be swapped on overflow and/or 
+  85:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * underflow
+  86:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Left Aligned, Right Aligned, Center Aligned, and Asymmetric Aligned modes
+  87:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Continuous or One Shot run modes
+  88:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Pseudo Random mode
+  89:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two PWM outputs with Dead Time insertion, and programmable polarity
+  90:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Interrupt and Output on Overflow, Underflow, or Compare 
+  91:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Start, Reload, Stop, Swap (Capture), and Count Inputs
+  92:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Multiple Components can be synchronized together for applications 
+  93:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * such as three phase motor control
+  94:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  95:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
+  96:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b Quadrature \b Decoder
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 5
 
 
-  97:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature decoder can also be used for precision measurement of speed, 
-  98:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * acceleration, and position of a motor's rotor, or with a rotary switch to 
-  99:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * determine user input. \n
- 100:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * 
- 101:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The Quadrature Decoder has the following features:
- 102:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * 16- or 32-bit Counter
- 103:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Counter Resolution of x1, x2, and x4 the frequency of the phiA (Count) and 
- 104:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * phiB (Start) inputs
- 105:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Index Input to determine absolute position
- 106:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * A positive edge on phiA increments the counter when phiB is 0 and decrements
- 107:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the counter when phiB is 1
- 108:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 109:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_configuration Configuration Considerations
- 110:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 111:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For each mode, the TCPWM driver has a configuration structure, an Init 
- 112:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * function, and an Enable function. 
- 113:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 114:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Provide the configuration parameters in the appropriate structure (see
- 115:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Counter \ref group_tcpwm_data_structures_counter, PWM 
- 116:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_pwm, or QuadDec 
- 117:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_quaddec). 
- 118:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Then call the appropriate Init function: 
- 119:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_Counter_Init, \ref Cy_TCPWM_PWM_Init, or 
- 120:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_QuadDec_Init. Provide the address of the filled structure as a 
- 121:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * parameter. To enable the counter, call the appropriate Enable function: 
- 122:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_Counter_Enable, \ref Cy_TCPWM_PWM_Enable, or 
- 123:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_QuadDec_Enable).
- 124:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 125:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Many functions work with an individual counter. You can also manage multiple 
- 126:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * counters simultaneously for certain functions. These are listed in the 
- 127:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_functions_common 
- 128:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * section of the TCPWM. You can enable, disable, or trigger (in various ways) 
- 129:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * multiple counters simultaneously. For these functions you provide a bit field 
- 130:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * representing each counter in the TCPWM you want to control. You can 
- 131:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * represent the bit field as an ORed mask of each counter, like 
- 132:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * ((1U << cntNumX) | (1U << cntNumX) | (1U << cntNumX)), where X is the counter 
- 133:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * number from 0 to 31.
- 134:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 135:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \note
- 136:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * If none of the input terminals (start, reload(index)) are used, the 
- 137:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * software event \ref Cy_TCPWM_TriggerStart or 
- 138:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_TriggerReloadOrIndex must be called to start the counting.
- 139:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * If count input terminal is not used, the \ref CY_TCPWM_INPUT_LEVEL macro 
- 140:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * should be set for the countInputMode parameter and the \ref CY_TCPWM_INPUT_1 
- 141:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * macro should be set for the countInputMode parameter in the configuration 
- 142:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * structure of the appropriate mode(Counter 
- 143:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_counter, PWM 
- 144:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_pwm, or QuadDec 
- 145:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_quaddec).
- 146:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 147:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_more_information More Information
- 148:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 149:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For more information on the TCPWM peripheral, refer to the technical 
- 150:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * reference manual (TRM).
- 151:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 152:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_MISRA MISRA-C Compliance 
- 153:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * <table class="doxtable">
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 6
+  97:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  98:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature decoder is used to decode the output of a quadrature encoder. 
+  99:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature encoder senses the position, velocity, and direction of 
+ 100:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * an object (for example a rotating axle, or a spinning mouse ball). 
+ 101:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature decoder can also be used for precision measurement of speed, 
+ 102:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * acceleration, and position of a motor's rotor, or with a rotary switch to 
+ 103:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * determine user input. \n
+ 104:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * 
+ 105:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The Quadrature Decoder has the following features:
+ 106:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * 16- or 32-bit Counter
+ 107:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Counter Resolution of x1, x2, and x4 the frequency of the phiA (Count) and 
+ 108:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * phiB (Start) inputs
+ 109:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Index Input to determine absolute position
+ 110:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * A positive edge on phiA increments the counter when phiB is 0 and decrements
+ 111:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the counter when phiB is 1
+ 112:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 113:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_configuration Configuration Considerations
+ 114:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 115:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For each mode, the TCPWM driver has a configuration structure, an Init 
+ 116:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * function, and an Enable function. 
+ 117:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 118:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Provide the configuration parameters in the appropriate structure (see
+ 119:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Counter \ref group_tcpwm_data_structures_counter, PWM 
+ 120:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_pwm, or QuadDec 
+ 121:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_quaddec). 
+ 122:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Then call the appropriate Init function: 
+ 123:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_Counter_Init, \ref Cy_TCPWM_PWM_Init, or 
+ 124:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_QuadDec_Init. Provide the address of the filled structure as a 
+ 125:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * parameter. To enable the counter, call the appropriate Enable function: 
+ 126:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_Counter_Enable, \ref Cy_TCPWM_PWM_Enable, or 
+ 127:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_QuadDec_Enable).
+ 128:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 129:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Many functions work with an individual counter. You can also manage multiple 
+ 130:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * counters simultaneously for certain functions. These are listed in the 
+ 131:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_functions_common 
+ 132:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * section of the TCPWM. You can enable, disable, or trigger (in various ways) 
+ 133:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * multiple counters simultaneously. For these functions you provide a bit field 
+ 134:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * representing each counter in the TCPWM you want to control. You can 
+ 135:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * represent the bit field as an ORed mask of each counter, like 
+ 136:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * ((1U << cntNumX) | (1U << cntNumX) | (1U << cntNumX)), where X is the counter 
+ 137:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * number from 0 to 31.
+ 138:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 139:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \note
+ 140:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * If none of the input terminals (start, reload(index)) are used, the 
+ 141:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * software event \ref Cy_TCPWM_TriggerStart or 
+ 142:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_TriggerReloadOrIndex must be called to start the counting.
+ 143:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * If count input terminal is not used, the \ref CY_TCPWM_INPUT_LEVEL macro 
+ 144:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * should be set for the countInputMode parameter and the \ref CY_TCPWM_INPUT_1 
+ 145:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * macro should be set for the countInput parameter in the configuration 
+ 146:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * structure of the appropriate mode(Counter 
+ 147:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_counter, PWM 
+ 148:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_pwm, or QuadDec 
+ 149:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_quaddec).
+ 150:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 151:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \subsection group_tcpwm_pins Assign and Configure Pins
+ 152:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The dedicated TCPWM pins can be used. The HSIOM register must be configured to
+ 153:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * connect the block to the pins. Use the \ref group_gpio driver API to do that.
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 6
 
 
- 154:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
- 155:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>MISRA Rule</th>
- 156:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>Rule Class (Required/Advisory)</th>
- 157:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>Rule Description</th>
- 158:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>Description of Deviation(s)</th>
- 159:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
- 160:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
- 161:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>14.2</td>
- 162:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>R</td>
- 163:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>All non-null statements shall either: a) have at least one side-effect
- 164:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         however executed, or b) cause control flow to change.</td>
- 165:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>The unused function parameters are cast to void. This statement
- 166:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         has no side-effect and is used to suppress a compiler warning.</td>
- 167:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
- 168:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * </table>
- 169:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 170:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_changelog Changelog
- 171:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * <table class="doxtable">
- 172:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr><th>Version</th><th>Changes</th><th>Reason for Change</th></tr>
- 173:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
- 174:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>1.0.1</td>
- 175:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Added a deviation to the MISRA Compliance section.
- 176:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         Added function-level code snippets.</td>
- 177:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Documentation update and clarification</td>
- 178:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
- 179:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
- 180:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>1.0</td>
- 181:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Initial version</td>
- 182:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td></td>
- 183:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
- 184:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * </table>
- 185:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
- 186:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 187:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm */
- 188:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 189:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
- 190:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_common
- 191:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Common API for the Timer Counter PWM Block.
- 192:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
- 193:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_macros_common           Macros
- 194:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_functions_common        Functions
- 195:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_data_structures_common  Data Structures
- 196:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_enums Enumerated Types
- 197:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
- 198:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 199:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 200:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #if !defined(CY_TCPWM_H)
- 201:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_H
- 202:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 203:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include <stdint.h>
- 204:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include <stdbool.h>
- 205:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include <stddef.h>
- 206:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include "syslib/cy_syslib.h"
- 207:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include "cy_device_headers.h"
- 208:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 209:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #ifndef CY_IP_MXTCPWM
- 210:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     #error "The TCPWM driver is not supported on this device"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 7
+ 154:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 155:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm\1.10\counter\snippet\main.c snippet_Cy_TCPWM_Pins
+ 156:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 157:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \subsection group_tcpwm_clock Assign Clock Divider
+ 158:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The clock source must be connected to proper working.
+ 159:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Any of the peripheral clock dividers could be used. Use the  
+ 160:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_sysclk driver API to do that.
+ 161:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 162:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm\1.10\counter\snippet\main.c snippet_Cy_TCPWM_Clock
+ 163:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 164:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_more_information More Information
+ 165:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 166:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For more information on the TCPWM peripheral, refer to the technical 
+ 167:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * reference manual (TRM).
+ 168:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 169:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_MISRA MISRA-C Compliance 
+ 170:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * <table class="doxtable">
+ 171:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 172:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>MISRA Rule</th>
+ 173:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>Rule Class (Required/Advisory)</th>
+ 174:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>Rule Description</th>
+ 175:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>Description of Deviation(s)</th>
+ 176:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 177:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 178:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>14.2</td>
+ 179:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>R</td>
+ 180:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>All non-null statements shall either: a) have at least one side-effect
+ 181:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         however executed, or b) cause control flow to change.</td>
+ 182:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>The unused function parameters are cast to void. This statement
+ 183:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         has no side-effect and is used to suppress a compiler warning.</td>
+ 184:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 185:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * </table>
+ 186:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 187:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_changelog Changelog
+ 188:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * <table class="doxtable">
+ 189:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr><th>Version</th><th>Changes</th><th>Reason for Change</th></tr>
+ 190:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 191:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td rowspan="2">1.10</td>
+ 192:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Flattened the organization of the driver source code into the single 
+ 193:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         source directory and the single include directory.
+ 194:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     </td>
+ 195:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Driver library directory-structure simplification.</td>
+ 196:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 197:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 198:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Added register access layer. Use register access macros instead
+ 199:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         of direct register access using dereferenced pointers.</td>
+ 200:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Makes register access device-independent, so that the PDL does 
+ 201:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         not need to be recompiled for each supported part number.</td>
+ 202:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 203:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 204:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>1.0.1</td>
+ 205:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Added a deviation to the MISRA Compliance section.
+ 206:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         Added function-level code snippets.</td>
+ 207:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Documentation update and clarification</td>
+ 208:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 209:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 210:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>1.0</td>
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 7
 
 
- 211:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #endif
- 212:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 213:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #if defined(__cplusplus)
- 214:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** extern "C" {
- 215:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #endif
+ 211:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Initial version</td>
+ 212:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td></td>
+ 213:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 214:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * </table>
+ 215:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
  216:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 217:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
- 218:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_macros_common
- 219:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
- 220:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
- 221:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 222:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Driver major version */
- 223:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_DRV_VERSION_MAJOR       1
- 224:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 225:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Driver minor version */
- 226:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_DRV_VERSION_MINOR       0
- 227:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 228:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 229:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /******************************************************************************
- 230:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * API Constants
- 231:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ******************************************************************************/
- 232:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 233:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** TCPWM driver identifier */
- 234:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_ID                     (CY_PDL_DRV_ID(0x2DU))
- 235:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 236:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \defgroup group_tcpwm_input_selection  TCPWM Input Selection
- 237:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
- 238:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Selects which input to use
- 239:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
- 240:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_0                (0U)  /**< Input is tied to logic 0 */
- 241:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_1                (1U)  /**< Input is tied to logic 1 */
- 242:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_0           (2U)  /**< Input is connected to the trigger input 0 */
- 243:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_1           (3U)  /**< Input is connected to the trigger input 1 */
- 244:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_2           (4U)  /**< Input is connected to the trigger input 2 */
- 245:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_3           (5U)  /**< Input is connected to the trigger input 3 */
- 246:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_4           (6U)  /**< Input is connected to the trigger input 4 */
- 247:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_5           (7U)  /**< Input is connected to the trigger input 5 */
- 248:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_6           (8U)  /**< Input is connected to the trigger input 6 */
- 249:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_7           (9U)  /**< Input is connected to the trigger input 7 */
- 250:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_8           (10U) /**< Input is connected to the trigger input 8 */
- 251:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_9           (11U) /**< Input is connected to the trigger input 9 */
- 252:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_10          (12U) /**< Input is connected to the trigger input 10 */
- 253:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_11          (13U) /**< Input is connected to the trigger input 11 */
- 254:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_12          (14U) /**< Input is connected to the trigger input 12 */
- 255:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_13          (15U) /**< Input is connected to the trigger input 13 */
+ 217:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm */
+ 218:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 219:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 220:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_common
+ 221:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Common API for the Timer Counter PWM Block.
+ 222:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 223:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * This is the common API that provides an interface to the TCPWM hardware.
+ 224:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The Timer Counter, PWM, and Quadrature Decoder drivers use this common API.
+ 225:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Most users will use individual drivers and do not need to use the common
+ 226:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * API for the TCPWM.
+ 227:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 228:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The functions and other declarations used in this part of the driver are in cy_tcpwm.h. 
+ 229:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Include either of cy_tcpwm_counter.h, cy_tcpwm_pwm.h, cy_tcpwm_quaddec.h 
+ 230:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * depending on the desired functionality. You can also include cy_pdl.h 
+ 231:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * to get access to all functions and declarations in the PDL.
+ 232:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 233:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 234:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_macros_common           Macros
+ 235:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_functions_common        Functions
+ 236:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_data_structures_common  Data Structures
+ 237:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_enums Enumerated Types
+ 238:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 239:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 240:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 241:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #if !defined(CY_TCPWM_H)
+ 242:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_H
+ 243:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 244:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include <stdint.h>
+ 245:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include <stdbool.h>
+ 246:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include <stddef.h>
+ 247:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include "cy_syslib.h"
+ 248:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include "cy_device_headers.h"
+ 249:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include "cy_device.h"
+ 250:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 251:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #ifdef CY_IP_MXTCPWM
+ 252:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 253:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #if defined(__cplusplus)
+ 254:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** extern "C" {
+ 255:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #endif
  256:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 257:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Input is defined by Creator, and Init() function does not need to configure input */
- 258:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_CREATOR          (0xFFFFFFFFU)
- 259:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_input_selection */
- 260:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 261:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
- 262:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_input_modes  Input Modes
- 263:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
- 264:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Configures how TCPWM inputs behave
- 265:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
- 266:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A rising edge triggers the event (Capture, Start, Reload, etc..) */
- 267:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_RISINGEDGE       (0U)
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 8
+ 257:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 258:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_macros_common
+ 259:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 260:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 261:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 262:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Driver major version */
+ 263:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_DRV_VERSION_MAJOR       1
+ 264:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 265:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Driver minor version */
+ 266:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_DRV_VERSION_MINOR       10
+ 267:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 8
 
 
- 268:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A falling edge triggers the event (Capture, Start, Reload, etc..) */
- 269:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_FALLINGEDGE      (1U)
- 270:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A rising edge or falling edge triggers the event (Capture, Start, Reload, etc..) */
- 271:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_EITHEREDGE       (2U)
- 272:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** The event is triggered on each edge of the TCPWM clock if the input is high */
- 273:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_LEVEL            (3U)
- 274:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_input_modes */
+ 268:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 269:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /******************************************************************************
+ 270:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * API Constants
+ 271:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ******************************************************************************/
+ 272:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 273:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** TCPWM driver identifier */
+ 274:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_ID                     (CY_PDL_DRV_ID(0x2DU))
  275:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 276:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
- 277:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_interrupt_sources  Interrupt Sources
- 278:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
- 279:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Interrupt Sources 
- 280:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
- 281:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_TC              (1U) /**< Interrupt on Terminal count(TC) */
- 282:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC              (2U) /**< Interrupt on Compare/Capture(CC) */
- 283:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_NONE               (0U) /**< No Interrupt */
- 284:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC_OR_TC        (3U) /**< Interrupt on TC or CC */
- 285:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_interrupt_sources */
- 286:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 287:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 288:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /***************************************
- 289:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *        Registers Constants
- 290:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ***************************************/
- 291:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 292:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
- 293:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_reg_const Default registers constants
- 294:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
- 295:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Default constants for CNT Registers
- 296:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
- 297:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_CTRL_DEFAULT           (0x0U) /**< Default value for CTRL register */
- 298:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_COUNTER_DEFAULT        (0x0U) /**< Default value for COUNTER register */
- 299:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_CC_DEFAULT             (0xFFFFFFFFU) /**< Default value for CC register */
- 300:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_CC_BUFF_DEFAULT        (0xFFFFFFFFU) /**< Default value for CC_BUFF register *
- 301:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_PERIOD_DEFAULT         (0xFFFFFFFFU) /**< Default value for PERIOD register */
- 302:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_PERIOD_BUFF_DEFAULT    (0xFFFFFFFFU) /**< Default value for PERIOD_BUFF regist
- 303:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_TR_CTRL0_DEFAULT       (0x10U)  /**< Default value for TR_CTRL0 register */
- 304:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_TR_CTRL1_DEFAULT       (0x3FFU) /**< Default value for TR_CTRL1 register */
- 305:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_TR_CTRL2_DEFAULT       (0x3FU)  /**< Default value for TR_CTRL2 register */
- 306:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_INTR_DEFAULT           (0x3U)   /**< Default value for INTR register */
- 307:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_INTR_SET_DEFAULT       (0x0U)   /**< Default value for INTR_SET register */
- 308:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_INTR_MASK_DEFAULT      (0x0U)   /**< Default value for INTR_MASK register */
- 309:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_reg_const */
- 310:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 311:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Position of Up counting counter status */
- 312:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_STATUS_UP_POS          (0x1U)
- 313:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Initial value for the counter in the Up counting mode */
- 314:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_UP_INIT_VAL            (0x0U)
- 315:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Initial value for the counter in the Up/Down counting modes */
- 316:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_UP_DOWN_INIT_VAL       (0x1U)
- 317:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_macros_common */
- 318:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 319:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 320:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
- 321:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  * Enumerations
- 322:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  ******************************************************************************/
- 323:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 324:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  /**
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 9
+ 276:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \defgroup group_tcpwm_input_selection  TCPWM Input Selection
+ 277:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 278:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Selects which input to use
+ 279:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 280:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_0                (0U)  /**< Input is tied to logic 0 */
+ 281:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_1                (1U)  /**< Input is tied to logic 1 */
+ 282:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_0           (2U)  /**< Input is connected to the trigger input 0 */
+ 283:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_1           (3U)  /**< Input is connected to the trigger input 1 */
+ 284:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_2           (4U)  /**< Input is connected to the trigger input 2 */
+ 285:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_3           (5U)  /**< Input is connected to the trigger input 3 */
+ 286:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_4           (6U)  /**< Input is connected to the trigger input 4 */
+ 287:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_5           (7U)  /**< Input is connected to the trigger input 5 */
+ 288:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_6           (8U)  /**< Input is connected to the trigger input 6 */
+ 289:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_7           (9U)  /**< Input is connected to the trigger input 7 */
+ 290:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_8           (10U) /**< Input is connected to the trigger input 8 */
+ 291:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_9           (11U) /**< Input is connected to the trigger input 9 */
+ 292:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_10          (12U) /**< Input is connected to the trigger input 10 */
+ 293:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_11          (13U) /**< Input is connected to the trigger input 11 */
+ 294:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_12          (14U) /**< Input is connected to the trigger input 12 */
+ 295:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_13          (15U) /**< Input is connected to the trigger input 13 */
+ 296:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 297:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Input is defined by Creator, and Init() function does not need to configure input */
+ 298:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_CREATOR          (0xFFFFFFFFU)
+ 299:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_input_selection */
+ 300:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 301:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 302:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_input_modes  Input Modes
+ 303:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 304:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Configures how TCPWM inputs behave
+ 305:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 306:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A rising edge triggers the event (Capture, Start, Reload, etc..) */
+ 307:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_RISINGEDGE       (0U)
+ 308:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A falling edge triggers the event (Capture, Start, Reload, etc..) */
+ 309:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_FALLINGEDGE      (1U)
+ 310:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A rising edge or falling edge triggers the event (Capture, Start, Reload, etc..) */
+ 311:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_EITHEREDGE       (2U)
+ 312:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** The event is triggered on each edge of the TCPWM clock if the input is high */
+ 313:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_LEVEL            (3U)
+ 314:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_input_modes */
+ 315:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 316:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 317:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_interrupt_sources  Interrupt Sources
+ 318:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 319:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Interrupt Sources 
+ 320:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 321:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_TC              (1U) /**< Interrupt on Terminal count(TC) */
+ 322:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC              (2U) /**< Interrupt on Compare/Capture(CC) */
+ 323:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_NONE               (0U) /**< No Interrupt */
+ 324:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC_OR_TC        (3U) /**< Interrupt on TC or CC */
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 9
 
 
- 325:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_enums
- 326:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
- 327:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
- 328:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 329:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** TCPWM status definitions */
- 330:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** typedef enum 
- 331:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
- 332:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     CY_TCPWM_SUCCESS = 0x00U,                                           /**< Successful */
- 333:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     CY_TCPWM_BAD_PARAM = CY_TCPWM_ID | CY_PDL_STATUS_ERROR | 0x01U,     /**< One or more invalid pa
- 334:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** } cy_en_tcpwm_status_t;
- 335:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_enums */
- 336:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  
- 337:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
- 338:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *        Function Prototypes
- 339:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
- 340:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 341:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
- 342:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_functions_common
- 343:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
- 344:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
- 345:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
- 346:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Enable_Multiple(TCPWM_Type *base, uint32_t counters);
- 347:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Disable_Multiple(TCPWM_Type *base, uint32_t counters);
- 348:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerStart(TCPWM_Type *base, uint32_t counters);
- 349:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerReloadOrIndex(TCPWM_Type *base, uint32_t counters);
- 350:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerStopOrKill(TCPWM_Type *base, uint32_t counters);
- 351:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerCaptureOrSwap(TCPWM_Type *base, uint32_t counters);
- 352:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE uint32_t Cy_TCPWM_GetInterruptStatus(TCPWM_Type const *base, uint32_t cntNum);
- 353:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_ClearInterrupt(TCPWM_Type *base, uint32_t cntNum, uint32_t source);
- 354:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_SetInterrupt(TCPWM_Type *base, uint32_t cntNum, uint32_t source);
- 355:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_SetInterruptMask(TCPWM_Type *base, uint32_t cntNum, uint32_t mask);
- 356:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE uint32_t Cy_TCPWM_GetInterruptMask(TCPWM_Type const *base, uint32_t cntNum);
- 357:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE uint32_t Cy_TCPWM_GetInterruptStatusMasked(TCPWM_Type const *base, uint32_t cntNum)
+ 325:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_interrupt_sources */
+ 326:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 327:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 328:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /***************************************
+ 329:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *        Registers Constants
+ 330:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ***************************************/
+ 331:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 332:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 333:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_reg_const Default registers constants
+ 334:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 335:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Default constants for CNT Registers
+ 336:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 337:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_CTRL_DEFAULT           (0x0U) /**< Default value for CTRL register */
+ 338:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_COUNTER_DEFAULT        (0x0U) /**< Default value for COUNTER register */
+ 339:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_CC_DEFAULT             (0xFFFFFFFFU) /**< Default value for CC register */
+ 340:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_CC_BUFF_DEFAULT        (0xFFFFFFFFU) /**< Default value for CC_BUFF register *
+ 341:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_PERIOD_DEFAULT         (0xFFFFFFFFU) /**< Default value for PERIOD register */
+ 342:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_PERIOD_BUFF_DEFAULT    (0xFFFFFFFFU) /**< Default value for PERIOD_BUFF regist
+ 343:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_TR_CTRL0_DEFAULT       (0x10U)  /**< Default value for TR_CTRL0 register */
+ 344:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_TR_CTRL1_DEFAULT       (0x3FFU) /**< Default value for TR_CTRL1 register */
+ 345:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_TR_CTRL2_DEFAULT       (0x3FU)  /**< Default value for TR_CTRL2 register */
+ 346:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_INTR_DEFAULT           (0x3U)   /**< Default value for INTR register */
+ 347:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_INTR_SET_DEFAULT       (0x0U)   /**< Default value for INTR_SET register */
+ 348:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_INTR_MASK_DEFAULT      (0x0U)   /**< Default value for INTR_MASK register */
+ 349:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_reg_const */
+ 350:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 351:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Position of Up counting counter status */
+ 352:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_STATUS_UP_POS          (0x1U)
+ 353:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Initial value for the counter in the Up counting mode */
+ 354:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_UP_INIT_VAL            (0x0U)
+ 355:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Initial value for the counter in the Up/Down counting modes */
+ 356:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_UP_DOWN_INIT_VAL       (0x1U)
+ 357:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_macros_common */
  358:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
  359:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
  360:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
- 361:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Function Name: Cy_TCPWM_Enable_Multiple
- 362:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ****************************************************************************//**
- 363:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 364:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Enables the counter(s) in the TCPWM block. Multiple blocks can be started 
- 365:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * simultaneously.
- 366:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 367:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param base
- 368:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The pointer to a TCPWM instance.
- 369:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 370:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param counters
- 371:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A bit field representing each counter in the TCPWM block.
- 372:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 373:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \funcusage
- 374:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm/tcpwm_v1_0_counter_sut_01.cydsn/main_cm4.c snippet_Cy_TCPWM_Enable_Multiple
- 375:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
- 376:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
- 377:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Enable_Multiple(TCPWM_Type *base, uint32_t counters)
- 378:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
- 379:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     base->CTRL_SET = counters;
-  56              		.loc 2 379 0
+ 361:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  * Enumerations
+ 362:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  ******************************************************************************/
+ 363:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 364:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  /**
+ 365:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_enums
+ 366:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 367:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 368:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 369:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** TCPWM status definitions */
+ 370:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** typedef enum 
+ 371:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
+ 372:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     CY_TCPWM_SUCCESS = 0x00U,                                           /**< Successful */
+ 373:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     CY_TCPWM_BAD_PARAM = CY_TCPWM_ID | CY_PDL_STATUS_ERROR | 0x01U,     /**< One or more invalid pa
+ 374:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** } cy_en_tcpwm_status_t;
+ 375:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_enums */
+ 376:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  
+ 377:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
+ 378:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *        Function Prototypes
+ 379:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
+ 380:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 381:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 10
+
+
+ 382:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_functions_common
+ 383:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 384:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 385:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 386:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Enable_Multiple(TCPWM_Type *base, uint32_t counters);
+ 387:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Disable_Multiple(TCPWM_Type *base, uint32_t counters);
+ 388:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerStart(TCPWM_Type *base, uint32_t counters);
+ 389:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerReloadOrIndex(TCPWM_Type *base, uint32_t counters);
+ 390:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerStopOrKill(TCPWM_Type *base, uint32_t counters);
+ 391:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerCaptureOrSwap(TCPWM_Type *base, uint32_t counters);
+ 392:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE uint32_t Cy_TCPWM_GetInterruptStatus(TCPWM_Type const *base, uint32_t cntNum);
+ 393:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_ClearInterrupt(TCPWM_Type *base, uint32_t cntNum, uint32_t source);
+ 394:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_SetInterrupt(TCPWM_Type *base, uint32_t cntNum, uint32_t source);
+ 395:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_SetInterruptMask(TCPWM_Type *base, uint32_t cntNum, uint32_t mask);
+ 396:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE uint32_t Cy_TCPWM_GetInterruptMask(TCPWM_Type const *base, uint32_t cntNum);
+ 397:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE uint32_t Cy_TCPWM_GetInterruptStatusMasked(TCPWM_Type const *base, uint32_t cntNum)
+ 398:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 399:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 400:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
+ 401:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Function Name: Cy_TCPWM_Enable_Multiple
+ 402:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ****************************************************************************//**
+ 403:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 404:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Enables the counter(s) in the TCPWM block. Multiple blocks can be started 
+ 405:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * simultaneously.
+ 406:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 407:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param base
+ 408:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The pointer to a TCPWM instance.
+ 409:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 410:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param counters
+ 411:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A bit field representing each counter in the TCPWM block.
+ 412:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 413:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \funcusage
+ 414:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm\1.10\counter\snippet\main.c snippet_Cy_TCPWM_Enable_Multiple
+ 415:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 416:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
+ 417:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Enable_Multiple(TCPWM_Type *base, uint32_t counters)
+ 418:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
+ 419:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     TCPWM_CTRL_SET(base) = counters;
+  56              		.loc 2 419 0
   57 001a 8022     		movs	r2, #128
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 10
-
-
   58 001c D200     		lsls	r2, r2, #3
   59 001e 034B     		ldr	r3, .L3+8
   60 0020 9A60     		str	r2, [r3, #8]
@@ -558,6 +598,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
   64              		.loc 1 85 0
   65              		@ sp needed
   66 0022 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 11
+
+
   67              	.L4:
   68              		.align	2
   69              	.L3:
@@ -565,7 +608,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
   71 0028 00000000 		.word	.LANCHOR1
   72 002c 00003940 		.word	1077477376
   73              		.cfi_endproc
-  74              	.LFE90:
+  74              	.LFE99:
   75              		.size	PWM_2_Start, .-PWM_2_Start
   76              		.global	PWM_2_config
   77              		.global	PWM_2_initVar
@@ -598,9 +641,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
  104 0048 FFFFFFFF 		.word	-1
  105 004c 00000000 		.word	0
  106 0050 FFFFFFFF 		.word	-1
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 11
-
-
  107 0054 01000000 		.word	1
  108 0058 FFFFFFFF 		.word	-1
  109 005c 03000000 		.word	3
@@ -613,1346 +653,1374 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 1
  116 0000 00       		.space	1
  117              		.text
  118              	.Letext0:
- 119              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
- 120              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
- 121              		.file 5 "Generated_Source\\PSoC6\\pdl\\devices/psoc6/ip/cyip_tcpwm.h"
- 122              		.file 6 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h"
- 123              		.section	.debug_info,"",%progbits
- 124              	.Ldebug_info0:
- 125 0000 52040000 		.4byte	0x452
- 126 0004 0400     		.2byte	0x4
- 127 0006 00000000 		.4byte	.Ldebug_abbrev0
- 128 000a 04       		.byte	0x4
- 129 000b 01       		.uleb128 0x1
- 130 000c 56030000 		.4byte	.LASF73
- 131 0010 0C       		.byte	0xc
- 132 0011 97020000 		.4byte	.LASF74
- 133 0015 67000000 		.4byte	.LASF75
- 134 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 135 001d 00000000 		.4byte	0
- 136 0021 00000000 		.4byte	.Ldebug_line0
- 137 0025 02       		.uleb128 0x2
- 138 0026 02       		.byte	0x2
- 139 0027 05       		.byte	0x5
- 140 0028 C9000000 		.4byte	.LASF0
- 141 002c 02       		.uleb128 0x2
- 142 002d 01       		.byte	0x1
- 143 002e 08       		.byte	0x8
- 144 002f 2E020000 		.4byte	.LASF1
- 145 0033 02       		.uleb128 0x2
- 146 0034 01       		.byte	0x1
- 147 0035 06       		.byte	0x6
- 148 0036 4C020000 		.4byte	.LASF2
- 149 003a 03       		.uleb128 0x3
- 150 003b F5010000 		.4byte	.LASF5
- 151 003f 03       		.byte	0x3
- 152 0040 1D       		.byte	0x1d
- 153 0041 2C000000 		.4byte	0x2c
- 154 0045 02       		.uleb128 0x2
- 155 0046 02       		.byte	0x2
- 156 0047 07       		.byte	0x7
- 157 0048 E6020000 		.4byte	.LASF3
- 158 004c 02       		.uleb128 0x2
- 159 004d 04       		.byte	0x4
- 160 004e 05       		.byte	0x5
- 161 004f FE020000 		.4byte	.LASF4
- 162 0053 03       		.uleb128 0x3
- 163 0054 32010000 		.4byte	.LASF6
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 12
+ 119              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 120              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 121              		.file 5 "Generated_Source\\PSoC6\\pdl\\devices/psoc6/include/ip/cyip_tcpwm.h"
+ 122              		.file 6 "Generated_Source\\PSoC6\\pdl\\devices/psoc6/include/psoc6_01_config.h"
+ 123              		.file 7 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 12
 
 
- 164 0058 03       		.byte	0x3
- 165 0059 41       		.byte	0x41
- 166 005a 5E000000 		.4byte	0x5e
- 167 005e 02       		.uleb128 0x2
- 168 005f 04       		.byte	0x4
- 169 0060 07       		.byte	0x7
- 170 0061 3D030000 		.4byte	.LASF7
- 171 0065 02       		.uleb128 0x2
- 172 0066 08       		.byte	0x8
- 173 0067 05       		.byte	0x5
- 174 0068 CD010000 		.4byte	.LASF8
- 175 006c 02       		.uleb128 0x2
- 176 006d 08       		.byte	0x8
- 177 006e 07       		.byte	0x7
- 178 006f 61020000 		.4byte	.LASF9
- 179 0073 04       		.uleb128 0x4
- 180 0074 04       		.byte	0x4
- 181 0075 05       		.byte	0x5
- 182 0076 696E7400 		.ascii	"int\000"
- 183 007a 02       		.uleb128 0x2
- 184 007b 04       		.byte	0x4
- 185 007c 07       		.byte	0x7
- 186 007d 8A020000 		.4byte	.LASF10
- 187 0081 03       		.uleb128 0x3
- 188 0082 65010000 		.4byte	.LASF11
- 189 0086 04       		.byte	0x4
- 190 0087 18       		.byte	0x18
- 191 0088 3A000000 		.4byte	0x3a
- 192 008c 03       		.uleb128 0x3
- 193 008d 78020000 		.4byte	.LASF12
- 194 0091 04       		.byte	0x4
- 195 0092 30       		.byte	0x30
- 196 0093 53000000 		.4byte	0x53
- 197 0097 02       		.uleb128 0x2
- 198 0098 04       		.byte	0x4
- 199 0099 07       		.byte	0x7
- 200 009a D3000000 		.4byte	.LASF13
- 201 009e 05       		.uleb128 0x5
- 202 009f 8C000000 		.4byte	0x8c
- 203 00a3 06       		.uleb128 0x6
- 204 00a4 9E000000 		.4byte	0x9e
- 205 00a8 07       		.uleb128 0x7
- 206 00a9 40       		.byte	0x40
- 207 00aa 05       		.byte	0x5
- 208 00ab 22       		.byte	0x22
- 209 00ac 70010000 		.4byte	0x170
- 210 00b0 08       		.uleb128 0x8
- 211 00b1 3C020000 		.4byte	.LASF14
- 212 00b5 05       		.byte	0x5
- 213 00b6 23       		.byte	0x23
- 214 00b7 9E000000 		.4byte	0x9e
- 215 00bb 00       		.byte	0
- 216 00bc 08       		.uleb128 0x8
- 217 00bd E3010000 		.4byte	.LASF15
- 218 00c1 05       		.byte	0x5
- 219 00c2 24       		.byte	0x24
- 220 00c3 A3000000 		.4byte	0xa3
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 13
+ 124              		.section	.debug_info,"",%progbits
+ 125              	.Ldebug_info0:
+ 126 0000 5E040000 		.4byte	0x45e
+ 127 0004 0400     		.2byte	0x4
+ 128 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 129 000a 04       		.byte	0x4
+ 130 000b 01       		.uleb128 0x1
+ 131 000c 5A030000 		.4byte	.LASF74
+ 132 0010 0C       		.byte	0xc
+ 133 0011 9B020000 		.4byte	.LASF75
+ 134 0015 67000000 		.4byte	.LASF76
+ 135 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 136 001d 00000000 		.4byte	0
+ 137 0021 00000000 		.4byte	.Ldebug_line0
+ 138 0025 02       		.uleb128 0x2
+ 139 0026 02       		.byte	0x2
+ 140 0027 05       		.byte	0x5
+ 141 0028 BA000000 		.4byte	.LASF0
+ 142 002c 02       		.uleb128 0x2
+ 143 002d 01       		.byte	0x1
+ 144 002e 08       		.byte	0x8
+ 145 002f 32020000 		.4byte	.LASF1
+ 146 0033 02       		.uleb128 0x2
+ 147 0034 01       		.byte	0x1
+ 148 0035 06       		.byte	0x6
+ 149 0036 50020000 		.4byte	.LASF2
+ 150 003a 03       		.uleb128 0x3
+ 151 003b F9010000 		.4byte	.LASF5
+ 152 003f 03       		.byte	0x3
+ 153 0040 1D       		.byte	0x1d
+ 154 0041 2C000000 		.4byte	0x2c
+ 155 0045 02       		.uleb128 0x2
+ 156 0046 02       		.byte	0x2
+ 157 0047 07       		.byte	0x7
+ 158 0048 EA020000 		.4byte	.LASF3
+ 159 004c 02       		.uleb128 0x2
+ 160 004d 04       		.byte	0x4
+ 161 004e 05       		.byte	0x5
+ 162 004f 02030000 		.4byte	.LASF4
+ 163 0053 03       		.uleb128 0x3
+ 164 0054 35010000 		.4byte	.LASF6
+ 165 0058 03       		.byte	0x3
+ 166 0059 41       		.byte	0x41
+ 167 005a 5E000000 		.4byte	0x5e
+ 168 005e 02       		.uleb128 0x2
+ 169 005f 04       		.byte	0x4
+ 170 0060 07       		.byte	0x7
+ 171 0061 41030000 		.4byte	.LASF7
+ 172 0065 02       		.uleb128 0x2
+ 173 0066 08       		.byte	0x8
+ 174 0067 05       		.byte	0x5
+ 175 0068 D1010000 		.4byte	.LASF8
+ 176 006c 02       		.uleb128 0x2
+ 177 006d 08       		.byte	0x8
+ 178 006e 07       		.byte	0x7
+ 179 006f 65020000 		.4byte	.LASF9
+ 180 0073 04       		.uleb128 0x4
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 13
 
 
- 221 00c7 04       		.byte	0x4
- 222 00c8 08       		.uleb128 0x8
- 223 00c9 2F040000 		.4byte	.LASF16
- 224 00cd 05       		.byte	0x5
- 225 00ce 25       		.byte	0x25
- 226 00cf 9E000000 		.4byte	0x9e
- 227 00d3 08       		.byte	0x8
- 228 00d4 09       		.uleb128 0x9
- 229 00d5 434300   		.ascii	"CC\000"
- 230 00d8 05       		.byte	0x5
- 231 00d9 26       		.byte	0x26
- 232 00da 9E000000 		.4byte	0x9e
- 233 00de 0C       		.byte	0xc
- 234 00df 08       		.uleb128 0x8
- 235 00e0 0B020000 		.4byte	.LASF17
- 236 00e4 05       		.byte	0x5
- 237 00e5 27       		.byte	0x27
- 238 00e6 9E000000 		.4byte	0x9e
- 239 00ea 10       		.byte	0x10
- 240 00eb 08       		.uleb128 0x8
- 241 00ec F6000000 		.4byte	.LASF18
- 242 00f0 05       		.byte	0x5
- 243 00f1 28       		.byte	0x28
- 244 00f2 9E000000 		.4byte	0x9e
- 245 00f6 14       		.byte	0x14
- 246 00f7 08       		.uleb128 0x8
- 247 00f8 DC000000 		.4byte	.LASF19
- 248 00fc 05       		.byte	0x5
- 249 00fd 29       		.byte	0x29
- 250 00fe 9E000000 		.4byte	0x9e
- 251 0102 18       		.byte	0x18
- 252 0103 08       		.uleb128 0x8
- 253 0104 3F040000 		.4byte	.LASF20
- 254 0108 05       		.byte	0x5
- 255 0109 2A       		.byte	0x2a
- 256 010a A3000000 		.4byte	0xa3
- 257 010e 1C       		.byte	0x1c
- 258 010f 08       		.uleb128 0x8
- 259 0110 3D010000 		.4byte	.LASF21
- 260 0114 05       		.byte	0x5
- 261 0115 2B       		.byte	0x2b
- 262 0116 9E000000 		.4byte	0x9e
- 263 011a 20       		.byte	0x20
- 264 011b 08       		.uleb128 0x8
- 265 011c 08010000 		.4byte	.LASF22
- 266 0120 05       		.byte	0x5
- 267 0121 2C       		.byte	0x2c
- 268 0122 9E000000 		.4byte	0x9e
- 269 0126 24       		.byte	0x24
- 270 0127 08       		.uleb128 0x8
- 271 0128 11010000 		.4byte	.LASF23
- 272 012c 05       		.byte	0x5
- 273 012d 2D       		.byte	0x2d
- 274 012e 9E000000 		.4byte	0x9e
- 275 0132 28       		.byte	0x28
- 276 0133 08       		.uleb128 0x8
- 277 0134 33030000 		.4byte	.LASF24
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 14
+ 181 0074 04       		.byte	0x4
+ 182 0075 05       		.byte	0x5
+ 183 0076 696E7400 		.ascii	"int\000"
+ 184 007a 02       		.uleb128 0x2
+ 185 007b 04       		.byte	0x4
+ 186 007c 07       		.byte	0x7
+ 187 007d 8E020000 		.4byte	.LASF10
+ 188 0081 03       		.uleb128 0x3
+ 189 0082 69010000 		.4byte	.LASF11
+ 190 0086 04       		.byte	0x4
+ 191 0087 18       		.byte	0x18
+ 192 0088 3A000000 		.4byte	0x3a
+ 193 008c 03       		.uleb128 0x3
+ 194 008d 7C020000 		.4byte	.LASF12
+ 195 0091 04       		.byte	0x4
+ 196 0092 30       		.byte	0x30
+ 197 0093 53000000 		.4byte	0x53
+ 198 0097 02       		.uleb128 0x2
+ 199 0098 04       		.byte	0x4
+ 200 0099 07       		.byte	0x7
+ 201 009a C4000000 		.4byte	.LASF13
+ 202 009e 05       		.uleb128 0x5
+ 203 009f 8C000000 		.4byte	0x8c
+ 204 00a3 06       		.uleb128 0x6
+ 205 00a4 9E000000 		.4byte	0x9e
+ 206 00a8 07       		.uleb128 0x7
+ 207 00a9 40       		.byte	0x40
+ 208 00aa 05       		.byte	0x5
+ 209 00ab 22       		.byte	0x22
+ 210 00ac 70010000 		.4byte	0x170
+ 211 00b0 08       		.uleb128 0x8
+ 212 00b1 40020000 		.4byte	.LASF14
+ 213 00b5 05       		.byte	0x5
+ 214 00b6 23       		.byte	0x23
+ 215 00b7 9E000000 		.4byte	0x9e
+ 216 00bb 00       		.byte	0
+ 217 00bc 08       		.uleb128 0x8
+ 218 00bd E7010000 		.4byte	.LASF15
+ 219 00c1 05       		.byte	0x5
+ 220 00c2 24       		.byte	0x24
+ 221 00c3 A3000000 		.4byte	0xa3
+ 222 00c7 04       		.byte	0x4
+ 223 00c8 08       		.uleb128 0x8
+ 224 00c9 40040000 		.4byte	.LASF16
+ 225 00cd 05       		.byte	0x5
+ 226 00ce 25       		.byte	0x25
+ 227 00cf 9E000000 		.4byte	0x9e
+ 228 00d3 08       		.byte	0x8
+ 229 00d4 09       		.uleb128 0x9
+ 230 00d5 434300   		.ascii	"CC\000"
+ 231 00d8 05       		.byte	0x5
+ 232 00d9 26       		.byte	0x26
+ 233 00da 9E000000 		.4byte	0x9e
+ 234 00de 0C       		.byte	0xc
+ 235 00df 08       		.uleb128 0x8
+ 236 00e0 0F020000 		.4byte	.LASF17
+ 237 00e4 05       		.byte	0x5
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 14
 
 
- 278 0138 05       		.byte	0x5
- 279 0139 2E       		.byte	0x2e
- 280 013a A3000000 		.4byte	0xa3
- 281 013e 2C       		.byte	0x2c
- 282 013f 08       		.uleb128 0x8
- 283 0140 1C030000 		.4byte	.LASF25
- 284 0144 05       		.byte	0x5
- 285 0145 2F       		.byte	0x2f
- 286 0146 9E000000 		.4byte	0x9e
- 287 014a 30       		.byte	0x30
- 288 014b 08       		.uleb128 0x8
- 289 014c 58020000 		.4byte	.LASF26
- 290 0150 05       		.byte	0x5
- 291 0151 30       		.byte	0x30
- 292 0152 9E000000 		.4byte	0x9e
- 293 0156 34       		.byte	0x34
- 294 0157 08       		.uleb128 0x8
- 295 0158 61040000 		.4byte	.LASF27
- 296 015c 05       		.byte	0x5
- 297 015d 31       		.byte	0x31
- 298 015e 9E000000 		.4byte	0x9e
- 299 0162 38       		.byte	0x38
- 300 0163 08       		.uleb128 0x8
- 301 0164 FF010000 		.4byte	.LASF28
- 302 0168 05       		.byte	0x5
- 303 0169 32       		.byte	0x32
- 304 016a A3000000 		.4byte	0xa3
- 305 016e 3C       		.byte	0x3c
- 306 016f 00       		.byte	0
- 307 0170 03       		.uleb128 0x3
- 308 0171 BA000000 		.4byte	.LASF29
- 309 0175 05       		.byte	0x5
- 310 0176 33       		.byte	0x33
- 311 0177 A8000000 		.4byte	0xa8
- 312 017b 0A       		.uleb128 0xa
- 313 017c 0009     		.2byte	0x900
- 314 017e 05       		.byte	0x5
- 315 017f 38       		.byte	0x38
- 316 0180 FE010000 		.4byte	0x1fe
- 317 0184 08       		.uleb128 0x8
- 318 0185 3C020000 		.4byte	.LASF14
- 319 0189 05       		.byte	0x5
- 320 018a 39       		.byte	0x39
- 321 018b 9E000000 		.4byte	0x9e
- 322 018f 00       		.byte	0
- 323 0190 08       		.uleb128 0x8
- 324 0191 01040000 		.4byte	.LASF30
- 325 0195 05       		.byte	0x5
- 326 0196 3A       		.byte	0x3a
- 327 0197 9E000000 		.4byte	0x9e
- 328 019b 04       		.byte	0x4
- 329 019c 08       		.uleb128 0x8
- 330 019d 81020000 		.4byte	.LASF31
- 331 01a1 05       		.byte	0x5
- 332 01a2 3B       		.byte	0x3b
- 333 01a3 9E000000 		.4byte	0x9e
- 334 01a7 08       		.byte	0x8
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 15
+ 238 00e5 27       		.byte	0x27
+ 239 00e6 9E000000 		.4byte	0x9e
+ 240 00ea 10       		.byte	0x10
+ 241 00eb 08       		.uleb128 0x8
+ 242 00ec F9000000 		.4byte	.LASF18
+ 243 00f0 05       		.byte	0x5
+ 244 00f1 28       		.byte	0x28
+ 245 00f2 9E000000 		.4byte	0x9e
+ 246 00f6 14       		.byte	0x14
+ 247 00f7 08       		.uleb128 0x8
+ 248 00f8 CD000000 		.4byte	.LASF19
+ 249 00fc 05       		.byte	0x5
+ 250 00fd 29       		.byte	0x29
+ 251 00fe 9E000000 		.4byte	0x9e
+ 252 0102 18       		.byte	0x18
+ 253 0103 08       		.uleb128 0x8
+ 254 0104 50040000 		.4byte	.LASF20
+ 255 0108 05       		.byte	0x5
+ 256 0109 2A       		.byte	0x2a
+ 257 010a A3000000 		.4byte	0xa3
+ 258 010e 1C       		.byte	0x1c
+ 259 010f 08       		.uleb128 0x8
+ 260 0110 40010000 		.4byte	.LASF21
+ 261 0114 05       		.byte	0x5
+ 262 0115 2B       		.byte	0x2b
+ 263 0116 9E000000 		.4byte	0x9e
+ 264 011a 20       		.byte	0x20
+ 265 011b 08       		.uleb128 0x8
+ 266 011c 0B010000 		.4byte	.LASF22
+ 267 0120 05       		.byte	0x5
+ 268 0121 2C       		.byte	0x2c
+ 269 0122 9E000000 		.4byte	0x9e
+ 270 0126 24       		.byte	0x24
+ 271 0127 08       		.uleb128 0x8
+ 272 0128 14010000 		.4byte	.LASF23
+ 273 012c 05       		.byte	0x5
+ 274 012d 2D       		.byte	0x2d
+ 275 012e 9E000000 		.4byte	0x9e
+ 276 0132 28       		.byte	0x28
+ 277 0133 08       		.uleb128 0x8
+ 278 0134 37030000 		.4byte	.LASF24
+ 279 0138 05       		.byte	0x5
+ 280 0139 2E       		.byte	0x2e
+ 281 013a A3000000 		.4byte	0xa3
+ 282 013e 2C       		.byte	0x2c
+ 283 013f 08       		.uleb128 0x8
+ 284 0140 20030000 		.4byte	.LASF25
+ 285 0144 05       		.byte	0x5
+ 286 0145 2F       		.byte	0x2f
+ 287 0146 9E000000 		.4byte	0x9e
+ 288 014a 30       		.byte	0x30
+ 289 014b 08       		.uleb128 0x8
+ 290 014c 5C020000 		.4byte	.LASF26
+ 291 0150 05       		.byte	0x5
+ 292 0151 30       		.byte	0x30
+ 293 0152 9E000000 		.4byte	0x9e
+ 294 0156 34       		.byte	0x34
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 15
 
 
- 335 01a8 08       		.uleb128 0x8
- 336 01a9 77010000 		.4byte	.LASF32
- 337 01ad 05       		.byte	0x5
- 338 01ae 3C       		.byte	0x3c
- 339 01af 9E000000 		.4byte	0x9e
- 340 01b3 0C       		.byte	0xc
- 341 01b4 08       		.uleb128 0x8
- 342 01b5 FD000000 		.4byte	.LASF33
- 343 01b9 05       		.byte	0x5
- 344 01ba 3D       		.byte	0x3d
- 345 01bb 9E000000 		.4byte	0x9e
- 346 01bf 10       		.byte	0x10
- 347 01c0 08       		.uleb128 0x8
- 348 01c1 D1020000 		.4byte	.LASF34
- 349 01c5 05       		.byte	0x5
- 350 01c6 3E       		.byte	0x3e
- 351 01c7 9E000000 		.4byte	0x9e
- 352 01cb 14       		.byte	0x14
- 353 01cc 08       		.uleb128 0x8
- 354 01cd 94010000 		.4byte	.LASF35
- 355 01d1 05       		.byte	0x5
- 356 01d2 3F       		.byte	0x3f
- 357 01d3 9E000000 		.4byte	0x9e
- 358 01d7 18       		.byte	0x18
- 359 01d8 08       		.uleb128 0x8
- 360 01d9 41020000 		.4byte	.LASF36
- 361 01dd 05       		.byte	0x5
- 362 01de 40       		.byte	0x40
- 363 01df A3000000 		.4byte	0xa3
- 364 01e3 1C       		.byte	0x1c
- 365 01e4 08       		.uleb128 0x8
- 366 01e5 3F040000 		.4byte	.LASF20
- 367 01e9 05       		.byte	0x5
- 368 01ea 41       		.byte	0x41
- 369 01eb 13020000 		.4byte	0x213
- 370 01ef 20       		.byte	0x20
- 371 01f0 0B       		.uleb128 0xb
- 372 01f1 434E5400 		.ascii	"CNT\000"
- 373 01f5 05       		.byte	0x5
- 374 01f6 42       		.byte	0x42
- 375 01f7 18020000 		.4byte	0x218
- 376 01fb 0001     		.2byte	0x100
- 377 01fd 00       		.byte	0
- 378 01fe 0C       		.uleb128 0xc
- 379 01ff A3000000 		.4byte	0xa3
- 380 0203 0E020000 		.4byte	0x20e
- 381 0207 0D       		.uleb128 0xd
- 382 0208 97000000 		.4byte	0x97
- 383 020c 37       		.byte	0x37
- 384 020d 00       		.byte	0
- 385 020e 05       		.uleb128 0x5
- 386 020f FE010000 		.4byte	0x1fe
- 387 0213 06       		.uleb128 0x6
- 388 0214 0E020000 		.4byte	0x20e
- 389 0218 0C       		.uleb128 0xc
- 390 0219 70010000 		.4byte	0x170
- 391 021d 28020000 		.4byte	0x228
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 16
+ 295 0157 08       		.uleb128 0x8
+ 296 0158 72040000 		.4byte	.LASF27
+ 297 015c 05       		.byte	0x5
+ 298 015d 31       		.byte	0x31
+ 299 015e 9E000000 		.4byte	0x9e
+ 300 0162 38       		.byte	0x38
+ 301 0163 08       		.uleb128 0x8
+ 302 0164 03020000 		.4byte	.LASF28
+ 303 0168 05       		.byte	0x5
+ 304 0169 32       		.byte	0x32
+ 305 016a A3000000 		.4byte	0xa3
+ 306 016e 3C       		.byte	0x3c
+ 307 016f 00       		.byte	0
+ 308 0170 03       		.uleb128 0x3
+ 309 0171 D9000000 		.4byte	.LASF29
+ 310 0175 05       		.byte	0x5
+ 311 0176 33       		.byte	0x33
+ 312 0177 A8000000 		.4byte	0xa8
+ 313 017b 0A       		.uleb128 0xa
+ 314 017c 0009     		.2byte	0x900
+ 315 017e 05       		.byte	0x5
+ 316 017f 38       		.byte	0x38
+ 317 0180 FE010000 		.4byte	0x1fe
+ 318 0184 08       		.uleb128 0x8
+ 319 0185 40020000 		.4byte	.LASF14
+ 320 0189 05       		.byte	0x5
+ 321 018a 39       		.byte	0x39
+ 322 018b 9E000000 		.4byte	0x9e
+ 323 018f 00       		.byte	0
+ 324 0190 08       		.uleb128 0x8
+ 325 0191 05040000 		.4byte	.LASF30
+ 326 0195 05       		.byte	0x5
+ 327 0196 3A       		.byte	0x3a
+ 328 0197 9E000000 		.4byte	0x9e
+ 329 019b 04       		.byte	0x4
+ 330 019c 08       		.uleb128 0x8
+ 331 019d 85020000 		.4byte	.LASF31
+ 332 01a1 05       		.byte	0x5
+ 333 01a2 3B       		.byte	0x3b
+ 334 01a3 9E000000 		.4byte	0x9e
+ 335 01a7 08       		.byte	0x8
+ 336 01a8 08       		.uleb128 0x8
+ 337 01a9 7B010000 		.4byte	.LASF32
+ 338 01ad 05       		.byte	0x5
+ 339 01ae 3C       		.byte	0x3c
+ 340 01af 9E000000 		.4byte	0x9e
+ 341 01b3 0C       		.byte	0xc
+ 342 01b4 08       		.uleb128 0x8
+ 343 01b5 00010000 		.4byte	.LASF33
+ 344 01b9 05       		.byte	0x5
+ 345 01ba 3D       		.byte	0x3d
+ 346 01bb 9E000000 		.4byte	0x9e
+ 347 01bf 10       		.byte	0x10
+ 348 01c0 08       		.uleb128 0x8
+ 349 01c1 D5020000 		.4byte	.LASF34
+ 350 01c5 05       		.byte	0x5
+ 351 01c6 3E       		.byte	0x3e
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 16
 
 
- 392 0221 0D       		.uleb128 0xd
- 393 0222 97000000 		.4byte	0x97
- 394 0226 1F       		.byte	0x1f
- 395 0227 00       		.byte	0
- 396 0228 03       		.uleb128 0x3
- 397 0229 6B040000 		.4byte	.LASF37
- 398 022d 05       		.byte	0x5
- 399 022e 43       		.byte	0x43
- 400 022f 7B010000 		.4byte	0x17b
- 401 0233 02       		.uleb128 0x2
- 402 0234 08       		.byte	0x8
- 403 0235 04       		.byte	0x4
- 404 0236 13020000 		.4byte	.LASF38
- 405 023a 02       		.uleb128 0x2
- 406 023b 01       		.byte	0x1
- 407 023c 08       		.byte	0x8
- 408 023d F9020000 		.4byte	.LASF39
- 409 0241 02       		.uleb128 0x2
- 410 0242 04       		.byte	0x4
- 411 0243 04       		.byte	0x4
- 412 0244 A7010000 		.4byte	.LASF40
- 413 0248 02       		.uleb128 0x2
- 414 0249 08       		.byte	0x8
- 415 024a 04       		.byte	0x4
- 416 024b 4F030000 		.4byte	.LASF41
- 417 024f 0E       		.uleb128 0xe
- 418 0250 1A010000 		.4byte	.LASF76
- 419 0254 64       		.byte	0x64
- 420 0255 06       		.byte	0x6
- 421 0256 2B       		.byte	0x2b
- 422 0257 88030000 		.4byte	0x388
- 423 025b 08       		.uleb128 0x8
- 424 025c 37040000 		.4byte	.LASF42
- 425 0260 06       		.byte	0x6
- 426 0261 2D       		.byte	0x2d
- 427 0262 8C000000 		.4byte	0x8c
- 428 0266 00       		.byte	0
+ 352 01c7 9E000000 		.4byte	0x9e
+ 353 01cb 14       		.byte	0x14
+ 354 01cc 08       		.uleb128 0x8
+ 355 01cd 98010000 		.4byte	.LASF35
+ 356 01d1 05       		.byte	0x5
+ 357 01d2 3F       		.byte	0x3f
+ 358 01d3 9E000000 		.4byte	0x9e
+ 359 01d7 18       		.byte	0x18
+ 360 01d8 08       		.uleb128 0x8
+ 361 01d9 45020000 		.4byte	.LASF36
+ 362 01dd 05       		.byte	0x5
+ 363 01de 40       		.byte	0x40
+ 364 01df A3000000 		.4byte	0xa3
+ 365 01e3 1C       		.byte	0x1c
+ 366 01e4 08       		.uleb128 0x8
+ 367 01e5 50040000 		.4byte	.LASF20
+ 368 01e9 05       		.byte	0x5
+ 369 01ea 41       		.byte	0x41
+ 370 01eb 13020000 		.4byte	0x213
+ 371 01ef 20       		.byte	0x20
+ 372 01f0 0B       		.uleb128 0xb
+ 373 01f1 434E5400 		.ascii	"CNT\000"
+ 374 01f5 05       		.byte	0x5
+ 375 01f6 42       		.byte	0x42
+ 376 01f7 18020000 		.4byte	0x218
+ 377 01fb 0001     		.2byte	0x100
+ 378 01fd 00       		.byte	0
+ 379 01fe 0C       		.uleb128 0xc
+ 380 01ff A3000000 		.4byte	0xa3
+ 381 0203 0E020000 		.4byte	0x20e
+ 382 0207 0D       		.uleb128 0xd
+ 383 0208 97000000 		.4byte	0x97
+ 384 020c 37       		.byte	0x37
+ 385 020d 00       		.byte	0
+ 386 020e 05       		.uleb128 0x5
+ 387 020f FE010000 		.4byte	0x1fe
+ 388 0213 06       		.uleb128 0x6
+ 389 0214 0E020000 		.4byte	0x20e
+ 390 0218 0C       		.uleb128 0xc
+ 391 0219 70010000 		.4byte	0x170
+ 392 021d 28020000 		.4byte	0x228
+ 393 0221 0D       		.uleb128 0xd
+ 394 0222 97000000 		.4byte	0x97
+ 395 0226 1F       		.byte	0x1f
+ 396 0227 00       		.byte	0
+ 397 0228 03       		.uleb128 0x3
+ 398 0229 49010000 		.4byte	.LASF37
+ 399 022d 05       		.byte	0x5
+ 400 022e 43       		.byte	0x43
+ 401 022f 7B010000 		.4byte	0x17b
+ 402 0233 0E       		.uleb128 0xe
+ 403 0234 7C040000 		.4byte	.LASF38
+ 404 0238 06       		.byte	0x6
+ 405 0239 4206     		.2byte	0x642
+ 406 023b 28020000 		.4byte	0x228
+ 407 023f 02       		.uleb128 0x2
+ 408 0240 08       		.byte	0x8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 17
+
+
+ 409 0241 04       		.byte	0x4
+ 410 0242 17020000 		.4byte	.LASF39
+ 411 0246 02       		.uleb128 0x2
+ 412 0247 01       		.byte	0x1
+ 413 0248 08       		.byte	0x8
+ 414 0249 FD020000 		.4byte	.LASF40
+ 415 024d 02       		.uleb128 0x2
+ 416 024e 04       		.byte	0x4
+ 417 024f 04       		.byte	0x4
+ 418 0250 AB010000 		.4byte	.LASF41
+ 419 0254 02       		.uleb128 0x2
+ 420 0255 08       		.byte	0x8
+ 421 0256 04       		.byte	0x4
+ 422 0257 53030000 		.4byte	.LASF42
+ 423 025b 0F       		.uleb128 0xf
+ 424 025c 1D010000 		.4byte	.LASF77
+ 425 0260 64       		.byte	0x64
+ 426 0261 07       		.byte	0x7
+ 427 0262 2F       		.byte	0x2f
+ 428 0263 94030000 		.4byte	0x394
  429 0267 08       		.uleb128 0x8
- 430 0268 1D000000 		.4byte	.LASF43
- 431 026c 06       		.byte	0x6
- 432 026d 2F       		.byte	0x2f
+ 430 0268 48040000 		.4byte	.LASF43
+ 431 026c 07       		.byte	0x7
+ 432 026d 31       		.byte	0x31
  433 026e 8C000000 		.4byte	0x8c
- 434 0272 04       		.byte	0x4
+ 434 0272 00       		.byte	0
  435 0273 08       		.uleb128 0x8
- 436 0274 46010000 		.4byte	.LASF44
- 437 0278 06       		.byte	0x6
- 438 0279 30       		.byte	0x30
+ 436 0274 1D000000 		.4byte	.LASF44
+ 437 0278 07       		.byte	0x7
+ 438 0279 33       		.byte	0x33
  439 027a 8C000000 		.4byte	0x8c
- 440 027e 08       		.byte	0x8
+ 440 027e 04       		.byte	0x4
  441 027f 08       		.uleb128 0x8
- 442 0280 07030000 		.4byte	.LASF45
- 443 0284 06       		.byte	0x6
- 444 0285 31       		.byte	0x31
+ 442 0280 0E040000 		.4byte	.LASF45
+ 443 0284 07       		.byte	0x7
+ 444 0285 34       		.byte	0x34
  445 0286 8C000000 		.4byte	0x8c
- 446 028a 0C       		.byte	0xc
+ 446 028a 08       		.byte	0x8
  447 028b 08       		.uleb128 0x8
- 448 028c DB010000 		.4byte	.LASF46
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 17
-
-
- 449 0290 06       		.byte	0x6
- 450 0291 32       		.byte	0x32
+ 448 028c 0B030000 		.4byte	.LASF46
+ 449 0290 07       		.byte	0x7
+ 450 0291 35       		.byte	0x35
  451 0292 8C000000 		.4byte	0x8c
- 452 0296 10       		.byte	0x10
+ 452 0296 0C       		.byte	0xc
  453 0297 08       		.uleb128 0x8
- 454 0298 AD010000 		.4byte	.LASF47
- 455 029c 06       		.byte	0x6
- 456 029d 33       		.byte	0x33
+ 454 0298 DF010000 		.4byte	.LASF47
+ 455 029c 07       		.byte	0x7
+ 456 029d 36       		.byte	0x36
  457 029e 8C000000 		.4byte	0x8c
- 458 02a2 14       		.byte	0x14
+ 458 02a2 10       		.byte	0x10
  459 02a3 08       		.uleb128 0x8
- 460 02a4 B5010000 		.4byte	.LASF48
- 461 02a8 06       		.byte	0x6
- 462 02a9 34       		.byte	0x34
+ 460 02a4 B1010000 		.4byte	.LASF48
+ 461 02a8 07       		.byte	0x7
+ 462 02a9 37       		.byte	0x37
  463 02aa 8C000000 		.4byte	0x8c
- 464 02ae 18       		.byte	0x18
+ 464 02ae 14       		.byte	0x14
  465 02af 08       		.uleb128 0x8
- 466 02b0 00000000 		.4byte	.LASF49
- 467 02b4 06       		.byte	0x6
- 468 02b5 35       		.byte	0x35
- 469 02b6 88030000 		.4byte	0x388
- 470 02ba 1C       		.byte	0x1c
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 18
+
+
+ 466 02b0 B9010000 		.4byte	.LASF49
+ 467 02b4 07       		.byte	0x7
+ 468 02b5 38       		.byte	0x38
+ 469 02b6 8C000000 		.4byte	0x8c
+ 470 02ba 18       		.byte	0x18
  471 02bb 08       		.uleb128 0x8
- 472 02bc 3B000000 		.4byte	.LASF50
- 473 02c0 06       		.byte	0x6
- 474 02c1 36       		.byte	0x36
- 475 02c2 8C000000 		.4byte	0x8c
- 476 02c6 20       		.byte	0x20
+ 472 02bc 00000000 		.4byte	.LASF50
+ 473 02c0 07       		.byte	0x7
+ 474 02c1 39       		.byte	0x39
+ 475 02c2 94030000 		.4byte	0x394
+ 476 02c6 1C       		.byte	0x1c
  477 02c7 08       		.uleb128 0x8
- 478 02c8 44000000 		.4byte	.LASF51
- 479 02cc 06       		.byte	0x6
- 480 02cd 37       		.byte	0x37
+ 478 02c8 3B000000 		.4byte	.LASF51
+ 479 02cc 07       		.byte	0x7
+ 480 02cd 3A       		.byte	0x3a
  481 02ce 8C000000 		.4byte	0x8c
- 482 02d2 24       		.byte	0x24
+ 482 02d2 20       		.byte	0x20
  483 02d3 08       		.uleb128 0x8
- 484 02d4 53010000 		.4byte	.LASF52
- 485 02d8 06       		.byte	0x6
- 486 02d9 38       		.byte	0x38
- 487 02da 88030000 		.4byte	0x388
- 488 02de 28       		.byte	0x28
+ 484 02d4 44000000 		.4byte	.LASF52
+ 485 02d8 07       		.byte	0x7
+ 486 02d9 3B       		.byte	0x3b
+ 487 02da 8C000000 		.4byte	0x8c
+ 488 02de 24       		.byte	0x24
  489 02df 08       		.uleb128 0x8
- 490 02e0 83010000 		.4byte	.LASF53
- 491 02e4 06       		.byte	0x6
- 492 02e5 3A       		.byte	0x3a
- 493 02e6 8C000000 		.4byte	0x8c
- 494 02ea 2C       		.byte	0x2c
+ 490 02e0 57010000 		.4byte	.LASF53
+ 491 02e4 07       		.byte	0x7
+ 492 02e5 3C       		.byte	0x3c
+ 493 02e6 94030000 		.4byte	0x394
+ 494 02ea 28       		.byte	0x28
  495 02eb 08       		.uleb128 0x8
- 496 02ec 14040000 		.4byte	.LASF54
- 497 02f0 06       		.byte	0x6
- 498 02f1 3B       		.byte	0x3b
+ 496 02ec 87010000 		.4byte	.LASF54
+ 497 02f0 07       		.byte	0x7
+ 498 02f1 3E       		.byte	0x3e
  499 02f2 8C000000 		.4byte	0x8c
- 500 02f6 30       		.byte	0x30
+ 500 02f6 2C       		.byte	0x2c
  501 02f7 08       		.uleb128 0x8
- 502 02f8 C3020000 		.4byte	.LASF55
- 503 02fc 06       		.byte	0x6
- 504 02fd 3C       		.byte	0x3c
+ 502 02f8 25040000 		.4byte	.LASF55
+ 503 02fc 07       		.byte	0x7
+ 504 02fd 3F       		.byte	0x3f
  505 02fe 8C000000 		.4byte	0x8c
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 18
-
-
- 506 0302 34       		.byte	0x34
+ 506 0302 30       		.byte	0x30
  507 0303 08       		.uleb128 0x8
- 508 0304 9E010000 		.4byte	.LASF56
- 509 0308 06       		.byte	0x6
- 510 0309 3D       		.byte	0x3d
+ 508 0304 C7020000 		.4byte	.LASF56
+ 509 0308 07       		.byte	0x7
+ 510 0309 40       		.byte	0x40
  511 030a 8C000000 		.4byte	0x8c
- 512 030e 38       		.byte	0x38
+ 512 030e 34       		.byte	0x34
  513 030f 08       		.uleb128 0x8
- 514 0310 E8030000 		.4byte	.LASF57
- 515 0314 06       		.byte	0x6
- 516 0315 3E       		.byte	0x3e
+ 514 0310 A2010000 		.4byte	.LASF57
+ 515 0314 07       		.byte	0x7
+ 516 0315 41       		.byte	0x41
  517 0316 8C000000 		.4byte	0x8c
- 518 031a 3C       		.byte	0x3c
+ 518 031a 38       		.byte	0x38
  519 031b 08       		.uleb128 0x8
- 520 031c 0A040000 		.4byte	.LASF58
- 521 0320 06       		.byte	0x6
- 522 0321 40       		.byte	0x40
+ 520 031c EC030000 		.4byte	.LASF58
+ 521 0320 07       		.byte	0x7
+ 522 0321 42       		.byte	0x42
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 19
+
+
  523 0322 8C000000 		.4byte	0x8c
- 524 0326 40       		.byte	0x40
+ 524 0326 3C       		.byte	0x3c
  525 0327 08       		.uleb128 0x8
- 526 0328 BD010000 		.4byte	.LASF59
- 527 032c 06       		.byte	0x6
- 528 032d 41       		.byte	0x41
+ 526 0328 1B040000 		.4byte	.LASF59
+ 527 032c 07       		.byte	0x7
+ 528 032d 44       		.byte	0x44
  529 032e 8C000000 		.4byte	0x8c
- 530 0332 44       		.byte	0x44
+ 530 0332 40       		.byte	0x40
  531 0333 08       		.uleb128 0x8
- 532 0334 11000000 		.4byte	.LASF60
- 533 0338 06       		.byte	0x6
- 534 0339 43       		.byte	0x43
+ 532 0334 C1010000 		.4byte	.LASF60
+ 533 0338 07       		.byte	0x7
+ 534 0339 45       		.byte	0x45
  535 033a 8C000000 		.4byte	0x8c
- 536 033e 48       		.byte	0x48
+ 536 033e 44       		.byte	0x44
  537 033f 08       		.uleb128 0x8
- 538 0340 1F020000 		.4byte	.LASF61
- 539 0344 06       		.byte	0x6
- 540 0345 44       		.byte	0x44
+ 538 0340 11000000 		.4byte	.LASF61
+ 539 0344 07       		.byte	0x7
+ 540 0345 47       		.byte	0x47
  541 0346 8C000000 		.4byte	0x8c
- 542 034a 4C       		.byte	0x4c
+ 542 034a 48       		.byte	0x48
  543 034b 08       		.uleb128 0x8
- 544 034c F6030000 		.4byte	.LASF62
- 545 0350 06       		.byte	0x6
- 546 0351 46       		.byte	0x46
+ 544 034c 23020000 		.4byte	.LASF62
+ 545 0350 07       		.byte	0x7
+ 546 0351 48       		.byte	0x48
  547 0352 8C000000 		.4byte	0x8c
- 548 0356 50       		.byte	0x50
+ 548 0356 4C       		.byte	0x4c
  549 0357 08       		.uleb128 0x8
- 550 0358 21040000 		.4byte	.LASF63
- 551 035c 06       		.byte	0x6
- 552 035d 47       		.byte	0x47
+ 550 0358 FA030000 		.4byte	.LASF63
+ 551 035c 07       		.byte	0x7
+ 552 035d 4A       		.byte	0x4a
  553 035e 8C000000 		.4byte	0x8c
- 554 0362 54       		.byte	0x54
+ 554 0362 50       		.byte	0x50
  555 0363 08       		.uleb128 0x8
- 556 0364 6D010000 		.4byte	.LASF64
- 557 0368 06       		.byte	0x6
- 558 0369 49       		.byte	0x49
+ 556 0364 32040000 		.4byte	.LASF64
+ 557 0368 07       		.byte	0x7
+ 558 0369 4B       		.byte	0x4b
  559 036a 8C000000 		.4byte	0x8c
- 560 036e 58       		.byte	0x58
+ 560 036e 54       		.byte	0x54
  561 036f 08       		.uleb128 0x8
- 562 0370 2C000000 		.4byte	.LASF65
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 19
-
-
- 563 0374 06       		.byte	0x6
- 564 0375 4A       		.byte	0x4a
+ 562 0370 71010000 		.4byte	.LASF65
+ 563 0374 07       		.byte	0x7
+ 564 0375 4D       		.byte	0x4d
  565 0376 8C000000 		.4byte	0x8c
- 566 037a 5C       		.byte	0x5c
+ 566 037a 58       		.byte	0x58
  567 037b 08       		.uleb128 0x8
- 568 037c EA010000 		.4byte	.LASF66
- 569 0380 06       		.byte	0x6
- 570 0381 4C       		.byte	0x4c
+ 568 037c 2C000000 		.4byte	.LASF66
+ 569 0380 07       		.byte	0x7
+ 570 0381 4E       		.byte	0x4e
  571 0382 8C000000 		.4byte	0x8c
- 572 0386 60       		.byte	0x60
- 573 0387 00       		.byte	0
- 574 0388 02       		.uleb128 0x2
- 575 0389 01       		.byte	0x1
- 576 038a 02       		.byte	0x2
- 577 038b 16030000 		.4byte	.LASF67
- 578 038f 03       		.uleb128 0x3
- 579 0390 4D000000 		.4byte	.LASF68
- 580 0394 06       		.byte	0x6
- 581 0395 4D       		.byte	0x4d
- 582 0396 4F020000 		.4byte	0x24f
- 583 039a 0F       		.uleb128 0xf
- 584 039b 48040000 		.4byte	.LASF77
- 585 039f 02       		.byte	0x2
- 586 03a0 7901     		.2byte	0x179
- 587 03a2 03       		.byte	0x3
- 588 03a3 C0030000 		.4byte	0x3c0
- 589 03a7 10       		.uleb128 0x10
- 590 03a8 76040000 		.4byte	.LASF69
- 591 03ac 02       		.byte	0x2
- 592 03ad 7901     		.2byte	0x179
- 593 03af C0030000 		.4byte	0x3c0
- 594 03b3 10       		.uleb128 0x10
- 595 03b4 7B040000 		.4byte	.LASF70
- 596 03b8 02       		.byte	0x2
- 597 03b9 7901     		.2byte	0x179
- 598 03bb 8C000000 		.4byte	0x8c
- 599 03bf 00       		.byte	0
- 600 03c0 11       		.uleb128 0x11
- 601 03c1 04       		.byte	0x4
- 602 03c2 28020000 		.4byte	0x228
- 603 03c6 12       		.uleb128 0x12
- 604 03c7 DA020000 		.4byte	.LASF78
- 605 03cb 01       		.byte	0x1
- 606 03cc 47       		.byte	0x47
- 607 03cd 00000000 		.4byte	.LFB90
- 608 03d1 30000000 		.4byte	.LFE90-.LFB90
- 609 03d5 01       		.uleb128 0x1
- 610 03d6 9C       		.byte	0x9c
- 611 03d7 23040000 		.4byte	0x423
- 612 03db 13       		.uleb128 0x13
- 613 03dc 9A030000 		.4byte	0x39a
- 614 03e0 1A000000 		.4byte	.LBB4
- 615 03e4 08000000 		.4byte	.LBE4-.LBB4
- 616 03e8 01       		.byte	0x1
- 617 03e9 50       		.byte	0x50
- 618 03ea 01040000 		.4byte	0x401
- 619 03ee 14       		.uleb128 0x14
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 20
+ 572 0386 5C       		.byte	0x5c
+ 573 0387 08       		.uleb128 0x8
+ 574 0388 EE010000 		.4byte	.LASF67
+ 575 038c 07       		.byte	0x7
+ 576 038d 50       		.byte	0x50
+ 577 038e 8C000000 		.4byte	0x8c
+ 578 0392 60       		.byte	0x60
+ 579 0393 00       		.byte	0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 20
 
 
- 620 03ef B3030000 		.4byte	0x3b3
- 621 03f3 00000000 		.4byte	.LLST0
- 622 03f7 14       		.uleb128 0x14
- 623 03f8 A7030000 		.4byte	0x3a7
- 624 03fc 16000000 		.4byte	.LLST1
- 625 0400 00       		.byte	0
- 626 0401 15       		.uleb128 0x15
- 627 0402 14000000 		.4byte	.LVL0
- 628 0406 4A040000 		.4byte	0x44a
- 629 040a 16       		.uleb128 0x16
- 630 040b 01       		.uleb128 0x1
- 631 040c 50       		.byte	0x50
- 632 040d 05       		.uleb128 0x5
- 633 040e 0C       		.byte	0xc
- 634 040f 00003940 		.4byte	0x40390000
- 635 0413 16       		.uleb128 0x16
- 636 0414 01       		.uleb128 0x1
- 637 0415 51       		.byte	0x51
- 638 0416 01       		.uleb128 0x1
- 639 0417 3A       		.byte	0x3a
- 640 0418 16       		.uleb128 0x16
- 641 0419 01       		.uleb128 0x1
- 642 041a 52       		.byte	0x52
- 643 041b 05       		.uleb128 0x5
- 644 041c 03       		.byte	0x3
- 645 041d 00000000 		.4byte	.LANCHOR1
- 646 0421 00       		.byte	0
- 647 0422 00       		.byte	0
- 648 0423 17       		.uleb128 0x17
- 649 0424 E8000000 		.4byte	.LASF71
- 650 0428 01       		.byte	0x1
- 651 0429 18       		.byte	0x18
- 652 042a 81000000 		.4byte	0x81
- 653 042e 05       		.uleb128 0x5
- 654 042f 03       		.byte	0x3
- 655 0430 00000000 		.4byte	PWM_2_initVar
- 656 0434 17       		.uleb128 0x17
- 657 0435 B6020000 		.4byte	.LASF72
- 658 0439 01       		.byte	0x1
- 659 043a 1D       		.byte	0x1d
- 660 043b 45040000 		.4byte	0x445
- 661 043f 05       		.uleb128 0x5
- 662 0440 03       		.byte	0x3
- 663 0441 00000000 		.4byte	PWM_2_config
- 664 0445 06       		.uleb128 0x6
- 665 0446 8F030000 		.4byte	0x38f
- 666 044a 18       		.uleb128 0x18
- 667 044b 21030000 		.4byte	.LASF79
- 668 044f 21030000 		.4byte	.LASF79
- 669 0453 06       		.byte	0x6
- 670 0454 CB       		.byte	0xcb
- 671 0455 00       		.byte	0
- 672              		.section	.debug_abbrev,"",%progbits
- 673              	.Ldebug_abbrev0:
- 674 0000 01       		.uleb128 0x1
- 675 0001 11       		.uleb128 0x11
- 676 0002 01       		.byte	0x1
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 21
+ 580 0394 02       		.uleb128 0x2
+ 581 0395 01       		.byte	0x1
+ 582 0396 02       		.byte	0x2
+ 583 0397 1A030000 		.4byte	.LASF68
+ 584 039b 03       		.uleb128 0x3
+ 585 039c 4D000000 		.4byte	.LASF69
+ 586 03a0 07       		.byte	0x7
+ 587 03a1 51       		.byte	0x51
+ 588 03a2 5B020000 		.4byte	0x25b
+ 589 03a6 10       		.uleb128 0x10
+ 590 03a7 59040000 		.4byte	.LASF78
+ 591 03ab 02       		.byte	0x2
+ 592 03ac A101     		.2byte	0x1a1
+ 593 03ae 03       		.byte	0x3
+ 594 03af CC030000 		.4byte	0x3cc
+ 595 03b3 11       		.uleb128 0x11
+ 596 03b4 87040000 		.4byte	.LASF70
+ 597 03b8 02       		.byte	0x2
+ 598 03b9 A101     		.2byte	0x1a1
+ 599 03bb CC030000 		.4byte	0x3cc
+ 600 03bf 11       		.uleb128 0x11
+ 601 03c0 8C040000 		.4byte	.LASF71
+ 602 03c4 02       		.byte	0x2
+ 603 03c5 A101     		.2byte	0x1a1
+ 604 03c7 8C000000 		.4byte	0x8c
+ 605 03cb 00       		.byte	0
+ 606 03cc 12       		.uleb128 0x12
+ 607 03cd 04       		.byte	0x4
+ 608 03ce 33020000 		.4byte	0x233
+ 609 03d2 13       		.uleb128 0x13
+ 610 03d3 DE020000 		.4byte	.LASF79
+ 611 03d7 01       		.byte	0x1
+ 612 03d8 47       		.byte	0x47
+ 613 03d9 00000000 		.4byte	.LFB99
+ 614 03dd 30000000 		.4byte	.LFE99-.LFB99
+ 615 03e1 01       		.uleb128 0x1
+ 616 03e2 9C       		.byte	0x9c
+ 617 03e3 2F040000 		.4byte	0x42f
+ 618 03e7 14       		.uleb128 0x14
+ 619 03e8 A6030000 		.4byte	0x3a6
+ 620 03ec 1A000000 		.4byte	.LBB4
+ 621 03f0 08000000 		.4byte	.LBE4-.LBB4
+ 622 03f4 01       		.byte	0x1
+ 623 03f5 50       		.byte	0x50
+ 624 03f6 0D040000 		.4byte	0x40d
+ 625 03fa 15       		.uleb128 0x15
+ 626 03fb BF030000 		.4byte	0x3bf
+ 627 03ff 00000000 		.4byte	.LLST0
+ 628 0403 15       		.uleb128 0x15
+ 629 0404 B3030000 		.4byte	0x3b3
+ 630 0408 16000000 		.4byte	.LLST1
+ 631 040c 00       		.byte	0
+ 632 040d 16       		.uleb128 0x16
+ 633 040e 14000000 		.4byte	.LVL0
+ 634 0412 56040000 		.4byte	0x456
+ 635 0416 17       		.uleb128 0x17
+ 636 0417 01       		.uleb128 0x1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 21
 
 
- 677 0003 25       		.uleb128 0x25
- 678 0004 0E       		.uleb128 0xe
- 679 0005 13       		.uleb128 0x13
- 680 0006 0B       		.uleb128 0xb
- 681 0007 03       		.uleb128 0x3
- 682 0008 0E       		.uleb128 0xe
- 683 0009 1B       		.uleb128 0x1b
- 684 000a 0E       		.uleb128 0xe
- 685 000b 55       		.uleb128 0x55
- 686 000c 17       		.uleb128 0x17
- 687 000d 11       		.uleb128 0x11
- 688 000e 01       		.uleb128 0x1
- 689 000f 10       		.uleb128 0x10
- 690 0010 17       		.uleb128 0x17
- 691 0011 00       		.byte	0
- 692 0012 00       		.byte	0
- 693 0013 02       		.uleb128 0x2
- 694 0014 24       		.uleb128 0x24
- 695 0015 00       		.byte	0
- 696 0016 0B       		.uleb128 0xb
- 697 0017 0B       		.uleb128 0xb
- 698 0018 3E       		.uleb128 0x3e
- 699 0019 0B       		.uleb128 0xb
- 700 001a 03       		.uleb128 0x3
- 701 001b 0E       		.uleb128 0xe
- 702 001c 00       		.byte	0
- 703 001d 00       		.byte	0
- 704 001e 03       		.uleb128 0x3
- 705 001f 16       		.uleb128 0x16
- 706 0020 00       		.byte	0
- 707 0021 03       		.uleb128 0x3
- 708 0022 0E       		.uleb128 0xe
- 709 0023 3A       		.uleb128 0x3a
- 710 0024 0B       		.uleb128 0xb
- 711 0025 3B       		.uleb128 0x3b
- 712 0026 0B       		.uleb128 0xb
- 713 0027 49       		.uleb128 0x49
- 714 0028 13       		.uleb128 0x13
- 715 0029 00       		.byte	0
- 716 002a 00       		.byte	0
- 717 002b 04       		.uleb128 0x4
- 718 002c 24       		.uleb128 0x24
- 719 002d 00       		.byte	0
- 720 002e 0B       		.uleb128 0xb
- 721 002f 0B       		.uleb128 0xb
- 722 0030 3E       		.uleb128 0x3e
- 723 0031 0B       		.uleb128 0xb
- 724 0032 03       		.uleb128 0x3
- 725 0033 08       		.uleb128 0x8
- 726 0034 00       		.byte	0
- 727 0035 00       		.byte	0
- 728 0036 05       		.uleb128 0x5
- 729 0037 35       		.uleb128 0x35
- 730 0038 00       		.byte	0
- 731 0039 49       		.uleb128 0x49
- 732 003a 13       		.uleb128 0x13
- 733 003b 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 22
+ 637 0418 50       		.byte	0x50
+ 638 0419 05       		.uleb128 0x5
+ 639 041a 0C       		.byte	0xc
+ 640 041b 00003940 		.4byte	0x40390000
+ 641 041f 17       		.uleb128 0x17
+ 642 0420 01       		.uleb128 0x1
+ 643 0421 51       		.byte	0x51
+ 644 0422 01       		.uleb128 0x1
+ 645 0423 3A       		.byte	0x3a
+ 646 0424 17       		.uleb128 0x17
+ 647 0425 01       		.uleb128 0x1
+ 648 0426 52       		.byte	0x52
+ 649 0427 05       		.uleb128 0x5
+ 650 0428 03       		.byte	0x3
+ 651 0429 00000000 		.4byte	.LANCHOR1
+ 652 042d 00       		.byte	0
+ 653 042e 00       		.byte	0
+ 654 042f 18       		.uleb128 0x18
+ 655 0430 EB000000 		.4byte	.LASF72
+ 656 0434 01       		.byte	0x1
+ 657 0435 18       		.byte	0x18
+ 658 0436 81000000 		.4byte	0x81
+ 659 043a 05       		.uleb128 0x5
+ 660 043b 03       		.byte	0x3
+ 661 043c 00000000 		.4byte	PWM_2_initVar
+ 662 0440 18       		.uleb128 0x18
+ 663 0441 BA020000 		.4byte	.LASF73
+ 664 0445 01       		.byte	0x1
+ 665 0446 1D       		.byte	0x1d
+ 666 0447 51040000 		.4byte	0x451
+ 667 044b 05       		.uleb128 0x5
+ 668 044c 03       		.byte	0x3
+ 669 044d 00000000 		.4byte	PWM_2_config
+ 670 0451 06       		.uleb128 0x6
+ 671 0452 9B030000 		.4byte	0x39b
+ 672 0456 19       		.uleb128 0x19
+ 673 0457 25030000 		.4byte	.LASF80
+ 674 045b 25030000 		.4byte	.LASF80
+ 675 045f 07       		.byte	0x7
+ 676 0460 CA       		.byte	0xca
+ 677 0461 00       		.byte	0
+ 678              		.section	.debug_abbrev,"",%progbits
+ 679              	.Ldebug_abbrev0:
+ 680 0000 01       		.uleb128 0x1
+ 681 0001 11       		.uleb128 0x11
+ 682 0002 01       		.byte	0x1
+ 683 0003 25       		.uleb128 0x25
+ 684 0004 0E       		.uleb128 0xe
+ 685 0005 13       		.uleb128 0x13
+ 686 0006 0B       		.uleb128 0xb
+ 687 0007 03       		.uleb128 0x3
+ 688 0008 0E       		.uleb128 0xe
+ 689 0009 1B       		.uleb128 0x1b
+ 690 000a 0E       		.uleb128 0xe
+ 691 000b 55       		.uleb128 0x55
+ 692 000c 17       		.uleb128 0x17
+ 693 000d 11       		.uleb128 0x11
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 22
 
 
- 734 003c 00       		.byte	0
- 735 003d 06       		.uleb128 0x6
- 736 003e 26       		.uleb128 0x26
- 737 003f 00       		.byte	0
- 738 0040 49       		.uleb128 0x49
- 739 0041 13       		.uleb128 0x13
- 740 0042 00       		.byte	0
- 741 0043 00       		.byte	0
- 742 0044 07       		.uleb128 0x7
- 743 0045 13       		.uleb128 0x13
- 744 0046 01       		.byte	0x1
- 745 0047 0B       		.uleb128 0xb
- 746 0048 0B       		.uleb128 0xb
- 747 0049 3A       		.uleb128 0x3a
- 748 004a 0B       		.uleb128 0xb
- 749 004b 3B       		.uleb128 0x3b
- 750 004c 0B       		.uleb128 0xb
- 751 004d 01       		.uleb128 0x1
- 752 004e 13       		.uleb128 0x13
- 753 004f 00       		.byte	0
- 754 0050 00       		.byte	0
- 755 0051 08       		.uleb128 0x8
- 756 0052 0D       		.uleb128 0xd
- 757 0053 00       		.byte	0
- 758 0054 03       		.uleb128 0x3
- 759 0055 0E       		.uleb128 0xe
- 760 0056 3A       		.uleb128 0x3a
- 761 0057 0B       		.uleb128 0xb
- 762 0058 3B       		.uleb128 0x3b
- 763 0059 0B       		.uleb128 0xb
- 764 005a 49       		.uleb128 0x49
- 765 005b 13       		.uleb128 0x13
- 766 005c 38       		.uleb128 0x38
- 767 005d 0B       		.uleb128 0xb
- 768 005e 00       		.byte	0
- 769 005f 00       		.byte	0
- 770 0060 09       		.uleb128 0x9
- 771 0061 0D       		.uleb128 0xd
- 772 0062 00       		.byte	0
- 773 0063 03       		.uleb128 0x3
- 774 0064 08       		.uleb128 0x8
- 775 0065 3A       		.uleb128 0x3a
- 776 0066 0B       		.uleb128 0xb
- 777 0067 3B       		.uleb128 0x3b
- 778 0068 0B       		.uleb128 0xb
- 779 0069 49       		.uleb128 0x49
- 780 006a 13       		.uleb128 0x13
- 781 006b 38       		.uleb128 0x38
- 782 006c 0B       		.uleb128 0xb
- 783 006d 00       		.byte	0
- 784 006e 00       		.byte	0
- 785 006f 0A       		.uleb128 0xa
- 786 0070 13       		.uleb128 0x13
- 787 0071 01       		.byte	0x1
- 788 0072 0B       		.uleb128 0xb
- 789 0073 05       		.uleb128 0x5
- 790 0074 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 23
+ 694 000e 01       		.uleb128 0x1
+ 695 000f 10       		.uleb128 0x10
+ 696 0010 17       		.uleb128 0x17
+ 697 0011 00       		.byte	0
+ 698 0012 00       		.byte	0
+ 699 0013 02       		.uleb128 0x2
+ 700 0014 24       		.uleb128 0x24
+ 701 0015 00       		.byte	0
+ 702 0016 0B       		.uleb128 0xb
+ 703 0017 0B       		.uleb128 0xb
+ 704 0018 3E       		.uleb128 0x3e
+ 705 0019 0B       		.uleb128 0xb
+ 706 001a 03       		.uleb128 0x3
+ 707 001b 0E       		.uleb128 0xe
+ 708 001c 00       		.byte	0
+ 709 001d 00       		.byte	0
+ 710 001e 03       		.uleb128 0x3
+ 711 001f 16       		.uleb128 0x16
+ 712 0020 00       		.byte	0
+ 713 0021 03       		.uleb128 0x3
+ 714 0022 0E       		.uleb128 0xe
+ 715 0023 3A       		.uleb128 0x3a
+ 716 0024 0B       		.uleb128 0xb
+ 717 0025 3B       		.uleb128 0x3b
+ 718 0026 0B       		.uleb128 0xb
+ 719 0027 49       		.uleb128 0x49
+ 720 0028 13       		.uleb128 0x13
+ 721 0029 00       		.byte	0
+ 722 002a 00       		.byte	0
+ 723 002b 04       		.uleb128 0x4
+ 724 002c 24       		.uleb128 0x24
+ 725 002d 00       		.byte	0
+ 726 002e 0B       		.uleb128 0xb
+ 727 002f 0B       		.uleb128 0xb
+ 728 0030 3E       		.uleb128 0x3e
+ 729 0031 0B       		.uleb128 0xb
+ 730 0032 03       		.uleb128 0x3
+ 731 0033 08       		.uleb128 0x8
+ 732 0034 00       		.byte	0
+ 733 0035 00       		.byte	0
+ 734 0036 05       		.uleb128 0x5
+ 735 0037 35       		.uleb128 0x35
+ 736 0038 00       		.byte	0
+ 737 0039 49       		.uleb128 0x49
+ 738 003a 13       		.uleb128 0x13
+ 739 003b 00       		.byte	0
+ 740 003c 00       		.byte	0
+ 741 003d 06       		.uleb128 0x6
+ 742 003e 26       		.uleb128 0x26
+ 743 003f 00       		.byte	0
+ 744 0040 49       		.uleb128 0x49
+ 745 0041 13       		.uleb128 0x13
+ 746 0042 00       		.byte	0
+ 747 0043 00       		.byte	0
+ 748 0044 07       		.uleb128 0x7
+ 749 0045 13       		.uleb128 0x13
+ 750 0046 01       		.byte	0x1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 23
 
 
- 791 0075 0B       		.uleb128 0xb
- 792 0076 3B       		.uleb128 0x3b
- 793 0077 0B       		.uleb128 0xb
- 794 0078 01       		.uleb128 0x1
- 795 0079 13       		.uleb128 0x13
- 796 007a 00       		.byte	0
- 797 007b 00       		.byte	0
- 798 007c 0B       		.uleb128 0xb
- 799 007d 0D       		.uleb128 0xd
- 800 007e 00       		.byte	0
- 801 007f 03       		.uleb128 0x3
- 802 0080 08       		.uleb128 0x8
- 803 0081 3A       		.uleb128 0x3a
- 804 0082 0B       		.uleb128 0xb
- 805 0083 3B       		.uleb128 0x3b
- 806 0084 0B       		.uleb128 0xb
- 807 0085 49       		.uleb128 0x49
- 808 0086 13       		.uleb128 0x13
- 809 0087 38       		.uleb128 0x38
- 810 0088 05       		.uleb128 0x5
- 811 0089 00       		.byte	0
- 812 008a 00       		.byte	0
- 813 008b 0C       		.uleb128 0xc
- 814 008c 01       		.uleb128 0x1
- 815 008d 01       		.byte	0x1
- 816 008e 49       		.uleb128 0x49
- 817 008f 13       		.uleb128 0x13
- 818 0090 01       		.uleb128 0x1
- 819 0091 13       		.uleb128 0x13
- 820 0092 00       		.byte	0
- 821 0093 00       		.byte	0
- 822 0094 0D       		.uleb128 0xd
- 823 0095 21       		.uleb128 0x21
- 824 0096 00       		.byte	0
- 825 0097 49       		.uleb128 0x49
- 826 0098 13       		.uleb128 0x13
- 827 0099 2F       		.uleb128 0x2f
- 828 009a 0B       		.uleb128 0xb
- 829 009b 00       		.byte	0
- 830 009c 00       		.byte	0
- 831 009d 0E       		.uleb128 0xe
- 832 009e 13       		.uleb128 0x13
- 833 009f 01       		.byte	0x1
- 834 00a0 03       		.uleb128 0x3
- 835 00a1 0E       		.uleb128 0xe
- 836 00a2 0B       		.uleb128 0xb
- 837 00a3 0B       		.uleb128 0xb
- 838 00a4 3A       		.uleb128 0x3a
- 839 00a5 0B       		.uleb128 0xb
- 840 00a6 3B       		.uleb128 0x3b
- 841 00a7 0B       		.uleb128 0xb
- 842 00a8 01       		.uleb128 0x1
- 843 00a9 13       		.uleb128 0x13
- 844 00aa 00       		.byte	0
- 845 00ab 00       		.byte	0
- 846 00ac 0F       		.uleb128 0xf
- 847 00ad 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 24
+ 751 0047 0B       		.uleb128 0xb
+ 752 0048 0B       		.uleb128 0xb
+ 753 0049 3A       		.uleb128 0x3a
+ 754 004a 0B       		.uleb128 0xb
+ 755 004b 3B       		.uleb128 0x3b
+ 756 004c 0B       		.uleb128 0xb
+ 757 004d 01       		.uleb128 0x1
+ 758 004e 13       		.uleb128 0x13
+ 759 004f 00       		.byte	0
+ 760 0050 00       		.byte	0
+ 761 0051 08       		.uleb128 0x8
+ 762 0052 0D       		.uleb128 0xd
+ 763 0053 00       		.byte	0
+ 764 0054 03       		.uleb128 0x3
+ 765 0055 0E       		.uleb128 0xe
+ 766 0056 3A       		.uleb128 0x3a
+ 767 0057 0B       		.uleb128 0xb
+ 768 0058 3B       		.uleb128 0x3b
+ 769 0059 0B       		.uleb128 0xb
+ 770 005a 49       		.uleb128 0x49
+ 771 005b 13       		.uleb128 0x13
+ 772 005c 38       		.uleb128 0x38
+ 773 005d 0B       		.uleb128 0xb
+ 774 005e 00       		.byte	0
+ 775 005f 00       		.byte	0
+ 776 0060 09       		.uleb128 0x9
+ 777 0061 0D       		.uleb128 0xd
+ 778 0062 00       		.byte	0
+ 779 0063 03       		.uleb128 0x3
+ 780 0064 08       		.uleb128 0x8
+ 781 0065 3A       		.uleb128 0x3a
+ 782 0066 0B       		.uleb128 0xb
+ 783 0067 3B       		.uleb128 0x3b
+ 784 0068 0B       		.uleb128 0xb
+ 785 0069 49       		.uleb128 0x49
+ 786 006a 13       		.uleb128 0x13
+ 787 006b 38       		.uleb128 0x38
+ 788 006c 0B       		.uleb128 0xb
+ 789 006d 00       		.byte	0
+ 790 006e 00       		.byte	0
+ 791 006f 0A       		.uleb128 0xa
+ 792 0070 13       		.uleb128 0x13
+ 793 0071 01       		.byte	0x1
+ 794 0072 0B       		.uleb128 0xb
+ 795 0073 05       		.uleb128 0x5
+ 796 0074 3A       		.uleb128 0x3a
+ 797 0075 0B       		.uleb128 0xb
+ 798 0076 3B       		.uleb128 0x3b
+ 799 0077 0B       		.uleb128 0xb
+ 800 0078 01       		.uleb128 0x1
+ 801 0079 13       		.uleb128 0x13
+ 802 007a 00       		.byte	0
+ 803 007b 00       		.byte	0
+ 804 007c 0B       		.uleb128 0xb
+ 805 007d 0D       		.uleb128 0xd
+ 806 007e 00       		.byte	0
+ 807 007f 03       		.uleb128 0x3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 24
 
 
- 848 00ae 01       		.byte	0x1
- 849 00af 03       		.uleb128 0x3
- 850 00b0 0E       		.uleb128 0xe
- 851 00b1 3A       		.uleb128 0x3a
- 852 00b2 0B       		.uleb128 0xb
- 853 00b3 3B       		.uleb128 0x3b
- 854 00b4 05       		.uleb128 0x5
- 855 00b5 27       		.uleb128 0x27
- 856 00b6 19       		.uleb128 0x19
- 857 00b7 20       		.uleb128 0x20
- 858 00b8 0B       		.uleb128 0xb
- 859 00b9 01       		.uleb128 0x1
- 860 00ba 13       		.uleb128 0x13
- 861 00bb 00       		.byte	0
- 862 00bc 00       		.byte	0
- 863 00bd 10       		.uleb128 0x10
- 864 00be 05       		.uleb128 0x5
- 865 00bf 00       		.byte	0
- 866 00c0 03       		.uleb128 0x3
- 867 00c1 0E       		.uleb128 0xe
- 868 00c2 3A       		.uleb128 0x3a
- 869 00c3 0B       		.uleb128 0xb
- 870 00c4 3B       		.uleb128 0x3b
- 871 00c5 05       		.uleb128 0x5
- 872 00c6 49       		.uleb128 0x49
- 873 00c7 13       		.uleb128 0x13
- 874 00c8 00       		.byte	0
- 875 00c9 00       		.byte	0
- 876 00ca 11       		.uleb128 0x11
- 877 00cb 0F       		.uleb128 0xf
- 878 00cc 00       		.byte	0
- 879 00cd 0B       		.uleb128 0xb
- 880 00ce 0B       		.uleb128 0xb
- 881 00cf 49       		.uleb128 0x49
- 882 00d0 13       		.uleb128 0x13
- 883 00d1 00       		.byte	0
- 884 00d2 00       		.byte	0
- 885 00d3 12       		.uleb128 0x12
- 886 00d4 2E       		.uleb128 0x2e
- 887 00d5 01       		.byte	0x1
- 888 00d6 3F       		.uleb128 0x3f
- 889 00d7 19       		.uleb128 0x19
- 890 00d8 03       		.uleb128 0x3
- 891 00d9 0E       		.uleb128 0xe
- 892 00da 3A       		.uleb128 0x3a
- 893 00db 0B       		.uleb128 0xb
- 894 00dc 3B       		.uleb128 0x3b
- 895 00dd 0B       		.uleb128 0xb
- 896 00de 27       		.uleb128 0x27
- 897 00df 19       		.uleb128 0x19
- 898 00e0 11       		.uleb128 0x11
- 899 00e1 01       		.uleb128 0x1
- 900 00e2 12       		.uleb128 0x12
- 901 00e3 06       		.uleb128 0x6
- 902 00e4 40       		.uleb128 0x40
- 903 00e5 18       		.uleb128 0x18
- 904 00e6 9742     		.uleb128 0x2117
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 25
+ 808 0080 08       		.uleb128 0x8
+ 809 0081 3A       		.uleb128 0x3a
+ 810 0082 0B       		.uleb128 0xb
+ 811 0083 3B       		.uleb128 0x3b
+ 812 0084 0B       		.uleb128 0xb
+ 813 0085 49       		.uleb128 0x49
+ 814 0086 13       		.uleb128 0x13
+ 815 0087 38       		.uleb128 0x38
+ 816 0088 05       		.uleb128 0x5
+ 817 0089 00       		.byte	0
+ 818 008a 00       		.byte	0
+ 819 008b 0C       		.uleb128 0xc
+ 820 008c 01       		.uleb128 0x1
+ 821 008d 01       		.byte	0x1
+ 822 008e 49       		.uleb128 0x49
+ 823 008f 13       		.uleb128 0x13
+ 824 0090 01       		.uleb128 0x1
+ 825 0091 13       		.uleb128 0x13
+ 826 0092 00       		.byte	0
+ 827 0093 00       		.byte	0
+ 828 0094 0D       		.uleb128 0xd
+ 829 0095 21       		.uleb128 0x21
+ 830 0096 00       		.byte	0
+ 831 0097 49       		.uleb128 0x49
+ 832 0098 13       		.uleb128 0x13
+ 833 0099 2F       		.uleb128 0x2f
+ 834 009a 0B       		.uleb128 0xb
+ 835 009b 00       		.byte	0
+ 836 009c 00       		.byte	0
+ 837 009d 0E       		.uleb128 0xe
+ 838 009e 16       		.uleb128 0x16
+ 839 009f 00       		.byte	0
+ 840 00a0 03       		.uleb128 0x3
+ 841 00a1 0E       		.uleb128 0xe
+ 842 00a2 3A       		.uleb128 0x3a
+ 843 00a3 0B       		.uleb128 0xb
+ 844 00a4 3B       		.uleb128 0x3b
+ 845 00a5 05       		.uleb128 0x5
+ 846 00a6 49       		.uleb128 0x49
+ 847 00a7 13       		.uleb128 0x13
+ 848 00a8 00       		.byte	0
+ 849 00a9 00       		.byte	0
+ 850 00aa 0F       		.uleb128 0xf
+ 851 00ab 13       		.uleb128 0x13
+ 852 00ac 01       		.byte	0x1
+ 853 00ad 03       		.uleb128 0x3
+ 854 00ae 0E       		.uleb128 0xe
+ 855 00af 0B       		.uleb128 0xb
+ 856 00b0 0B       		.uleb128 0xb
+ 857 00b1 3A       		.uleb128 0x3a
+ 858 00b2 0B       		.uleb128 0xb
+ 859 00b3 3B       		.uleb128 0x3b
+ 860 00b4 0B       		.uleb128 0xb
+ 861 00b5 01       		.uleb128 0x1
+ 862 00b6 13       		.uleb128 0x13
+ 863 00b7 00       		.byte	0
+ 864 00b8 00       		.byte	0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 25
 
 
- 905 00e8 19       		.uleb128 0x19
- 906 00e9 01       		.uleb128 0x1
- 907 00ea 13       		.uleb128 0x13
- 908 00eb 00       		.byte	0
- 909 00ec 00       		.byte	0
- 910 00ed 13       		.uleb128 0x13
- 911 00ee 1D       		.uleb128 0x1d
- 912 00ef 01       		.byte	0x1
- 913 00f0 31       		.uleb128 0x31
- 914 00f1 13       		.uleb128 0x13
- 915 00f2 11       		.uleb128 0x11
- 916 00f3 01       		.uleb128 0x1
- 917 00f4 12       		.uleb128 0x12
- 918 00f5 06       		.uleb128 0x6
- 919 00f6 58       		.uleb128 0x58
- 920 00f7 0B       		.uleb128 0xb
- 921 00f8 59       		.uleb128 0x59
- 922 00f9 0B       		.uleb128 0xb
- 923 00fa 01       		.uleb128 0x1
- 924 00fb 13       		.uleb128 0x13
- 925 00fc 00       		.byte	0
- 926 00fd 00       		.byte	0
- 927 00fe 14       		.uleb128 0x14
- 928 00ff 05       		.uleb128 0x5
- 929 0100 00       		.byte	0
- 930 0101 31       		.uleb128 0x31
- 931 0102 13       		.uleb128 0x13
- 932 0103 02       		.uleb128 0x2
- 933 0104 17       		.uleb128 0x17
- 934 0105 00       		.byte	0
- 935 0106 00       		.byte	0
- 936 0107 15       		.uleb128 0x15
- 937 0108 898201   		.uleb128 0x4109
- 938 010b 01       		.byte	0x1
- 939 010c 11       		.uleb128 0x11
- 940 010d 01       		.uleb128 0x1
- 941 010e 31       		.uleb128 0x31
- 942 010f 13       		.uleb128 0x13
- 943 0110 00       		.byte	0
- 944 0111 00       		.byte	0
- 945 0112 16       		.uleb128 0x16
- 946 0113 8A8201   		.uleb128 0x410a
- 947 0116 00       		.byte	0
- 948 0117 02       		.uleb128 0x2
- 949 0118 18       		.uleb128 0x18
- 950 0119 9142     		.uleb128 0x2111
- 951 011b 18       		.uleb128 0x18
- 952 011c 00       		.byte	0
- 953 011d 00       		.byte	0
- 954 011e 17       		.uleb128 0x17
- 955 011f 34       		.uleb128 0x34
- 956 0120 00       		.byte	0
- 957 0121 03       		.uleb128 0x3
- 958 0122 0E       		.uleb128 0xe
- 959 0123 3A       		.uleb128 0x3a
- 960 0124 0B       		.uleb128 0xb
- 961 0125 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 26
+ 865 00b9 10       		.uleb128 0x10
+ 866 00ba 2E       		.uleb128 0x2e
+ 867 00bb 01       		.byte	0x1
+ 868 00bc 03       		.uleb128 0x3
+ 869 00bd 0E       		.uleb128 0xe
+ 870 00be 3A       		.uleb128 0x3a
+ 871 00bf 0B       		.uleb128 0xb
+ 872 00c0 3B       		.uleb128 0x3b
+ 873 00c1 05       		.uleb128 0x5
+ 874 00c2 27       		.uleb128 0x27
+ 875 00c3 19       		.uleb128 0x19
+ 876 00c4 20       		.uleb128 0x20
+ 877 00c5 0B       		.uleb128 0xb
+ 878 00c6 01       		.uleb128 0x1
+ 879 00c7 13       		.uleb128 0x13
+ 880 00c8 00       		.byte	0
+ 881 00c9 00       		.byte	0
+ 882 00ca 11       		.uleb128 0x11
+ 883 00cb 05       		.uleb128 0x5
+ 884 00cc 00       		.byte	0
+ 885 00cd 03       		.uleb128 0x3
+ 886 00ce 0E       		.uleb128 0xe
+ 887 00cf 3A       		.uleb128 0x3a
+ 888 00d0 0B       		.uleb128 0xb
+ 889 00d1 3B       		.uleb128 0x3b
+ 890 00d2 05       		.uleb128 0x5
+ 891 00d3 49       		.uleb128 0x49
+ 892 00d4 13       		.uleb128 0x13
+ 893 00d5 00       		.byte	0
+ 894 00d6 00       		.byte	0
+ 895 00d7 12       		.uleb128 0x12
+ 896 00d8 0F       		.uleb128 0xf
+ 897 00d9 00       		.byte	0
+ 898 00da 0B       		.uleb128 0xb
+ 899 00db 0B       		.uleb128 0xb
+ 900 00dc 49       		.uleb128 0x49
+ 901 00dd 13       		.uleb128 0x13
+ 902 00de 00       		.byte	0
+ 903 00df 00       		.byte	0
+ 904 00e0 13       		.uleb128 0x13
+ 905 00e1 2E       		.uleb128 0x2e
+ 906 00e2 01       		.byte	0x1
+ 907 00e3 3F       		.uleb128 0x3f
+ 908 00e4 19       		.uleb128 0x19
+ 909 00e5 03       		.uleb128 0x3
+ 910 00e6 0E       		.uleb128 0xe
+ 911 00e7 3A       		.uleb128 0x3a
+ 912 00e8 0B       		.uleb128 0xb
+ 913 00e9 3B       		.uleb128 0x3b
+ 914 00ea 0B       		.uleb128 0xb
+ 915 00eb 27       		.uleb128 0x27
+ 916 00ec 19       		.uleb128 0x19
+ 917 00ed 11       		.uleb128 0x11
+ 918 00ee 01       		.uleb128 0x1
+ 919 00ef 12       		.uleb128 0x12
+ 920 00f0 06       		.uleb128 0x6
+ 921 00f1 40       		.uleb128 0x40
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 26
 
 
- 962 0126 0B       		.uleb128 0xb
- 963 0127 49       		.uleb128 0x49
- 964 0128 13       		.uleb128 0x13
- 965 0129 3F       		.uleb128 0x3f
- 966 012a 19       		.uleb128 0x19
- 967 012b 02       		.uleb128 0x2
- 968 012c 18       		.uleb128 0x18
- 969 012d 00       		.byte	0
- 970 012e 00       		.byte	0
- 971 012f 18       		.uleb128 0x18
- 972 0130 2E       		.uleb128 0x2e
- 973 0131 00       		.byte	0
- 974 0132 3F       		.uleb128 0x3f
- 975 0133 19       		.uleb128 0x19
- 976 0134 3C       		.uleb128 0x3c
- 977 0135 19       		.uleb128 0x19
- 978 0136 6E       		.uleb128 0x6e
- 979 0137 0E       		.uleb128 0xe
- 980 0138 03       		.uleb128 0x3
- 981 0139 0E       		.uleb128 0xe
- 982 013a 3A       		.uleb128 0x3a
- 983 013b 0B       		.uleb128 0xb
- 984 013c 3B       		.uleb128 0x3b
- 985 013d 0B       		.uleb128 0xb
- 986 013e 00       		.byte	0
- 987 013f 00       		.byte	0
- 988 0140 00       		.byte	0
- 989              		.section	.debug_loc,"",%progbits
- 990              	.Ldebug_loc0:
- 991              	.LLST0:
- 992 0000 1A000000 		.4byte	.LVL1
- 993 0004 22000000 		.4byte	.LVL2
- 994 0008 0400     		.2byte	0x4
- 995 000a 0A       		.byte	0xa
- 996 000b 0004     		.2byte	0x400
- 997 000d 9F       		.byte	0x9f
- 998 000e 00000000 		.4byte	0
- 999 0012 00000000 		.4byte	0
- 1000              	.LLST1:
- 1001 0016 1A000000 		.4byte	.LVL1
- 1002 001a 22000000 		.4byte	.LVL2
- 1003 001e 0600     		.2byte	0x6
- 1004 0020 0C       		.byte	0xc
- 1005 0021 00003940 		.4byte	0x40390000
- 1006 0025 9F       		.byte	0x9f
- 1007 0026 00000000 		.4byte	0
- 1008 002a 00000000 		.4byte	0
- 1009              		.section	.debug_aranges,"",%progbits
- 1010 0000 1C000000 		.4byte	0x1c
- 1011 0004 0200     		.2byte	0x2
- 1012 0006 00000000 		.4byte	.Ldebug_info0
- 1013 000a 04       		.byte	0x4
- 1014 000b 00       		.byte	0
- 1015 000c 0000     		.2byte	0
- 1016 000e 0000     		.2byte	0
- 1017 0010 00000000 		.4byte	.LFB90
- 1018 0014 30000000 		.4byte	.LFE90-.LFB90
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 27
+ 922 00f2 18       		.uleb128 0x18
+ 923 00f3 9742     		.uleb128 0x2117
+ 924 00f5 19       		.uleb128 0x19
+ 925 00f6 01       		.uleb128 0x1
+ 926 00f7 13       		.uleb128 0x13
+ 927 00f8 00       		.byte	0
+ 928 00f9 00       		.byte	0
+ 929 00fa 14       		.uleb128 0x14
+ 930 00fb 1D       		.uleb128 0x1d
+ 931 00fc 01       		.byte	0x1
+ 932 00fd 31       		.uleb128 0x31
+ 933 00fe 13       		.uleb128 0x13
+ 934 00ff 11       		.uleb128 0x11
+ 935 0100 01       		.uleb128 0x1
+ 936 0101 12       		.uleb128 0x12
+ 937 0102 06       		.uleb128 0x6
+ 938 0103 58       		.uleb128 0x58
+ 939 0104 0B       		.uleb128 0xb
+ 940 0105 59       		.uleb128 0x59
+ 941 0106 0B       		.uleb128 0xb
+ 942 0107 01       		.uleb128 0x1
+ 943 0108 13       		.uleb128 0x13
+ 944 0109 00       		.byte	0
+ 945 010a 00       		.byte	0
+ 946 010b 15       		.uleb128 0x15
+ 947 010c 05       		.uleb128 0x5
+ 948 010d 00       		.byte	0
+ 949 010e 31       		.uleb128 0x31
+ 950 010f 13       		.uleb128 0x13
+ 951 0110 02       		.uleb128 0x2
+ 952 0111 17       		.uleb128 0x17
+ 953 0112 00       		.byte	0
+ 954 0113 00       		.byte	0
+ 955 0114 16       		.uleb128 0x16
+ 956 0115 898201   		.uleb128 0x4109
+ 957 0118 01       		.byte	0x1
+ 958 0119 11       		.uleb128 0x11
+ 959 011a 01       		.uleb128 0x1
+ 960 011b 31       		.uleb128 0x31
+ 961 011c 13       		.uleb128 0x13
+ 962 011d 00       		.byte	0
+ 963 011e 00       		.byte	0
+ 964 011f 17       		.uleb128 0x17
+ 965 0120 8A8201   		.uleb128 0x410a
+ 966 0123 00       		.byte	0
+ 967 0124 02       		.uleb128 0x2
+ 968 0125 18       		.uleb128 0x18
+ 969 0126 9142     		.uleb128 0x2111
+ 970 0128 18       		.uleb128 0x18
+ 971 0129 00       		.byte	0
+ 972 012a 00       		.byte	0
+ 973 012b 18       		.uleb128 0x18
+ 974 012c 34       		.uleb128 0x34
+ 975 012d 00       		.byte	0
+ 976 012e 03       		.uleb128 0x3
+ 977 012f 0E       		.uleb128 0xe
+ 978 0130 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 27
 
 
- 1019 0018 00000000 		.4byte	0
- 1020 001c 00000000 		.4byte	0
- 1021              		.section	.debug_ranges,"",%progbits
- 1022              	.Ldebug_ranges0:
- 1023 0000 00000000 		.4byte	.LFB90
- 1024 0004 30000000 		.4byte	.LFE90
- 1025 0008 00000000 		.4byte	0
- 1026 000c 00000000 		.4byte	0
- 1027              		.section	.debug_line,"",%progbits
- 1028              	.Ldebug_line0:
- 1029 0000 E7010000 		.section	.debug_str,"MS",%progbits,1
- 1029      0200C201 
- 1029      00000201 
- 1029      FB0E0D00 
- 1029      01010101 
- 1030              	.LASF49:
- 1031 0000 656E6162 		.ascii	"enablePeriodSwap\000"
- 1031      6C655065 
- 1031      72696F64 
- 1031      53776170 
- 1031      00
- 1032              	.LASF60:
- 1033 0011 72656C6F 		.ascii	"reloadInput\000"
- 1033      6164496E 
- 1033      70757400 
- 1034              	.LASF43:
- 1035 001d 636C6F63 		.ascii	"clockPrescaler\000"
- 1035      6B507265 
- 1035      7363616C 
- 1035      657200
- 1036              	.LASF65:
- 1037 002c 636F756E 		.ascii	"countInputMode\000"
- 1037      74496E70 
- 1037      75744D6F 
- 1037      646500
- 1038              	.LASF50:
- 1039 003b 636F6D70 		.ascii	"compare0\000"
- 1039      61726530 
- 1039      00
- 1040              	.LASF51:
- 1041 0044 636F6D70 		.ascii	"compare1\000"
- 1041      61726531 
- 1041      00
- 1042              	.LASF68:
- 1043 004d 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config_t\000"
- 1043      74635F74 
- 1043      6370776D 
- 1043      5F70776D 
- 1043      5F636F6E 
- 1044              	.LASF75:
- 1045 0067 433A5C41 		.ascii	"C:\\Alen\\GitHub_Denzerek\\BLEControlledArm\\BLE_AR"
- 1045      6C656E5C 
- 1045      47697448 
- 1045      75625F44 
- 1045      656E7A65 
- 1046 0096 4D5F576F 		.ascii	"M_Workspace\\MainArmController.cydsn\000"
- 1046      726B7370 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 28
+ 979 0131 0B       		.uleb128 0xb
+ 980 0132 3B       		.uleb128 0x3b
+ 981 0133 0B       		.uleb128 0xb
+ 982 0134 49       		.uleb128 0x49
+ 983 0135 13       		.uleb128 0x13
+ 984 0136 3F       		.uleb128 0x3f
+ 985 0137 19       		.uleb128 0x19
+ 986 0138 02       		.uleb128 0x2
+ 987 0139 18       		.uleb128 0x18
+ 988 013a 00       		.byte	0
+ 989 013b 00       		.byte	0
+ 990 013c 19       		.uleb128 0x19
+ 991 013d 2E       		.uleb128 0x2e
+ 992 013e 00       		.byte	0
+ 993 013f 3F       		.uleb128 0x3f
+ 994 0140 19       		.uleb128 0x19
+ 995 0141 3C       		.uleb128 0x3c
+ 996 0142 19       		.uleb128 0x19
+ 997 0143 6E       		.uleb128 0x6e
+ 998 0144 0E       		.uleb128 0xe
+ 999 0145 03       		.uleb128 0x3
+ 1000 0146 0E       		.uleb128 0xe
+ 1001 0147 3A       		.uleb128 0x3a
+ 1002 0148 0B       		.uleb128 0xb
+ 1003 0149 3B       		.uleb128 0x3b
+ 1004 014a 0B       		.uleb128 0xb
+ 1005 014b 00       		.byte	0
+ 1006 014c 00       		.byte	0
+ 1007 014d 00       		.byte	0
+ 1008              		.section	.debug_loc,"",%progbits
+ 1009              	.Ldebug_loc0:
+ 1010              	.LLST0:
+ 1011 0000 1A000000 		.4byte	.LVL1
+ 1012 0004 22000000 		.4byte	.LVL2
+ 1013 0008 0400     		.2byte	0x4
+ 1014 000a 0A       		.byte	0xa
+ 1015 000b 0004     		.2byte	0x400
+ 1016 000d 9F       		.byte	0x9f
+ 1017 000e 00000000 		.4byte	0
+ 1018 0012 00000000 		.4byte	0
+ 1019              	.LLST1:
+ 1020 0016 1A000000 		.4byte	.LVL1
+ 1021 001a 22000000 		.4byte	.LVL2
+ 1022 001e 0600     		.2byte	0x6
+ 1023 0020 0C       		.byte	0xc
+ 1024 0021 00003940 		.4byte	0x40390000
+ 1025 0025 9F       		.byte	0x9f
+ 1026 0026 00000000 		.4byte	0
+ 1027 002a 00000000 		.4byte	0
+ 1028              		.section	.debug_aranges,"",%progbits
+ 1029 0000 1C000000 		.4byte	0x1c
+ 1030 0004 0200     		.2byte	0x2
+ 1031 0006 00000000 		.4byte	.Ldebug_info0
+ 1032 000a 04       		.byte	0x4
+ 1033 000b 00       		.byte	0
+ 1034 000c 0000     		.2byte	0
+ 1035 000e 0000     		.2byte	0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 28
 
 
- 1046      6163655C 
- 1046      4D61696E 
- 1046      41726D43 
- 1047              	.LASF29:
- 1048 00ba 54435057 		.ascii	"TCPWM_CNT_Type\000"
- 1048      4D5F434E 
- 1048      545F5479 
- 1048      706500
- 1049              	.LASF0:
- 1050 00c9 73686F72 		.ascii	"short int\000"
- 1050      7420696E 
- 1050      7400
- 1051              	.LASF13:
- 1052 00d3 73697A65 		.ascii	"sizetype\000"
- 1052      74797065 
- 1052      00
- 1053              	.LASF19:
- 1054 00dc 50455249 		.ascii	"PERIOD_BUFF\000"
- 1054      4F445F42 
- 1054      55464600 
- 1055              	.LASF71:
- 1056 00e8 50574D5F 		.ascii	"PWM_2_initVar\000"
- 1056      325F696E 
- 1056      69745661 
- 1056      7200
- 1057              	.LASF18:
- 1058 00f6 50455249 		.ascii	"PERIOD\000"
- 1058      4F4400
- 1059              	.LASF33:
- 1060 00fd 434D445F 		.ascii	"CMD_RELOAD\000"
- 1060      52454C4F 
- 1060      414400
- 1061              	.LASF22:
- 1062 0108 54525F43 		.ascii	"TR_CTRL1\000"
- 1062      54524C31 
- 1062      00
- 1063              	.LASF23:
- 1064 0111 54525F43 		.ascii	"TR_CTRL2\000"
- 1064      54524C32 
- 1064      00
- 1065              	.LASF76:
- 1066 011a 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config\000"
- 1066      74635F74 
- 1066      6370776D 
- 1066      5F70776D 
- 1066      5F636F6E 
- 1067              	.LASF6:
- 1068 0132 5F5F7569 		.ascii	"__uint32_t\000"
- 1068      6E743332 
- 1068      5F7400
- 1069              	.LASF21:
- 1070 013d 54525F43 		.ascii	"TR_CTRL0\000"
- 1070      54524C30 
- 1070      00
- 1071              	.LASF44:
- 1072 0146 70776D41 		.ascii	"pwmAlignment\000"
- 1072      6C69676E 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 29
+ 1036 0010 00000000 		.4byte	.LFB99
+ 1037 0014 30000000 		.4byte	.LFE99-.LFB99
+ 1038 0018 00000000 		.4byte	0
+ 1039 001c 00000000 		.4byte	0
+ 1040              		.section	.debug_ranges,"",%progbits
+ 1041              	.Ldebug_ranges0:
+ 1042 0000 00000000 		.4byte	.LFB99
+ 1043 0004 30000000 		.4byte	.LFE99
+ 1044 0008 00000000 		.4byte	0
+ 1045 000c 00000000 		.4byte	0
+ 1046              		.section	.debug_line,"",%progbits
+ 1047              	.Ldebug_line0:
+ 1048 0000 35020000 		.section	.debug_str,"MS",%progbits,1
+ 1048      02001002 
+ 1048      00000201 
+ 1048      FB0E0D00 
+ 1048      01010101 
+ 1049              	.LASF50:
+ 1050 0000 656E6162 		.ascii	"enablePeriodSwap\000"
+ 1050      6C655065 
+ 1050      72696F64 
+ 1050      53776170 
+ 1050      00
+ 1051              	.LASF61:
+ 1052 0011 72656C6F 		.ascii	"reloadInput\000"
+ 1052      6164496E 
+ 1052      70757400 
+ 1053              	.LASF44:
+ 1054 001d 636C6F63 		.ascii	"clockPrescaler\000"
+ 1054      6B507265 
+ 1054      7363616C 
+ 1054      657200
+ 1055              	.LASF66:
+ 1056 002c 636F756E 		.ascii	"countInputMode\000"
+ 1056      74496E70 
+ 1056      75744D6F 
+ 1056      646500
+ 1057              	.LASF51:
+ 1058 003b 636F6D70 		.ascii	"compare0\000"
+ 1058      61726530 
+ 1058      00
+ 1059              	.LASF52:
+ 1060 0044 636F6D70 		.ascii	"compare1\000"
+ 1060      61726531 
+ 1060      00
+ 1061              	.LASF69:
+ 1062 004d 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config_t\000"
+ 1062      74635F74 
+ 1062      6370776D 
+ 1062      5F70776D 
+ 1062      5F636F6E 
+ 1063              	.LASF76:
+ 1064 0067 433A5C41 		.ascii	"C:\\Alen\\GitHub_Denzerek\\BLEControlledArm\\BLE_AR"
+ 1064      6C656E5C 
+ 1064      47697448 
+ 1064      75625F44 
+ 1064      656E7A65 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 29
 
 
- 1072      6D656E74 
- 1072      00
- 1073              	.LASF52:
- 1074 0153 656E6162 		.ascii	"enableCompareSwap\000"
- 1074      6C65436F 
- 1074      6D706172 
- 1074      65537761 
- 1074      7000
- 1075              	.LASF11:
- 1076 0165 75696E74 		.ascii	"uint8_t\000"
- 1076      385F7400 
- 1077              	.LASF64:
- 1078 016d 6B696C6C 		.ascii	"killInput\000"
- 1078      496E7075 
- 1078      7400
- 1079              	.LASF32:
- 1080 0177 434D445F 		.ascii	"CMD_CAPTURE\000"
- 1080      43415054 
- 1080      55524500 
- 1081              	.LASF53:
- 1082 0183 696E7465 		.ascii	"interruptSources\000"
- 1082      72727570 
- 1082      74536F75 
- 1082      72636573 
- 1082      00
- 1083              	.LASF35:
- 1084 0194 434D445F 		.ascii	"CMD_START\000"
- 1084      53544152 
- 1084      5400
- 1085              	.LASF56:
- 1086 019e 6B696C6C 		.ascii	"killMode\000"
- 1086      4D6F6465 
- 1086      00
- 1087              	.LASF40:
- 1088 01a7 666C6F61 		.ascii	"float\000"
- 1088      7400
- 1089              	.LASF47:
- 1090 01ad 70657269 		.ascii	"period0\000"
- 1090      6F643000 
- 1091              	.LASF48:
- 1092 01b5 70657269 		.ascii	"period1\000"
- 1092      6F643100 
- 1093              	.LASF59:
- 1094 01bd 72656C6F 		.ascii	"reloadInputMode\000"
- 1094      6164496E 
- 1094      7075744D 
- 1094      6F646500 
- 1095              	.LASF8:
- 1096 01cd 6C6F6E67 		.ascii	"long long int\000"
- 1096      206C6F6E 
- 1096      6720696E 
- 1096      7400
- 1097              	.LASF46:
- 1098 01db 72756E4D 		.ascii	"runMode\000"
- 1098      6F646500 
- 1099              	.LASF15:
- 1100 01e3 53544154 		.ascii	"STATUS\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 30
+ 1065 0096 4D5F576F 		.ascii	"M_Workspace\\MainArmController.cydsn\000"
+ 1065      726B7370 
+ 1065      6163655C 
+ 1065      4D61696E 
+ 1065      41726D43 
+ 1066              	.LASF0:
+ 1067 00ba 73686F72 		.ascii	"short int\000"
+ 1067      7420696E 
+ 1067      7400
+ 1068              	.LASF13:
+ 1069 00c4 73697A65 		.ascii	"sizetype\000"
+ 1069      74797065 
+ 1069      00
+ 1070              	.LASF19:
+ 1071 00cd 50455249 		.ascii	"PERIOD_BUFF\000"
+ 1071      4F445F42 
+ 1071      55464600 
+ 1072              	.LASF29:
+ 1073 00d9 54435057 		.ascii	"TCPWM_CNT_V1_Type\000"
+ 1073      4D5F434E 
+ 1073      545F5631 
+ 1073      5F547970 
+ 1073      6500
+ 1074              	.LASF72:
+ 1075 00eb 50574D5F 		.ascii	"PWM_2_initVar\000"
+ 1075      325F696E 
+ 1075      69745661 
+ 1075      7200
+ 1076              	.LASF18:
+ 1077 00f9 50455249 		.ascii	"PERIOD\000"
+ 1077      4F4400
+ 1078              	.LASF33:
+ 1079 0100 434D445F 		.ascii	"CMD_RELOAD\000"
+ 1079      52454C4F 
+ 1079      414400
+ 1080              	.LASF22:
+ 1081 010b 54525F43 		.ascii	"TR_CTRL1\000"
+ 1081      54524C31 
+ 1081      00
+ 1082              	.LASF23:
+ 1083 0114 54525F43 		.ascii	"TR_CTRL2\000"
+ 1083      54524C32 
+ 1083      00
+ 1084              	.LASF77:
+ 1085 011d 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config\000"
+ 1085      74635F74 
+ 1085      6370776D 
+ 1085      5F70776D 
+ 1085      5F636F6E 
+ 1086              	.LASF6:
+ 1087 0135 5F5F7569 		.ascii	"__uint32_t\000"
+ 1087      6E743332 
+ 1087      5F7400
+ 1088              	.LASF21:
+ 1089 0140 54525F43 		.ascii	"TR_CTRL0\000"
+ 1089      54524C30 
+ 1089      00
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 30
 
 
- 1100      555300
- 1101              	.LASF66:
- 1102 01ea 636F756E 		.ascii	"countInput\000"
- 1102      74496E70 
- 1102      757400
- 1103              	.LASF5:
- 1104 01f5 5F5F7569 		.ascii	"__uint8_t\000"
- 1104      6E74385F 
- 1104      7400
- 1105              	.LASF28:
- 1106 01ff 494E5452 		.ascii	"INTR_MASKED\000"
- 1106      5F4D4153 
- 1106      4B454400 
- 1107              	.LASF17:
- 1108 020b 43435F42 		.ascii	"CC_BUFF\000"
- 1108      55464600 
- 1109              	.LASF38:
- 1110 0213 6C6F6E67 		.ascii	"long double\000"
- 1110      20646F75 
- 1110      626C6500 
- 1111              	.LASF61:
- 1112 021f 73746172 		.ascii	"startInputMode\000"
- 1112      74496E70 
- 1112      75744D6F 
- 1112      646500
- 1113              	.LASF1:
- 1114 022e 756E7369 		.ascii	"unsigned char\000"
- 1114      676E6564 
- 1114      20636861 
- 1114      7200
- 1115              	.LASF14:
- 1116 023c 4354524C 		.ascii	"CTRL\000"
- 1116      00
- 1117              	.LASF36:
- 1118 0241 494E5452 		.ascii	"INTR_CAUSE\000"
- 1118      5F434155 
- 1118      534500
- 1119              	.LASF2:
- 1120 024c 7369676E 		.ascii	"signed char\000"
- 1120      65642063 
- 1120      68617200 
- 1121              	.LASF26:
- 1122 0258 494E5452 		.ascii	"INTR_SET\000"
- 1122      5F534554 
- 1122      00
- 1123              	.LASF9:
- 1124 0261 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1124      206C6F6E 
- 1124      6720756E 
- 1124      7369676E 
- 1124      65642069 
- 1125              	.LASF12:
- 1126 0278 75696E74 		.ascii	"uint32_t\000"
- 1126      33325F74 
- 1126      00
- 1127              	.LASF31:
- 1128 0281 4354524C 		.ascii	"CTRL_SET\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 31
+ 1090              	.LASF37:
+ 1091 0149 54435057 		.ascii	"TCPWM_V1_Type\000"
+ 1091      4D5F5631 
+ 1091      5F547970 
+ 1091      6500
+ 1092              	.LASF53:
+ 1093 0157 656E6162 		.ascii	"enableCompareSwap\000"
+ 1093      6C65436F 
+ 1093      6D706172 
+ 1093      65537761 
+ 1093      7000
+ 1094              	.LASF11:
+ 1095 0169 75696E74 		.ascii	"uint8_t\000"
+ 1095      385F7400 
+ 1096              	.LASF65:
+ 1097 0171 6B696C6C 		.ascii	"killInput\000"
+ 1097      496E7075 
+ 1097      7400
+ 1098              	.LASF32:
+ 1099 017b 434D445F 		.ascii	"CMD_CAPTURE\000"
+ 1099      43415054 
+ 1099      55524500 
+ 1100              	.LASF54:
+ 1101 0187 696E7465 		.ascii	"interruptSources\000"
+ 1101      72727570 
+ 1101      74536F75 
+ 1101      72636573 
+ 1101      00
+ 1102              	.LASF35:
+ 1103 0198 434D445F 		.ascii	"CMD_START\000"
+ 1103      53544152 
+ 1103      5400
+ 1104              	.LASF57:
+ 1105 01a2 6B696C6C 		.ascii	"killMode\000"
+ 1105      4D6F6465 
+ 1105      00
+ 1106              	.LASF41:
+ 1107 01ab 666C6F61 		.ascii	"float\000"
+ 1107      7400
+ 1108              	.LASF48:
+ 1109 01b1 70657269 		.ascii	"period0\000"
+ 1109      6F643000 
+ 1110              	.LASF49:
+ 1111 01b9 70657269 		.ascii	"period1\000"
+ 1111      6F643100 
+ 1112              	.LASF60:
+ 1113 01c1 72656C6F 		.ascii	"reloadInputMode\000"
+ 1113      6164496E 
+ 1113      7075744D 
+ 1113      6F646500 
+ 1114              	.LASF8:
+ 1115 01d1 6C6F6E67 		.ascii	"long long int\000"
+ 1115      206C6F6E 
+ 1115      6720696E 
+ 1115      7400
+ 1116              	.LASF47:
+ 1117 01df 72756E4D 		.ascii	"runMode\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 31
 
 
- 1128      5F534554 
- 1128      00
- 1129              	.LASF10:
- 1130 028a 756E7369 		.ascii	"unsigned int\000"
- 1130      676E6564 
- 1130      20696E74 
- 1130      00
- 1131              	.LASF74:
- 1132 0297 47656E65 		.ascii	"Generated_Source\\PSoC6\\PWM_2.c\000"
- 1132      72617465 
- 1132      645F536F 
- 1132      75726365 
- 1132      5C50536F 
- 1133              	.LASF72:
- 1134 02b6 50574D5F 		.ascii	"PWM_2_config\000"
- 1134      325F636F 
- 1134      6E666967 
- 1134      00
- 1135              	.LASF55:
- 1136 02c3 696E7665 		.ascii	"invertPWMOutN\000"
- 1136      72745057 
- 1136      4D4F7574 
- 1136      4E00
- 1137              	.LASF34:
- 1138 02d1 434D445F 		.ascii	"CMD_STOP\000"
- 1138      53544F50 
- 1138      00
- 1139              	.LASF78:
- 1140 02da 50574D5F 		.ascii	"PWM_2_Start\000"
- 1140      325F5374 
- 1140      61727400 
- 1141              	.LASF3:
- 1142 02e6 73686F72 		.ascii	"short unsigned int\000"
- 1142      7420756E 
- 1142      7369676E 
- 1142      65642069 
- 1142      6E7400
- 1143              	.LASF39:
- 1144 02f9 63686172 		.ascii	"char\000"
- 1144      00
- 1145              	.LASF4:
- 1146 02fe 6C6F6E67 		.ascii	"long int\000"
- 1146      20696E74 
- 1146      00
- 1147              	.LASF45:
- 1148 0307 64656164 		.ascii	"deadTimeClocks\000"
- 1148      54696D65 
- 1148      436C6F63 
- 1148      6B7300
- 1149              	.LASF67:
- 1150 0316 5F426F6F 		.ascii	"_Bool\000"
- 1150      6C00
- 1151              	.LASF25:
- 1152 031c 494E5452 		.ascii	"INTR\000"
- 1152      00
- 1153              	.LASF79:
- 1154 0321 43795F54 		.ascii	"Cy_TCPWM_PWM_Init\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 32
+ 1117      6F646500 
+ 1118              	.LASF15:
+ 1119 01e7 53544154 		.ascii	"STATUS\000"
+ 1119      555300
+ 1120              	.LASF67:
+ 1121 01ee 636F756E 		.ascii	"countInput\000"
+ 1121      74496E70 
+ 1121      757400
+ 1122              	.LASF5:
+ 1123 01f9 5F5F7569 		.ascii	"__uint8_t\000"
+ 1123      6E74385F 
+ 1123      7400
+ 1124              	.LASF28:
+ 1125 0203 494E5452 		.ascii	"INTR_MASKED\000"
+ 1125      5F4D4153 
+ 1125      4B454400 
+ 1126              	.LASF17:
+ 1127 020f 43435F42 		.ascii	"CC_BUFF\000"
+ 1127      55464600 
+ 1128              	.LASF39:
+ 1129 0217 6C6F6E67 		.ascii	"long double\000"
+ 1129      20646F75 
+ 1129      626C6500 
+ 1130              	.LASF62:
+ 1131 0223 73746172 		.ascii	"startInputMode\000"
+ 1131      74496E70 
+ 1131      75744D6F 
+ 1131      646500
+ 1132              	.LASF1:
+ 1133 0232 756E7369 		.ascii	"unsigned char\000"
+ 1133      676E6564 
+ 1133      20636861 
+ 1133      7200
+ 1134              	.LASF14:
+ 1135 0240 4354524C 		.ascii	"CTRL\000"
+ 1135      00
+ 1136              	.LASF36:
+ 1137 0245 494E5452 		.ascii	"INTR_CAUSE\000"
+ 1137      5F434155 
+ 1137      534500
+ 1138              	.LASF2:
+ 1139 0250 7369676E 		.ascii	"signed char\000"
+ 1139      65642063 
+ 1139      68617200 
+ 1140              	.LASF26:
+ 1141 025c 494E5452 		.ascii	"INTR_SET\000"
+ 1141      5F534554 
+ 1141      00
+ 1142              	.LASF9:
+ 1143 0265 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1143      206C6F6E 
+ 1143      6720756E 
+ 1143      7369676E 
+ 1143      65642069 
+ 1144              	.LASF12:
+ 1145 027c 75696E74 		.ascii	"uint32_t\000"
+ 1145      33325F74 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 32
 
 
- 1154      4350574D 
- 1154      5F50574D 
- 1154      5F496E69 
- 1154      7400
- 1155              	.LASF24:
- 1156 0333 52455345 		.ascii	"RESERVED1\000"
- 1156      52564544 
- 1156      3100
- 1157              	.LASF7:
- 1158 033d 6C6F6E67 		.ascii	"long unsigned int\000"
- 1158      20756E73 
- 1158      69676E65 
- 1158      6420696E 
- 1158      7400
- 1159              	.LASF41:
- 1160 034f 646F7562 		.ascii	"double\000"
- 1160      6C6500
- 1161              	.LASF73:
- 1162 0356 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1162      43313120 
- 1162      352E342E 
- 1162      31203230 
- 1162      31363036 
- 1163 0389 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
- 1163      20726576 
- 1163      6973696F 
- 1163      6E203233 
- 1163      37373135 
- 1164 03bc 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
- 1164      67202D66 
- 1164      66756E63 
- 1164      74696F6E 
- 1164      2D736563 
- 1165              	.LASF57:
- 1166 03e8 73776170 		.ascii	"swapInputMode\000"
- 1166      496E7075 
- 1166      744D6F64 
- 1166      6500
- 1167              	.LASF62:
- 1168 03f6 73746172 		.ascii	"startInput\000"
- 1168      74496E70 
- 1168      757400
- 1169              	.LASF30:
- 1170 0401 4354524C 		.ascii	"CTRL_CLR\000"
- 1170      5F434C52 
- 1170      00
- 1171              	.LASF58:
- 1172 040a 73776170 		.ascii	"swapInput\000"
- 1172      496E7075 
- 1172      7400
- 1173              	.LASF54:
- 1174 0414 696E7665 		.ascii	"invertPWMOut\000"
- 1174      72745057 
- 1174      4D4F7574 
- 1174      00
- 1175              	.LASF63:
- 1176 0421 6B696C6C 		.ascii	"killInputMode\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccorDMyP.s 			page 33
+ 1145      00
+ 1146              	.LASF31:
+ 1147 0285 4354524C 		.ascii	"CTRL_SET\000"
+ 1147      5F534554 
+ 1147      00
+ 1148              	.LASF10:
+ 1149 028e 756E7369 		.ascii	"unsigned int\000"
+ 1149      676E6564 
+ 1149      20696E74 
+ 1149      00
+ 1150              	.LASF75:
+ 1151 029b 47656E65 		.ascii	"Generated_Source\\PSoC6\\PWM_2.c\000"
+ 1151      72617465 
+ 1151      645F536F 
+ 1151      75726365 
+ 1151      5C50536F 
+ 1152              	.LASF73:
+ 1153 02ba 50574D5F 		.ascii	"PWM_2_config\000"
+ 1153      325F636F 
+ 1153      6E666967 
+ 1153      00
+ 1154              	.LASF56:
+ 1155 02c7 696E7665 		.ascii	"invertPWMOutN\000"
+ 1155      72745057 
+ 1155      4D4F7574 
+ 1155      4E00
+ 1156              	.LASF34:
+ 1157 02d5 434D445F 		.ascii	"CMD_STOP\000"
+ 1157      53544F50 
+ 1157      00
+ 1158              	.LASF79:
+ 1159 02de 50574D5F 		.ascii	"PWM_2_Start\000"
+ 1159      325F5374 
+ 1159      61727400 
+ 1160              	.LASF3:
+ 1161 02ea 73686F72 		.ascii	"short unsigned int\000"
+ 1161      7420756E 
+ 1161      7369676E 
+ 1161      65642069 
+ 1161      6E7400
+ 1162              	.LASF40:
+ 1163 02fd 63686172 		.ascii	"char\000"
+ 1163      00
+ 1164              	.LASF4:
+ 1165 0302 6C6F6E67 		.ascii	"long int\000"
+ 1165      20696E74 
+ 1165      00
+ 1166              	.LASF46:
+ 1167 030b 64656164 		.ascii	"deadTimeClocks\000"
+ 1167      54696D65 
+ 1167      436C6F63 
+ 1167      6B7300
+ 1168              	.LASF68:
+ 1169 031a 5F426F6F 		.ascii	"_Bool\000"
+ 1169      6C00
+ 1170              	.LASF25:
+ 1171 0320 494E5452 		.ascii	"INTR\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 33
 
 
- 1176      496E7075 
- 1176      744D6F64 
- 1176      6500
- 1177              	.LASF16:
- 1178 042f 434F554E 		.ascii	"COUNTER\000"
- 1178      54455200 
- 1179              	.LASF42:
- 1180 0437 70776D4D 		.ascii	"pwmMode\000"
- 1180      6F646500 
- 1181              	.LASF20:
- 1182 043f 52455345 		.ascii	"RESERVED\000"
- 1182      52564544 
- 1182      00
- 1183              	.LASF77:
- 1184 0448 43795F54 		.ascii	"Cy_TCPWM_Enable_Multiple\000"
- 1184      4350574D 
- 1184      5F456E61 
- 1184      626C655F 
- 1184      4D756C74 
- 1185              	.LASF27:
- 1186 0461 494E5452 		.ascii	"INTR_MASK\000"
- 1186      5F4D4153 
- 1186      4B00
- 1187              	.LASF37:
- 1188 046b 54435057 		.ascii	"TCPWM_Type\000"
- 1188      4D5F5479 
- 1188      706500
- 1189              	.LASF69:
- 1190 0476 62617365 		.ascii	"base\000"
- 1190      00
- 1191              	.LASF70:
- 1192 047b 636F756E 		.ascii	"counters\000"
- 1192      74657273 
- 1192      00
- 1193              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1171      00
+ 1172              	.LASF80:
+ 1173 0325 43795F54 		.ascii	"Cy_TCPWM_PWM_Init\000"
+ 1173      4350574D 
+ 1173      5F50574D 
+ 1173      5F496E69 
+ 1173      7400
+ 1174              	.LASF24:
+ 1175 0337 52455345 		.ascii	"RESERVED1\000"
+ 1175      52564544 
+ 1175      3100
+ 1176              	.LASF7:
+ 1177 0341 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1177      20756E73 
+ 1177      69676E65 
+ 1177      6420696E 
+ 1177      7400
+ 1178              	.LASF42:
+ 1179 0353 646F7562 		.ascii	"double\000"
+ 1179      6C6500
+ 1180              	.LASF74:
+ 1181 035a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1181      43313120 
+ 1181      352E342E 
+ 1181      31203230 
+ 1181      31363036 
+ 1182 038d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1182      20726576 
+ 1182      6973696F 
+ 1182      6E203233 
+ 1182      37373135 
+ 1183 03c0 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1183      67202D66 
+ 1183      66756E63 
+ 1183      74696F6E 
+ 1183      2D736563 
+ 1184              	.LASF58:
+ 1185 03ec 73776170 		.ascii	"swapInputMode\000"
+ 1185      496E7075 
+ 1185      744D6F64 
+ 1185      6500
+ 1186              	.LASF63:
+ 1187 03fa 73746172 		.ascii	"startInput\000"
+ 1187      74496E70 
+ 1187      757400
+ 1188              	.LASF30:
+ 1189 0405 4354524C 		.ascii	"CTRL_CLR\000"
+ 1189      5F434C52 
+ 1189      00
+ 1190              	.LASF45:
+ 1191 040e 70776D41 		.ascii	"pwmAlignment\000"
+ 1191      6C69676E 
+ 1191      6D656E74 
+ 1191      00
+ 1192              	.LASF59:
+ 1193 041b 73776170 		.ascii	"swapInput\000"
+ 1193      496E7075 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccMnLXHN.s 			page 34
+
+
+ 1193      7400
+ 1194              	.LASF55:
+ 1195 0425 696E7665 		.ascii	"invertPWMOut\000"
+ 1195      72745057 
+ 1195      4D4F7574 
+ 1195      00
+ 1196              	.LASF64:
+ 1197 0432 6B696C6C 		.ascii	"killInputMode\000"
+ 1197      496E7075 
+ 1197      744D6F64 
+ 1197      6500
+ 1198              	.LASF16:
+ 1199 0440 434F554E 		.ascii	"COUNTER\000"
+ 1199      54455200 
+ 1200              	.LASF43:
+ 1201 0448 70776D4D 		.ascii	"pwmMode\000"
+ 1201      6F646500 
+ 1202              	.LASF20:
+ 1203 0450 52455345 		.ascii	"RESERVED\000"
+ 1203      52564544 
+ 1203      00
+ 1204              	.LASF78:
+ 1205 0459 43795F54 		.ascii	"Cy_TCPWM_Enable_Multiple\000"
+ 1205      4350574D 
+ 1205      5F456E61 
+ 1205      626C655F 
+ 1205      4D756C74 
+ 1206              	.LASF27:
+ 1207 0472 494E5452 		.ascii	"INTR_MASK\000"
+ 1207      5F4D4153 
+ 1207      4B00
+ 1208              	.LASF38:
+ 1209 047c 54435057 		.ascii	"TCPWM_Type\000"
+ 1209      4D5F5479 
+ 1209      706500
+ 1210              	.LASF70:
+ 1211 0487 62617365 		.ascii	"base\000"
+ 1211      00
+ 1212              	.LASF71:
+ 1213 048c 636F756E 		.ascii	"counters\000"
+ 1213      74657273 
+ 1213      00
+ 1214              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

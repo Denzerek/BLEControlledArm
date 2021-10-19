@@ -2,7 +2,7 @@
 --	Conversion of MainArmController.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Oct 15 17:45:55 2021
+--	Tue Oct 19 16:30:28 2021
 --
 
 USE cypress.cypress.all;
@@ -42,11 +42,11 @@ SIGNAL \UART:Net_157\ : bit;
 SIGNAL Net_7 : bit;
 SIGNAL Net_6 : bit;
 SIGNAL \UART:Net_161\ : bit;
-SIGNAL Net_2 : bit;
-SIGNAL Net_3 : bit;
 SIGNAL Net_4 : bit;
+SIGNAL Net_3 : bit;
 SIGNAL Net_9 : bit;
 SIGNAL Net_10 : bit;
+SIGNAL Net_2 : bit;
 SIGNAL Net_11 : bit;
 SIGNAL tmpFB_0__M1_net_0 : bit;
 SIGNAL tmpIO_0__M1_net_0 : bit;
@@ -281,6 +281,9 @@ SIGNAL \I2C_ARD:tmpFB_0__scl_net_0\ : bit;
 TERMINAL \I2C_ARD:tmpSIOVREF__scl_net_0\ : bit;
 SIGNAL \I2C_ARD:tmpFB_0__sda_net_0\ : bit;
 TERMINAL \I2C_ARD:tmpSIOVREF__sda_net_0\ : bit;
+SIGNAL tmpFB_0__LED9_net_0 : bit;
+SIGNAL tmpIO_0__LED9_net_0 : bit;
+TERMINAL tmpSIOVREF__LED9_net_0 : bit;
 SIGNAL cy_tff_1D : bit;
 BEGIN
 
@@ -1192,6 +1195,38 @@ M2:cy_mxs40_gpio_v1_0
 		io=>Net_116,
 		annotation=>(open),
 		siovref=>(\I2C_ARD:tmpSIOVREF__sda_net_0\));
+LED9:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"975245f8-76b3-441a-ba83-6420a859618b",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__LED9_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED9_net_0),
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__LED9_net_0));
 cy_tff_1:cy_dff
 	PORT MAP(d=>cy_tff_1D,
 		clk=>Net_36,
