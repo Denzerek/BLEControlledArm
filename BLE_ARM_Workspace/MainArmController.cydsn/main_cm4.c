@@ -54,12 +54,12 @@ int main(void)
     servoControlQueue = xQueueCreate(4,sizeof(PWM_Message_t));
     
     pwmEventGroup = xEventGroupCreate();
-
+    
+    /* task to send the percentage change for servo motor to arduino servo control*/
+    xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
+    
     //Setting uart with higher priority for allowing processing in between the pwm task
     xTaskCreate(UartTask,"UART TASK",UART_TASK_STACK_SIZE,0,UART_TASK_PRIORITY,0);
-    
-    /* PWM task that runs continuously*/
-    xTaskCreate(pwmTask,"PWM TASK",PWM_TASK_STACK_SIZE,0,PWM_TASK_PRIORITY,0);
     
     /* PWM Motor task that runs continuously*/
     xTaskCreate(motorTask,"MOTOR TASK",MOTOR_TASK_STACK_SIZE,0,MOTOR_TASK_PRIORITY,0);
@@ -73,9 +73,8 @@ int main(void)
     /* task to send the percentage change for servo motor to arduino servo control*/
     xTaskCreate(servoSlaveCommTask,"ARDUINO COMM TASK",ARDUINO_COMM_TASK_STACK_SIZE,0,ARDUINO_COMM_TASK_PRIORITY,0);
     
-    /* task to send the percentage change for servo motor to arduino servo control*/
-    xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
-    
+    /* PWM task that runs continuously*/
+    xTaskCreate(pwmTask,"PWM TASK",PWM_TASK_STACK_SIZE,0,PWM_TASK_PRIORITY,0);
     
     /* Start the Scheduler*/
     vTaskStartScheduler();
