@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CapSense_SensingCSD_LL.c
-* \version 2.0
+* \version 3.0
 *
 * \brief
 *   This file defines the data structure global variables and provides
@@ -8,7 +8,7 @@
 *   the Sensing module. The file contains the APIs used for the CSD block
 *   initialization, calibration, and scanning.
 *
-* \see CapSense v2.0 Datasheet
+* \see CapSense v3.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.
@@ -999,8 +999,10 @@ void CapSense_CSDSetupWidget(uint32 widgetId)
     /* Set up scanning resolution (Number of conversion) */
     CapSense_SsCSDCalculateScanDuration(ptrWdgt);
 
-    #if ((CapSense_DISABLE == CapSense_CSD_COMMON_SNS_CLK_EN) ||\
-         (CapSense_CLK_SOURCE_DIRECT != CapSense_CSD_SNS_CLK_SOURCE))
+    #if (((CapSense_DISABLE == CapSense_CSD_COMMON_SNS_CLK_EN) || \
+          (CapSense_CLK_SOURCE_DIRECT != CapSense_CSD_SNS_CLK_SOURCE)) && \
+         ((!(CapSense_CSD_MATRIX_WIDGET_EN || CapSense_CSD_TOUCHPAD_WIDGET_EN)) || \
+          (CapSense_ENABLE == CapSense_CSD_COMMON_SNS_CLK_EN)))
         CapSense_SsCSDConfigClock();
     #endif /* ((CapSense_DISABLE == CapSense_CSD_COMMON_SNS_CLK_EN) ||\
                (CapSense_CLK_SOURCE_DIRECT != CapSense_CSD_SNS_CLK_SOURCE)) */
@@ -1182,8 +1184,17 @@ void CapSense_SsCSDStartSample(void)
 *******************************************************************************/
 void CapSense_CSDScanExt(void)
 {
+    #if ((CapSense_DISABLE == CapSense_CSD_COMMON_SNS_CLK_EN) && \
+         (CapSense_CSD_MATRIX_WIDGET_EN || CapSense_CSD_TOUCHPAD_WIDGET_EN))
+        CapSense_RAM_WD_BASE_STRUCT const *ptrWdgt = (CapSense_RAM_WD_BASE_STRUCT *)
+                                                        CapSense_dsFlash.wdgtArray[CapSense_widgetIndex].ptr2WdgtRam;
+
+        CapSense_SsCSDCalculateScanDuration(ptrWdgt);
+        CapSense_SsCSDConfigClock();
+    #endif
+
     /* Set Start of sensor scan flag */
-    CapSense_dsRam.status |= (CapSense_SW_STS_BUSY | CapSense_WDGT_SW_STS_BUSY);
+    CapSense_SetBusyFlags(CapSense_SW_STS_BUSY | CapSense_WDGT_SW_STS_BUSY);
 
     #if (CapSense_ENABLE == CapSense_MULTI_FREQ_SCAN_EN)
         /* Reset the frequency scan channel if enabled */

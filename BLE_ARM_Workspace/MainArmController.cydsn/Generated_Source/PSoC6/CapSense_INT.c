@@ -1,12 +1,12 @@
 /***************************************************************************//**
 * \file CapSense_INT.c
-* \version 2.0
+* \version 3.0
 *
 * \brief
 *   This file contains the source code for implementation of the CapSense
 *   Component Interrupt Service Routine (ISR).
 *
-* \see CapSense v2.0 Datasheet
+* \see CapSense v3.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.
@@ -159,7 +159,7 @@
                     CapSense_dsRam.scanCounter++;
 
                     /* Sensor is totally scanned. Reset BUSY flag */
-                    CapSense_dsRam.status &= ~(CapSense_SW_STS_BUSY | CapSense_WDGT_SW_STS_BUSY);
+                    CapSense_ClrBusyFlags(CapSense_SW_STS_BUSY | CapSense_WDGT_SW_STS_BUSY);
                 }
             #else
                 {
@@ -172,7 +172,7 @@
                     CapSense_dsRam.scanCounter++;
 
                     /* Sensor is totally scanned. Reset BUSY flag */
-                    CapSense_dsRam.status &= ~(CapSense_SW_STS_BUSY | CapSense_WDGT_SW_STS_BUSY);
+                    CapSense_ClrBusyFlags(CapSense_SW_STS_BUSY | CapSense_WDGT_SW_STS_BUSY);
                 }
             #endif /* (CapSense_ENABLE == CapSense_MULTI_FREQ_SCAN_EN) */
     #if (CapSense_ENABLE == CapSense_CSD_NOISE_METRIC_EN)
@@ -496,14 +496,10 @@ static void CapSense_SsCSDInitNextScan(void)
         /* Configure clock divider to row or column */
         #if ((CapSense_DISABLE == CapSense_CSD_COMMON_SNS_CLK_EN) && \
              (CapSense_CSD_MATRIX_WIDGET_EN || CapSense_CSD_TOUCHPAD_WIDGET_EN))
-            if ((CapSense_WD_TOUCHPAD_E == (CapSense_WD_TYPE_ENUM)CapSense_dsFlash.wdgtArray[(CapSense_widgetIndex)].wdgtType) ||
-                (CapSense_WD_MATRIX_BUTTON_E == (CapSense_WD_TYPE_ENUM)CapSense_dsFlash.wdgtArray[(CapSense_widgetIndex)].wdgtType))
-            {
-                CapSense_SsCSDConfigClock();
+             CapSense_SsCSDConfigClock();
 
-                /* Set up scanning resolution */
-                CapSense_SsCSDCalculateScanDuration(ptrWdgt);
-            }
+             /* Set up scanning resolution */
+             CapSense_SsCSDCalculateScanDuration(ptrWdgt);
         #endif /* ((CapSense_DISABLE == CapSense_CSD_COMMON_SNS_CLK_EN) && \
                    (CapSense_CSD_MATRIX_WIDGET_EN || CapSense_CSD_TOUCHPAD_WIDGET_EN))) */
 
@@ -526,7 +522,7 @@ static void CapSense_SsCSDInitNextScan(void)
         CapSense_sensorIndex = 0u;
 
         /* Current widget is totally scanned. Reset WIDGET BUSY flag */
-        CapSense_dsRam.status &= ~CapSense_WDGT_SW_STS_BUSY;
+        CapSense_ClrBusyFlags(CapSense_WDGT_SW_STS_BUSY);
 
         /* Check if all the widgets have been scanned */
         if (CapSense_ENABLE == CapSense_requestScanAllWidget)
@@ -542,7 +538,7 @@ static void CapSense_SsCSDInitNextScan(void)
             #endif /* (CapSense_ENABLE == CapSense_BLOCK_OFF_AFTER_SCAN_EN) */
 
             /* all the widgets are totally scanned. Reset BUSY flag */
-            CapSense_dsRam.status &= ~CapSense_SW_STS_BUSY;
+            CapSense_ClrBusyFlags(CapSense_SW_STS_BUSY);
 
             /* Update scan Counter */
             CapSense_dsRam.scanCounter++;
@@ -559,7 +555,7 @@ static void CapSense_SsCSDInitNextScan(void)
     *   This function scans the sensor on the next frequency channel.
     *
     * \details
-    *   The function increments the frequency channel, changes scan frequency and 
+    *   The function increments the frequency channel, changes scan frequency and
     *   initializes the scanning process of the same sensor.
     *
     *******************************************************************************/

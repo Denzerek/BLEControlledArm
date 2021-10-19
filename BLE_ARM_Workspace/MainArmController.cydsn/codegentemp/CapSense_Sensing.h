@@ -1,12 +1,12 @@
 /***************************************************************************//**
 * \file CapSense_Sensing.h
-* \version 2.0
+* \version 3.0
 *
 * \brief
 *   This file provides the headers of APIs specific to implementation of the
 *   sensing FW block.
 *
-* \see CapSense v2.0 Datasheet
+* \see CapSense v3.0 Datasheet
 *
 *//*****************************************************************************
 * Copyright (2016-2017), Cypress Semiconductor Corporation.
@@ -160,6 +160,9 @@ void CapSense_SsSetIOsInDefaultState(void);
 #endif
 
 void CapSense_BistDischargeExtCapacitors(void);
+
+void CapSense_SetBusyFlags(uint32 flags);
+void CapSense_ClrBusyFlags(uint32 flags);
 
 /** \}
 * \endcond */
