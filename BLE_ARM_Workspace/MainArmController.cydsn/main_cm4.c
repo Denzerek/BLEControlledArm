@@ -56,7 +56,7 @@ int main(void)
     pwmEventGroup = xEventGroupCreate();
     
     /* task to send the percentage change for servo motor to arduino servo control*/
-    xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
+    //xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
     
     //Setting uart with higher priority for allowing processing in between the pwm task
     xTaskCreate(UartTask,"UART TASK",UART_TASK_STACK_SIZE,0,UART_TASK_PRIORITY,0);
