@@ -25,7 +25,11 @@
 
 #define PJT_NAME    "   MAIN CONTROLLER   " 
 
+//Should be called in the highest priority task
+#define UART_HIGH_START() UART_Start();serialPrint("\x1b[2J\x1b[;H");
 
+
+//Should be called in the lowest priority task
 #define START_UP_DISP()   { serialPrint("System Init Done.");\
                             serialPrint("======================================"); \
                             serialPrintf("=======%s=========",PJT_NAME); \

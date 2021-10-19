@@ -35,11 +35,9 @@ static void UARTIsr()
 void UartTask(void * arg)
 {
     (void) arg;
-    UART_Start();
     setvbuf(stdin,NULL,_IONBF,0);
     
     /* \x1b[2J\x1b[;H - ANSI ESC sequence for clear screen */
-    serialPrint("\x1b[2J\x1b[;H");
     serialPrint("UART TASK Started ... ");
     serialPrint("Press ? to ensure reception operation");
     
