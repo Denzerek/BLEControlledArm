@@ -10,11 +10,50 @@
  * ========================================
 */
 #include "BLETask.h"
+#include "motorTask.h"
 
 #define LED_ON  0
 #define LED_OFF 1
 
 SemaphoreHandle_t bleSemaphore;
+
+void updateMotorsGatt(motors_t motor,uint8_t percent,uint8_t flags)
+{
+    cy_stc_ble_gatt_handle_value_pair_t myHvp;
+    
+    if(percent < 0) percent = 0;
+    if(percent > 100) percent = 100;
+    
+    switch(motor)
+    {
+        case M1:
+        myHvp.attrHandle = CY_BLE_MOTOR_M1_CHAR_HANDLE;
+        break;        
+        case M2:
+        myHvp.attrHandle = CY_BLE_MOTOR_M2_CHAR_HANDLE;
+        break;
+    }
+    
+    myHvp.value.val = (uint8_t*) &percent;
+    myHvp.value.actualLen = 1;
+    myHvp.value.len = 1;
+    
+    if(flags == CY_BLE_GATT_DB_PEER_INITIATED)
+    {
+        Cy_BLE_GATTS_WriteAttributeValuePeer(&cy_ble_connHandle[0],&myHvp);
+        PWM_Message_t myMessage;
+        myMessage.motor = motor;
+        myMessage.percent = percent;
+        myMessage.changeType = POS_ABSOLUTE;
+        xQueueSend(pwmQueue,&myMessage,0);
+    }
+    else
+    {
+        Cy_BLE_GATTS_WriteAttributeValueLocal(&myHvp);
+        Cy_BLE_GATTS_SendNotification(&cy_ble_connHandle[0],&myHvp);
+    }
+}
+
 
 void genericEventHandler(uint32_t event,void* eventParam)
 {
@@ -36,16 +75,48 @@ void genericEventHandler(uint32_t event,void* eventParam)
         break;
         
         case CY_BLE_EVT_GATTS_WRITE_REQ:
-        #if 0
         writeRequestParam = (cy_stc_ble_gatts_write_cmd_req_param_t*)eventParam;
-        if(CY_BLE_LED_GREEN_CHAR_HANDLE == writeRequestParam->handleValPair.attrHandle)
+        
+        if(CY_BLE_MOTOR_M1_CHAR_HANDLE == writeRequestParam->handleValPair.attrHandle)
+            updateMotorsGatt(M1,writeRequestParam->handleValPair.value.val[0],CY_BLE_GATT_DB_PEER_INITIATED);
+            
+        if(CY_BLE_MOTOR_M2_CHAR_HANDLE == writeRequestParam->handleValPair.attrHandle)
+            updateMotorsGatt(M2,writeRequestParam->handleValPair.value.val[0],CY_BLE_GATT_DB_PEER_INITIATED);
+            
+        if(CY_BLE_MOTOR_M1_REL_CHAR_HANDLE == writeRequestParam->handleValPair.attrHandle)
         {
-            uint32_t val = writeRequestParam->handleValPair.value.val[0];
-            if(val > 100) val = 100;
-            Cy_TCPWM_PWM_SetCompare0(PWM_DIM_HW,PWM_DIM_CNT_NUM,val);
+            PWM_Message_t myMessage;
+            myMessage.motor = M1;
+            myMessage.percent = (int8_t) writeRequestParam->handleValPair.value.val[0];
+            myMessage.changeType = POS_RELATIVE;
+            xQueueSend(pwmQueue,&myMessage,0);
         }
+        
+        if(CY_BLE_MOTOR_M2_REL_CHAR_HANDLE == writeRequestParam->handleValPair.attrHandle)
+        {
+            PWM_Message_t myMessage;
+            myMessage.motor = M2;
+            myMessage.percent = (int8_t) writeRequestParam->handleValPair.value.val[0];
+            myMessage.changeType = POS_RELATIVE;
+            xQueueSend(pwmQueue,&myMessage,0);
+        }
+        
+        if(CY_BLE_MOTOR_M1_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE == writeRequestParam->handleValPair.attrHandle ||
+            CY_BLE_MOTOR_M2_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE == writeRequestParam->handleValPair.attrHandle )
+        {
+            cy_stc_ble_gatts_db_attr_val_info_t myWrite;
+            myWrite.offset = 0;
+            myWrite.flags = CY_BLE_GATT_DB_PEER_INITIATED;
+            myWrite.connHandle = writeRequestParam->connHandle;
+            myWrite.handleValuePair = writeRequestParam->handleValPair;
+            
+            Cy_BLE_GATTS_WriteAttributeValueCCCD(&myWrite);
+            
+            
+        }
+            
+        
         Cy_BLE_GATTS_WriteRsp( writeRequestParam->connHandle);
-        #endif
         break;
         
     }
@@ -80,11 +151,19 @@ void bleTask(void * arg)
     }
     
     Cy_BLE_RegisterAppHostCallback(bleInterruptNotify);
-    //Cy_BLE_IAS_RegisterAttrCallback(iasEventHandler);
+    
     for(;;)
     {
         xSemaphoreTake(bleSemaphore,portMAX_DELAY);
         Cy_BLE_ProcessEvents();
+        
+        if(xEventGroupGetBits(pwmEventGroup) & PWM_EVENT_BLE)
+        {
+            xEventGroupClearBits(pwmEventGroup,PWM_EVENT_BLE);
+            updateMotorsGatt(M1,getMotorPercent(M1),CY_BLE_GATT_DB_LOCALLY_INITIATED);
+            updateMotorsGatt(M2,getMotorPercent(M2),CY_BLE_GATT_DB_LOCALLY_INITIATED);
+            
+        }
     }
     
 }
