@@ -53,7 +53,7 @@ int main(void)
     pwmQueue = xQueueCreate(4,sizeof(PWM_Message_t));
     servoControlQueue = xQueueCreate(4,sizeof(PWM_Message_t));
     
-    pwmEventGroup = xEventGroupCreate();
+    pwmEventGroup = xEventGroupCreate(); 
     
     /* task to send the percentage change for servo motor to arduino servo control*/
     //xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
