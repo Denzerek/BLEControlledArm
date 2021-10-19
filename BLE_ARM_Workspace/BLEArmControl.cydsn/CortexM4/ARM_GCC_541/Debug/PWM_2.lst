@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
   27:Generated_Source\PSoC6/PWM_2.c **** *  associated PWM_2_Init() function.
   28:Generated_Source\PSoC6/PWM_2.c **** */ 
   29:Generated_Source\PSoC6/PWM_2.c **** cy_stc_tcpwm_pwm_config_t const PWM_2_config =
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 2
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 2
 
 
   30:Generated_Source\PSoC6/PWM_2.c **** {
@@ -114,25 +114,25 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
   36              		.cfi_offset 14, -4
   73:Generated_Source\PSoC6/PWM_2.c ****     if (0U == PWM_2_initVar)
   37              		.loc 1 73 0
-  38 0002 074B     		ldr	r3, .L4
+  38 0002 084B     		ldr	r3, .L4
   39 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
   40 0006 3BB9     		cbnz	r3, .L2
   74:Generated_Source\PSoC6/PWM_2.c ****     {
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 3
 
 
   75:Generated_Source\PSoC6/PWM_2.c ****         (void) Cy_TCPWM_PWM_Init(PWM_2_HW, PWM_2_CNT_NUM, &PWM_2_config);
   41              		.loc 1 75 0
-  42 0008 064A     		ldr	r2, .L4+4
-  43 000a 0421     		movs	r1, #4
-  44 000c 0648     		ldr	r0, .L4+8
+  42 0008 074A     		ldr	r2, .L4+4
+  43 000a 0A21     		movs	r1, #10
+  44 000c 0748     		ldr	r0, .L4+8
   45 000e FFF7FEFF 		bl	Cy_TCPWM_PWM_Init
   46              	.LVL0:
   76:Generated_Source\PSoC6/PWM_2.c **** 
   77:Generated_Source\PSoC6/PWM_2.c ****         PWM_2_initVar = 1U;
   47              		.loc 1 77 0
   48 0012 0122     		movs	r2, #1
-  49 0014 024B     		ldr	r3, .L4
+  49 0014 034B     		ldr	r3, .L4
   50 0016 1A70     		strb	r2, [r3]
   51              	.L2:
   52              	.LVL1:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
   37:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the TCPWM being used must be passed first, followed by the index of 
   38:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the counter you want to touch next. 
   39:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For some functions, you can manage multiple counters simultaneously. You 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 4
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 4
 
 
   40:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * provide a bit field representing each counter, rather than the single counter 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
   94:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
   95:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
   96:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b Quadrature \b Decoder
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 5
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 5
 
 
   97:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  151:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \subsection group_tcpwm_pins Assign and Configure Pins
  152:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The dedicated TCPWM pins can be used. The HSIOM register must be configured to
  153:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * connect the block to the pins. Use the \ref group_gpio driver API to do that.
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 6
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 6
 
 
  154:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  208:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
  209:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
  210:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>1.0</td>
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 7
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 7
 
 
  211:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Initial version</td>
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  265:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Driver minor version */
  266:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_DRV_VERSION_MINOR       10
  267:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 8
 
 
  268:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  322:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC              (2U) /**< Interrupt on Compare/Capture(CC) */
  323:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_NONE               (0U) /**< No Interrupt */
  324:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC_OR_TC        (3U) /**< Interrupt on TC or CC */
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 9
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 9
 
 
  325:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_interrupt_sources */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  379:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
  380:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
  381:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 10
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 10
 
 
  382:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_functions_common
@@ -580,17 +580,17 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  418:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
  419:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     TCPWM_CTRL_SET(base) = counters;
   56              		.loc 2 419 0
-  57 0018 1022     		movs	r2, #16
-  58 001a 034B     		ldr	r3, .L4+8
-  59 001c 9A60     		str	r2, [r3, #8]
+  57 0018 4FF48062 		mov	r2, #1024
+  58 001c 034B     		ldr	r3, .L4+8
+  59 001e 9A60     		str	r2, [r3, #8]
   60              	.LVL2:
-  61 001e 08BD     		pop	{r3, pc}
+  61 0020 08BD     		pop	{r3, pc}
   62              	.L5:
-  63              		.align	2
+  63 0022 00BF     		.align	2
   64              	.L4:
-  65 0020 00000000 		.word	.LANCHOR0
-  66 0024 00000000 		.word	.LANCHOR1
-  67 0028 00003840 		.word	1077411840
+  65 0024 00000000 		.word	.LANCHOR0
+  66 0028 00000000 		.word	.LANCHOR1
+  67 002c 00003940 		.word	1077477376
   68              	.LBE5:
   69              	.LBE4:
   70              		.cfi_endproc
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
   72              		.size	PWM_2_Start, .-PWM_2_Start
   73              		.global	PWM_2_config
   74              		.global	PWM_2_initVar
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 11
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 11
 
 
   75              		.section	.rodata
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  129 000c CB000000 		.4byte	.LASF77
  130 0010 0C       		.byte	0xc
  131 0011 05030000 		.4byte	.LASF78
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 12
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 12
 
 
  132 0015 0F040000 		.4byte	.LASF79
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  186 0081 696E7400 		.ascii	"int\000"
  187 0085 02       		.uleb128 0x2
  188 0086 04       		.byte	0x4
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 13
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 13
 
 
  189 0087 07       		.byte	0x7
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  243 00f5 08       		.uleb128 0x8
  244 00f6 79020000 		.4byte	.LASF19
  245 00fa 05       		.byte	0x5
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 14
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 14
 
 
  246 00fb 27       		.byte	0x27
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  300 0167 30       		.byte	0x30
  301 0168 B4000000 		.4byte	0xb4
  302 016c 34       		.byte	0x34
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 15
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 15
 
 
  303 016d 08       		.uleb128 0x8
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  357 01d7 3F030000 		.4byte	.LASF36
  358 01db 05       		.byte	0x5
  359 01dc 3E       		.byte	0x3e
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 16
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 16
 
 
  360 01dd B4000000 		.4byte	0xb4
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  414 0251 3E020000 		.4byte	0x23e
  415 0255 02       		.uleb128 0x2
  416 0256 08       		.byte	0x8
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 17
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 17
 
 
  417 0257 04       		.byte	0x4
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  471 02c0 A2000000 		.4byte	0xa2
  472 02c4 14       		.byte	0x14
  473 02c5 08       		.uleb128 0x8
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 18
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 18
 
 
  474 02c6 23020000 		.4byte	.LASF51
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  528 0332 D6030000 		.4byte	.LASF60
  529 0336 07       		.byte	0x7
  530 0337 42       		.byte	0x42
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 19
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 19
 
 
  531 0338 A2000000 		.4byte	0xa2
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  585 03a4 A2000000 		.4byte	0xa2
  586 03a8 60       		.byte	0x60
  587 03a9 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 20
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 20
 
 
  588 03aa 02       		.uleb128 0x2
@@ -1175,14 +1175,14 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  619 03ed 01       		.byte	0x1
  620 03ee 47       		.byte	0x47
  621 03ef 00000000 		.4byte	.LFB186
- 622 03f3 2C000000 		.4byte	.LFE186-.LFB186
+ 622 03f3 30000000 		.4byte	.LFE186-.LFB186
  623 03f7 01       		.uleb128 0x1
  624 03f8 9C       		.byte	0x9c
  625 03f9 45040000 		.4byte	0x445
  626 03fd 14       		.uleb128 0x14
  627 03fe BC030000 		.4byte	0x3bc
  628 0402 18000000 		.4byte	.LBB4
- 629 0406 14000000 		.4byte	.LBE4-.LBB4
+ 629 0406 18000000 		.4byte	.LBE4-.LBB4
  630 040a 01       		.byte	0x1
  631 040b 50       		.byte	0x50
  632 040c 23040000 		.4byte	0x423
@@ -1191,25 +1191,25 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  635 0415 00000000 		.4byte	.LLST0
  636 0419 15       		.uleb128 0x15
  637 041a C9030000 		.4byte	0x3c9
- 638 041e 14000000 		.4byte	.LLST1
+ 638 041e 16000000 		.4byte	.LLST1
  639 0422 00       		.byte	0
  640 0423 16       		.uleb128 0x16
  641 0424 12000000 		.4byte	.LVL0
  642 0428 7D040000 		.4byte	0x47d
  643 042c 17       		.uleb128 0x17
  644 042d 01       		.uleb128 0x1
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 21
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 21
 
 
  645 042e 50       		.byte	0x50
  646 042f 05       		.uleb128 0x5
  647 0430 0C       		.byte	0xc
- 648 0431 00003840 		.4byte	0x40380000
+ 648 0431 00003940 		.4byte	0x40390000
  649 0435 17       		.uleb128 0x17
  650 0436 01       		.uleb128 0x1
  651 0437 51       		.byte	0x51
  652 0438 01       		.uleb128 0x1
- 653 0439 34       		.byte	0x34
+ 653 0439 3A       		.byte	0x3a
  654 043a 17       		.uleb128 0x17
  655 043b 01       		.uleb128 0x1
  656 043c 52       		.byte	0x52
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  699 0004 0E       		.uleb128 0xe
  700 0005 13       		.uleb128 0x13
  701 0006 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 22
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 22
 
 
  702 0007 03       		.uleb128 0x3
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  756 003d 06       		.uleb128 0x6
  757 003e 26       		.uleb128 0x26
  758 003f 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 23
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 23
 
 
  759 0040 49       		.uleb128 0x49
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  813 0076 3B       		.uleb128 0x3b
  814 0077 0B       		.uleb128 0xb
  815 0078 01       		.uleb128 0x1
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 24
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 24
 
 
  816 0079 13       		.uleb128 0x13
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  870 00af 0B       		.uleb128 0xb
  871 00b0 0B       		.uleb128 0xb
  872 00b1 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 25
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 25
 
 
  873 00b2 0B       		.uleb128 0xb
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  927 00e8 0B       		.uleb128 0xb
  928 00e9 3B       		.uleb128 0x3b
  929 00ea 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 26
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 26
 
 
  930 00eb 27       		.uleb128 0x27
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  984 0126 9142     		.uleb128 0x2111
  985 0128 18       		.uleb128 0x18
  986 0129 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 27
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 27
 
 
  987 012a 00       		.byte	0
@@ -1618,452 +1618,453 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 1
  1041              	.Ldebug_loc0:
  1042              	.LLST0:
  1043 0000 18000000 		.4byte	.LVL1
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 28
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 28
 
 
- 1044 0004 1E000000 		.4byte	.LVL2
- 1045 0008 0200     		.2byte	0x2
- 1046 000a 40       		.byte	0x40
- 1047 000b 9F       		.byte	0x9f
- 1048 000c 00000000 		.4byte	0
- 1049 0010 00000000 		.4byte	0
- 1050              	.LLST1:
- 1051 0014 18000000 		.4byte	.LVL1
- 1052 0018 1E000000 		.4byte	.LVL2
- 1053 001c 0600     		.2byte	0x6
- 1054 001e 0C       		.byte	0xc
- 1055 001f 00003840 		.4byte	0x40380000
- 1056 0023 9F       		.byte	0x9f
- 1057 0024 00000000 		.4byte	0
- 1058 0028 00000000 		.4byte	0
- 1059              		.section	.debug_aranges,"",%progbits
- 1060 0000 1C000000 		.4byte	0x1c
- 1061 0004 0200     		.2byte	0x2
- 1062 0006 00000000 		.4byte	.Ldebug_info0
- 1063 000a 04       		.byte	0x4
- 1064 000b 00       		.byte	0
- 1065 000c 0000     		.2byte	0
- 1066 000e 0000     		.2byte	0
- 1067 0010 00000000 		.4byte	.LFB186
- 1068 0014 2C000000 		.4byte	.LFE186-.LFB186
- 1069 0018 00000000 		.4byte	0
- 1070 001c 00000000 		.4byte	0
- 1071              		.section	.debug_ranges,"",%progbits
- 1072              	.Ldebug_ranges0:
- 1073 0000 00000000 		.4byte	.LFB186
- 1074 0004 2C000000 		.4byte	.LFE186
- 1075 0008 00000000 		.4byte	0
- 1076 000c 00000000 		.4byte	0
- 1077              		.section	.debug_line,"",%progbits
- 1078              	.Ldebug_line0:
- 1079 0000 66020000 		.section	.debug_str,"MS",%progbits,1
- 1079      02004702 
- 1079      00000201 
- 1079      FB0E0D00 
- 1079      01010101 
- 1080              	.LASF52:
- 1081 0000 656E6162 		.ascii	"enablePeriodSwap\000"
- 1081      6C655065 
- 1081      72696F64 
- 1081      53776170 
- 1081      00
- 1082              	.LASF63:
- 1083 0011 72656C6F 		.ascii	"reloadInput\000"
- 1083      6164496E 
- 1083      70757400 
- 1084              	.LASF46:
- 1085 001d 636C6F63 		.ascii	"clockPrescaler\000"
- 1085      6B507265 
- 1085      7363616C 
- 1085      657200
- 1086              	.LASF68:
- 1087 002c 636F756E 		.ascii	"countInputMode\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 29
+ 1044 0004 20000000 		.4byte	.LVL2
+ 1045 0008 0400     		.2byte	0x4
+ 1046 000a 0A       		.byte	0xa
+ 1047 000b 0004     		.2byte	0x400
+ 1048 000d 9F       		.byte	0x9f
+ 1049 000e 00000000 		.4byte	0
+ 1050 0012 00000000 		.4byte	0
+ 1051              	.LLST1:
+ 1052 0016 18000000 		.4byte	.LVL1
+ 1053 001a 20000000 		.4byte	.LVL2
+ 1054 001e 0600     		.2byte	0x6
+ 1055 0020 0C       		.byte	0xc
+ 1056 0021 00003940 		.4byte	0x40390000
+ 1057 0025 9F       		.byte	0x9f
+ 1058 0026 00000000 		.4byte	0
+ 1059 002a 00000000 		.4byte	0
+ 1060              		.section	.debug_aranges,"",%progbits
+ 1061 0000 1C000000 		.4byte	0x1c
+ 1062 0004 0200     		.2byte	0x2
+ 1063 0006 00000000 		.4byte	.Ldebug_info0
+ 1064 000a 04       		.byte	0x4
+ 1065 000b 00       		.byte	0
+ 1066 000c 0000     		.2byte	0
+ 1067 000e 0000     		.2byte	0
+ 1068 0010 00000000 		.4byte	.LFB186
+ 1069 0014 30000000 		.4byte	.LFE186-.LFB186
+ 1070 0018 00000000 		.4byte	0
+ 1071 001c 00000000 		.4byte	0
+ 1072              		.section	.debug_ranges,"",%progbits
+ 1073              	.Ldebug_ranges0:
+ 1074 0000 00000000 		.4byte	.LFB186
+ 1075 0004 30000000 		.4byte	.LFE186
+ 1076 0008 00000000 		.4byte	0
+ 1077 000c 00000000 		.4byte	0
+ 1078              		.section	.debug_line,"",%progbits
+ 1079              	.Ldebug_line0:
+ 1080 0000 66020000 		.section	.debug_str,"MS",%progbits,1
+ 1080      02004702 
+ 1080      00000201 
+ 1080      FB0E0D00 
+ 1080      01010101 
+ 1081              	.LASF52:
+ 1082 0000 656E6162 		.ascii	"enablePeriodSwap\000"
+ 1082      6C655065 
+ 1082      72696F64 
+ 1082      53776170 
+ 1082      00
+ 1083              	.LASF63:
+ 1084 0011 72656C6F 		.ascii	"reloadInput\000"
+ 1084      6164496E 
+ 1084      70757400 
+ 1085              	.LASF46:
+ 1086 001d 636C6F63 		.ascii	"clockPrescaler\000"
+ 1086      6B507265 
+ 1086      7363616C 
+ 1086      657200
+ 1087              	.LASF68:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 29
 
 
- 1087      74496E70 
- 1087      75744D6F 
- 1087      646500
- 1088              	.LASF53:
- 1089 003b 636F6D70 		.ascii	"compare0\000"
- 1089      61726530 
- 1089      00
- 1090              	.LASF54:
- 1091 0044 636F6D70 		.ascii	"compare1\000"
- 1091      61726531 
- 1091      00
- 1092              	.LASF71:
- 1093 004d 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config_t\000"
- 1093      74635F74 
- 1093      6370776D 
- 1093      5F70776D 
- 1093      5F636F6E 
- 1094              	.LASF0:
- 1095 0067 73686F72 		.ascii	"short int\000"
- 1095      7420696E 
- 1095      7400
- 1096              	.LASF15:
- 1097 0071 73697A65 		.ascii	"sizetype\000"
- 1097      74797065 
- 1097      00
- 1098              	.LASF21:
- 1099 007a 50455249 		.ascii	"PERIOD_BUFF\000"
- 1099      4F445F42 
- 1099      55464600 
- 1100              	.LASF31:
- 1101 0086 54435057 		.ascii	"TCPWM_CNT_V1_Type\000"
- 1101      4D5F434E 
- 1101      545F5631 
- 1101      5F547970 
- 1101      6500
- 1102              	.LASF75:
- 1103 0098 50574D5F 		.ascii	"PWM_2_initVar\000"
- 1103      325F696E 
- 1103      69745661 
- 1103      7200
- 1104              	.LASF20:
- 1105 00a6 50455249 		.ascii	"PERIOD\000"
- 1105      4F4400
- 1106              	.LASF35:
- 1107 00ad 434D445F 		.ascii	"CMD_RELOAD\000"
- 1107      52454C4F 
- 1107      414400
- 1108              	.LASF24:
- 1109 00b8 54525F43 		.ascii	"TR_CTRL1\000"
- 1109      54524C31 
- 1109      00
- 1110              	.LASF61:
- 1111 00c1 73776170 		.ascii	"swapInput\000"
- 1111      496E7075 
- 1111      7400
- 1112              	.LASF77:
- 1113 00cb 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 30
+ 1088 002c 636F756E 		.ascii	"countInputMode\000"
+ 1088      74496E70 
+ 1088      75744D6F 
+ 1088      646500
+ 1089              	.LASF53:
+ 1090 003b 636F6D70 		.ascii	"compare0\000"
+ 1090      61726530 
+ 1090      00
+ 1091              	.LASF54:
+ 1092 0044 636F6D70 		.ascii	"compare1\000"
+ 1092      61726531 
+ 1092      00
+ 1093              	.LASF71:
+ 1094 004d 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config_t\000"
+ 1094      74635F74 
+ 1094      6370776D 
+ 1094      5F70776D 
+ 1094      5F636F6E 
+ 1095              	.LASF0:
+ 1096 0067 73686F72 		.ascii	"short int\000"
+ 1096      7420696E 
+ 1096      7400
+ 1097              	.LASF15:
+ 1098 0071 73697A65 		.ascii	"sizetype\000"
+ 1098      74797065 
+ 1098      00
+ 1099              	.LASF21:
+ 1100 007a 50455249 		.ascii	"PERIOD_BUFF\000"
+ 1100      4F445F42 
+ 1100      55464600 
+ 1101              	.LASF31:
+ 1102 0086 54435057 		.ascii	"TCPWM_CNT_V1_Type\000"
+ 1102      4D5F434E 
+ 1102      545F5631 
+ 1102      5F547970 
+ 1102      6500
+ 1103              	.LASF75:
+ 1104 0098 50574D5F 		.ascii	"PWM_2_initVar\000"
+ 1104      325F696E 
+ 1104      69745661 
+ 1104      7200
+ 1105              	.LASF20:
+ 1106 00a6 50455249 		.ascii	"PERIOD\000"
+ 1106      4F4400
+ 1107              	.LASF35:
+ 1108 00ad 434D445F 		.ascii	"CMD_RELOAD\000"
+ 1108      52454C4F 
+ 1108      414400
+ 1109              	.LASF24:
+ 1110 00b8 54525F43 		.ascii	"TR_CTRL1\000"
+ 1110      54524C31 
+ 1110      00
+ 1111              	.LASF61:
+ 1112 00c1 73776170 		.ascii	"swapInput\000"
+ 1112      496E7075 
+ 1112      7400
+ 1113              	.LASF77:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 30
 
 
- 1113      43313120 
- 1113      352E342E 
- 1113      31203230 
- 1113      31363036 
- 1114 00fe 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m4 -mfloat-abi=s"
- 1114      20726576 
- 1114      6973696F 
- 1114      6E203233 
- 1114      37373135 
- 1115 0131 6F667466 		.ascii	"oftfp -mfpu=fpv4-sp-d16 -mthumb -g -Og -ffunction-s"
- 1115      70202D6D 
- 1115      6670753D 
- 1115      66707634 
- 1115      2D73702D 
- 1116 0164 65637469 		.ascii	"ections -ffat-lto-objects\000"
- 1116      6F6E7320 
- 1116      2D666661 
- 1116      742D6C74 
- 1116      6F2D6F62 
- 1117              	.LASF80:
- 1118 017e 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config\000"
- 1118      74635F74 
- 1118      6370776D 
- 1118      5F70776D 
- 1118      5F636F6E 
- 1119              	.LASF7:
- 1120 0196 5F5F7569 		.ascii	"__uint32_t\000"
- 1120      6E743332 
- 1120      5F7400
- 1121              	.LASF23:
- 1122 01a1 54525F43 		.ascii	"TR_CTRL0\000"
- 1122      54524C30 
- 1122      00
- 1123              	.LASF39:
- 1124 01aa 54435057 		.ascii	"TCPWM_V1_Type\000"
- 1124      4D5F5631 
- 1124      5F547970 
- 1124      6500
- 1125              	.LASF55:
- 1126 01b8 656E6162 		.ascii	"enableCompareSwap\000"
- 1126      6C65436F 
- 1126      6D706172 
- 1126      65537761 
- 1126      7000
- 1127              	.LASF25:
- 1128 01ca 54525F43 		.ascii	"TR_CTRL2\000"
- 1128      54524C32 
- 1128      00
- 1129              	.LASF12:
- 1130 01d3 75696E74 		.ascii	"uint8_t\000"
- 1130      385F7400 
- 1131              	.LASF67:
- 1132 01db 6B696C6C 		.ascii	"killInput\000"
- 1132      496E7075 
- 1132      7400
- 1133              	.LASF34:
- 1134 01e5 434D445F 		.ascii	"CMD_CAPTURE\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 31
+ 1114 00cb 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1114      43313120 
+ 1114      352E342E 
+ 1114      31203230 
+ 1114      31363036 
+ 1115 00fe 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m4 -mfloat-abi=s"
+ 1115      20726576 
+ 1115      6973696F 
+ 1115      6E203233 
+ 1115      37373135 
+ 1116 0131 6F667466 		.ascii	"oftfp -mfpu=fpv4-sp-d16 -mthumb -g -Og -ffunction-s"
+ 1116      70202D6D 
+ 1116      6670753D 
+ 1116      66707634 
+ 1116      2D73702D 
+ 1117 0164 65637469 		.ascii	"ections -ffat-lto-objects\000"
+ 1117      6F6E7320 
+ 1117      2D666661 
+ 1117      742D6C74 
+ 1117      6F2D6F62 
+ 1118              	.LASF80:
+ 1119 017e 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config\000"
+ 1119      74635F74 
+ 1119      6370776D 
+ 1119      5F70776D 
+ 1119      5F636F6E 
+ 1120              	.LASF7:
+ 1121 0196 5F5F7569 		.ascii	"__uint32_t\000"
+ 1121      6E743332 
+ 1121      5F7400
+ 1122              	.LASF23:
+ 1123 01a1 54525F43 		.ascii	"TR_CTRL0\000"
+ 1123      54524C30 
+ 1123      00
+ 1124              	.LASF39:
+ 1125 01aa 54435057 		.ascii	"TCPWM_V1_Type\000"
+ 1125      4D5F5631 
+ 1125      5F547970 
+ 1125      6500
+ 1126              	.LASF55:
+ 1127 01b8 656E6162 		.ascii	"enableCompareSwap\000"
+ 1127      6C65436F 
+ 1127      6D706172 
+ 1127      65537761 
+ 1127      7000
+ 1128              	.LASF25:
+ 1129 01ca 54525F43 		.ascii	"TR_CTRL2\000"
+ 1129      54524C32 
+ 1129      00
+ 1130              	.LASF12:
+ 1131 01d3 75696E74 		.ascii	"uint8_t\000"
+ 1131      385F7400 
+ 1132              	.LASF67:
+ 1133 01db 6B696C6C 		.ascii	"killInput\000"
+ 1133      496E7075 
+ 1133      7400
+ 1134              	.LASF34:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 31
 
 
- 1134      43415054 
- 1134      55524500 
- 1135              	.LASF56:
- 1136 01f1 696E7465 		.ascii	"interruptSources\000"
- 1136      72727570 
- 1136      74536F75 
- 1136      72636573 
- 1136      00
- 1137              	.LASF37:
- 1138 0202 434D445F 		.ascii	"CMD_START\000"
- 1138      53544152 
- 1138      5400
- 1139              	.LASF59:
- 1140 020c 6B696C6C 		.ascii	"killMode\000"
- 1140      4D6F6465 
- 1140      00
- 1141              	.LASF43:
- 1142 0215 666C6F61 		.ascii	"float\000"
- 1142      7400
- 1143              	.LASF50:
- 1144 021b 70657269 		.ascii	"period0\000"
- 1144      6F643000 
- 1145              	.LASF51:
- 1146 0223 70657269 		.ascii	"period1\000"
- 1146      6F643100 
- 1147              	.LASF62:
- 1148 022b 72656C6F 		.ascii	"reloadInputMode\000"
- 1148      6164496E 
- 1148      7075744D 
- 1148      6F646500 
- 1149              	.LASF9:
- 1150 023b 6C6F6E67 		.ascii	"long long int\000"
- 1150      206C6F6E 
- 1150      6720696E 
- 1150      7400
- 1151              	.LASF49:
- 1152 0249 72756E4D 		.ascii	"runMode\000"
- 1152      6F646500 
- 1153              	.LASF17:
- 1154 0251 53544154 		.ascii	"STATUS\000"
- 1154      555300
- 1155              	.LASF69:
- 1156 0258 636F756E 		.ascii	"countInput\000"
- 1156      74496E70 
- 1156      757400
- 1157              	.LASF4:
- 1158 0263 5F5F7569 		.ascii	"__uint8_t\000"
- 1158      6E74385F 
- 1158      7400
- 1159              	.LASF30:
- 1160 026d 494E5452 		.ascii	"INTR_MASKED\000"
- 1160      5F4D4153 
- 1160      4B454400 
- 1161              	.LASF19:
- 1162 0279 43435F42 		.ascii	"CC_BUFF\000"
- 1162      55464600 
- 1163              	.LASF41:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 32
+ 1135 01e5 434D445F 		.ascii	"CMD_CAPTURE\000"
+ 1135      43415054 
+ 1135      55524500 
+ 1136              	.LASF56:
+ 1137 01f1 696E7465 		.ascii	"interruptSources\000"
+ 1137      72727570 
+ 1137      74536F75 
+ 1137      72636573 
+ 1137      00
+ 1138              	.LASF37:
+ 1139 0202 434D445F 		.ascii	"CMD_START\000"
+ 1139      53544152 
+ 1139      5400
+ 1140              	.LASF59:
+ 1141 020c 6B696C6C 		.ascii	"killMode\000"
+ 1141      4D6F6465 
+ 1141      00
+ 1142              	.LASF43:
+ 1143 0215 666C6F61 		.ascii	"float\000"
+ 1143      7400
+ 1144              	.LASF50:
+ 1145 021b 70657269 		.ascii	"period0\000"
+ 1145      6F643000 
+ 1146              	.LASF51:
+ 1147 0223 70657269 		.ascii	"period1\000"
+ 1147      6F643100 
+ 1148              	.LASF62:
+ 1149 022b 72656C6F 		.ascii	"reloadInputMode\000"
+ 1149      6164496E 
+ 1149      7075744D 
+ 1149      6F646500 
+ 1150              	.LASF9:
+ 1151 023b 6C6F6E67 		.ascii	"long long int\000"
+ 1151      206C6F6E 
+ 1151      6720696E 
+ 1151      7400
+ 1152              	.LASF49:
+ 1153 0249 72756E4D 		.ascii	"runMode\000"
+ 1153      6F646500 
+ 1154              	.LASF17:
+ 1155 0251 53544154 		.ascii	"STATUS\000"
+ 1155      555300
+ 1156              	.LASF69:
+ 1157 0258 636F756E 		.ascii	"countInput\000"
+ 1157      74496E70 
+ 1157      757400
+ 1158              	.LASF4:
+ 1159 0263 5F5F7569 		.ascii	"__uint8_t\000"
+ 1159      6E74385F 
+ 1159      7400
+ 1160              	.LASF30:
+ 1161 026d 494E5452 		.ascii	"INTR_MASKED\000"
+ 1161      5F4D4153 
+ 1161      4B454400 
+ 1162              	.LASF19:
+ 1163 0279 43435F42 		.ascii	"CC_BUFF\000"
+ 1163      55464600 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 32
 
 
- 1164 0281 6C6F6E67 		.ascii	"long double\000"
- 1164      20646F75 
- 1164      626C6500 
- 1165              	.LASF64:
- 1166 028d 73746172 		.ascii	"startInputMode\000"
- 1166      74496E70 
- 1166      75744D6F 
- 1166      646500
- 1167              	.LASF2:
- 1168 029c 756E7369 		.ascii	"unsigned char\000"
- 1168      676E6564 
- 1168      20636861 
- 1168      7200
- 1169              	.LASF16:
- 1170 02aa 4354524C 		.ascii	"CTRL\000"
- 1170      00
- 1171              	.LASF38:
- 1172 02af 494E5452 		.ascii	"INTR_CAUSE\000"
- 1172      5F434155 
- 1172      534500
- 1173              	.LASF1:
- 1174 02ba 7369676E 		.ascii	"signed char\000"
- 1174      65642063 
- 1174      68617200 
- 1175              	.LASF28:
- 1176 02c6 494E5452 		.ascii	"INTR_SET\000"
- 1176      5F534554 
- 1176      00
- 1177              	.LASF10:
- 1178 02cf 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1178      206C6F6E 
- 1178      6720756E 
- 1178      7369676E 
- 1178      65642069 
- 1179              	.LASF14:
- 1180 02e6 75696E74 		.ascii	"uint32_t\000"
- 1180      33325F74 
- 1180      00
- 1181              	.LASF33:
- 1182 02ef 4354524C 		.ascii	"CTRL_SET\000"
- 1182      5F534554 
- 1182      00
- 1183              	.LASF11:
- 1184 02f8 756E7369 		.ascii	"unsigned int\000"
- 1184      676E6564 
- 1184      20696E74 
- 1184      00
- 1185              	.LASF78:
- 1186 0305 47656E65 		.ascii	"Generated_Source\\PSoC6\\PWM_2.c\000"
- 1186      72617465 
- 1186      645F536F 
- 1186      75726365 
- 1186      5C50536F 
- 1187              	.LASF76:
- 1188 0324 50574D5F 		.ascii	"PWM_2_config\000"
- 1188      325F636F 
- 1188      6E666967 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 33
+ 1164              	.LASF41:
+ 1165 0281 6C6F6E67 		.ascii	"long double\000"
+ 1165      20646F75 
+ 1165      626C6500 
+ 1166              	.LASF64:
+ 1167 028d 73746172 		.ascii	"startInputMode\000"
+ 1167      74496E70 
+ 1167      75744D6F 
+ 1167      646500
+ 1168              	.LASF2:
+ 1169 029c 756E7369 		.ascii	"unsigned char\000"
+ 1169      676E6564 
+ 1169      20636861 
+ 1169      7200
+ 1170              	.LASF16:
+ 1171 02aa 4354524C 		.ascii	"CTRL\000"
+ 1171      00
+ 1172              	.LASF38:
+ 1173 02af 494E5452 		.ascii	"INTR_CAUSE\000"
+ 1173      5F434155 
+ 1173      534500
+ 1174              	.LASF1:
+ 1175 02ba 7369676E 		.ascii	"signed char\000"
+ 1175      65642063 
+ 1175      68617200 
+ 1176              	.LASF28:
+ 1177 02c6 494E5452 		.ascii	"INTR_SET\000"
+ 1177      5F534554 
+ 1177      00
+ 1178              	.LASF10:
+ 1179 02cf 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1179      206C6F6E 
+ 1179      6720756E 
+ 1179      7369676E 
+ 1179      65642069 
+ 1180              	.LASF14:
+ 1181 02e6 75696E74 		.ascii	"uint32_t\000"
+ 1181      33325F74 
+ 1181      00
+ 1182              	.LASF33:
+ 1183 02ef 4354524C 		.ascii	"CTRL_SET\000"
+ 1183      5F534554 
+ 1183      00
+ 1184              	.LASF11:
+ 1185 02f8 756E7369 		.ascii	"unsigned int\000"
+ 1185      676E6564 
+ 1185      20696E74 
+ 1185      00
+ 1186              	.LASF78:
+ 1187 0305 47656E65 		.ascii	"Generated_Source\\PSoC6\\PWM_2.c\000"
+ 1187      72617465 
+ 1187      645F536F 
+ 1187      75726365 
+ 1187      5C50536F 
+ 1188              	.LASF76:
+ 1189 0324 50574D5F 		.ascii	"PWM_2_config\000"
+ 1189      325F636F 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 33
 
 
- 1188      00
- 1189              	.LASF58:
- 1190 0331 696E7665 		.ascii	"invertPWMOutN\000"
- 1190      72745057 
- 1190      4D4F7574 
- 1190      4E00
- 1191              	.LASF36:
- 1192 033f 434D445F 		.ascii	"CMD_STOP\000"
- 1192      53544F50 
- 1192      00
- 1193              	.LASF29:
- 1194 0348 494E5452 		.ascii	"INTR_MASK\000"
- 1194      5F4D4153 
- 1194      4B00
- 1195              	.LASF82:
- 1196 0352 50574D5F 		.ascii	"PWM_2_Start\000"
- 1196      325F5374 
- 1196      61727400 
- 1197              	.LASF3:
- 1198 035e 73686F72 		.ascii	"short unsigned int\000"
- 1198      7420756E 
- 1198      7369676E 
- 1198      65642069 
- 1198      6E7400
- 1199              	.LASF42:
- 1200 0371 63686172 		.ascii	"char\000"
- 1200      00
- 1201              	.LASF6:
- 1202 0376 6C6F6E67 		.ascii	"long int\000"
- 1202      20696E74 
- 1202      00
- 1203              	.LASF48:
- 1204 037f 64656164 		.ascii	"deadTimeClocks\000"
- 1204      54696D65 
- 1204      436C6F63 
- 1204      6B7300
- 1205              	.LASF13:
- 1206 038e 696E7433 		.ascii	"int32_t\000"
- 1206      325F7400 
- 1207              	.LASF70:
- 1208 0396 5F426F6F 		.ascii	"_Bool\000"
- 1208      6C00
- 1209              	.LASF27:
- 1210 039c 494E5452 		.ascii	"INTR\000"
- 1210      00
- 1211              	.LASF83:
- 1212 03a1 43795F54 		.ascii	"Cy_TCPWM_PWM_Init\000"
- 1212      4350574D 
- 1212      5F50574D 
- 1212      5F496E69 
- 1212      7400
- 1213              	.LASF26:
- 1214 03b3 52455345 		.ascii	"RESERVED1\000"
- 1214      52564544 
- 1214      3100
- 1215              	.LASF8:
- 1216 03bd 6C6F6E67 		.ascii	"long unsigned int\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 34
+ 1189      6E666967 
+ 1189      00
+ 1190              	.LASF58:
+ 1191 0331 696E7665 		.ascii	"invertPWMOutN\000"
+ 1191      72745057 
+ 1191      4D4F7574 
+ 1191      4E00
+ 1192              	.LASF36:
+ 1193 033f 434D445F 		.ascii	"CMD_STOP\000"
+ 1193      53544F50 
+ 1193      00
+ 1194              	.LASF29:
+ 1195 0348 494E5452 		.ascii	"INTR_MASK\000"
+ 1195      5F4D4153 
+ 1195      4B00
+ 1196              	.LASF82:
+ 1197 0352 50574D5F 		.ascii	"PWM_2_Start\000"
+ 1197      325F5374 
+ 1197      61727400 
+ 1198              	.LASF3:
+ 1199 035e 73686F72 		.ascii	"short unsigned int\000"
+ 1199      7420756E 
+ 1199      7369676E 
+ 1199      65642069 
+ 1199      6E7400
+ 1200              	.LASF42:
+ 1201 0371 63686172 		.ascii	"char\000"
+ 1201      00
+ 1202              	.LASF6:
+ 1203 0376 6C6F6E67 		.ascii	"long int\000"
+ 1203      20696E74 
+ 1203      00
+ 1204              	.LASF48:
+ 1205 037f 64656164 		.ascii	"deadTimeClocks\000"
+ 1205      54696D65 
+ 1205      436C6F63 
+ 1205      6B7300
+ 1206              	.LASF13:
+ 1207 038e 696E7433 		.ascii	"int32_t\000"
+ 1207      325F7400 
+ 1208              	.LASF70:
+ 1209 0396 5F426F6F 		.ascii	"_Bool\000"
+ 1209      6C00
+ 1210              	.LASF27:
+ 1211 039c 494E5452 		.ascii	"INTR\000"
+ 1211      00
+ 1212              	.LASF83:
+ 1213 03a1 43795F54 		.ascii	"Cy_TCPWM_PWM_Init\000"
+ 1213      4350574D 
+ 1213      5F50574D 
+ 1213      5F496E69 
+ 1213      7400
+ 1214              	.LASF26:
+ 1215 03b3 52455345 		.ascii	"RESERVED1\000"
+ 1215      52564544 
+ 1215      3100
+ 1216              	.LASF8:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 34
 
 
- 1216      20756E73 
- 1216      69676E65 
- 1216      6420696E 
- 1216      7400
- 1217              	.LASF44:
- 1218 03cf 646F7562 		.ascii	"double\000"
- 1218      6C6500
- 1219              	.LASF60:
- 1220 03d6 73776170 		.ascii	"swapInputMode\000"
- 1220      496E7075 
- 1220      744D6F64 
- 1220      6500
- 1221              	.LASF65:
- 1222 03e4 73746172 		.ascii	"startInput\000"
- 1222      74496E70 
- 1222      757400
- 1223              	.LASF5:
- 1224 03ef 5F5F696E 		.ascii	"__int32_t\000"
- 1224      7433325F 
- 1224      7400
- 1225              	.LASF32:
- 1226 03f9 4354524C 		.ascii	"CTRL_CLR\000"
- 1226      5F434C52 
- 1226      00
- 1227              	.LASF47:
- 1228 0402 70776D41 		.ascii	"pwmAlignment\000"
- 1228      6C69676E 
- 1228      6D656E74 
- 1228      00
- 1229              	.LASF79:
- 1230 040f 433A5C41 		.ascii	"C:\\Alen\\GitHub_Denzerek\\testThearm\\BLEControlle"
- 1230      6C656E5C 
- 1230      47697448 
- 1230      75625F44 
- 1230      656E7A65 
- 1231 043e 6441726D 		.ascii	"dArm\\BLE_ARM_Workspace\\BLEArmControl.cydsn\000"
- 1231      5C424C45 
- 1231      5F41524D 
- 1231      5F576F72 
- 1231      6B737061 
- 1232              	.LASF57:
- 1233 0469 696E7665 		.ascii	"invertPWMOut\000"
- 1233      72745057 
- 1233      4D4F7574 
- 1233      00
- 1234              	.LASF66:
- 1235 0476 6B696C6C 		.ascii	"killInputMode\000"
- 1235      496E7075 
- 1235      744D6F64 
- 1235      6500
- 1236              	.LASF18:
- 1237 0484 434F554E 		.ascii	"COUNTER\000"
- 1237      54455200 
- 1238              	.LASF45:
- 1239 048c 70776D4D 		.ascii	"pwmMode\000"
- 1239      6F646500 
- 1240              	.LASF22:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVS152c.s 			page 35
+ 1217 03bd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1217      20756E73 
+ 1217      69676E65 
+ 1217      6420696E 
+ 1217      7400
+ 1218              	.LASF44:
+ 1219 03cf 646F7562 		.ascii	"double\000"
+ 1219      6C6500
+ 1220              	.LASF60:
+ 1221 03d6 73776170 		.ascii	"swapInputMode\000"
+ 1221      496E7075 
+ 1221      744D6F64 
+ 1221      6500
+ 1222              	.LASF65:
+ 1223 03e4 73746172 		.ascii	"startInput\000"
+ 1223      74496E70 
+ 1223      757400
+ 1224              	.LASF5:
+ 1225 03ef 5F5F696E 		.ascii	"__int32_t\000"
+ 1225      7433325F 
+ 1225      7400
+ 1226              	.LASF32:
+ 1227 03f9 4354524C 		.ascii	"CTRL_CLR\000"
+ 1227      5F434C52 
+ 1227      00
+ 1228              	.LASF47:
+ 1229 0402 70776D41 		.ascii	"pwmAlignment\000"
+ 1229      6C69676E 
+ 1229      6D656E74 
+ 1229      00
+ 1230              	.LASF79:
+ 1231 040f 433A5C41 		.ascii	"C:\\Alen\\GitHub_Denzerek\\testThearm\\BLEControlle"
+ 1231      6C656E5C 
+ 1231      47697448 
+ 1231      75625F44 
+ 1231      656E7A65 
+ 1232 043e 6441726D 		.ascii	"dArm\\BLE_ARM_Workspace\\BLEArmControl.cydsn\000"
+ 1232      5C424C45 
+ 1232      5F41524D 
+ 1232      5F576F72 
+ 1232      6B737061 
+ 1233              	.LASF57:
+ 1234 0469 696E7665 		.ascii	"invertPWMOut\000"
+ 1234      72745057 
+ 1234      4D4F7574 
+ 1234      00
+ 1235              	.LASF66:
+ 1236 0476 6B696C6C 		.ascii	"killInputMode\000"
+ 1236      496E7075 
+ 1236      744D6F64 
+ 1236      6500
+ 1237              	.LASF18:
+ 1238 0484 434F554E 		.ascii	"COUNTER\000"
+ 1238      54455200 
+ 1239              	.LASF45:
+ 1240 048c 70776D4D 		.ascii	"pwmMode\000"
+ 1240      6F646500 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccmRswj3.s 			page 35
 
 
- 1241 0494 52455345 		.ascii	"RESERVED\000"
- 1241      52564544 
- 1241      00
- 1242              	.LASF81:
- 1243 049d 43795F54 		.ascii	"Cy_TCPWM_Enable_Multiple\000"
- 1243      4350574D 
- 1243      5F456E61 
- 1243      626C655F 
- 1243      4D756C74 
- 1244              	.LASF74:
- 1245 04b6 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1245      52784275 
- 1245      66666572 
- 1245      00
- 1246              	.LASF40:
- 1247 04c3 54435057 		.ascii	"TCPWM_Type\000"
- 1247      4D5F5479 
- 1247      706500
- 1248              	.LASF72:
- 1249 04ce 62617365 		.ascii	"base\000"
- 1249      00
- 1250              	.LASF73:
- 1251 04d3 636F756E 		.ascii	"counters\000"
- 1251      74657273 
- 1251      00
- 1252              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1241              	.LASF22:
+ 1242 0494 52455345 		.ascii	"RESERVED\000"
+ 1242      52564544 
+ 1242      00
+ 1243              	.LASF81:
+ 1244 049d 43795F54 		.ascii	"Cy_TCPWM_Enable_Multiple\000"
+ 1244      4350574D 
+ 1244      5F456E61 
+ 1244      626C655F 
+ 1244      4D756C74 
+ 1245              	.LASF74:
+ 1246 04b6 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1246      52784275 
+ 1246      66666572 
+ 1246      00
+ 1247              	.LASF40:
+ 1248 04c3 54435057 		.ascii	"TCPWM_Type\000"
+ 1248      4D5F5479 
+ 1248      706500
+ 1249              	.LASF72:
+ 1250 04ce 62617365 		.ascii	"base\000"
+ 1250      00
+ 1251              	.LASF73:
+ 1252 04d3 636F756E 		.ascii	"counters\000"
+ 1252      74657273 
+ 1252      00
+ 1253              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

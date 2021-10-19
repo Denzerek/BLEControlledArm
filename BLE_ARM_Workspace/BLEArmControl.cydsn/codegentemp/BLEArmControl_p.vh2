@@ -1,5 +1,5 @@
 -- Project:   BLEArmControl
--- Generated: 10/19/2021 17:50:33
+-- Generated: 10/19/2021 17:57:27
 -- PSoC Creator  4.4
 
 ENTITY BLEArmControl IS
@@ -126,13 +126,21 @@ ARCHITECTURE __DEFAULT__ OF BLEArmControl IS
     ATTRIBUTE lib_model OF CY_CPUSS_SWJ_SWDIO_TMS(0) : LABEL IS "iocell2";
     ATTRIBUTE Location OF CY_CPUSS_SWJ_SWDIO_TMS(0) : LABEL IS "P6[6]";
     ATTRIBUTE lib_model OF \UART:tx(0)\ : LABEL IS "iocell3";
+    ATTRIBUTE Location OF \UART:tx(0)\ : LABEL IS "P5[1]";
     ATTRIBUTE lib_model OF \UART:rx(0)\ : LABEL IS "iocell4";
+    ATTRIBUTE Location OF \UART:rx(0)\ : LABEL IS "P5[0]";
     ATTRIBUTE lib_model OF M1(0) : LABEL IS "iocell5";
+    ATTRIBUTE Location OF M1(0) : LABEL IS "P0[2]";
     ATTRIBUTE lib_model OF RED_USER_LED2(0) : LABEL IS "iocell6";
+    ATTRIBUTE Location OF RED_USER_LED2(0) : LABEL IS "P13[7]";
     ATTRIBUTE lib_model OF SW(0) : LABEL IS "iocell7";
+    ATTRIBUTE Location OF SW(0) : LABEL IS "P0[4]";
     ATTRIBUTE lib_model OF M2(0) : LABEL IS "iocell8";
+    ATTRIBUTE Location OF M2(0) : LABEL IS "P6[4]";
     ATTRIBUTE lib_model OF RED(0) : LABEL IS "iocell9";
+    ATTRIBUTE Location OF RED(0) : LABEL IS "P0[3]";
     ATTRIBUTE lib_model OF GREEN(0) : LABEL IS "iocell10";
+    ATTRIBUTE Location OF GREEN(0) : LABEL IS "P1[1]";
     ATTRIBUTE lib_model OF Net_69 : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF Net_71 : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF Net_294 : LABEL IS "macrocell3";

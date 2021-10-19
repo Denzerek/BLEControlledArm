@@ -21,8 +21,8 @@
 #include "cyfitter_sysint.h"
 
 /* UART */
-#define UART_SCB__HW SCB0
-#define UART_SCB__IDX 0
+#define UART_SCB__HW SCB5
+#define UART_SCB__IDX 5
 #define UART_SCB__SS0_POSITION 0u
 #define UART_SCB__SS1_POSITION 1u
 #define UART_SCB__SS2_POSITION 2u
@@ -32,16 +32,16 @@
 #define UART_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* PWM_1 */
-#define PWM_1_TCPWM__CNT_HW TCPWM0_CNT3
-#define PWM_1_TCPWM__CNT_IDX 3u
-#define PWM_1_TCPWM__HW TCPWM0
-#define PWM_1_TCPWM__IDX 0u
+#define PWM_1_TCPWM__CNT_HW TCPWM1_CNT1
+#define PWM_1_TCPWM__CNT_IDX 1u
+#define PWM_1_TCPWM__HW TCPWM1
+#define PWM_1_TCPWM__IDX 1u
 
 /* PWM_2 */
-#define PWM_2_TCPWM__CNT_HW TCPWM0_CNT4
-#define PWM_2_TCPWM__CNT_IDX 4u
-#define PWM_2_TCPWM__HW TCPWM0
-#define PWM_2_TCPWM__IDX 0u
+#define PWM_2_TCPWM__CNT_HW TCPWM1_CNT10
+#define PWM_2_TCPWM__CNT_IDX 10u
+#define PWM_2_TCPWM__HW TCPWM1
+#define PWM_2_TCPWM__IDX 1u
 
 /* Dimmer */
 #define Dimmer_TCPWM__CNT_HW TCPWM0_CNT1

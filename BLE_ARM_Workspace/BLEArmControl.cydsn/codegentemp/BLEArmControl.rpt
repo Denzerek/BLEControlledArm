@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.913ms
+Loading plugins phase: Elapsed time ==> 0s.158ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Alen\GitHub_Denzerek\testThearm\BLEControlledArm\BLE_ARM_Workspace\BLEArmControl.cydsn\BLEArmControl.cyprj -d CY8C6347BZI-BLD53 -s C:\Alen\GitHub_Denzerek\testThearm\BLEControlledArm\BLE_ARM_Workspace\BLEArmControl.cydsn\Generated_Source\PSoC6 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 1s.635ms
+Elaboration phase: Elapsed time ==> 1s.399ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.046ms
+HDL generation phase: Elapsed time ==> 0s.048ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Tue Oct 19 17:50:25 2021
+Tue Oct 19 17:57:19 2021
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 BLEArmControl.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Tue Oct 19 17:50:25 2021
+Tue Oct 19 17:57:20 2021
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
@@ -87,7 +87,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Tue Oct 19 17:50:25 2021
+Tue Oct 19 17:57:20 2021
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -118,7 +118,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Tue Oct 19 17:50:25 2021
+Tue Oct 19 17:57:20 2021
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -267,14 +267,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub_Denzerek\testThearm\BLEControlledArm\BLE_ARM_Workspace\BLEArmControl.cydsn\BLEArmControl.cyprj -dcpsoc3 BLEArmControl.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 0s.929ms
+Warp synthesis phase: Elapsed time ==> 0s.863ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Tuesday, 19 October 2021 17:50:26
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Tuesday, 19 October 2021 17:57:20
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Alen\GitHub_Denzerek\testThearm\BLEControlledArm\BLE_ARM_Workspace\BLEArmControl.cydsn\BLEArmControl.cyprj -d CY8C6347BZI-BLD53 BLEArmControl.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.387ms
+Design parsing phase: Elapsed time ==> 0s.412ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -296,8 +296,6 @@ Done removing unused cells.
         Enable Signal: True
 </CYPRESSTAG>
 </CYPRESSTAG>
-ADD: pft.M0040: information: The following 8 pin(s) will be assigned a location by the fitter: \UART:rx(0)\, \UART:tx(0)\, GREEN(0), M1(0), M2(0), RED(0), RED_USER_LED2(0), SW(0)
-
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: TCPWM[3].line_compl. (App=cydsfit)
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: TCPWM[19].line_compl. (App=cydsfit)
 Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: SCB[6].uart_cts. (App=cydsfit)
@@ -435,6 +433,9 @@ Design Equations
             pa_out => \UART:tx(0)\__PA ,
             pin_input => \UART:tx_wire\ ,
             pad => \UART:tx(0)_PAD\ );
+        Properties:
+        {
+        }
 
     Pin : Name = \UART:rx(0)\
         Attributes:
@@ -472,6 +473,9 @@ Design Equations
             pa_out => \UART:rx(0)\__PA ,
             fb => \UART:Net_1172\ ,
             pad => \UART:rx(0)_PAD\ );
+        Properties:
+        {
+        }
 
     Pin : Name = M1(0)
         Attributes:
@@ -509,6 +513,9 @@ Design Equations
             pa_out => M1(0)__PA ,
             pin_input => Net_11 ,
             pad => M1(0)_PAD );
+        Properties:
+        {
+        }
 
     Pin : Name = RED_USER_LED2(0)
         Attributes:
@@ -546,6 +553,9 @@ Design Equations
             pa_out => RED_USER_LED2(0)__PA ,
             pin_input => Net_21 ,
             pad => RED_USER_LED2(0)_PAD );
+        Properties:
+        {
+        }
 
     Pin : Name = SW(0)
         Attributes:
@@ -583,6 +593,9 @@ Design Equations
             pa_out => SW(0)__PA ,
             fb => Net_35 ,
             pad => SW(0)_PAD );
+        Properties:
+        {
+        }
 
     Pin : Name = M2(0)
         Attributes:
@@ -620,6 +633,9 @@ Design Equations
             pa_out => M2(0)__PA ,
             pin_input => Net_329 ,
             pad => M2(0)_PAD );
+        Properties:
+        {
+        }
 
     Pin : Name = RED(0)
         Attributes:
@@ -657,6 +673,9 @@ Design Equations
             pa_out => RED(0)__PA ,
             pin_input => Net_69 ,
             pad => RED(0)_PAD );
+        Properties:
+        {
+        }
 
     Pin : Name = GREEN(0)
         Attributes:
@@ -694,6 +713,9 @@ Design Equations
             pa_out => GREEN(0)__PA ,
             pin_input => Net_71 ,
             pad => GREEN(0)_PAD );
+        Properties:
+        {
+        }
     </CYPRESSTAG>
     <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
 
@@ -806,8 +828,8 @@ Sample and Hold               :    0 :    1 :    1 :  0.00 %
 SAR ADC                       :    0 :    1 :    1 :  0.00 %
 DieTemp Sensor                :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.047ms
-Tech Mapping phase: Elapsed time ==> 0s.123ms
+Technology Mapping: Elapsed time ==> 0s.042ms
+Tech Mapping phase: Elapsed time ==> 0s.131ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -817,35 +839,35 @@ Cell                                : Block
 =========================================================================
 CY_CPUSS_SWJ_SWCLK_TCLK(0)          : [IOP=(6)][IoId=(7)]                
 CY_CPUSS_SWJ_SWDIO_TMS(0)           : [IOP=(6)][IoId=(6)]                
+\UART:tx(0)\                        : [IOP=(5)][IoId=(1)]                
+\UART:rx(0)\                        : [IOP=(5)][IoId=(0)]                
+M1(0)                               : [IOP=(0)][IoId=(2)]                
+RED_USER_LED2(0)                    : [IOP=(13)][IoId=(7)]               
+SW(0)                               : [IOP=(0)][IoId=(4)]                
+M2(0)                               : [IOP=(6)][IoId=(4)]                
+RED(0)                              : [IOP=(0)][IoId=(3)]                
+GREEN(0)                            : [IOP=(1)][IoId=(1)]                
 ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
 CPUSS                               : CPUSS_[FFB(CPUSS,0)]               
-\UART:SCB\                          : SCB_[FFB(SCB,0)]                   
-\UART:tx(0)\                        : [IOP=(0)][IoId=(3)]                
-\UART:rx(0)\                        : [IOP=(0)][IoId=(2)]                
-\PWM_1:TCPWM\                       : TCPWM_[FFB(TCPWM,0)]               
-M1(0)                               : [IOP=(0)][IoId=(0)]                
-\PWM_RED:TCPWM\                     : TCPWM_[FFB(TCPWM,1)]               
-RED_USER_LED2(0)                    : [IOP=(6)][IoId=(2)]                
-\LEDBlink:TCPWM\                    : TCPWM_[FFB(TCPWM,2)]               
-\PWM_2:TCPWM\                       : TCPWM_[FFB(TCPWM,3)]               
-M2(0)                               : [IOP=(1)][IoId=(0)]                
+\UART:SCB\                          : SCB_[FFB(SCB,5)]                   
+\PWM_1:TCPWM\                       : TCPWM_[FFB(TCPWM,1)]               
+\PWM_2:TCPWM\                       : TCPWM_[FFB(TCPWM,2)]               
+\PWM_RED:TCPWM\                     : TCPWM_[FFB(TCPWM,0)]               
+\LEDBlink:TCPWM\                    : TCPWM_[FFB(TCPWM,3)]               
 \Dimmer:TCPWM\                      : TCPWM_[FFB(TCPWM,4)]               
-SW(0)                               : [IOP=(0)][IoId=(1)]                
-RED(0)                              : [IOP=(0)][IoId=(4)]                
-GREEN(0)                            : [IOP=(0)][IoId=(5)]                
 
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
-Elapsed time ==> 0.2418506s
+Elapsed time ==> 0.2685791s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 1s.161ms
+Analog Placement phase: Elapsed time ==> 1s.150ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0007633 secs
+Route success=True, Iterations=1 Elapsed=0.0008789 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.001ms
+Analog Routing phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -856,12 +878,12 @@ Map of item to net {
 }
 Mux Info {
 }
-Analog Code Generation phase: Elapsed time ==> 0s.012ms
+Analog Code Generation phase: Elapsed time ==> 0s.017ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
 I2659: No Constrained paths were found. The placer will run in non-timing driven mode.
-I2076: Total run-time: 0.6 sec.
+I2076: Total run-time: 0.4 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -892,7 +914,7 @@ PLD Packing: Elapsed time ==> 0s.000ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.015ms
+Partitioning: Elapsed time ==> 0s.013ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -968,7 +990,7 @@ LAB@[UDB=(1,5)][LB=0] #macrocells=3, #inputs=3, #pterms=2
 }
 
 Intr container @ [IntrContainer=(0)]: 
-  Intr@ [IntrContainer=(0)][IntrId=(41)] 
+  Intr@ [IntrContainer=(0)][IntrId=(46)] 
     interrupt: Name =\UART:SCB_IRQ\
         PORT MAP (
             interrupt => \UART:intr_wire\ );
@@ -980,7 +1002,48 @@ Intr container @ [IntrContainer=(0)]:
         }
 Drq container @ [DrqContainer=(0)]: empty
 Port 0 contains the following IO cells:
-[IoId=0]: 
+[IoId=2]: 
+Pin : Name = M1(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: INP_DIS_HI_Z
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => M1(0)__PA ,
+        pin_input => Net_11 ,
+        pad => M1(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=3]: 
 Pin : Name = RED(0)
     Attributes:
         In Group/Port: True
@@ -1021,171 +1084,7 @@ Pin : Name = RED(0)
     {
     }
 
-[IoId=1]: 
-Pin : Name = GREEN(0)
-    Attributes:
-        In Group/Port: True
-        In Sync Option: AUTO
-        Out Sync Option: NOSYNC
-        Interrupt generated: False
-        Interrupt mode: NONE
-        Drive mode: CMOS_OUT
-        VTrip: CMOS
-        Slew: FAST
-        Input Sync needed: False
-        Output Sync needed: False
-        SC shield enabled: False
-        POR State: INP_DIS_HI_Z
-        LCD Mode: COMMON
-        Register Mode: RegComb
-        CaSense Mode: NEITHER
-        Treat as pin: True
-        Is OE Registered: False
-        Uses Analog: False
-        Can contain Digital: True
-        Is SIO: False
-        SIO Output Buf: NONREGULATED
-        SIO Input Buf: SINGLE_ENDED
-        SIO HiFreq: LOW
-        SIO Hyst: DISABLED
-        SIO Vtrip: MULTIPLIER_0_5
-        SIO Multiplier Index: 0
-        SIO RefSel: VCC_IO
-        Required Capabilities: DIGITAL, ROUTABLE
-        Initial Value: 1
-        IO Voltage: 0
-    PORT MAP (
-        pa_out => GREEN(0)__PA ,
-        pin_input => Net_71 ,
-        pad => GREEN(0)_PAD );
-    Properties:
-    {
-    }
-
-[IoId=2]: 
-Pin : Name = \UART:rx(0)\
-    Attributes:
-        In Group/Port: True
-        In Sync Option: NOSYNC
-        Out Sync Option: AUTO
-        Interrupt generated: False
-        Interrupt mode: NONE
-        Drive mode: HI_Z_ANALOG
-        VTrip: CMOS
-        Slew: FAST
-        Input Sync needed: False
-        Output Sync needed: False
-        SC shield enabled: False
-        POR State: INP_DIS_HI_Z
-        LCD Mode: COMMON
-        Register Mode: RegComb
-        CaSense Mode: NEITHER
-        Treat as pin: True
-        Is OE Registered: False
-        Uses Analog: False
-        Can contain Digital: True
-        Is SIO: False
-        SIO Output Buf: NONREGULATED
-        SIO Input Buf: SINGLE_ENDED
-        SIO HiFreq: LOW
-        SIO Hyst: DISABLED
-        SIO Vtrip: MULTIPLIER_0_5
-        SIO Multiplier Index: 0
-        SIO RefSel: VCC_IO
-        Required Capabilities: DIGITAL
-        Initial Value: 1
-        IO Voltage: 0
-    PORT MAP (
-        pa_out => \UART:rx(0)\__PA ,
-        fb => \UART:Net_1172\ ,
-        pad => \UART:rx(0)_PAD\ );
-    Properties:
-    {
-    }
-
-[IoId=3]: 
-Pin : Name = \UART:tx(0)\
-    Attributes:
-        In Group/Port: True
-        In Sync Option: AUTO
-        Out Sync Option: NOSYNC
-        Interrupt generated: False
-        Interrupt mode: NONE
-        Drive mode: CMOS_OUT
-        VTrip: CMOS
-        Slew: FAST
-        Input Sync needed: False
-        Output Sync needed: False
-        SC shield enabled: False
-        POR State: INP_DIS_HI_Z
-        LCD Mode: COMMON
-        Register Mode: RegComb
-        CaSense Mode: NEITHER
-        Treat as pin: True
-        Is OE Registered: False
-        Uses Analog: False
-        Can contain Digital: True
-        Is SIO: False
-        SIO Output Buf: NONREGULATED
-        SIO Input Buf: SINGLE_ENDED
-        SIO HiFreq: LOW
-        SIO Hyst: DISABLED
-        SIO Vtrip: MULTIPLIER_0_5
-        SIO Multiplier Index: 0
-        SIO RefSel: VCC_IO
-        Required Capabilities: DIGITAL
-        Initial Value: 1
-        IO Voltage: 0
-    PORT MAP (
-        pa_out => \UART:tx(0)\__PA ,
-        pin_input => \UART:tx_wire\ ,
-        pad => \UART:tx(0)_PAD\ );
-    Properties:
-    {
-    }
-
 [IoId=4]: 
-Pin : Name = RED_USER_LED2(0)
-    Attributes:
-        In Group/Port: True
-        In Sync Option: AUTO
-        Out Sync Option: NOSYNC
-        Interrupt generated: False
-        Interrupt mode: NONE
-        Drive mode: CMOS_OUT
-        VTrip: CMOS
-        Slew: FAST
-        Input Sync needed: False
-        Output Sync needed: False
-        SC shield enabled: False
-        POR State: INP_DIS_HI_Z
-        LCD Mode: COMMON
-        Register Mode: RegComb
-        CaSense Mode: NEITHER
-        Treat as pin: True
-        Is OE Registered: False
-        Uses Analog: False
-        Can contain Digital: True
-        Is SIO: False
-        SIO Output Buf: NONREGULATED
-        SIO Input Buf: SINGLE_ENDED
-        SIO HiFreq: LOW
-        SIO Hyst: DISABLED
-        SIO Vtrip: MULTIPLIER_0_5
-        SIO Multiplier Index: 0
-        SIO RefSel: VCC_IO
-        Required Capabilities: DIGITAL
-        Initial Value: 1
-        IO Voltage: 0
-    PORT MAP (
-        pa_out => RED_USER_LED2(0)__PA ,
-        pin_input => Net_21 ,
-        pad => RED_USER_LED2(0)_PAD );
-    Properties:
-    {
-    }
-
-[IoId=5]: 
 Pin : Name = SW(0)
     Attributes:
         In Group/Port: True
@@ -1227,8 +1126,91 @@ Pin : Name = SW(0)
     }
 
 Port 1 contains the following IO cells:
+[IoId=1]: 
+Pin : Name = GREEN(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: INP_DIS_HI_Z
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL, ROUTABLE
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => GREEN(0)__PA ,
+        pin_input => Net_71 ,
+        pad => GREEN(0)_PAD );
+    Properties:
+    {
+    }
+
+Port 5 contains the following IO cells:
 [IoId=0]: 
-Pin : Name = M1(0)
+Pin : Name = \UART:rx(0)\
+    Attributes:
+        In Group/Port: True
+        In Sync Option: NOSYNC
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: HI_Z_ANALOG
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: INP_DIS_HI_Z
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => \UART:rx(0)\__PA ,
+        fb => \UART:Net_1172\ ,
+        pad => \UART:rx(0)_PAD\ );
+    Properties:
+    {
+    }
+
+[IoId=1]: 
+Pin : Name = \UART:tx(0)\
     Attributes:
         In Group/Port: True
         In Sync Option: AUTO
@@ -1261,14 +1243,15 @@ Pin : Name = M1(0)
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
-        pa_out => M1(0)__PA ,
-        pin_input => Net_11 ,
-        pad => M1(0)_PAD );
+        pa_out => \UART:tx(0)\__PA ,
+        pin_input => \UART:tx_wire\ ,
+        pad => \UART:tx(0)_PAD\ );
     Properties:
     {
     }
 
-[IoId=2]: 
+Port 6 contains the following IO cells:
+[IoId=4]: 
 Pin : Name = M2(0)
     Attributes:
         In Group/Port: True
@@ -1309,8 +1292,6 @@ Pin : Name = M2(0)
     {
     }
 
-Port 5 contains the following IO cells:
-Port 6 contains the following IO cells:
 [IoId=6]: 
 Pin : Name = CY_CPUSS_SWJ_SWDIO_TMS(0)
     Attributes:
@@ -1398,6 +1379,47 @@ Port 10 contains the following IO cells:
 Port 11 contains the following IO cells:
 Port 12 contains the following IO cells:
 Port 13 contains the following IO cells:
+[IoId=7]: 
+Pin : Name = RED_USER_LED2(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: INP_DIS_HI_Z
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => RED_USER_LED2(0)__PA ,
+        pin_input => Net_21 ,
+        pad => RED_USER_LED2(0)_PAD );
+    Properties:
+    {
+    }
+
 Clock group 0: 
     Clock Block @ F(Clock,0): 
     Clock: Name =ClockBlock
@@ -1432,7 +1454,7 @@ LCD group 0: empty
 Vref group 0: empty
 LPCOMP group 0: empty
 SCB group 0: 
-    SCB @ F(SCB,0): 
+    SCB @ F(SCB,5): 
     SCB: Name =\UART:SCB\
         PORT MAP (
             clock => \UART:Net_847_ff0\ ,
@@ -1516,7 +1538,7 @@ TCPWM group 0:
             exact_width = 0
             width = 16
         }
-    TCPWM @ F(TCPWM,3): 
+    TCPWM @ F(TCPWM,9): 
     TCPWM: Name =\PWM_1:TCPWM\
         PORT MAP (
             clock => Net_154_ff12 ,
@@ -1537,7 +1559,7 @@ TCPWM group 0:
             exact_width = 0
             width = 16
         }
-    TCPWM @ F(TCPWM,4): 
+    TCPWM @ F(TCPWM,18): 
     TCPWM: Name =\PWM_2:TCPWM\
         PORT MAP (
             clock => Net_154_ff13 ,
@@ -1604,49 +1626,51 @@ Port Configuration report
      |     |       | Interrupt |                  |                            | 
 Port | Pin | Fixed |      Type |       Drive Mode |                       Name | Connections
 -----+-----+-------+-----------+------------------+----------------------------+-------------------------
-   0 |   0 |       |      NONE |         CMOS_OUT |                     RED(0) | In(Net_69)
-     |   1 |       |      NONE |         CMOS_OUT |                   GREEN(0) | In(Net_71)
-     |   2 |       |      NONE |      HI_Z_ANALOG |               \UART:rx(0)\ | FB(\UART:Net_1172\)
-     |   3 |       |      NONE |         CMOS_OUT |               \UART:tx(0)\ | In(\UART:tx_wire\)
-     |   4 |       |      NONE |         CMOS_OUT |           RED_USER_LED2(0) | In(Net_21)
-     |   5 |       |      NONE |      RES_PULL_UP |                      SW(0) | FB(Net_35)
+   0 |   2 |     * |      NONE |         CMOS_OUT |                      M1(0) | In(Net_11)
+     |   3 |     * |      NONE |         CMOS_OUT |                     RED(0) | In(Net_69)
+     |   4 |     * |      NONE |      RES_PULL_UP |                      SW(0) | FB(Net_35)
 -----+-----+-------+-----------+------------------+----------------------------+-------------------------
-   1 |   0 |       |      NONE |         CMOS_OUT |                      M1(0) | In(Net_11)
-     |   2 |       |      NONE |         CMOS_OUT |                      M2(0) | In(Net_329)
+   1 |   1 |     * |      NONE |         CMOS_OUT |                   GREEN(0) | In(Net_71)
 -----+-----+-------+-----------+------------------+----------------------------+-------------------------
-   6 |   6 |     * |      NONE |      RES_PULL_UP |  CY_CPUSS_SWJ_SWDIO_TMS(0) | FB(CPUSS_swj_swdio_tms)
+   5 |   0 |     * |      NONE |      HI_Z_ANALOG |               \UART:rx(0)\ | FB(\UART:Net_1172\)
+     |   1 |     * |      NONE |         CMOS_OUT |               \UART:tx(0)\ | In(\UART:tx_wire\)
+-----+-----+-------+-----------+------------------+----------------------------+-------------------------
+   6 |   4 |     * |      NONE |         CMOS_OUT |                      M2(0) | In(Net_329)
+     |   6 |     * |      NONE |      RES_PULL_UP |  CY_CPUSS_SWJ_SWDIO_TMS(0) | FB(CPUSS_swj_swdio_tms)
      |   7 |     * |      NONE |    RES_PULL_DOWN | CY_CPUSS_SWJ_SWCLK_TCLK(0) | FB(CPUSS_swj_swclk_tclk)
+-----+-----+-------+-----------+------------------+----------------------------+-------------------------
+  13 |   7 |     * |      NONE |         CMOS_OUT |           RED_USER_LED2(0) | In(Net_21)
 ---------------------------------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.020ms
-Digital Placement phase: Elapsed time ==> 6s.297ms
+Digital component placer commit/Report: Elapsed time ==> 0s.017ms
+Digital Placement phase: Elapsed time ==> 5s.895ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc6/0/route_arch-rrg.cydata" --vh2-path "BLEArmControl_r.vh2" --pcf-path "BLEArmControl.pco" --des-name "BLEArmControl" --dsf-path "BLEArmControl.dsf" --sdc-path "BLEArmControl.sdc" --lib-path "BLEArmControl_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 1s.119ms
+Digital Routing phase: Elapsed time ==> 1s.018ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.543ms
+Bitstream Generation phase: Elapsed time ==> 0s.526ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
 Bitstream Verification phase: Elapsed time ==> 0s.001ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in BLEArmControl_timing.html.
-Static timing analysis phase: Elapsed time ==> 8s.216ms
+Static timing analysis phase: Elapsed time ==> 8s.648ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.176ms
+Design database save phase: Elapsed time ==> 0s.169ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 18s.090ms
+cydsfit: Elapsed time ==> 18s.022ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 18s.092ms
-API generation phase: Elapsed time ==> 4s.004ms
+Fitter phase: Elapsed time ==> 18s.023ms
+API generation phase: Elapsed time ==> 0s.982ms
 Dependency generation phase: Elapsed time ==> 0s.008ms
 Cleanup phase: Elapsed time ==> 0s.000ms
