@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
   28:Generated_Source\PSoC6/CapSense_TMG.c **** * Parameters:
   29:Generated_Source\PSoC6/CapSense_TMG.c **** *  touchNumber: Number of fingers on the trackpad. Valid range 0-2.
   30:Generated_Source\PSoC6/CapSense_TMG.c **** *  currentTimestamp : Current timestamp value.
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 2
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 2
 
 
   31:Generated_Source\PSoC6/CapSense_TMG.c **** *  pos: Pointer to structure with coordinates of touches.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
   69:Generated_Source\PSoC6/CapSense_TMG.c ****                                                          (CapSense_TMG_ROTATE_ENABLED == 1u)))
   70:Generated_Source\PSoC6/CapSense_TMG.c ****             static uint32_t clickAndDragActive = 0u;
   71:Generated_Source\PSoC6/CapSense_TMG.c ****         #endif /* ((CapSense_TMG_CLICKS_ENABLED == 1u) && ((CapSense_TMG_EDGE_SWIPE_ENABLED == 1u) 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 3
 
 
   72:Generated_Source\PSoC6/CapSense_TMG.c ****                                                                (CapSense_TMG_ST_SCROLLS_ENABLED == 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  118:Generated_Source\PSoC6/CapSense_TMG.c ****             }
  119:Generated_Source\PSoC6/CapSense_TMG.c **** 
  120:Generated_Source\PSoC6/CapSense_TMG.c ****             if (((stGesture == CapSense_TMG_NO_GESTURE)||(stGesture == CapSense_TMG_TOUCHDOWN) \
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 4
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 4
 
 
  121:Generated_Source\PSoC6/CapSense_TMG.c ****                                             ||(stGesture == CapSense_TMG_LIFT_OFF))&&(rotationActiv
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  168:Generated_Source\PSoC6/CapSense_TMG.c ****         if ((stGesture != CapSense_TMG_NO_GESTURE)&&(stGesture != CapSense_TMG_TOUCHDOWN) \
   59              		.loc 1 168 0
   60 001a 0028     		cmp	r0, #0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 5
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 5
 
 
   61 001c 04D0     		beq	.L2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  212:Generated_Source\PSoC6/CapSense_TMG.c ****         {
  213:Generated_Source\PSoC6/CapSense_TMG.c ****             #if ((CapSense_TMG_CLICKS_ENABLED == 1u) && ((CapSense_TMG_EDGE_SWIPE_ENABLED == 1u) ||
  214:Generated_Source\PSoC6/CapSense_TMG.c ****                                                              (CapSense_TMG_ST_SCROLLS_ENABLED == 1u
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 6
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 6
 
 
  215:Generated_Source\PSoC6/CapSense_TMG.c ****                                                              (CapSense_TMG_ROTATE_ENABLED == 1u)))
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  250:Generated_Source\PSoC6/CapSense_TMG.c **** *
  251:Generated_Source\PSoC6/CapSense_TMG.c **** * Summary:
  252:Generated_Source\PSoC6/CapSense_TMG.c **** *  This API is to run the ballistic Multiplier.
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 7
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 7
 
 
  253:Generated_Source\PSoC6/CapSense_TMG.c **** *  CapSense_TMG_TimerEnableInt has to be called once prior calling this API.
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  122 0025 02       		.uleb128 0x2
  123 0026 01       		.byte	0x1
  124 0027 06       		.byte	0x6
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 8
 
 
  125 0028 61010000 		.4byte	.LASF0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  179 0091 04       		.byte	0x4
  180 0092 07       		.byte	0x7
  181 0093 98010000 		.4byte	.LASF12
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 9
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 9
 
 
  182 0097 03       		.uleb128 0x3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  236 010c 04       		.byte	0x4
  237 010d 06       		.uleb128 0x6
  238 010e 26030000 		.4byte	.LASF22
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 10
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 10
 
 
  239 0112 04       		.byte	0x4
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  293 0186 21000000 		.4byte	.LLST1
  294 018a 0B       		.uleb128 0xb
  295 018b 706F7300 		.ascii	"pos\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 11
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 11
 
 
  296 018f 01       		.byte	0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  350 01fb 0F       		.uleb128 0xf
  351 01fc 01       		.uleb128 0x1
  352 01fd 50       		.byte	0x50
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 12
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 12
 
 
  353 01fe 02       		.uleb128 0x2
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  407 025c 04       		.byte	0x4
  408 025d 61020000 		.4byte	0x261
  409 0261 12       		.uleb128 0x12
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 13
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 13
 
 
  410 0262 1B010000 		.4byte	0x11b
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  464 0025 3B       		.uleb128 0x3b
  465 0026 0B       		.uleb128 0xb
  466 0027 49       		.uleb128 0x49
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 14
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 14
 
 
  467 0028 13       		.uleb128 0x13
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  521 005e 00       		.byte	0
  522 005f 08       		.uleb128 0x8
  523 0060 0D       		.uleb128 0xd
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 15
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 15
 
 
  524 0061 00       		.byte	0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  578 0098 00       		.byte	0
  579 0099 0B       		.uleb128 0xb
  580 009a 05       		.uleb128 0x5
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 16
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 16
 
 
  581 009b 00       		.byte	0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  635 00d3 0F       		.uleb128 0xf
  636 00d4 8A8201   		.uleb128 0x410a
  637 00d7 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 17
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 17
 
 
  638 00d8 02       		.uleb128 0x2
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  692 0112 00       		.byte	0
  693 0113 00       		.byte	0
  694 0114 14       		.uleb128 0x14
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 18
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 18
 
 
  695 0115 05       		.uleb128 0x5
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  749 000b 0A000000 		.4byte	.LVL2
  750 000f 2C000000 		.4byte	.LFE0
  751 0013 0400     		.2byte	0x4
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 19
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 19
 
 
  752 0015 F3       		.byte	0xf3
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  806 0098 0100     		.2byte	0x1
  807 009a 55       		.byte	0x55
  808 009b 2A000000 		.4byte	.LVL9
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 20
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 20
 
 
  809 009f 2C000000 		.4byte	.LFE0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  863 0014 00000000 		.4byte	0
  864              		.section	.debug_line,"",%progbits
  865              	.Ldebug_line0:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 21
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 21
 
 
  866 0000 87010000 		.section	.debug_str,"MS",%progbits,1
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  886      6720696E 
  886      7400
  887              	.LASF7:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 22
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 22
 
 
  888 0105 6C6F6E67 		.ascii	"long int\000"
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  910      4465636F 
  910      6465466C 
  910      69636B47 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 23
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 23
 
 
  911              	.LASF37:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 1
  933              	.LASF35:
  934 027e 433A5C41 		.ascii	"C:\\Alen\\GitHub_Denzerek\\testThearm\\BLEControlle"
  934      6C656E5C 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccB3CBSt.s 			page 24
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccVpHiwe.s 			page 24
 
 
  934      47697448 
