@@ -1,5 +1,5 @@
 # MainArmController
-# 2021-10-19 11:37:28Z
+# 2021-10-19 13:23:06Z
 
 dont_use_location p4usbcell -1 -1 0
 dont_use_location USB -1 -1 0
@@ -53,4 +53,6 @@ set_location "\CapSense:ISR\" interrupt -1 -1 49
 set_location "\Dimmer:TCPWM\" TCPWM -1 -1 1
 set_location "\I2C_ARD:SCB\" SCB -1 -1 2
 set_location "\I2C_ARD:SCB_IRQ\" interrupt -1 -1 43
+set_location "\BLE_1:cy_mxs40_ble\" BLE -1 -1 0
+set_location "\BLE_1:bless_isr\" interrupt -1 -1 24
 set_location "Net_294" 1 5 0 2

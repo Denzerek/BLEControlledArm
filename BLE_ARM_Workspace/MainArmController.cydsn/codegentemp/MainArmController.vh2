@@ -2,7 +2,7 @@
 --	Conversion of MainArmController.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Oct 19 17:07:03 2021
+--	Tue Oct 19 18:52:57 2021
 --
 
 USE cypress.cypress.all;
@@ -284,6 +284,10 @@ TERMINAL \I2C_ARD:tmpSIOVREF__sda_net_0\ : bit;
 SIGNAL tmpFB_0__LED9_net_0 : bit;
 SIGNAL tmpIO_0__LED9_net_0 : bit;
 TERMINAL tmpSIOVREF__LED9_net_0 : bit;
+SIGNAL Net_124 : bit;
+SIGNAL Net_123 : bit;
+SIGNAL Net_122 : bit;
+SIGNAL \BLE_1:Net_1\ : bit;
 SIGNAL cy_tff_1D : bit;
 BEGIN
 
@@ -1227,6 +1231,18 @@ LED9:cy_mxs40_gpio_v1_0
 		io=>(tmpIO_0__LED9_net_0),
 		annotation=>(open),
 		siovref=>(tmpSIOVREF__LED9_net_0));
+\BLE_1:cy_mxs40_ble\:cy_mxs40_ble_v1_0
+	GENERIC MAP(cy_registers=>"",
+		low_power=>'1')
+	PORT MAP(ext_pa_lna_chip_en_out=>Net_124,
+		ext_lna_rx_ctl_out=>Net_123,
+		ext_pa_tx_ctl_out=>Net_122,
+		interrupt=>\BLE_1:Net_1\);
+\BLE_1:bless_isr\:cy_mxs40_isr_v1_0
+	GENERIC MAP(cy_registers=>"",
+		deepsleep_required=>'1',
+		int_type=>"10")
+	PORT MAP(int_signal=>\BLE_1:Net_1\);
 cy_tff_1:cy_dff
 	PORT MAP(d=>cy_tff_1D,
 		clk=>Net_36,

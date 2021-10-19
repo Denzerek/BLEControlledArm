@@ -18,6 +18,7 @@
       <Data key="9bc618f9-fc12-4653-bffc-b48d30a6bbf5/6304fa96-b46f-4dfd-b13d-801be146d8ff" value="CapSense_ISR" />
       <Data key="57eab874-e2a1-429d-95bb-7bdb2d0dab82/b9a438dd-31dc-4d3f-932a-b92d7b255394" value="I2C_ARD_SCB_IRQ" />
       <Data key="888438a8-96ad-488a-b32e-aaaca8d32780/5e509665-5bd3-4115-bbc0-fb65a49def9a" value="BLE_1_bless_isr" />
+      <Data key="fd7c1ef1-3ec0-4d55-851e-c3aa24d8425e/5e509665-5bd3-4115-bbc0-fb65a49def9a" value="BLE_1_bless_isr" />
       <Data key="ff784b52-1bdf-4594-9024-695cb9a611c5/9260d369-b684-4310-b925-f618d77b89d7" value="UART_SCB_IRQ" />
     </Group>
     <Group key="Pin">
@@ -44,6 +45,18 @@
   </Group>
   <Group key="Interrupt">
     <Group key="888438a8-96ad-488a-b32e-aaaca8d32780/5e509665-5bd3-4115-bbc0-fb65a49def9a">
+      <Group key="CortexM0p">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="Default" />
+        <Data key="Vector" value="3" />
+      </Group>
+      <Group key="CortexM4">
+        <Data key="Assigned" value="False" />
+        <Data key="Priority" value="Default" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="fd7c1ef1-3ec0-4d55-851e-c3aa24d8425e/5e509665-5bd3-4115-bbc0-fb65a49def9a">
       <Group key="CortexM0p">
         <Data key="Assigned" value="True" />
         <Data key="Priority" value="Default" />

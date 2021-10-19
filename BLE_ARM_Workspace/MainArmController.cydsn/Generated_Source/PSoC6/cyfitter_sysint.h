@@ -42,6 +42,16 @@
 #define EZI2C_SCB_IRQ_INTC_CORTEXM4_PRIORITY 7u
 #define EZI2C_SCB_IRQ_INTC_NUMBER 44u
 
+/* BLE_1_bless_isr */
+#define BLE_1_bless_isr__INTC_CORTEXM0P_ASSIGNED 1
+#define BLE_1_bless_isr__INTC_CORTEXM0P_MUX 3u
+#define BLE_1_bless_isr__INTC_CORTEXM0P_PRIORITY 3u
+#define BLE_1_bless_isr__INTC_NUMBER 24u
+#define BLE_1_bless_isr_INTC_CORTEXM0P_ASSIGNED 1
+#define BLE_1_bless_isr_INTC_CORTEXM0P_MUX 3u
+#define BLE_1_bless_isr_INTC_CORTEXM0P_PRIORITY 3u
+#define BLE_1_bless_isr_INTC_NUMBER 24u
+
 /* I2C_ARD_SCB_IRQ */
 #define I2C_ARD_SCB_IRQ__INTC_CORTEXM4_ASSIGNED 1
 #define I2C_ARD_SCB_IRQ__INTC_CORTEXM4_PRIORITY 7u

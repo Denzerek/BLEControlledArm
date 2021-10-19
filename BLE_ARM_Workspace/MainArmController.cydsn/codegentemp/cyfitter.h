@@ -31,6 +31,10 @@
 #define UART_SCBCLK__DIV_NUM 4
 #define UART_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
+/* BLE_1 */
+#define BLE_1_cy_mxs40_ble__HW BLE
+#define BLE_1_cy_mxs40_ble__IDX 0
+
 /* EZI2C */
 #define EZI2C_SCB__HW SCB3
 #define EZI2C_SCB__IDX 3

@@ -204,6 +204,11 @@ net Net_99
 	switch ":ioport0:smartio_mux_in3.smartio_mux_in==>:ioport0:pin3.pin_input"
 	term   ":ioport0:pin3.pin_input"
 end Net_99
+net \BLE_1:Net_1\
+	term   ":BLEcontainer:BLE[0].interrupt"
+	switch ":BLEcontainer:BLE[0].interrupt==>:intc_0:interrupt24.interrupt"
+	term   ":intc_0:interrupt24.interrupt"
+end \BLE_1:Net_1\
 net \CapSense:Net_611_ff43\
 	term   ":Clockcontainer:Clock[0].ff_div_43"
 	switch ":Clockcontainer:Clock[0].ff_div_43==>:Clockcontainer:ff_permute.ff_div_43"

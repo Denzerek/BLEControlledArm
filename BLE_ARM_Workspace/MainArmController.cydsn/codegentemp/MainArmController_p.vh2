@@ -1,5 +1,5 @@
 -- Project:   MainArmController
--- Generated: 10/19/2021 17:07:25
+-- Generated: 10/19/2021 18:53:05
 -- PSoC Creator  4.4
 
 ENTITY MainArmController IS
@@ -67,6 +67,9 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL Net_115 : bit;
     SIGNAL Net_116 : bit;
     SIGNAL Net_117 : bit;
+    SIGNAL Net_122 : bit;
+    SIGNAL Net_123 : bit;
+    SIGNAL Net_124 : bit;
     SIGNAL Net_145 : bit;
     SIGNAL Net_154_ff11 : bit;
     ATTRIBUTE global_signal OF Net_154_ff11 : SIGNAL IS true;
@@ -115,6 +118,7 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL RED(0)__PA : bit;
     SIGNAL RED_USER_LED2(0)__PA : bit;
     SIGNAL SW(0)__PA : bit;
+    SIGNAL \BLE_1:Net_1\ : bit;
     SIGNAL \\\CapSense:CintA(0)\\__PA\ : bit;
     SIGNAL \\\CapSense:CintB(0)\\__PA\ : bit;
     SIGNAL \\\CapSense:Cmod(0)\\__PA\ : bit;
@@ -255,6 +259,13 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     ATTRIBUTE Location OF \CapSense:IDACComp\ : LABEL IS "F(CSIDAC7,1)";
     ATTRIBUTE Location OF \CapSense:CSD\ : LABEL IS "F(CSD,0)";
     ATTRIBUTE lib_model OF Net_294 : LABEL IS "macrocell3";
+    COMPONENT BLE
+        PORT (
+            ext_pa_lna_chip_en_out : OUT std_ulogic;
+            ext_lna_rx_ctl_out : OUT std_ulogic;
+            ext_pa_tx_ctl_out : OUT std_ulogic;
+            interrupt : OUT std_ulogic);
+    END COMPONENT;
     COMPONENT CLK_GEN
         PORT (
             gen_clk_in_0 : IN std_ulogic;
@@ -2408,6 +2419,25 @@ BEGIN
             int_type => "10")
         PORT MAP(
             interrupt => \I2C_ARD:intr_wire\,
+            clock => ClockBlock_PeriClk);
+
+    \BLE_1:cy_mxs40_ble\:BLE
+        GENERIC MAP(
+            cy_registers => "",
+            low_power => 1)
+        PORT MAP(
+            ext_pa_lna_chip_en_out => Net_124,
+            ext_lna_rx_ctl_out => Net_123,
+            ext_pa_tx_ctl_out => Net_122,
+            interrupt => \BLE_1:Net_1\);
+
+    \BLE_1:bless_isr\:interrupt
+        GENERIC MAP(
+            cy_registers => "",
+            deepsleep_required => 1,
+            int_type => "10")
+        PORT MAP(
+            interrupt => \BLE_1:Net_1\,
             clock => ClockBlock_PeriClk);
 
     Net_294:macrocell

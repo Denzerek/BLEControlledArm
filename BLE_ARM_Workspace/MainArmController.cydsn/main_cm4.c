@@ -32,7 +32,7 @@
 #define EZI2C_TASK_STACK_SIZE         400
 #define EZI2C_TASK_PRIORITY           2
 
-#define CAPSENSE_TASK_STACK_SIZE         400
+#define CAPSENSE_TASK_STACK_SIZE         2*1024
 #define CAPSENSE_TASK_PRIORITY           2
 
 #define ARDUINO_COMM_TASK_STACK_SIZE    400
