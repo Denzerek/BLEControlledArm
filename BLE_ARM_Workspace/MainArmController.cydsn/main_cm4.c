@@ -17,6 +17,7 @@
 #include "event_groups.h"
 #include "capSenseTask.h"
 #include "servoSlaveCommTask.h"
+#include "BLETask.h"
 
 
 
@@ -34,6 +35,9 @@
 
 #define CAPSENSE_TASK_STACK_SIZE         2*1024
 #define CAPSENSE_TASK_PRIORITY           2
+
+#define BLE_TASK_STACK_SIZE         4*1024
+#define BLE_TASK_PRIORITY           3
 
 #define ARDUINO_COMM_TASK_STACK_SIZE    400
 #define ARDUINO_COMM_TASK_PRIORITY      2
@@ -68,6 +72,9 @@ int main(void)
     
     /* task to send the percentage change for servo motor to arduino servo control*/
     xTaskCreate(servoSlaveCommTask,"ARDUINO COMM TASK",ARDUINO_COMM_TASK_STACK_SIZE,0,ARDUINO_COMM_TASK_PRIORITY,0);
+    
+    /* task to send the percentage change for servo motor to arduino servo control*/
+    xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
     
     
     /* Start the Scheduler*/

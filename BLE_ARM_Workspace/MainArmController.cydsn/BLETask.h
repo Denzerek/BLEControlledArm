@@ -14,5 +14,11 @@
 
 #include "common.h"
 
+#define ble_print(x)    printf("[ BLE ]");printf(x);printf("\r\n");
+#define ble_printf(x,...)    printf("[ BLE ]");printf(x,__VA_ARGS__);printf("\r\n");
+
+
+void bleTask(void* arg);
+
 
 /* [] END OF FILE */
