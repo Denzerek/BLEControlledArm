@@ -32,7 +32,7 @@ int main(void)
     LEDBlink_Start();
     Dimmer_Start();
     pwm_print("Kill Switch LEDs Started ...");
-    Cy_TCPWM_PWM_SetCompare0(Dimmer_HW,Dimmer_CNT_NUM,95);
+    Cy_TCPWM_PWM_SetCompare0(Dimmer_HW,Dimmer_CNT_NUM,100);
     
     /* Startup message display*/
     //START_UP_DISP();
