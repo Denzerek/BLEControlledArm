@@ -20,6 +20,9 @@ void capsenseTask(void *arg)
     motors_t currentMotor = M1;
     PWM_Message_t myMessage;
     
+    
+        xSemaphoreTake(bleInitSemaphore,portMAX_DELAY);
+    
     CapSense_Start();
     CapSense_ScanAllWidgets();
     

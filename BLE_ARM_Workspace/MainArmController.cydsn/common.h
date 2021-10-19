@@ -39,6 +39,7 @@
                         
 extern QueueHandle_t servoControlQueue;
 extern QueueHandle_t pwmQueue;
+extern SemaphoreHandle_t bleInitSemaphore;
                         
 extern EventGroupHandle_t pwmEventGroup;
 #define PWM_EVENT_I2C       ( 1 << 0 )

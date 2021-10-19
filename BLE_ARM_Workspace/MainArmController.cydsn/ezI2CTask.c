@@ -19,6 +19,8 @@ void ezI2CTask(void * arg)
 {
     (void) arg;
     uint8_t motorPercent[2];
+    
+        xSemaphoreTake(bleInitSemaphore,portMAX_DELAY);
     EZI2C_Start();
     ezi2cPrint("EZI2C Task Started ...");
     CyDelay(1);
