@@ -14,14 +14,18 @@
 #include "task.h"
 #include <stdio.h>
 
+#define ble_print(x)    printf("[ BLE ]");printf(x);printf("\r\n");
+#define ble_printf(x,...)    printf("[ BLE ]");printf(x,__VA_ARGS__);printf("\r\n");
+
+
 void writeLED(uint8_t brightness)
 {
     if(Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) != CY_BLE_CONN_STATE_CLIENT_DISCOVERED)
     {
-        printf("Not connected\n");
+        ble_print("Not connected\n");
         return;
     }
-    printf("Brightness = %d\r\n",brightness);
+    ble_printf("Brightness = %d\r\n",brightness);
     
     cy_stc_ble_gattc_write_req_t myVal;
     myVal.handleValPair.value.len = 1;
@@ -30,7 +34,7 @@ void writeLED(uint8_t brightness)
     myVal.connHandle = cy_ble_connHandle[0];
     
     if(Cy_BLE_GATTC_WriteCharacteristicValue(&myVal) != CY_BLE_SUCCESS)
-        printf("BLE GATTC write error\n\r");
+        ble_print("BLE GATTC write error\n\r");
 }
 
 
@@ -77,7 +81,7 @@ void genericEventHandler(uint32_t event,void* eventParameter)
     {
         case CY_BLE_EVT_STACK_ON:
         case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:
-            printf("Starting Scan");
+            ble_print("Starting Scan");
             //Start scan operation
             Cy_BLE_GAPC_StartScan(CY_BLE_SCANNING_FAST,0);
             //turn off the led
@@ -85,23 +89,25 @@ void genericEventHandler(uint32_t event,void* eventParameter)
         break;
         case CY_BLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             //Print out information about the device that was found
-            printf("Device");
+            ble_print("Device");
             cy_stc_ble_gapc_adv_report_param_t *scanProgressParam = (cy_stc_ble_gapc_adv_report_param_t*) eventParameter;
-            printf("BD Addr = ");
+            ble_print("BD Addr = ");
             for(unsigned int i = 0; i < CY_BLE_BD_ADDR_SIZE;i++)
-                printf("%02X",scanProgressParam->peerBdAddr[i]);
-            printf("Length = %d",scanProgressParam->dataLen);
+            {
+                ble_printf("%02X",scanProgressParam->peerBdAddr[i]);
+            }
+            ble_printf("Length = %d",scanProgressParam->dataLen);
             
             findAdvInfo(scanProgressParam->data,scanProgressParam->dataLen);
             if(currentAdvInfo.name != 0)
-                printf("%.*s",currentAdvInfo.name_len,currentAdvInfo.name);
-            printf("");
+                ble_printf("%.*s",currentAdvInfo.name_len,currentAdvInfo.name);
+            ble_print("");
             
             if( (currentAdvInfo.servUUID_len > 0 )
                  && memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].customServChar[CY_BLE_CUSTOMC_LED_GREEN_CHAR_INDEX].uuid
                   ,currentAdvInfo.servUUID_len) == 0)
             {
-                printf("Found LED Service ");
+                ble_print("Found LED Service ");
                 cy_stc_ble_bd_addr_t connectAddr;
                 memcpy(&connectAddr.bdAddr[0],&scanProgressParam->peerBdAddr[0],CY_BLE_BD_ADDR_SIZE);
                 connectAddr.type = scanProgressParam->peerAddrType;
@@ -112,20 +118,20 @@ void genericEventHandler(uint32_t event,void* eventParameter)
         break;
         case CY_BLE_EVT_GATT_CONNECT_IND:
             Cy_GPIO_Clr(LED9_PORT,LED9_NUM);
-            printf("Made a connection, starting service discovery");
+            ble_print("Made a connection, starting service discovery");
             Cy_BLE_GATTC_StartDiscovery(cy_ble_connHandle[0]);
         break;
         
         case CY_BLE_EVT_GATTC_DISCOVERY_COMPLETE:
-            printf("Discovery Complete");
+            ble_print("Discovery Complete");
         break;
             
         case CY_BLE_EVT_GATTC_ERROR_RSP:
-            printf("GATTC Error Response");
+            ble_print("GATTC Error Response");
         break;
             
         case CY_BLE_EVT_GATTC_WRITE_RSP:
-            printf("GATTC Write Succeeded");
+            ble_print("GATTC Write Succeeded");
         break;
             
         default:
@@ -135,7 +141,7 @@ void genericEventHandler(uint32_t event,void* eventParameter)
 void bleTask(void* arg)
 {
     (void) arg;
-    printf("Starting BLE Task");
+    ble_print("Starting BLE Task");
     
     char c;
     uint8_t brightness = 0;
