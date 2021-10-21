@@ -14,8 +14,8 @@
 #include "task.h"
 #include <stdio.h>
 
-#define ble_print(x)    printf("[ BLE ] : ");printf(x);printf("\r\n");
-#define ble_printf(x,...)    printf("[ BLE ] : ");printf(x,__VA_ARGS__);printf("\r\n");
+#define ble_print(x)    printf("[ BLE CENTRAL ] : ");printf(x);printf("\r\n");
+#define ble_printf(x,...)    printf("[ BLE CENTRAL ] : ");printf(x,__VA_ARGS__);printf("\r\n");
 
 
 void writeLED(uint8_t brightness)

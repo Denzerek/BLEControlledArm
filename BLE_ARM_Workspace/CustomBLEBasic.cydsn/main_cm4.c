@@ -19,8 +19,8 @@
 #define LED_ON  0
 #define LED_OFF 1
 
-#define ble_print(x)    printf("[ BLE ]");printf(x);printf("\r\n");
-#define ble_printf(x,...)    printf("[ BLE ]");printf(x,__VA_ARGS__);printf("\r\n");
+#define ble_print(x)    printf("[ BLE PERIPHERAL ]");printf(x);printf("\r\n");
+#define ble_printf(x,...)    printf("[ BLE PERIPHERAL ]");printf(x,__VA_ARGS__);printf("\r\n");
 
 SemaphoreHandle_t bleSemaphore;
 
@@ -99,9 +99,15 @@ int main(void)
     UART_1_Start();
     setvbuf(stdin,NULL,_IONBF,0);
     setvbuf(stdout,NULL,_IONBF,0);
-    
-        PWM_DIM_Start();
-        Blink_Start();
+    CyDelay(10);
+    ble_print("\x1b[2J\x1b[;H");
+    ble_print("System Init Done.");
+    ble_print("======================================"); 
+    ble_print("======== BLE PERIPHERAL CODE ========="); 
+    ble_print("======================================"); 
+                       
+    PWM_DIM_Start();
+    Blink_Start();
     ble_print("System Started");
     xTaskCreate(bleTask,"BLE TASK",8*1024,0,2,0);
     
