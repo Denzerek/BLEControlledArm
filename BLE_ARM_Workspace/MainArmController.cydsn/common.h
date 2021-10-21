@@ -18,8 +18,8 @@
 #include <stdio.h>
 #include "event_groups.h"
 
-//#define TRANSMITTER printf
-#define TRANSMITTER 
+#define TRANSMITTER printf
+//#define TRANSMITTER 
 
 #define serialPrint(x)  { TRANSMITTER("[ UART ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
 #define serialPrintf(x,...)  { TRANSMITTER("[ UART ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
