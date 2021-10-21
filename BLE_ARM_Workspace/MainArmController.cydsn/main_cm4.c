@@ -75,7 +75,7 @@ int main(void)
     
     
     /* task to send the percentage change for servo motor to arduino servo control*/
-    //xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
+    xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
     
     /* Start the Scheduler*/
     vTaskStartScheduler();
