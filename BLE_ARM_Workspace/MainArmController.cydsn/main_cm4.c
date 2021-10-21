@@ -40,7 +40,7 @@
 #define BLE_TASK_PRIORITY           3
 
 #define ARDUINO_COMM_TASK_STACK_SIZE    400
-#define ARDUINO_COMM_TASK_PRIORITY      2
+#define ARDUINO_COMM_TASK_PRIORITY      3
 
 QueueHandle_t pwmQueue;
 QueueHandle_t servoControlQueue;
