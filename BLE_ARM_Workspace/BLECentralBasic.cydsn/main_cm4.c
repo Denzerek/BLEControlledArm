@@ -34,6 +34,7 @@ void writeLED(uint8_t brightness)
     myVal.connHandle = cy_ble_connHandle[0];
     
     int i = 0;
+    //wait for the data transfer to complete
     while(Cy_BLE_GATTC_WriteCharacteristicValue(&myVal) != CY_BLE_SUCCESS)
     {
         Cy_BLE_ProcessEvents();
@@ -44,7 +45,6 @@ void writeLED(uint8_t brightness)
             return;
         }
     }
-    ble_print("BLE GATTC write success");
 }
 
 
