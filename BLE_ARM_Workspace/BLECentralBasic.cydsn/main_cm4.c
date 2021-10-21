@@ -50,7 +50,6 @@ advInfo_t currentAdvInfo;
 void findAdvInfo(uint8_t*adv,uint8_t len)
 {
     memset (&currentAdvInfo,0,sizeof(currentAdvInfo));
-    ble_printf("Length of packet : %d",len);
     
     for(uint8_t i = 0; i< len;)
     {
@@ -92,12 +91,12 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             //Print out information about the device that was found
             ble_print("Device");
             cy_stc_ble_gapc_adv_report_param_t *scanProgressParam = (cy_stc_ble_gapc_adv_report_param_t*) eventParameter;
-            ble_print("BD Addr = ");
+            printf("[ BLE ] : BD Addr = ");
             for(unsigned int i = 0; i < CY_BLE_BD_ADDR_SIZE;i++)
             {
                 printf("%02X ",scanProgressParam->peerBdAddr[i]);
             }
-            ble_print("");
+            printf("\r\n");
             ble_printf("Length = %d",scanProgressParam->dataLen);
             
             findAdvInfo(scanProgressParam->data,scanProgressParam->dataLen);
