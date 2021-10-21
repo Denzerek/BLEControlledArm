@@ -86,7 +86,10 @@ void servoSlaveCommTask(void * arg)
         }
         ard_printf("Transmitting motor %d pwm %d ",pwmMessage.motor,percentTmp);
         if(prevPercent[pwmMessage.motor] != percentTmp) 
+        {
             ardTransmitPWMPercent(pwmMessage.motor,percentTmp);
+            vTaskDelay(10);
+        }
         prevPercent[pwmMessage.motor] = percentTmp;
         
     }
