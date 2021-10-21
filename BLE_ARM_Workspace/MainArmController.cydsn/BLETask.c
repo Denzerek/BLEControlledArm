@@ -125,7 +125,7 @@ void genericEventHandler(uint32_t event,void* eventParam)
 
 void bleInterruptNotify()
 {
-    BaseType_t xHigherPriorityTaskWoken;
+    BaseType_t xHigherPriorityTaskWoken; 
     xHigherPriorityTaskWoken = pdFALSE;
     xSemaphoreGiveFromISR(bleSemaphore,&xHigherPriorityTaskWoken);
     //This part does a context switch by calling the scheduler to go the task where the semaphore caused an unblock.
