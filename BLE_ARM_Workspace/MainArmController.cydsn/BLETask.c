@@ -17,10 +17,9 @@
 
 SemaphoreHandle_t bleSemaphore;
 
-void updateMotorsGatt(motors_t motor,uint8_t bpercent,uint8_t flags)
+void updateMotorsGatt(motors_t motor,int8_t percent,uint8_t flags)
 {
     cy_stc_ble_gatt_handle_value_pair_t myHvp;
-    int8_t percent = bpercent;
     
     if(percent < 0) percent = 0;
     if(percent > 100) percent = 100;
@@ -88,8 +87,7 @@ void genericEventHandler(uint32_t event,void* eventParam)
         {
             PWM_Message_t myMessage;
             myMessage.motor = M1;
-            myMessage.percent = (int) writeRequestParam->handleValPair.value.val[0];
-            ble_printf("Recieved M1 REL: %d",myMessage.percent);
+            myMessage.percent = (int8_t) writeRequestParam->handleValPair.value.val[0];
             myMessage.changeType = POS_RELATIVE;
             xQueueSend(pwmQueue,&myMessage,0);
         }
@@ -98,9 +96,8 @@ void genericEventHandler(uint32_t event,void* eventParam)
         {
             PWM_Message_t myMessage;
             myMessage.motor = M2;
-            myMessage.percent = (int) writeRequestParam->handleValPair.value.val[0];
+            myMessage.percent = (int8_t) writeRequestParam->handleValPair.value.val[0];
             myMessage.changeType = POS_RELATIVE;
-            ble_printf("Recieved M2 REL: %d",myMessage.percent);
             xQueueSend(pwmQueue,&myMessage,0);
         }
         
