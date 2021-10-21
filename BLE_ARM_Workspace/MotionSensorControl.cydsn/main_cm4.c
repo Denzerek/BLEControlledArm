@@ -45,7 +45,7 @@ int main(void)
     serialPrint("========== BLE CENTRAL CODE =========="); 
     serialPrint("======================================"); 
     setvbuf(stdin,0,_IONBF,0);
-    xTaskCreate(bleTask," BLE TASK",8*1024,0,1,0);
+    xTaskCreate(bleTask," BLE TASK",8*1024,0,2,0);
     xTaskCreate(UartTask," UART TASK",1024,0,1,0);
     vTaskStartScheduler();
     
