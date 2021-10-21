@@ -88,7 +88,8 @@ void genericEventHandler(uint32_t event,void* eventParam)
         {
             PWM_Message_t myMessage;
             myMessage.motor = M1;
-            myMessage.percent = (int) writeRequestParam->handleValPair.value.val[0];
+            myMessage.percent = (uint8_t) writeRequestParam->handleValPair.value.val[0];
+            ble_printf("Recieved M1 REL: %d",myMessage.percent);
             myMessage.changeType = POS_RELATIVE;
             xQueueSend(pwmQueue,&myMessage,0);
         }
@@ -97,8 +98,9 @@ void genericEventHandler(uint32_t event,void* eventParam)
         {
             PWM_Message_t myMessage;
             myMessage.motor = M2;
-            myMessage.percent = (int8_t) writeRequestParam->handleValPair.value.val[0];
+            myMessage.percent = (uint8_t) writeRequestParam->handleValPair.value.val[0];
             myMessage.changeType = POS_RELATIVE;
+            ble_printf("Recieved M1 REL: %d",myMessage.percent);
             xQueueSend(pwmQueue,&myMessage,0);
         }
         
