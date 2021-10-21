@@ -116,7 +116,7 @@ void ardTransmitPWMPercent(motors_t motorNum,uint8_t percent)
     */
     (void) Cy_SCB_I2C_MasterWrite(I2C_ARD_HW, &transfer, &I2C_ARD_context);
     /* Wait for transaction completion */
-    while (0UL != (CY_SCB_I2C_MASTER_BUSY & Cy_SCB_I2C_MasterGetStatus(I2C_ARD_HW, &I2C_ARD_context)))
+   // while (0UL != (CY_SCB_I2C_MASTER_BUSY & Cy_SCB_I2C_MasterGetStatus(I2C_ARD_HW, &I2C_ARD_context)))
     { 
     }
     
