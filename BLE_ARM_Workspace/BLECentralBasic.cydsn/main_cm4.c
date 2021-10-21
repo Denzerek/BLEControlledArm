@@ -95,7 +95,8 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             //Start scan operation
             Cy_BLE_GAPC_StartScan(CY_BLE_SCANNING_FAST,0);
             //turn off the led
-            Cy_GPIO_Set(LED9_PORT,LED9_NUM);
+            Cy_GPIO_Set(GREEN_PORT,GREEN_NUM);
+            Cy_GPIO_Clr(RED_PORT,RED_NUM);
         break;
         case CY_BLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             //Print out information about the device that was found
@@ -128,7 +129,8 @@ void genericEventHandler(uint32_t event,void* eventParameter)
                 
         break;
         case CY_BLE_EVT_GATT_CONNECT_IND:
-            Cy_GPIO_Clr(LED9_PORT,LED9_NUM);
+            Cy_GPIO_Set(GREEN_PORT,GREEN_NUM);
+            Cy_GPIO_Clr(RED_PORT,RED_NUM);
             ble_print("Made a connection, starting service discovery");
             Cy_BLE_GATTC_StartDiscovery(cy_ble_connHandle[0]);
         break;

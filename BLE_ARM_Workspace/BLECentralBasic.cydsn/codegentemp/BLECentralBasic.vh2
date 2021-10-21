@@ -2,7 +2,7 @@
 --	Conversion of BLECentralBasic.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Oct 21 14:48:08 2021
+--	Thu Oct 21 16:22:42 2021
 --
 
 USE cypress.cypress.all;
@@ -51,9 +51,12 @@ SIGNAL Net_6 : bit;
 SIGNAL Net_12 : bit;
 SIGNAL Net_13 : bit;
 SIGNAL Net_5 : bit;
-SIGNAL tmpFB_0__LED9_net_0 : bit;
-SIGNAL tmpIO_0__LED9_net_0 : bit;
-TERMINAL tmpSIOVREF__LED9_net_0 : bit;
+SIGNAL tmpFB_0__RED_net_0 : bit;
+SIGNAL tmpIO_0__RED_net_0 : bit;
+TERMINAL tmpSIOVREF__RED_net_0 : bit;
+SIGNAL tmpFB_0__GREEN_net_0 : bit;
+SIGNAL tmpIO_0__GREEN_net_0 : bit;
+TERMINAL tmpSIOVREF__GREEN_net_0 : bit;
 BEGIN
 
 one <=  ('1') ;
@@ -176,7 +179,7 @@ zero <=  ('0') ;
 		tr_tx_req=>Net_10,
 		tr_rx_req=>Net_9,
 		tr_i2c_scl_filtered=>\UART_1:Net_161\);
-LED9:cy_mxs40_gpio_v1_0
+RED:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
 		sio_grp_cnt=>0,
@@ -203,10 +206,42 @@ LED9:cy_mxs40_gpio_v1_0
 		hotswap_needed=>"0")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(tmpFB_0__LED9_net_0),
+		fb=>(tmpFB_0__RED_net_0),
 		analog=>(open),
-		io=>(tmpIO_0__LED9_net_0),
+		io=>(tmpIO_0__RED_net_0),
 		annotation=>(open),
-		siovref=>(tmpSIOVREF__LED9_net_0));
+		siovref=>(tmpSIOVREF__RED_net_0));
+GREEN:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"cf4ee9ab-7853-4dc3-9c97-4e6e0ce46cd7",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__GREEN_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__GREEN_net_0),
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__GREEN_net_0));
 
 END R_T_L;

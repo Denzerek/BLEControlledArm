@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2021-10-21T09:18:32Z")
+ (DATE "2021-10-21T10:53:00Z")
  (DESIGN "BLECentralBasic")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -25,7 +25,8 @@
     (INTERCONNECT \\UART_1\:tx\(0\)\\.pad_out \\UART_1\:tx\(0\)_PAD\\ (0.000:0.000:0.000))
     (INTERCONNECT \\UART_1\:tx\(0\)_PAD\\ \\UART_1\:tx\(0\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\UART_1\:rx\(0\)_PAD\\ \\UART_1\:rx\(0\)\\.pad_in (0.000:0.000:0.000))
-    (INTERCONNECT LED9\(0\)_PAD LED9\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT RED\(0\)_PAD RED\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT GREEN\(0\)_PAD GREEN\(0\).pad_in (0.000:0.000:0.000))
    )
   )
  )

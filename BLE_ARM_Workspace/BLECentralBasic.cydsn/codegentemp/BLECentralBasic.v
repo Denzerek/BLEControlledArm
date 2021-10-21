@@ -1,6 +1,6 @@
 // ======================================================================
 // BLECentralBasic.v generated from TopDesign.cysch
-// 10/21/2021 at 14:48
+// 10/21/2021 at 16:22
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -435,9 +435,9 @@ module top ;
         .tx_en_out(Net_13),
         .tx_out(Net_5));
 
-	wire [0:0] tmpFB_0__LED9_net;
-	wire [0:0] tmpIO_0__LED9_net;
-	electrical [0:0] tmpSIOVREF__LED9_net;
+	wire [0:0] tmpFB_0__RED_net;
+	wire [0:0] tmpIO_0__RED_net;
+	electrical [0:0] tmpSIOVREF__RED_net;
 
 	cy_mxs40_gpio_v1_0
 		#(.id("a61270bc-07ec-447d-ac9e-34cfe85c30e9"),
@@ -463,12 +463,48 @@ module top ;
 		  .vtrip("0"),
 		  .use_annotation("0"),
 		  .hotswap_needed("0"))
-		LED9
+		RED
 		 (.oe({1'b1}),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__LED9_net[0:0]}),
-		  .io({tmpIO_0__LED9_net[0:0]}),
-		  .siovref(tmpSIOVREF__LED9_net));
+		  .fb({tmpFB_0__RED_net[0:0]}),
+		  .io({tmpIO_0__RED_net[0:0]}),
+		  .siovref(tmpSIOVREF__RED_net));
+
+
+	wire [0:0] tmpFB_0__GREEN_net;
+	wire [0:0] tmpIO_0__GREEN_net;
+	electrical [0:0] tmpSIOVREF__GREEN_net;
+
+	cy_mxs40_gpio_v1_0
+		#(.id("cf4ee9ab-7853-4dc3-9c97-4e6e0ce46cd7"),
+		  .width(1),
+		  .sio_grp_cnt(0),
+		  .drive_mode("6"),
+		  .ibuf_enabled("0"),
+		  .init_dr_st("1"),
+		  .input_sync("0"),
+		  .intr_mode("0"),
+		  .io_voltage(""),
+		  .output_conn("0"),
+		  .oe_conn("0"),
+		  .output_sync("0"),
+		  .oe_sync("0"),
+		  .drive_strength("0"),
+		  .max_frequency("100"),
+		  .i2c_mode("0"),
+		  .output_current_cap("8"),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .slew_rate("0"),
+		  .vtrip("0"),
+		  .use_annotation("0"),
+		  .hotswap_needed("0"))
+		GREEN
+		 (.oe({1'b1}),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__GREEN_net[0:0]}),
+		  .io({tmpIO_0__GREEN_net[0:0]}),
+		  .siovref(tmpSIOVREF__GREEN_net));
 
 
 
