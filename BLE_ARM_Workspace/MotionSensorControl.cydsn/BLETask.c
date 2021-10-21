@@ -26,7 +26,7 @@ motorToControl_t motorToControl[MOTORS_TO_CONTROL_MAX] = {
 };
 
 
-void writeMotorPosition(motors_t motor,motor_change_t type,int percent)
+void writeMotorPosition(motors_t motor,motor_change_t type,uint8_t percent)
 {
     if(Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) != CY_BLE_CONN_STATE_CLIENT_DISCOVERED)
     {
@@ -54,6 +54,7 @@ void writeMotorPosition(motors_t motor,motor_change_t type,int percent)
     
     myVal.handleValPair.value.len = 1;
     myVal.handleValPair.value.val = (uint8_t *)&percent;
+    ble_printf("Sent data %d",*(myVal.handleValPair.value.val));
     myVal.connHandle = cy_ble_connHandle[0];
     
     int i = 0;
