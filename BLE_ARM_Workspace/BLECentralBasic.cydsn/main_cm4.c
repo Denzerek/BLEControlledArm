@@ -103,12 +103,32 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             if(currentAdvInfo.name != 0)
                 ble_printf("%.*s",currentAdvInfo.name_len,currentAdvInfo.name);
             ble_print("");
+            /*
+            for(int i=0;i<currentAdvInfo.servUUID_len;i++)
+            {
+                printf("%X ",currentAdvInfo.serviceUUID[i]);
+            }
+            for(int i=0;i<currentAdvInfo.servUUID_len;i++)
+            {
+                printf("%lp ",cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].uuid[i]);
+            }*/
             
             if( (currentAdvInfo.servUUID_len > 0 )
-                 && memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].customServChar[CY_BLE_CUSTOMC_LED_GREEN_CHAR_INDEX].uuid
-                  ,currentAdvInfo.servUUID_len) == 0)
+                 && (memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].customServChar[CY_BLE_CUSTOMC_LED_GREEN_CHAR_INDEX].uuid
+                  ,currentAdvInfo.servUUID_len) == 0))
             {
-                ble_print("Found LED Service ");
+                ble_print("Found LED Service 1");
+                cy_stc_ble_bd_addr_t connectAddr;
+                memcpy(&connectAddr.bdAddr[0],&scanProgressParam->peerBdAddr[0],CY_BLE_BD_ADDR_SIZE);
+                connectAddr.type = scanProgressParam->peerAddrType;
+                Cy_BLE_GAPC_ConnectDevice(&connectAddr,0);
+                Cy_BLE_GAPC_StopScan();
+            }
+            if( (currentAdvInfo.servUUID_len > 0 )
+                 && (memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].uuid
+                  ,currentAdvInfo.servUUID_len) == 0))
+            {
+                ble_print("Found LED Service 2");
                 cy_stc_ble_bd_addr_t connectAddr;
                 memcpy(&connectAddr.bdAddr[0],&scanProgressParam->peerBdAddr[0],CY_BLE_BD_ADDR_SIZE);
                 connectAddr.type = scanProgressParam->peerAddrType;
