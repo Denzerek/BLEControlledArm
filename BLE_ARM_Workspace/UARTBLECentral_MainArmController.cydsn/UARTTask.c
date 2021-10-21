@@ -69,28 +69,28 @@ void UartTask(void * arg)
             {
                 
                 case 'p':
-                    writeMotorPosition(M1,POS_RELATIVE,1);
+                    writeMotorPosition(M1,POS_RELATIVE,10);
                 break;
                 case 'o':
-                    writeMotorPosition(M1,POS_RELATIVE,-1);
+                    writeMotorPosition(M1,POS_RELATIVE,-10);
                 break; 
                 case 'l':
-                    writeMotorPosition(M2,POS_RELATIVE,1);
+                    writeMotorPosition(M2,POS_RELATIVE,10);
                 break;
                 case 'k':
-                    writeMotorPosition(M2,POS_RELATIVE,-1);
+                    writeMotorPosition(M2,POS_RELATIVE,-10);
                 break;
                 case 'n':
-                    writeMotorPosition(M3,POS_RELATIVE,-1);
+                    writeMotorPosition(M3,POS_RELATIVE,-10);
                 break;
                 case 'm':
-                    writeMotorPosition(M3,POS_RELATIVE,1);
+                    writeMotorPosition(M3,POS_RELATIVE,10);
                 break; 
                 case ',':
-                    writeMotorPosition(M4,POS_RELATIVE,-1);
+                    writeMotorPosition(M4,POS_RELATIVE,-10);
                 break;
                 case '.':
-                    writeMotorPosition(M4,POS_RELATIVE,1);
+                    writeMotorPosition(M4,POS_RELATIVE,10);
                 break;
                     
                 case '?':
