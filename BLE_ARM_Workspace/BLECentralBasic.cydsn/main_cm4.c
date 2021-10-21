@@ -172,7 +172,7 @@ int main(void)
     __enable_irq(); /* Enable global interrupts. */
 
     UART_1_Start();
-    CyDelay(10);
+    CyDelay(10); 
     setvbuf(stdin,0,_IONBF,0);
     xTaskCreate(bleTask," BLE TASK",8*1024,0,1,0);
     vTaskStartScheduler();
