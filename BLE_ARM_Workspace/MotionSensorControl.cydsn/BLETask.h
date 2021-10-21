@@ -41,7 +41,7 @@ typedef struct
 #define ble_printf(x,...)    printf("[ BLE CENTRAL ] : ");printf(x,__VA_ARGS__);printf("\r\n");
 
 
-void writeMotorPosition(motors_t ,motor_change_t,uint8_t);
+void writeMotorPosition(motors_t ,motor_change_t,int);
 
 void bleTask(void*);
 

@@ -26,7 +26,7 @@ motorToControl_t motorToControl[MOTORS_TO_CONTROL_MAX] = {
 };
 
 
-void writeMotorPosition(motors_t motor,motor_change_t type,uint8_t percent)
+void writeMotorPosition(motors_t motor,motor_change_t type,int percent)
 {
     if(Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) != CY_BLE_CONN_STATE_CLIENT_DISCOVERED)
     {
