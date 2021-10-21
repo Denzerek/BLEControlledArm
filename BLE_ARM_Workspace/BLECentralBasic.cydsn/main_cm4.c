@@ -14,8 +14,8 @@
 #include "task.h"
 #include <stdio.h>
 
-#define ble_print(x)    printf("[ BLE ]");printf(x);printf("\r\n");
-#define ble_printf(x,...)    printf("[ BLE ]");printf(x,__VA_ARGS__);printf("\r\n");
+#define ble_print(x)    printf("[ BLE ] :");printf(x);printf("\r\n");
+#define ble_printf(x,...)    printf("[ BLE ] :");printf(x,__VA_ARGS__);printf("\r\n");
 
 
 void writeLED(uint8_t brightness)
@@ -50,6 +50,7 @@ advInfo_t currentAdvInfo;
 void findAdvInfo(uint8_t*adv,uint8_t len)
 {
     memset (&currentAdvInfo,0,sizeof(currentAdvInfo));
+    ble_printf("Length of packet : %d",len);
     
     for(uint8_t i = 0; i< len;)
     {
@@ -94,8 +95,9 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             ble_print("BD Addr = ");
             for(unsigned int i = 0; i < CY_BLE_BD_ADDR_SIZE;i++)
             {
-                ble_printf("%02X",scanProgressParam->peerBdAddr[i]);
+                printf("%02X ",scanProgressParam->peerBdAddr[i]);
             }
+            ble_print("");
             ble_printf("Length = %d",scanProgressParam->dataLen);
             
             findAdvInfo(scanProgressParam->data,scanProgressParam->dataLen);
