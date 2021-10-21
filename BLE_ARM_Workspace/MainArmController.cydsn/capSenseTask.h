@@ -14,8 +14,8 @@
 
 #include "common.h"
 
-#define cap_print(x)  { printf("[ CAP TASK ] : ");printf(x);printf("\r\n");}
-#define cap_printf(x,...)  { printf("[ CAP TASK ] : ");printf(x,__VA_ARGS__);printf("\r\n");}
+#define cap_print(x)  { TRANSMITTER("[ CAP TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+#define cap_printf(x,...)  { TRANSMITTER("[ CAP TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
 
 
 void capsenseTask(void *arg);

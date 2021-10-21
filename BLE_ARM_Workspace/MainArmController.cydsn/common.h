@@ -18,9 +18,12 @@
 #include <stdio.h>
 #include "event_groups.h"
 
-#define serialPrint(x)  { printf("[ UART ] : ");printf(x);printf("\r\n");}
-#define serialPrintf(x,...)  { printf("[ UART ] : ");printf(x,__VA_ARGS__);printf("\r\n");}
-#define seralPrinter(x,...) { printf("[ UART ] : ");sprintf(temp,x,__VA_ARGS__);printf(temp);printf("\r\n"); }
+//#define TRANSMITTER printf
+#define TRANSMITTER 
+
+#define serialPrint(x)  { TRANSMITTER("[ UART ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+#define serialPrintf(x,...)  { TRANSMITTER("[ UART ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+#define seralPrinter(x,...) { TRANSMITTER("[ UART ] : ");sTRANSMITTER(temp,x,__VA_ARGS__);TRANSMITTER(temp);TRANSMITTER("\r\n"); }
 
 
 #define PJT_NAME    "   MAIN CONTROLLER   " 

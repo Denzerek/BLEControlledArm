@@ -14,8 +14,8 @@
 
 #include "common.h"
 
-#define ezi2cPrint(x)  { printf("[ EZI2C ] : ");printf(x);printf("\r\n");}
-#define ezi2cPrintf(x,...)  { printf("[ EZI2C ] : ");printf(x,__VA_ARGS__);printf("\r\n");}
+#define ezi2cPrint(x)  { TRANSMITTER("[ EZI2C ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+#define ezi2cPrintf(x,...)  { TRANSMITTER("[ EZI2C ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
 
 void ezI2CTask(void * arg);
 

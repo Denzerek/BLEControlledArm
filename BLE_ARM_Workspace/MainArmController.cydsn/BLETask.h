@@ -14,8 +14,8 @@
 
 #include "common.h"
 
-#define ble_print(x)    printf("[ BLE ]");printf(x);printf("\r\n");
-#define ble_printf(x,...)    printf("[ BLE ]");printf(x,__VA_ARGS__);printf("\r\n");
+#define ble_print(x)    TRANSMITTER("[ BLE ]");TRANSMITTER(x);TRANSMITTER("\r\n");
+#define ble_printf(x,...)    TRANSMITTER("[ BLE ]");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");
 
 
 void bleTask(void* arg);

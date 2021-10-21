@@ -13,8 +13,8 @@
 
 #include "common.h"
 
-#define pwm_print(x)  { printf("[ PWM TASK ] : ");printf(x);printf("\r\n");}
-#define pwm_printf(x,...)  { printf("[ PWM TASK ] : ");printf(x,__VA_ARGS__);printf("\r\n");}
+#define pwm_print(x)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+#define pwm_printf(x,...)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
 
 
 void pwmTask(void * arg);

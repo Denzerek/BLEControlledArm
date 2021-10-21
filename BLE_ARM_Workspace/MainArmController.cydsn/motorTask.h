@@ -12,11 +12,11 @@
 #pragma once
 #include "common.h"
 
-//#define motorPrint(x)  { printf("[ MOTOR TASK ] : ");printf(x);printf("\r\n");}
-//#define motorPrintf(x,...)  { printf("[ MOTOR TASK ] : ");printf(x,__VA_ARGS__);printf("\r\n");}
+//#define motorPrint(x)  { TRANSMITTER("[ MOTOR TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+//#define motorTRANSMITTER(x,...)  { TRANSMITTER("[ MOTOR TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
 
-#define motorPrint(x)  { printf("[ MOTOR TASK ] : ");printf(x);printf("\r\n");}
-#define motorPrintf(x,...)  { printf("[ MOTOR TASK ] : ");printf(x,__VA_ARGS__);printf("\r\n");}
+#define motorPrint(x)  { TRANSMITTER("[ MOTOR TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+#define motorPrintf(x,...)  { TRANSMITTER("[ MOTOR TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
 
 typedef enum{
     M1 = 1,
