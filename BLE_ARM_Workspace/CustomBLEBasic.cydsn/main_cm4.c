@@ -93,6 +93,29 @@ void bleTask(void * arg)
     
 }
 
+
+/*
+Author : Alen Austin
+Brief : This project can be used as a standalone one or in combination 
+with the BLECentralBasic project.
+STANDALONE
+==========
+As a standalone pjt, the user can connect to the device over BLE (using
+cysmart BLE app or any other ble scanner applications) and connect to 
+the device named PSoC 6.
+User can then write to the characteristic named LED to change the brightness
+of the RGB green LED from 0 to 100 (0-64 in hex)
+
+COMBO
+=====
+As a combo project, this firmware should be loaded into one 062 BLE pioneer
+kit and the firmware of BLECentralBasic project into a different 062 BLE
+pioneer kit. Then start both, and u will be able to see the BLE central
+device connect to the peripheral device  and user can change the color
+of the peripheral device by pressing the '+' or '-' in the uart terminal 
+of the central device.
+*/
+
 int main(void)
 {
     __enable_irq(); /* Enable global interrupts. */

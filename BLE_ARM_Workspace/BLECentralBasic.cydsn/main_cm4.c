@@ -188,6 +188,21 @@ void bleTask(void* arg)
     }
 }
 
+
+/*
+Author : Alen Austin
+Brief : This project canot be used as a standalone one but in combination 
+with the CustomBLEBasic project.
+
+COMBO
+=====
+As a combo project, this firmware should be loaded into one 062 BLE pioneer
+kit and the firmware of CustomBLEBasic project into a different 062 BLE
+pioneer kit. Then start both, and u will be able to see the BLE central
+device connect to the peripheral device  and user can change the color
+of the peripheral device by pressing the '+' or '-' in the uart terminal 
+of this central device.
+*/
 int main(void)
 {
     __enable_irq(); /* Enable global interrupts. */
