@@ -136,6 +136,7 @@ void genericEventHandler(uint32_t event,void* eventParameter)
         break;
         case CY_BLE_EVT_GATT_CONNECT_IND:
             Cy_GPIO_Clr(GREEN_PORT,GREEN_NUM);
+            Cy_GPIO_Set(RED_PORT,RED_NUM);
             ble_print("Made a connection, starting service discovery");
             Cy_BLE_GATTC_StartDiscovery(cy_ble_connHandle[0]);
         break;
