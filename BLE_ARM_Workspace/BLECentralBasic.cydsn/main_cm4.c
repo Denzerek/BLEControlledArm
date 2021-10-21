@@ -141,7 +141,9 @@ void genericEventHandler(uint32_t event,void* eventParameter)
 void bleTask(void* arg)
 {
     (void) arg;
-    ble_print("Starting BLE Task");
+    ble_print("Starting BLE Central Task");
+    
+    Cy_BLE_Start(genericEventHandler);
     
     char c;
     uint8_t brightness = 0;
@@ -176,6 +178,8 @@ int main(void)
     setvbuf(stdin,0,_IONBF,0);
     xTaskCreate(bleTask," BLE TASK",8*1024,0,1,0);
     vTaskStartScheduler();
+    
+    for(;;);
 }
 
 /* [] END OF FILE */
