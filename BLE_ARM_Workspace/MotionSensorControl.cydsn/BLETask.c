@@ -131,7 +131,6 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             findAdvInfo(scanProgressParam->data,scanProgressParam->dataLen);
             if(currentAdvInfo.name != 0)
                 ble_printf("%.*s",currentAdvInfo.name_len,currentAdvInfo.name);
-            ble_print("");
             
             if( (currentAdvInfo.servUUID_len > 0 )
                  && (memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_MOTOR_SERVICE_INDEX].uuid

@@ -259,7 +259,6 @@ extern "C" {
 
 #define CY_BLE_ADV_PKT_0_INDEX_FLAGS   (0x00u)
 #define CY_BLE_ADV_PKT_0_INDEX_LOCAL_NAME   (0x03u)
-#define CY_BLE_ADV_PKT_0_INDEX_SERVICE_UUID_128   (0x0Bu)
 #define CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX   (0x00u)
 
 
@@ -276,7 +275,7 @@ extern "C" {
 
 /** The GATT Maximum attribute length. */
 #define CY_BLE_CONFIG_GATT_DB_MAX_VALUE_LEN         (0x0008u)
-#define CY_BLE_GATT_DB_INDEX_COUNT                  (0x001Eu)
+#define CY_BLE_GATT_DB_INDEX_COUNT                  (0x002Cu)
 
 /** The number of characteristics supporting the Reliable Write property. */
 #define CY_BLE_CONFIG_GATT_RELIABLE_CHAR_COUNT      (0x0000u)
@@ -307,7 +306,7 @@ extern "C" {
     #define CY_BLE_CONFIG_L2CAP_PSM_COUNT               (1u)
 #endif  /* CY_BLE_L2CAP_ENABLE != 0u */
 
-#define CY_BLE_CONFIG_GATT_DB_ATT_VAL_COUNT         (0x16u)
+#define CY_BLE_CONFIG_GATT_DB_ATT_VAL_COUNT         (0x24u)
 
 /** Max Tx payload size. */
 #define CY_BLE_CONFIG_LL_MAX_TX_PAYLOAD_SIZE        (0x1Bu)
@@ -317,7 +316,7 @@ extern "C" {
 
 /** GATT Role. */
 #define CY_BLE_CONFIG_GATT_ROLE                     (0x01u)
-#define CY_BLE_CONFIG_GATT_DB_CCCD_COUNT            (0x06u)
+#define CY_BLE_CONFIG_GATT_DB_CCCD_COUNT            (0x0Au)
 
 /** Max unique services in the project. */
 #define CY_BLE_MAX_SRVI                             (0x01u)
@@ -369,7 +368,7 @@ extern "C" {
 #define CY_BLE_CONFIG_CUSTOMC_SERVICE_COUNT         (0x00u)
 
 /** The maximum supported count of the Custom Service characteristics. */
-#define CY_BLE_CONFIG_CUSTOM_SERVICE_CHAR_COUNT     (0x04u)
+#define CY_BLE_CONFIG_CUSTOM_SERVICE_CHAR_COUNT     (0x08u)
 
 /** The maximum supported count of the Custom Service descriptors in one characteristic. */
 #define CY_BLE_CONFIG_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT  (0x02u)
@@ -389,6 +388,16 @@ extern "C" {
 #define CY_BLE_MOTOR_M1_REL_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
 #define CY_BLE_MOTOR_M2_REL_CHAR_INDEX   (0x03u) /* Index of M2_REL characteristic */
 #define CY_BLE_MOTOR_M2_REL_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+#define CY_BLE_MOTOR_M3_CHAR_INDEX   (0x04u) /* Index of M3 characteristic */
+#define CY_BLE_MOTOR_M3_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+#define CY_BLE_MOTOR_M3_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_INDEX   (0x01u) /* Index of Client Characteristic Configuration descriptor */
+#define CY_BLE_MOTOR_M4_CHAR_INDEX   (0x05u) /* Index of M4 characteristic */
+#define CY_BLE_MOTOR_M4_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+#define CY_BLE_MOTOR_M4_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_INDEX   (0x01u) /* Index of Client Characteristic Configuration descriptor */
+#define CY_BLE_MOTOR_M3_REL_CHAR_INDEX   (0x06u) /* Index of M3_REL characteristic */
+#define CY_BLE_MOTOR_M3_REL_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+#define CY_BLE_MOTOR_M4_REL_CHAR_INDEX   (0x07u) /* Index of M4_REL characteristic */
+#define CY_BLE_MOTOR_M4_REL_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
 
 
 #define CY_BLE_MOTOR_SERVICE_HANDLE   (0x0010u) /* Handle of MOTOR service */
@@ -406,6 +415,20 @@ extern "C" {
 #define CY_BLE_MOTOR_M2_REL_DECL_HANDLE   (0x001Cu) /* Handle of M2_REL characteristic declaration */
 #define CY_BLE_MOTOR_M2_REL_CHAR_HANDLE   (0x001Du) /* Handle of M2_REL characteristic */
 #define CY_BLE_MOTOR_M2_REL_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x001Eu) /* Handle of Custom Descriptor descriptor */
+#define CY_BLE_MOTOR_M3_DECL_HANDLE   (0x001Fu) /* Handle of M3 characteristic declaration */
+#define CY_BLE_MOTOR_M3_CHAR_HANDLE   (0x0020u) /* Handle of M3 characteristic */
+#define CY_BLE_MOTOR_M3_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0021u) /* Handle of Custom Descriptor descriptor */
+#define CY_BLE_MOTOR_M3_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x0022u) /* Handle of Client Characteristic Configuration descriptor */
+#define CY_BLE_MOTOR_M4_DECL_HANDLE   (0x0023u) /* Handle of M4 characteristic declaration */
+#define CY_BLE_MOTOR_M4_CHAR_HANDLE   (0x0024u) /* Handle of M4 characteristic */
+#define CY_BLE_MOTOR_M4_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0025u) /* Handle of Custom Descriptor descriptor */
+#define CY_BLE_MOTOR_M4_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x0026u) /* Handle of Client Characteristic Configuration descriptor */
+#define CY_BLE_MOTOR_M3_REL_DECL_HANDLE   (0x0027u) /* Handle of M3_REL characteristic declaration */
+#define CY_BLE_MOTOR_M3_REL_CHAR_HANDLE   (0x0028u) /* Handle of M3_REL characteristic */
+#define CY_BLE_MOTOR_M3_REL_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0029u) /* Handle of Custom Descriptor descriptor */
+#define CY_BLE_MOTOR_M4_REL_DECL_HANDLE   (0x002Au) /* Handle of M4_REL characteristic declaration */
+#define CY_BLE_MOTOR_M4_REL_CHAR_HANDLE   (0x002Bu) /* Handle of M4_REL characteristic */
+#define CY_BLE_MOTOR_M4_REL_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x002Cu) /* Handle of Custom Descriptor descriptor */
 
 
 

@@ -73,6 +73,50 @@ static const cy_stc_ble_customs_t cy_ble_customs[0x01u] = {
                     CY_BLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
                 }, 
             },
+
+            /* M3 characteristic */
+            {
+                0x0020u, /* Handle of the M3 characteristic */ 
+                
+                /* Array of Descriptors handles */
+                {
+                    0x0021u, /* Handle of the Custom Descriptor descriptor */ 
+                    0x0022u, /* Handle of the Client Characteristic Configuration descriptor */ 
+                }, 
+            },
+
+            /* M4 characteristic */
+            {
+                0x0024u, /* Handle of the M4 characteristic */ 
+                
+                /* Array of Descriptors handles */
+                {
+                    0x0025u, /* Handle of the Custom Descriptor descriptor */ 
+                    0x0026u, /* Handle of the Client Characteristic Configuration descriptor */ 
+                }, 
+            },
+
+            /* M3_REL characteristic */
+            {
+                0x0028u, /* Handle of the M3_REL characteristic */ 
+                
+                /* Array of Descriptors handles */
+                {
+                    0x0029u, /* Handle of the Custom Descriptor descriptor */ 
+                    CY_BLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                }, 
+            },
+
+            /* M4_REL characteristic */
+            {
+                0x002Bu, /* Handle of the M4_REL characteristic */ 
+                
+                /* Array of Descriptors handles */
+                {
+                    0x002Cu, /* Handle of the Custom Descriptor descriptor */ 
+                    CY_BLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                }, 
+            },
         }, 
     },
 };
