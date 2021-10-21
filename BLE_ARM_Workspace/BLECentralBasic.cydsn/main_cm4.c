@@ -32,6 +32,19 @@ void writeLED(uint8_t brightness)
     myVal.handleValPair.value.val = &brightness;
     myVal.handleValPair.attrHandle = cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].customServChar[CY_BLE_CUSTOMC_LED_GREEN_CHAR_INDEX].customServCharHandle[0];
     myVal.connHandle = cy_ble_connHandle[0];
+    
+    int i = 0;
+    while(Cy_BLE_GATTC_WriteCharacteristicValue(&myVal) != CY_BLE_SUCCESS)
+    {
+        Cy_BLE_ProcessEvents();
+        i++;
+        if(i > 0xFFFE)
+        {
+            ble_print("BLE GATTC write error");
+            return;
+        }
+    }
+    ble_print("BLE GATTC write success");
 }
 
 
