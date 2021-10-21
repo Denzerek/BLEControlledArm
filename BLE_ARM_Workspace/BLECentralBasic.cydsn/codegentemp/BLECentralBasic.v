@@ -1,6 +1,6 @@
 // ======================================================================
 // BLECentralBasic.v generated from TopDesign.cysch
-// 10/21/2021 at 16:22
+// 10/21/2021 at 16:28
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -445,7 +445,7 @@ module top ;
 		  .sio_grp_cnt(0),
 		  .drive_mode("6"),
 		  .ibuf_enabled("0"),
-		  .init_dr_st("1"),
+		  .init_dr_st("0"),
 		  .input_sync("0"),
 		  .intr_mode("0"),
 		  .io_voltage(""),
