@@ -1,5 +1,5 @@
 -- Project:   BLECentralBasic
--- Generated: 10/21/2021 16:28:08
+-- Generated: 10/21/2021 16:36:19
 -- PSoC Creator  4.4
 
 ENTITY BLECentralBasic IS
@@ -91,7 +91,7 @@ ARCHITECTURE __DEFAULT__ OF BLECentralBasic IS
     ATTRIBUTE lib_model OF \UART_1:rx(0)\ : LABEL IS "iocell6";
     ATTRIBUTE Location OF \UART_1:rx(0)\ : LABEL IS "P5[0]";
     ATTRIBUTE lib_model OF RED(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF RED(0) : LABEL IS "P1[3]";
+    ATTRIBUTE Location OF RED(0) : LABEL IS "P0[3]";
     ATTRIBUTE lib_model OF GREEN(0) : LABEL IS "iocell8";
     ATTRIBUTE Location OF GREEN(0) : LABEL IS "P1[1]";
     ATTRIBUTE Location OF \BLE_1:cy_mxs40_ble\ : LABEL IS "F(BLE,0)";
