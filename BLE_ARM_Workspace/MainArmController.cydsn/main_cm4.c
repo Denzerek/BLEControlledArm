@@ -62,7 +62,7 @@ int main(void)
     xTaskCreate(motorTask,"MOTOR TASK",MOTOR_TASK_STACK_SIZE,0,MOTOR_TASK_PRIORITY,0);
     
     /* EZ I2C task that runs continuously*/
-    //xTaskCreate(ezI2CTask,"EZ I2C TASK",EZI2C_TASK_STACK_SIZE,0,EZI2C_TASK_PRIORITY,0);
+    xTaskCreate(ezI2CTask,"EZ I2C TASK",EZI2C_TASK_STACK_SIZE,0,EZI2C_TASK_PRIORITY,0);
     
     /* Capsense task that runs continuously*/
     xTaskCreate(capsenseTask,"CAPSENSE TASK",CAPSENSE_TASK_STACK_SIZE,0,CAPSENSE_TASK_PRIORITY,0);
@@ -75,7 +75,7 @@ int main(void)
     
     
     /* task to send the percentage change for servo motor to arduino servo control*/
-    xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
+    //xTaskCreate(bleTask,"BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
     
     /* Start the Scheduler*/
     vTaskStartScheduler();

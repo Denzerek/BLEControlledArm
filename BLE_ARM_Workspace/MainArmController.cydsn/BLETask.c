@@ -137,7 +137,7 @@ void bleTask(void * arg)
 {
     (void)arg;
     
-    UART_HIGH_START();
+    //UART_HIGH_START();
     ble_print("BLE Task started");
     bleSemaphore = xSemaphoreCreateBinary();
     
