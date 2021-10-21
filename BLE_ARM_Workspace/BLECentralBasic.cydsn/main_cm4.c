@@ -96,7 +96,7 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             Cy_BLE_GAPC_StartScan(CY_BLE_SCANNING_FAST,0);
             //turn off the led
             Cy_GPIO_Set(GREEN_PORT,GREEN_NUM);
-            Cy_GPIO_Clr(RED_PORT,RED_NUM);
+            Cy_GPIO_Set(RED_PORT,RED_NUM);
         break;
         case CY_BLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             //Print out information about the device that was found
@@ -119,6 +119,7 @@ void genericEventHandler(uint32_t event,void* eventParameter)
                  && (memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].uuid
                   ,currentAdvInfo.servUUID_len) == 0))
             {
+                
                 ble_print("Found LED Service 2");
                 cy_stc_ble_bd_addr_t connectAddr;
                 memcpy(&connectAddr.bdAddr[0],&scanProgressParam->peerBdAddr[0],CY_BLE_BD_ADDR_SIZE);
@@ -128,9 +129,12 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             }
                 
         break;
-        case CY_BLE_EVT_GATT_CONNECT_IND:
+        case CY_BLE_EVT_GATT_DISCONNECT_IND:
             Cy_GPIO_Set(GREEN_PORT,GREEN_NUM);
-            Cy_GPIO_Clr(RED_PORT,RED_NUM);
+            ble_print("Disconnected");
+        break;
+        case CY_BLE_EVT_GATT_CONNECT_IND:
+            Cy_GPIO_Clr(GREEN_PORT,GREEN_NUM);
             ble_print("Made a connection, starting service discovery");
             Cy_BLE_GATTC_StartDiscovery(cy_ble_connHandle[0]);
         break;
