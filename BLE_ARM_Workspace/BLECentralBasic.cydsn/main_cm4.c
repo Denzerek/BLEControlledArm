@@ -14,18 +14,18 @@
 #include "task.h"
 #include <stdio.h>
 
-#define ble_print(x)    printf("[ BLE ] :");printf(x);printf("\r\n");
-#define ble_printf(x,...)    printf("[ BLE ] :");printf(x,__VA_ARGS__);printf("\r\n");
+#define ble_print(x)    printf("[ BLE ] : ");printf(x);printf("\r\n");
+#define ble_printf(x,...)    printf("[ BLE ] : ");printf(x,__VA_ARGS__);printf("\r\n");
 
 
 void writeLED(uint8_t brightness)
 {
     if(Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) != CY_BLE_CONN_STATE_CLIENT_DISCOVERED)
     {
-        ble_print("Not connected\n");
+        ble_print("Not connected");
         return;
     }
-    ble_printf("Brightness = %d\r\n",brightness);
+    ble_printf("Brightness = %d",brightness);
     
     cy_stc_ble_gattc_write_req_t myVal;
     myVal.handleValPair.value.len = 1;
@@ -34,7 +34,7 @@ void writeLED(uint8_t brightness)
     myVal.connHandle = cy_ble_connHandle[0];
     
     if(Cy_BLE_GATTC_WriteCharacteristicValue(&myVal) != CY_BLE_SUCCESS)
-        ble_print("BLE GATTC write error\n\r");
+        ble_print("BLE GATTC write error");
 }
 
 
@@ -103,27 +103,7 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             if(currentAdvInfo.name != 0)
                 ble_printf("%.*s",currentAdvInfo.name_len,currentAdvInfo.name);
             ble_print("");
-            /*
-            for(int i=0;i<currentAdvInfo.servUUID_len;i++)
-            {
-                printf("%X ",currentAdvInfo.serviceUUID[i]);
-            }
-            for(int i=0;i<currentAdvInfo.servUUID_len;i++)
-            {
-                printf("%lp ",cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].uuid[i]);
-            }*/
             
-            if( (currentAdvInfo.servUUID_len > 0 )
-                 && (memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].customServChar[CY_BLE_CUSTOMC_LED_GREEN_CHAR_INDEX].uuid
-                  ,currentAdvInfo.servUUID_len) == 0))
-            {
-                ble_print("Found LED Service 1");
-                cy_stc_ble_bd_addr_t connectAddr;
-                memcpy(&connectAddr.bdAddr[0],&scanProgressParam->peerBdAddr[0],CY_BLE_BD_ADDR_SIZE);
-                connectAddr.type = scanProgressParam->peerAddrType;
-                Cy_BLE_GAPC_ConnectDevice(&connectAddr,0);
-                Cy_BLE_GAPC_StopScan();
-            }
             if( (currentAdvInfo.servUUID_len > 0 )
                  && (memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_LED_SERVICE_INDEX].uuid
                   ,currentAdvInfo.servUUID_len) == 0))
