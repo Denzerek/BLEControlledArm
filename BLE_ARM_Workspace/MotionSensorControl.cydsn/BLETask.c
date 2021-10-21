@@ -37,11 +37,7 @@ void writeMotorPosition(motors_t motor,motor_change_t type,uint8_t percent)
     ble_printf("Motor = %d\tType = %d\tpercent = %d",motor,type,percent);
     
     cy_stc_ble_gattc_write_req_t myVal;
-    
-    if(percent > 100) percent = 100;
-    
-    if(percent < 0) percent = 0;
-    
+      
     
     for(int i = 0; i < MOTORS_TO_CONTROL_MAX; i++)
     {

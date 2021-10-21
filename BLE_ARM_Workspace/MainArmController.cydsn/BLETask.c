@@ -100,7 +100,7 @@ void genericEventHandler(uint32_t event,void* eventParam)
             myMessage.motor = M2;
             myMessage.percent = (int) writeRequestParam->handleValPair.value.val[0];
             myMessage.changeType = POS_RELATIVE;
-            ble_printf("Recieved M1 REL: %d",myMessage.percent);
+            ble_printf("Recieved M2 REL: %d",myMessage.percent);
             xQueueSend(pwmQueue,&myMessage,0);
         }
         
