@@ -9,21 +9,31 @@
 #include <Servo.h>
 
 
-#define SLAVE_ADDRESS       0x08
-#define DEBUG_COM_BAUDRATE  115200
-#define I2C_CLOCK_SPEED     4000000
-#define serialPrint         Serial.print
-#define servo_print(x)      serialPrint("[ SERVO SLAVE ] : ");serialPrint(x);serialPrint("\r\n");
+//Uncomment to observe debug messages
+//#define MOTOR_DEBUG_ENABLE
+
+/*=========================
+ * ADJUSTABLE parameters
+ ==========================*/
+
+#define SERVO_SPEED             5
+#define MOTOR_INITIAL_POSITION  90
+#define SLAVE_ADDRESS           0x08
+#define DEBUG_COM_BAUDRATE      115200
+#define I2C_CLOCK_SPEED         4000000
+
+
+/*=========================
+ * FIXED parameters
+ ==========================*/
+#define serialPrint             Serial.print
+#define servo_print(x)          serialPrint("[ SERVO SLAVE ] : ");serialPrint(x);serialPrint("\r\n");
 #define COM_ADDRESSED_MOTOR     *(receptionBuffer + 1 )
 #define COM_PACKET_TAIL         *(receptionBuffer + 3 )
-#define PROTOCOL_TAIL       0x0D      //tail will remaiin fixed for every transmission
+#define PROTOCOL_TAIL           0x0D      //tail will remaiin fixed for every transmission
 #define COM_PWM_DATA            *(receptionBuffer + 2 )
-#define SERVO_PERCENT_TO_ANGLE  ( 180/90 )
-
-#define PWM_COMMAND 0x0C
-
-//Uncomment to observe debug messages
-#define MOTOR_DEBUG_ENABLE
+#define SERVO_PERCENT_TO_ANGLE  ( 180/100)
+#define PWM_COMMAND             0x0C
 
 typedef enum{
   MOTOR_MIN,
@@ -35,6 +45,11 @@ typedef enum{
 }motors_t;
 
 
+//-->Adjustable Value!
+const int servoSpeed = 5;
+
+//move servo motors to new positions 
+void setServoPos(Servo servoX,int targetPosition, int speedX);
 void setMotorPWMPercent(uint8_t motorNum,uint8_t percent);
 void motorsInit();
 
@@ -94,40 +109,6 @@ void setup() {
 
 void loop() {
 
- //Process i2c commands from master
-  commandProcessTask();
-  
-}
-
-
-void commandReceptionCalback(int howMany)
-{
-  char *temp;
-  while (1 < Wire.available()) 
-  { 
-    //char c = Wire.read(); // receive byte as a character
-#ifndef MOTOR_DEBUG_ENABLE
-    receptionBuffer[index++] = Wire.read();
-#else 
-    receptionBuffer[index] = Wire.read();
-  Serial.print(receptionBuffer[index++],HEX);
-  Serial.print(" ");
-#endif
-  }
-  
-#ifdef MOTOR_DEBUG_ENABLE
-  Serial.print("\r\n");
-#endif
-  index = 0;
-
-  //Necessary for the next i2c read operation (dont remove)
-  int x = Wire.read();
-}
-
-void commandProcessTask()
-{
-
-
   if(*receptionBuffer && (COM_PACKET_TAIL == PROTOCOL_TAIL))
   {
     switch(*receptionBuffer)
@@ -158,6 +139,35 @@ void commandProcessTask()
   
 }
 
+
+void commandReceptionCalback(int howMany)
+{
+  char *temp;
+  while (1 < Wire.available()) 
+  { 
+    //char c = Wire.read(); // receive byte as a character
+#ifndef MOTOR_DEBUG_ENABLE
+    receptionBuffer[index++] = Wire.read();
+#else 
+    receptionBuffer[index] = Wire.read();
+  Serial.print(receptionBuffer[index++],HEX);
+  Serial.print(" ");
+#endif
+  }
+  
+#ifdef MOTOR_DEBUG_ENABLE
+  Serial.print("\r\n");
+#endif
+  index = 0;
+
+  //Necessary for the next i2c read operation (dont remove)
+  int x = Wire.read();
+}
+
+
+
+
+
 /*
  * ======================================================================
  * Motor Code Section
@@ -173,12 +183,9 @@ void motorsInit()
       servos[motorIndex].servoObj.attach(servos[motorIndex].motorPin);
 
       //Set to 0 degree initially
-      setMotorPWMPercent(servos[motorIndex].num,0);
+      setMotorPWMPercent(servos[motorIndex].num,MOTOR_INITIAL_POSITION);
     }
 }
-
-uint8_t currentPercent;
-uint8_t previousPercent;;
 
 
 /*
@@ -189,8 +196,38 @@ void setMotorPWMPercent(uint8_t motorNum,uint8_t percent)
   sprintf(temp,"Motor : %d\tPWM : %d",motorNum,percent);
   servo_print(temp);
 
-  
-  servos[motorNum].servoObj.write(SERVO_PERCENT_TO_ANGLE * percent);
-  delay(10);    
+  //convert percent to actual position before sending to set the value
+  setServoPos(servos[motorNum].servoObj,(SERVO_PERCENT_TO_ANGLE * percent),servoSpeed);
+}
 
+
+
+
+
+//move servo motors to new positions 
+void setServoPos(Servo servoX,int targetPosition, int speedX)
+{
+   if (servoX.read()==targetPosition){
+    return;
+    }
+
+    while(servoX.read()!=targetPosition)
+    {
+      #ifdef MOTOR_DEBUG_ENABLE
+        sprintf(temp,"Current : %d\tTarget : %d",servoX.read(),targetPosition);
+        servo_print(temp);
+        #endif
+        if (servoX.read() < targetPosition)
+        {
+          servoX.write(servoX.read()+1);
+          delay(speedX);
+          
+        }
+    
+        if (servoX.read() > targetPosition)
+        {
+          servoX.write(servoX.read()-1);
+          delay(speedX);
+        }
+    }
 }
