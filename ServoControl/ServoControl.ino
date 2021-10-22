@@ -10,14 +10,15 @@
 
 
 //Uncomment to observe debug messages
-//#define MOTOR_DEBUG_ENABLE
+#define MOTOR_DEBUG_ENABLE
 
 /*=========================
  * ADJUSTABLE parameters
  ==========================*/
 
-#define SERVO_SPEED             5
-#define MOTOR_INITIAL_POSITION  90
+const int servoSpeed = 10;
+#define SERVO_SPEED             servoSpeed
+#define MOTOR_INITIAL_POSITION  180
 #define SLAVE_ADDRESS           0x08
 #define DEBUG_COM_BAUDRATE      115200
 #define I2C_CLOCK_SPEED         4000000
@@ -45,8 +46,6 @@ typedef enum{
 }motors_t;
 
 
-//-->Adjustable Value!
-const int servoSpeed = 5;
 
 //move servo motors to new positions 
 void setServoPos(Servo servoX,int targetPosition, int speedX);
@@ -204,6 +203,23 @@ void setMotorPWMPercent(uint8_t motorNum,uint8_t percent)
 
 
 
+void setServoPos(Servo servoX,int targetPosition, int speedX){
+    
+    while(servoX.read()!=targetPosition){
+    if (servoX.read() < targetPosition){
+      servoX.write(servoX.read()+1);
+      for(int i=0;i<20;i++)serialPrint("h");//delay(speedX);
+    }
+
+    if (servoX.read() > targetPosition){
+      servoX.write(servoX.read()-1);
+      for(int i=0;i<20;i++)serialPrint("h");//delay(speedX);
+    }
+    }
+}
+
+
+#if 0
 //move servo motors to new positions 
 void setServoPos(Servo servoX,int targetPosition, int speedX)
 {
@@ -213,21 +229,26 @@ void setServoPos(Servo servoX,int targetPosition, int speedX)
 
     while(servoX.read()!=targetPosition)
     {
+        if (servoX.read() < targetPosition)
+        {
+          servoX.write(servoX.read()+1);
+          
       #ifdef MOTOR_DEBUG_ENABLE
         sprintf(temp,"Current : %d\tTarget : %d",servoX.read(),targetPosition);
         servo_print(temp);
         #endif
-        if (servoX.read() < targetPosition)
-        {
-          servoX.write(servoX.read()+1);
-          delay(speedX);
-          
         }
     
         if (servoX.read() > targetPosition)
         {
-          servoX.write(servoX.read()-1);
-          delay(speedX);
+          servoX.write((servoX.read())-1);
+      #ifdef MOTOR_DEBUG_ENABLE
+        sprintf(temp,"Current : %d\tTarget : %d",servoX.read(),targetPosition);
+        servo_print(temp);
+        #endif
         }
+        
+          delay(speedX);
     }
 }
+#endif
