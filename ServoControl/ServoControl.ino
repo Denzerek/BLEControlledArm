@@ -10,18 +10,46 @@
 
 
 //Uncomment to observe debug messages
-#define MOTOR_DEBUG_ENABLE
+//#define MOTOR_DEBUG_ENABLE
 
 /*=========================
  * ADJUSTABLE parameters
  ==========================*/
 
-const int servoSpeed = 10;
-#define SERVO_SPEED             servoSpeed
-#define MOTOR_INITIAL_POSITION  180
+#define SERVO_SPEED             20
+#define MOTOR_INITIAL_POSITION  90
 #define SLAVE_ADDRESS           0x08
 #define DEBUG_COM_BAUDRATE      115200
 #define I2C_CLOCK_SPEED         4000000
+
+
+/*====================
+ *MOTOR Motion Limits 
+ ===================*/
+#define MOTOR_FINGER                MOTOR_1       //pin 9
+#define MOTOR_FINGER_PIN            9
+#define MOTOR_FINGER_MAX_LIMIT      104
+#define MOTOR_FINGER_MIN_LIMIT      0
+#define MOTOR_FINGER_TARGET         servos[MOTOR_FINGER].target
+
+#define MOTOR_FOREARM               MOTOR_2       //pin 10
+#define MOTOR_FOREARM_PIN           10
+#define MOTOR_FOREARM_MAX_LIMIT     180
+#define MOTOR_FOREARM_MIN_LIMIT     0
+#define MOTOR_FOREARM_TARGET        servos[MOTOR_FOREARM].target
+
+#define MOTOR_HORIZ                 MOTOR_3       //pin 7
+#define MOTOR_HORIZ_PIN             7
+#define MOTOR_HORIZ_MAX_LIMIT       180
+#define MOTOR_HORIZ_MIN_LIMIT       0
+#define MOTOR_HORIZ_TARGET          servos[MOTOR_HORIZ].target
+
+#define MOTOR_ARM                   MOTOR_4       //pin 8
+#define MOTOR_ARM_PIN               8
+#define MOTOR_ARM_MAX_LIMIT         180
+#define MOTOR_ARM_MIN_LIMIT         30
+#define MOTOR_ARM_TARGET            servos[MOTOR_ARM].target
+
 
 
 /*=========================
@@ -36,9 +64,10 @@ const int servoSpeed = 10;
 #define SERVO_PERCENT_TO_ANGLE  ( 180/100)
 #define PWM_COMMAND             0x0C
 
+#define MOTOR_MIN               MOTOR_1
+
 typedef enum{
-  MOTOR_MIN,
-  MOTOR_1,
+  MOTOR_1 = 0,
   MOTOR_2,
   MOTOR_3,
   MOTOR_4,
@@ -51,33 +80,38 @@ typedef enum{
 void setServoPos(Servo servoX,int targetPosition, int speedX);
 void setMotorPWMPercent(uint8_t motorNum,uint8_t percent);
 void motorsInit();
+void positionMotors();
+void motorPosTargetLimitsCheck();
 
 
 // create servo object to control the horizontal servo
-Servo servHorizontal;                
-Servo servvertical;                  
-Servo servArm;                    
-Servo servHand; 
+Servo servFinger;                
+Servo servArm;                  
+Servo servForeArm;                    
+Servo servHoriz; 
 
 typedef struct{
   motors_t num; 
   Servo servoObj;
   uint8_t motorPin;
+  uint8_t target;
+  uint8_t speedCtrl;
+  uint8_t maxPos;
+  uint8_t minPos;
 }servo_s;
 
 servo_s servos[MOTOR_MAX] = {
-//  {NULL,NULL,0}
-  {MOTOR_1,servHorizontal,9}
-  ,{MOTOR_2,servvertical,10}
-  ,{MOTOR_3,servArm,8}
-  ,{MOTOR_4,servHand,7}
+   {  MOTOR_1,  servFinger,   MOTOR_FINGER_PIN,   MOTOR_INITIAL_POSITION, SERVO_SPEED,  MOTOR_FINGER_MAX_LIMIT,   MOTOR_FINGER_MIN_LIMIT}
+  ,{  MOTOR_2,  servForeArm,  MOTOR_FOREARM_PIN,  MOTOR_INITIAL_POSITION, SERVO_SPEED,  MOTOR_FOREARM_MAX_LIMIT,  MOTOR_FOREARM_MIN_LIMIT}
+  ,{  MOTOR_3,  servHoriz,    MOTOR_HORIZ_PIN,    MOTOR_INITIAL_POSITION, SERVO_SPEED,  MOTOR_HORIZ_MAX_LIMIT,    MOTOR_HORIZ_MIN_LIMIT}
+  ,{  MOTOR_4,  servArm,      MOTOR_ARM_PIN,      MOTOR_INITIAL_POSITION, SERVO_SPEED,  MOTOR_ARM_MAX_LIMIT,      MOTOR_ARM_MIN_LIMIT}
   
 };
 
 char temp[100];
 char receptionBuffer[20];
 volatile uint8_t index = 0;
-volatile uint8_t motorFoundFlag = 0;               
+volatile uint8_t motorFoundFlag = false,motorCtrlIndex = 0;               
 
 void setup() {
   
@@ -113,9 +147,9 @@ void loop() {
     switch(*receptionBuffer)
     {
       case PWM_COMMAND:
-        for(int motorIndex = MOTOR_MIN + 1 ; motorIndex < MOTOR_MAX ; motorIndex++)
+        for(int motorIndex = MOTOR_MIN  ; motorIndex < MOTOR_MAX ; motorIndex++)
         {
-          if(COM_ADDRESSED_MOTOR == motorIndex)
+          if((COM_ADDRESSED_MOTOR - 1) == motorIndex)
           {
 #ifdef MOTOR_DEBUG_ENABLE
             sprintf(temp,"Motor %d addressed",motorIndex);
@@ -131,13 +165,23 @@ void loop() {
             servo_print(temp);
         }
         *receptionBuffer = NULL;
+        motorFoundFlag = false;
        break;
       
     }
   }
+
+if (Serial.available() ) {
+    //servos[MOTOR_ARM].target = Serial.parseInt();
+    //servos[MOTOR_FOREARM].target = servos[MOTOR_ARM].target;
+    //servos[MOTOR_FINGER].target = servos[MOTOR_ARM].target;
+    servos[MOTOR_HORIZ].target = Serial.parseInt();
+    Serial.read();
+  }
+
+  positionMotors();
   
 }
-
 
 void commandReceptionCalback(int howMany)
 {
@@ -176,13 +220,10 @@ void commandReceptionCalback(int howMany)
 
 void motorsInit()
 {
-    for(int motorIndex = MOTOR_MIN ; motorIndex < MOTOR_MAX-1 ; motorIndex++)
+    for(int motorIndex = MOTOR_MIN ; motorIndex < MOTOR_MAX ; motorIndex++)
     {
       //Initialize the servo motor objects
       servos[motorIndex].servoObj.attach(servos[motorIndex].motorPin);
-
-      //Set to 0 degree initially
-      setMotorPWMPercent(servos[motorIndex].num,MOTOR_INITIAL_POSITION);
     }
 }
 
@@ -195,60 +236,57 @@ void setMotorPWMPercent(uint8_t motorNum,uint8_t percent)
   sprintf(temp,"Motor : %d\tPWM : %d",motorNum,percent);
   servo_print(temp);
 
-  //convert percent to actual position before sending to set the value
-  setServoPos(servos[motorNum].servoObj,(SERVO_PERCENT_TO_ANGLE * percent),servoSpeed);
+  //Set the target for the corresponding motor
+  servos[motorNum].target = SERVO_PERCENT_TO_ANGLE * percent;
+}
+
+void motorPosTargetLimitsCheck()
+{
+  if(servos[motorCtrlIndex].target > servos[motorCtrlIndex].maxPos)
+    {
+      servos[motorCtrlIndex].target = servos[motorCtrlIndex].maxPos;
+    }
+    else
+    if(servos[motorCtrlIndex].target < servos[motorCtrlIndex].minPos)
+    {
+      servos[motorCtrlIndex].target = servos[motorCtrlIndex].minPos;
+    }
 }
 
 
+void positionMotors()
+{
+  
+  if(MOTOR_ARM_TARGET < 90  && motorCtrlIndex == MOTOR_FOREARM) 
+  {
+      servos[motorCtrlIndex].minPos = 120 - MOTOR_ARM_TARGET;          
+  }
 
+  //Check if the motor is allowed to move to the specified target position
+  motorPosTargetLimitsCheck();
+
+  //Move the servo to the necessary position
+  setServoPos(servos[motorCtrlIndex].servoObj,servos[motorCtrlIndex].target,servos[motorCtrlIndex].speedCtrl);
+  motorCtrlIndex++;
+  if(motorCtrlIndex >= MOTOR_MAX)
+    motorCtrlIndex = MOTOR_MIN;
+  
+}
 
 
 void setServoPos(Servo servoX,int targetPosition, int speedX){
-    
-    while(servoX.read()!=targetPosition){
+    if (servoX.read()==targetPosition){
+       return;
+    }
     if (servoX.read() < targetPosition){
       servoX.write(servoX.read()+1);
-      for(int i=0;i<20;i++)serialPrint("h");//delay(speedX);
+      delay(speedX);
+      return;
     }
 
     if (servoX.read() > targetPosition){
       servoX.write(servoX.read()-1);
-      for(int i=0;i<20;i++)serialPrint("h");//delay(speedX);
-    }
-    }
-}
-
-
-#if 0
-//move servo motors to new positions 
-void setServoPos(Servo servoX,int targetPosition, int speedX)
-{
-   if (servoX.read()==targetPosition){
-    return;
-    }
-
-    while(servoX.read()!=targetPosition)
-    {
-        if (servoX.read() < targetPosition)
-        {
-          servoX.write(servoX.read()+1);
-          
-      #ifdef MOTOR_DEBUG_ENABLE
-        sprintf(temp,"Current : %d\tTarget : %d",servoX.read(),targetPosition);
-        servo_print(temp);
-        #endif
-        }
-    
-        if (servoX.read() > targetPosition)
-        {
-          servoX.write((servoX.read())-1);
-      #ifdef MOTOR_DEBUG_ENABLE
-        sprintf(temp,"Current : %d\tTarget : %d",servoX.read(),targetPosition);
-        servo_print(temp);
-        #endif
-        }
-        
-          delay(speedX);
+      delay(speedX);
+      return;
     }
 }
-#endif
