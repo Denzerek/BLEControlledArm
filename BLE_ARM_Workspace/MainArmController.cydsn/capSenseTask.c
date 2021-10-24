@@ -49,16 +49,24 @@ void capsenseTask(void *arg)
             {
                 if(pressReleased)
                 {
-                    currentMotor++;
-                    pressReleased = false;
+                    if(currentMotor < M_MAX - 1)
+                    {
+                        currentMotor++;
+                        pressReleased = false;
+                        cap_printf("Motor M%d selected",currentMotor);
+                    }
                 }
             }
             else if(CapSense_IsWidgetActive(CapSense_BUTTON1_WDGT_ID))
             {
                 if(pressReleased)
                 {
-                    currentMotor--;
-                    pressReleased = false;
+                    if(currentMotor > M1)
+                    {
+                        currentMotor--;
+                        pressReleased = false;
+                        cap_printf("Motor M%d selected",currentMotor);
+                    }
                 }
             }
             else
@@ -69,7 +77,6 @@ void capsenseTask(void *arg)
             if(currentMotor >= M_MAX) currentMotor = M_MAX - 1;
             if(currentMotor < M1) currentMotor = M1;
             
-            cap_printf("Motor M%d selected",currentMotor+1);
             CapSense_UpdateAllBaselines();
             CapSense_ScanAllWidgets();
         }
