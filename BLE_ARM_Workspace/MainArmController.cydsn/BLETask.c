@@ -10,10 +10,20 @@
  * ========================================
 */
 #include "BLETask.h"
-#include "motorTask.h"
 
 #define LED_ON  0
 #define LED_OFF 1
+
+motorToControl_t motorToControl[MOTORS_TO_CONTROL_MAX] = {
+    {M1,CY_BLE_MOTOR_M1_CHAR_HANDLE,updateMotorsGatt},
+    {M1,CY_BLE_MOTOR_M1_REL_CHAR_HANDLE,updateRelativeMotorPos},
+    {M2,CY_BLE_MOTOR_M2_CHAR_HANDLE,updateMotorsGatt},
+    {M2,CY_BLE_MOTOR_M2_REL_CHAR_HANDLE,updateRelativeMotorPos},
+    {M3,CY_BLE_MOTOR_M3_CHAR_HANDLE,updateMotorsGatt},
+    {M3,CY_BLE_MOTOR_M3_REL_CHAR_HANDLE,updateRelativeMotorPos},
+    {M4,CY_BLE_MOTOR_M4_CHAR_HANDLE,updateMotorsGatt},
+    {M4,CY_BLE_MOTOR_M4_REL_CHAR_HANDLE,updateRelativeMotorPos}
+};
 
 SemaphoreHandle_t bleSemaphore;
 
@@ -71,23 +81,6 @@ void updateMotorsGatt(motors_t motor,int8_t percent,uint8_t flags)
     }
 }
 
-typedef struct{
-    motors_t motor;
-    uint16_t BLECharacteristicHandle;
-    void (*callBackfn)(motors_t motor,int8_t percent,uint8_t flags);
-}motorToControl_t;
-#define MOTORS_TO_CONTROL_MAX   (M_MAX-1) * 2
-motorToControl_t motorToControl[MOTORS_TO_CONTROL_MAX] = {
-    {M1,CY_BLE_MOTOR_M1_CHAR_HANDLE,updateMotorsGatt},
-    {M1,CY_BLE_MOTOR_M1_REL_CHAR_HANDLE,updateRelativeMotorPos},
-    {M2,CY_BLE_MOTOR_M2_CHAR_HANDLE,updateMotorsGatt},
-    {M2,CY_BLE_MOTOR_M2_REL_CHAR_HANDLE,updateRelativeMotorPos},
-    {M3,CY_BLE_MOTOR_M3_CHAR_HANDLE,updateMotorsGatt},
-    {M3,CY_BLE_MOTOR_M3_REL_CHAR_HANDLE,updateRelativeMotorPos},
-    {M4,CY_BLE_MOTOR_M4_CHAR_HANDLE,updateMotorsGatt},
-    {M4,CY_BLE_MOTOR_M4_REL_CHAR_HANDLE,updateRelativeMotorPos}
-};
-
 
 
 void genericEventHandler(uint32_t event,void* eventParam)
@@ -114,7 +107,6 @@ void genericEventHandler(uint32_t event,void* eventParam)
         
         for(int i = 0;i < 8 ; i++)
         {
-    ble_printf("Handle :%X    CHandle:%X",writeRequestParam->handleValPair.attrHandle,motorToControl[i].BLECharacteristicHandle);
             if(motorToControl[i].BLECharacteristicHandle == writeRequestParam->handleValPair.attrHandle)
                 motorToControl[i].callBackfn(motorToControl[i].motor,writeRequestParam->handleValPair.value.val[0],CY_BLE_GATT_DB_PEER_INITIATED);
             
