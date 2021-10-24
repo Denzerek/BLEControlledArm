@@ -31,6 +31,7 @@
 #define MOTOR_FINGER_MAX_LIMIT      104
 #define MOTOR_FINGER_MIN_LIMIT      0
 #define MOTOR_FINGER_TARGET         servos[MOTOR_FINGER].target
+#define MOTOR_FINGER_SPEED          5
 
 #define MOTOR_FOREARM               MOTOR_2       //pin 10
 #define MOTOR_FOREARM_PIN           10
@@ -94,14 +95,14 @@ typedef struct{
   motors_t num; 
   Servo servoObj;
   uint8_t motorPin;
-  uint8_t target;
+  uint32_t target;
   uint8_t speedCtrl;
   uint8_t maxPos;
   uint8_t minPos;
 }servo_s;
 
 servo_s servos[MOTOR_MAX] = {
-   {  MOTOR_1,  servFinger,   MOTOR_FINGER_PIN,   MOTOR_INITIAL_POSITION, SERVO_SPEED,  MOTOR_FINGER_MAX_LIMIT,   MOTOR_FINGER_MIN_LIMIT}
+   {  MOTOR_1,  servFinger,   MOTOR_FINGER_PIN,   MOTOR_INITIAL_POSITION, MOTOR_FINGER_SPEED,  MOTOR_FINGER_MAX_LIMIT,   MOTOR_FINGER_MIN_LIMIT}
   ,{  MOTOR_2,  servForeArm,  MOTOR_FOREARM_PIN,  MOTOR_INITIAL_POSITION, SERVO_SPEED,  MOTOR_FOREARM_MAX_LIMIT,  MOTOR_FOREARM_MIN_LIMIT}
   ,{  MOTOR_3,  servHoriz,    MOTOR_HORIZ_PIN,    MOTOR_INITIAL_POSITION, SERVO_SPEED,  MOTOR_HORIZ_MAX_LIMIT,    MOTOR_HORIZ_MIN_LIMIT}
   ,{  MOTOR_4,  servArm,      MOTOR_ARM_PIN,      MOTOR_INITIAL_POSITION, SERVO_SPEED,  MOTOR_ARM_MAX_LIMIT,      MOTOR_ARM_MIN_LIMIT}
@@ -233,11 +234,12 @@ void motorsInit()
  */
 void setMotorPWMPercent(uint8_t motorNum,uint8_t percent)
 { 
-  sprintf(temp,"Motor : %d\tPWM : %d",motorNum,percent);
-  servo_print(temp);
-
   //Set the target for the corresponding motor
-  servos[motorNum].target = SERVO_PERCENT_TO_ANGLE * percent;
+  servos[motorNum].target = 180 * percent;
+  servos[motorNum].target /= 100;
+  
+  sprintf(temp,"Motor : %d\tPWM :%%%3d\tTarget :%3d",motorNum,percent,servos[motorNum].target);
+  servo_print(temp);
 }
 
 void motorPosTargetLimitsCheck()
