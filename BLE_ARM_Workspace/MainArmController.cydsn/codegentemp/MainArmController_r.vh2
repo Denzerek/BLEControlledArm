@@ -1,5 +1,5 @@
 -- Project:   MainArmController
--- Generated: 10/21/2021 19:39:23
+-- Generated: 10/24/2021 11:58:35
 -- PSoC Creator  4.4
 
 ENTITY MainArmController IS
@@ -16,7 +16,9 @@ ENTITY MainArmController IS
         M2(0)_PAD : OUT std_ulogic;
         \I2C_ARD:scl(0)_PAD\ : INOUT std_ulogic;
         \I2C_ARD:sda(0)_PAD\ : INOUT std_ulogic;
-        LED9(0)_PAD : OUT std_ulogic);
+        LED9(0)_PAD : OUT std_ulogic;
+        M3(0)_PAD : OUT std_ulogic;
+        M4(0)_PAD : OUT std_ulogic);
     ATTRIBUTE voltage_VBACKUP OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDD_NS OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDDA_CSD OF __DEFAULT__ : ENTITY IS 3.3e0;
@@ -61,17 +63,34 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL LED9(0)__PA : bit;
     SIGNAL M1(0)__PA : bit;
     SIGNAL M2(0)__PA : bit;
+    SIGNAL M3(0)__PA : bit;
+    SIGNAL M4(0)__PA : bit;
     SIGNAL Net_104 : bit;
     SIGNAL Net_107 : bit;
     ATTRIBUTE placement_force OF Net_107 : SIGNAL IS "U(1,5,A)1";
-    SIGNAL Net_11 : bit;
     SIGNAL Net_115 : bit;
     SIGNAL Net_116 : bit;
     SIGNAL Net_117 : bit;
     SIGNAL Net_122 : bit;
     SIGNAL Net_123 : bit;
     SIGNAL Net_124 : bit;
+    SIGNAL Net_125 : bit;
+    SIGNAL Net_127 : bit;
+    SIGNAL Net_128 : bit;
+    SIGNAL Net_129 : bit;
+    SIGNAL Net_132 : bit;
+    SIGNAL Net_133 : bit;
+    SIGNAL Net_135 : bit;
+    SIGNAL Net_136 : bit;
+    SIGNAL Net_137 : bit;
+    SIGNAL Net_138 : bit;
+    SIGNAL Net_141 : bit;
     SIGNAL Net_145 : bit;
+    SIGNAL Net_146 : bit;
+    SIGNAL Net_148 : bit;
+    SIGNAL Net_150 : bit;
+    SIGNAL Net_152 : bit;
+    SIGNAL Net_153 : bit;
     SIGNAL Net_154_ff11 : bit;
     ATTRIBUTE global_signal OF Net_154_ff11 : SIGNAL IS true;
     SIGNAL Net_154_ff12 : bit;
@@ -80,11 +99,17 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     ATTRIBUTE global_signal OF Net_154_ff13 : SIGNAL IS true;
     SIGNAL Net_154_ff14 : bit;
     ATTRIBUTE global_signal OF Net_154_ff14 : SIGNAL IS true;
-    SIGNAL Net_16 : bit;
-    SIGNAL Net_17 : bit;
-    SIGNAL Net_18 : bit;
-    SIGNAL Net_19 : bit;
-    SIGNAL Net_20 : bit;
+    SIGNAL Net_158 : bit;
+    SIGNAL Net_161 : bit;
+    SIGNAL Net_162 : bit;
+    SIGNAL Net_164 : bit;
+    SIGNAL Net_165 : bit;
+    SIGNAL Net_166 : bit;
+    SIGNAL Net_169 : bit;
+    SIGNAL Net_179_ff15 : bit;
+    ATTRIBUTE global_signal OF Net_179_ff15 : SIGNAL IS true;
+    SIGNAL Net_179_ff16 : bit;
+    ATTRIBUTE global_signal OF Net_179_ff16 : SIGNAL IS true;
     SIGNAL Net_21 : bit;
     SIGNAL Net_27 : bit;
     SIGNAL Net_28 : bit;
@@ -101,15 +126,10 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     SIGNAL Net_44 : bit;
     SIGNAL Net_45 : bit;
     SIGNAL Net_46 : bit;
-    SIGNAL Net_47_ff15 : bit;
-    ATTRIBUTE global_signal OF Net_47_ff15 : SIGNAL IS true;
+    SIGNAL Net_47_ff17 : bit;
+    ATTRIBUTE global_signal OF Net_47_ff17 : SIGNAL IS true;
     SIGNAL Net_48 : bit;
-    SIGNAL Net_56 : bit;
-    SIGNAL Net_57 : bit;
-    SIGNAL Net_58 : bit;
-    SIGNAL Net_59 : bit;
     SIGNAL Net_6 : bit;
-    SIGNAL Net_60 : bit;
     SIGNAL Net_7 : bit;
     SIGNAL Net_90 : bit;
     SIGNAL Net_91 : bit;
@@ -258,6 +278,10 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     ATTRIBUTE Location OF \I2C_ARD:sda(0)\ : LABEL IS "P9[1]";
     ATTRIBUTE lib_model OF LED9(0) : LABEL IS "iocell28";
     ATTRIBUTE Location OF LED9(0) : LABEL IS "P1[5]";
+    ATTRIBUTE lib_model OF M3(0) : LABEL IS "iocell29";
+    ATTRIBUTE Location OF M3(0) : LABEL IS "P1[2]";
+    ATTRIBUTE lib_model OF M4(0) : LABEL IS "iocell30";
+    ATTRIBUTE Location OF M4(0) : LABEL IS "P11[2]";
     ATTRIBUTE lib_model OF Net_99 : LABEL IS "macrocell1";
     ATTRIBUTE Location OF Net_99 : LABEL IS "U(1,5)";
     ATTRIBUTE lib_model OF Net_107 : LABEL IS "macrocell2";
@@ -265,7 +289,7 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     ATTRIBUTE Location OF \UART:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(46)]";
     ATTRIBUTE Location OF \UART:SCB\ : LABEL IS "F(SCB,5)";
     ATTRIBUTE Location OF \PWM_1:TCPWM\ : LABEL IS "F(TCPWM,9)";
-    ATTRIBUTE Location OF \PWM_RED:TCPWM\ : LABEL IS "F(TCPWM,2)";
+    ATTRIBUTE Location OF \PWM_RED:TCPWM\ : LABEL IS "F(TCPWM,3)";
     ATTRIBUTE Location OF \EZI2C:SCB\ : LABEL IS "F(SCB,3)";
     ATTRIBUTE Location OF \EZI2C:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(44)]";
     ATTRIBUTE Location OF \LEDBlink:TCPWM\ : LABEL IS "F(TCPWM,0)";
@@ -279,6 +303,8 @@ ARCHITECTURE __DEFAULT__ OF MainArmController IS
     ATTRIBUTE Location OF \I2C_ARD:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(43)]";
     ATTRIBUTE Location OF \BLE_1:cy_mxs40_ble\ : LABEL IS "F(BLE,0)";
     ATTRIBUTE Location OF \BLE_1:bless_isr\ : LABEL IS "[IntrContainer=(0)][IntrId=(24)]";
+    ATTRIBUTE Location OF \PWM_3:TCPWM\ : LABEL IS "F(TCPWM,4)";
+    ATTRIBUTE Location OF \PWM_4:TCPWM\ : LABEL IS "F(TCPWM,2)";
     ATTRIBUTE lib_model OF Net_294 : LABEL IS "macrocell3";
     ATTRIBUTE Location OF Net_294 : LABEL IS "U(1,5)";
     COMPONENT BLE
@@ -785,12 +811,14 @@ BEGIN
             ff_div_43 => \CapSense:Net_611_ff43\,
             ff_div_0 => open,
             ff_div_1 => open,
-            ff_div_11 => Net_47_ff15,
+            ff_div_11 => Net_47_ff17,
             ff_div_12 => Net_154_ff11,
-            ff_div_13 => Net_154_ff14,
-            ff_div_14 => open,
+            ff_div_13 => Net_179_ff16,
+            ff_div_14 => Net_154_ff14,
             ff_div_2 => \I2C_ARD:clock_wire_ff1\,
-            ff_div_15 => open,
+            ff_div_15 => Net_179_ff15,
+            ff_div_16 => open,
+            ff_div_17 => open,
             ff_div_3 => \EZI2C:clock_wire_ff0\,
             ff_div_5 => \UART:Net_847_ff2\,
             ff_div_20 => Net_154_ff12,
@@ -1171,7 +1199,7 @@ BEGIN
         PORT MAP(
             pa_out => M1(0)__PA,
             oe => open,
-            pin_input => Net_11,
+            pin_input => Net_137,
             pad_out => M1(0)_PAD,
             pad_in => M1(0)_PAD,
             in_clock => open,
@@ -2146,6 +2174,118 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
+    M3:logicalport
+        GENERIC MAP(
+            cy_registers => "",
+            drive_mode => "110",
+            drive_strength => "0",
+            hotswap_needed => "0",
+            i2c_mode => "0",
+            ibuf_enabled => "0",
+            id => "452e2da9-6344-441b-b4ae-972211324fbc",
+            init_dr_st => "1",
+            input_sync => "0",
+            intr_mode => "00",
+            io_voltage => "",
+            max_frequency => "100",
+            oe_conn => "0",
+            oe_sync => "0",
+            output_conn => "1",
+            output_current_cap => "8",
+            output_sync => "0",
+            pin_aliases => "",
+            pin_mode => "B",
+            sio_grp_cnt => 0,
+            slew_rate => "0",
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0);
+
+    M3(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "M3",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => M3(0)__PA,
+            oe => open,
+            pin_input => Net_146,
+            pad_out => M3(0)_PAD,
+            pad_in => M3(0)_PAD,
+            in_clock => open,
+            in_clock_en => open,
+            in_reset => open,
+            out_clock => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    M4:logicalport
+        GENERIC MAP(
+            cy_registers => "",
+            drive_mode => "110",
+            drive_strength => "0",
+            hotswap_needed => "0",
+            i2c_mode => "0",
+            ibuf_enabled => "0",
+            id => "af6175f4-777e-40f6-82c2-1fe40dc14670",
+            init_dr_st => "1",
+            input_sync => "0",
+            intr_mode => "00",
+            io_voltage => "",
+            max_frequency => "100",
+            oe_conn => "0",
+            oe_sync => "0",
+            output_conn => "1",
+            output_current_cap => "8",
+            output_sync => "0",
+            pin_aliases => "",
+            pin_mode => "B",
+            sio_grp_cnt => 0,
+            slew_rate => "0",
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0);
+
+    M4(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "M4",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => M4(0)__PA,
+            oe => open,
+            pin_input => Net_161,
+            pad_out => M4(0)_PAD,
+            pad_in => M4(0)_PAD,
+            in_clock => open,
+            in_clock_en => open,
+            in_reset => open,
+            out_clock => open,
+            out_clock_en => open,
+            out_reset => open);
+
     Net_99:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2)",
@@ -2212,12 +2352,12 @@ BEGIN
             reload => '0',
             stop => Net_294,
             start => Net_294,
-            tr_underflow => Net_18,
-            tr_compare_match => Net_19,
-            tr_overflow => Net_17,
-            line_compl => Net_20,
-            line => Net_11,
-            interrupt => Net_16);
+            tr_underflow => Net_141,
+            tr_compare_match => Net_133,
+            tr_overflow => Net_136,
+            line_compl => Net_138,
+            line => Net_137,
+            interrupt => Net_135);
 
     \PWM_RED:TCPWM\:TCPWM
         GENERIC MAP(
@@ -2279,7 +2419,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_47_ff15,
+            clock => Net_47_ff17,
             capture => '0',
             count => '1',
             reload => '0',
@@ -2304,12 +2444,12 @@ BEGIN
             reload => '0',
             stop => Net_294,
             start => Net_294,
-            tr_underflow => Net_58,
-            tr_compare_match => Net_59,
-            tr_overflow => Net_57,
-            line_compl => Net_60,
+            tr_underflow => Net_132,
+            tr_compare_match => Net_125,
+            tr_overflow => Net_128,
+            line_compl => Net_129,
             line => Net_329,
-            interrupt => Net_56);
+            interrupt => Net_127);
 
     \CapSense:IDACMod\:CSIDAC7
         GENERIC MAP(
@@ -2458,6 +2598,44 @@ BEGIN
         PORT MAP(
             interrupt => \BLE_1:Net_1\,
             clock => ClockBlock_PeriClk);
+
+    \PWM_3:TCPWM\:TCPWM
+        GENERIC MAP(
+            cy_registers => "",
+            exact_width => 0,
+            width => 16)
+        PORT MAP(
+            clock => Net_179_ff15,
+            capture => '0',
+            count => '1',
+            reload => '0',
+            stop => '0',
+            start => '0',
+            tr_underflow => Net_158,
+            tr_compare_match => Net_148,
+            tr_overflow => Net_152,
+            line_compl => Net_153,
+            line => Net_146,
+            interrupt => Net_150);
+
+    \PWM_4:TCPWM\:TCPWM
+        GENERIC MAP(
+            cy_registers => "",
+            exact_width => 0,
+            width => 16)
+        PORT MAP(
+            clock => Net_179_ff16,
+            capture => '0',
+            count => '1',
+            reload => '0',
+            stop => '0',
+            start => '0',
+            tr_underflow => Net_169,
+            tr_compare_match => Net_162,
+            tr_overflow => Net_165,
+            line_compl => Net_166,
+            line => Net_161,
+            interrupt => Net_164);
 
     Net_294:macrocell
         GENERIC MAP(

@@ -21,6 +21,9 @@
 typedef enum{
     M1 = 1,
     M2,
+    M3,
+    M4,
+    M_MAX
 }motors_t;
  
 typedef enum{

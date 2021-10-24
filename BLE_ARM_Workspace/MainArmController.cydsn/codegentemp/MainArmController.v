@@ -1,6 +1,6 @@
 // ======================================================================
 // MainArmController.v generated from TopDesign.cysch
-// 10/21/2021 at 19:39
+// 10/24/2021 at 11:58
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1476,9 +1476,129 @@ module BLE_PDL_v2_20_10 (
 
 endmodule
 
+// TCPWM_PWM_PDL_v1_0(ClockPrescaler=2, Compare0=1000, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=20000, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_3, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_3, CY_INSTANCE_SHORT_NAME=PWM_3, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_3, )
+module TCPWM_PWM_PDL_v1_0_11 (
+    clock,
+    compare,
+    count,
+    interrupt,
+    kill,
+    ovrflw,
+    pwm,
+    pwm_n,
+    reload,
+    start,
+    swap,
+    undrflw);
+    input       clock;
+    output      compare;
+    input       count;
+    output      interrupt;
+    input       kill;
+    output      ovrflw;
+    output      pwm;
+    output      pwm_n;
+    input       reload;
+    input       start;
+    input       swap;
+    output      undrflw;
+
+
+
+    cy_mxs40_tcpwm_v1_0 TCPWM (
+        .capture(swap),
+        .clock(clock),
+        .count(count),
+        .interrupt(interrupt),
+        .line(pwm),
+        .line_compl(pwm_n),
+        .reload(reload),
+        .start(start),
+        .stop(kill),
+        .tr_compare_match(compare),
+        .tr_overflow(ovrflw),
+        .tr_underflow(undrflw));
+    defparam TCPWM.exact_width = 0;
+    defparam TCPWM.width = 16;
+
+
+
+endmodule
+
+// TCPWM_PWM_PDL_v1_0(ClockPrescaler=2, Compare0=1000, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=20000, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_4, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_4, CY_INSTANCE_SHORT_NAME=PWM_4, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_4, )
+module TCPWM_PWM_PDL_v1_0_12 (
+    clock,
+    compare,
+    count,
+    interrupt,
+    kill,
+    ovrflw,
+    pwm,
+    pwm_n,
+    reload,
+    start,
+    swap,
+    undrflw);
+    input       clock;
+    output      compare;
+    input       count;
+    output      interrupt;
+    input       kill;
+    output      ovrflw;
+    output      pwm;
+    output      pwm_n;
+    input       reload;
+    input       start;
+    input       swap;
+    output      undrflw;
+
+
+
+    cy_mxs40_tcpwm_v1_0 TCPWM (
+        .capture(swap),
+        .clock(clock),
+        .count(count),
+        .interrupt(interrupt),
+        .line(pwm),
+        .line_compl(pwm_n),
+        .reload(reload),
+        .start(start),
+        .stop(kill),
+        .tr_compare_match(compare),
+        .tr_overflow(ovrflw),
+        .tr_underflow(undrflw));
+    defparam TCPWM.exact_width = 0;
+    defparam TCPWM.width = 16;
+
+
+
+endmodule
+
 // top
 module top ;
 
+          wire  Net_188;
+          wire  Net_169;
+          wire  Net_168;
+          wire  Net_171;
+          wire  Net_167;
+          wire  Net_166;
+          wire  Net_165;
+          wire  Net_160;
+          wire  Net_164;
+          wire  Net_163;
+          wire  Net_162;
+          wire  Net_158;
+          wire  Net_157;
+          wire  Net_156;
+          wire  Net_155;
+          wire  Net_153;
+          wire  Net_152;
+          wire  Net_151;
+          wire  Net_150;
+          wire  Net_149;
+          wire  Net_148;
+          wire  Net_146;
           wire  Net_122;
           wire  Net_124;
           wire  Net_123;
@@ -1497,14 +1617,14 @@ module top ;
           wire  Net_90;
           wire  Net_88;
           wire  Net_93;
-          wire  Net_58;
-          wire  Net_55;
-          wire  Net_53;
-          wire  Net_60;
-          wire  Net_57;
-          wire  Net_56;
-          wire  Net_54;
-          wire  Net_59;
+          wire  Net_132;
+          wire  Net_131;
+          wire  Net_130;
+          wire  Net_129;
+          wire  Net_128;
+          wire  Net_127;
+          wire  Net_126;
+          wire  Net_125;
           wire  Net_105;
           wire  Net_52;
           wire  Net_107;
@@ -1538,16 +1658,16 @@ module top ;
           wire  Net_25;
           wire  Net_30;
           wire  Net_21;
-          wire  Net_18;
-          wire  Net_15;
-          wire  Net_13;
-          wire  Net_20;
-          wire  Net_17;
-          wire  Net_16;
-          wire  Net_14;
-          wire  Net_19;
-          wire  Net_83;
-          wire  Net_11;
+          wire  Net_141;
+          wire  Net_140;
+          wire  Net_139;
+          wire  Net_138;
+          wire  Net_136;
+          wire  Net_135;
+          wire  Net_134;
+          wire  Net_133;
+          wire  Net_187;
+          wire  Net_137;
           wire  Net_2;
           wire  Net_10;
           wire  Net_7;
@@ -1558,9 +1678,11 @@ module top ;
           wire  Net_4;
           wire  Net_1;
           wire  Net_5;
+          wire  Net_161;
+          wire  Net_179;
+          wire  Net_329;
           wire  Net_104;
           wire  Net_100;
-          wire  Net_329;
           wire  Net_294;
           wire  Net_145;
           wire  Net_154;
@@ -1607,7 +1729,7 @@ module top ;
 		  .hotswap_needed("0"))
 		M1
 		 (.oe({1'b1}),
-		  .y({Net_11}),
+		  .y({Net_137}),
 		  .fb({tmpFB_0__M1_net[0:0]}),
 		  .io({tmpIO_0__M1_net[0:0]}),
 		  .siovref(tmpSIOVREF__M1_net));
@@ -1627,17 +1749,17 @@ module top ;
 
     TCPWM_PWM_PDL_v1_0_1 PWM_1 (
         .clock(Net_154),
-        .compare(Net_19),
+        .compare(Net_133),
         .count(1'b1),
-        .interrupt(Net_16),
+        .interrupt(Net_135),
         .kill(Net_294),
-        .ovrflw(Net_17),
-        .pwm(Net_11),
-        .pwm_n(Net_20),
+        .ovrflw(Net_136),
+        .pwm(Net_137),
+        .pwm_n(Net_138),
         .reload(1'b0),
         .start(Net_294),
         .swap(1'b0),
-        .undrflw(Net_18));
+        .undrflw(Net_141));
 
 	wire [0:0] tmpFB_0__RED_USER_LED2_net;
 	wire [0:0] tmpIO_0__RED_USER_LED2_net;
@@ -1898,17 +2020,17 @@ module top ;
 
     TCPWM_PWM_PDL_v1_0_5 PWM_2 (
         .clock(Net_154),
-        .compare(Net_59),
+        .compare(Net_125),
         .count(1'b1),
-        .interrupt(Net_56),
+        .interrupt(Net_127),
         .kill(Net_294),
-        .ovrflw(Net_57),
+        .ovrflw(Net_128),
         .pwm(Net_329),
-        .pwm_n(Net_60),
+        .pwm_n(Net_129),
         .reload(1'b0),
         .start(Net_294),
         .swap(1'b0),
-        .undrflw(Net_58));
+        .undrflw(Net_132));
 
     CapSense_v3_0_6 CapSense ();
 
@@ -2004,6 +2126,118 @@ module top ;
         .lna_rx_en(Net_123),
         .pa_lna_en(Net_124),
         .pa_tx_en(Net_122));
+
+	wire [0:0] tmpFB_0__M3_net;
+	wire [0:0] tmpIO_0__M3_net;
+	electrical [0:0] tmpSIOVREF__M3_net;
+
+	cy_mxs40_gpio_v1_0
+		#(.id("452e2da9-6344-441b-b4ae-972211324fbc"),
+		  .width(1),
+		  .sio_grp_cnt(0),
+		  .drive_mode("6"),
+		  .ibuf_enabled("0"),
+		  .init_dr_st("1"),
+		  .input_sync("0"),
+		  .intr_mode("0"),
+		  .io_voltage(""),
+		  .output_conn("1"),
+		  .oe_conn("0"),
+		  .output_sync("0"),
+		  .oe_sync("0"),
+		  .drive_strength("0"),
+		  .max_frequency("100"),
+		  .i2c_mode("0"),
+		  .output_current_cap("8"),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .slew_rate("0"),
+		  .vtrip("0"),
+		  .use_annotation("0"),
+		  .hotswap_needed("0"))
+		M3
+		 (.oe({1'b1}),
+		  .y({Net_146}),
+		  .fb({tmpFB_0__M3_net[0:0]}),
+		  .io({tmpIO_0__M3_net[0:0]}),
+		  .siovref(tmpSIOVREF__M3_net));
+
+
+    TCPWM_PWM_PDL_v1_0_11 PWM_3 (
+        .clock(Net_179),
+        .compare(Net_148),
+        .count(1'b1),
+        .interrupt(Net_150),
+        .kill(1'b0),
+        .ovrflw(Net_152),
+        .pwm(Net_146),
+        .pwm_n(Net_153),
+        .reload(1'b0),
+        .start(1'b0),
+        .swap(1'b0),
+        .undrflw(Net_158));
+
+	wire [0:0] tmpFB_0__M4_net;
+	wire [0:0] tmpIO_0__M4_net;
+	electrical [0:0] tmpSIOVREF__M4_net;
+
+	cy_mxs40_gpio_v1_0
+		#(.id("af6175f4-777e-40f6-82c2-1fe40dc14670"),
+		  .width(1),
+		  .sio_grp_cnt(0),
+		  .drive_mode("6"),
+		  .ibuf_enabled("0"),
+		  .init_dr_st("1"),
+		  .input_sync("0"),
+		  .intr_mode("0"),
+		  .io_voltage(""),
+		  .output_conn("1"),
+		  .oe_conn("0"),
+		  .output_sync("0"),
+		  .oe_sync("0"),
+		  .drive_strength("0"),
+		  .max_frequency("100"),
+		  .i2c_mode("0"),
+		  .output_current_cap("8"),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .slew_rate("0"),
+		  .vtrip("0"),
+		  .use_annotation("0"),
+		  .hotswap_needed("0"))
+		M4
+		 (.oe({1'b1}),
+		  .y({Net_161}),
+		  .fb({tmpFB_0__M4_net[0:0]}),
+		  .io({tmpIO_0__M4_net[0:0]}),
+		  .siovref(tmpSIOVREF__M4_net));
+
+
+    TCPWM_PWM_PDL_v1_0_12 PWM_4 (
+        .clock(Net_179),
+        .compare(Net_162),
+        .count(1'b1),
+        .interrupt(Net_164),
+        .kill(1'b0),
+        .ovrflw(Net_165),
+        .pwm(Net_161),
+        .pwm_n(Net_166),
+        .reload(1'b0),
+        .start(1'b0),
+        .swap(1'b0),
+        .undrflw(Net_169));
+
+
+	cy_clock_v1_0
+		#(.id("cf532220-808b-4d03-b520-d12eefb594c4"),
+		  .source_clock_id("2FB4EC85-8328-4C5A-9ED9-8B63060178EB"),
+		  .divisor(0),
+		  .period("1000000000"),
+		  .is_direct(0),
+		  .is_digital(0))
+		Clock_3
+		 (.clock_out(Net_179));
+
 
 
 

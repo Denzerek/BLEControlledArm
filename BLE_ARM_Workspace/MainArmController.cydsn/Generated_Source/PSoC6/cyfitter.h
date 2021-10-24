@@ -58,6 +58,18 @@
 #define PWM_2_TCPWM__HW TCPWM1
 #define PWM_2_TCPWM__IDX 1u
 
+/* PWM_3 */
+#define PWM_3_TCPWM__CNT_HW TCPWM0_CNT4
+#define PWM_3_TCPWM__CNT_IDX 4u
+#define PWM_3_TCPWM__HW TCPWM0
+#define PWM_3_TCPWM__IDX 0u
+
+/* PWM_4 */
+#define PWM_4_TCPWM__CNT_HW TCPWM0_CNT2
+#define PWM_4_TCPWM__CNT_IDX 2u
+#define PWM_4_TCPWM__HW TCPWM0
+#define PWM_4_TCPWM__IDX 0u
+
 /* Dimmer */
 #define Dimmer_TCPWM__CNT_HW TCPWM0_CNT1
 #define Dimmer_TCPWM__CNT_IDX 1u
@@ -74,6 +86,11 @@
 #define Clock_2__DIV_NUM 0
 #define Clock_2__DIV_TYPE CY_SYSCLK_DIV_16_BIT
 
+/* Clock_3 */
+#define Clock_3__DIV_IDX 5
+#define Clock_3__DIV_NUM 5
+#define Clock_3__DIV_TYPE CY_SYSCLK_DIV_8_BIT
+
 /* I2C_ARD */
 #define I2C_ARD_SCB__HW SCB2
 #define I2C_ARD_SCB__IDX 2
@@ -86,8 +103,8 @@
 #define I2C_ARD_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* PWM_RED */
-#define PWM_RED_TCPWM__CNT_HW TCPWM0_CNT2
-#define PWM_RED_TCPWM__CNT_IDX 2u
+#define PWM_RED_TCPWM__CNT_HW TCPWM0_CNT3
+#define PWM_RED_TCPWM__CNT_IDX 3u
 #define PWM_RED_TCPWM__HW TCPWM0
 #define PWM_RED_TCPWM__IDX 0u
 

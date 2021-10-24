@@ -2,7 +2,7 @@
 --	Conversion of MainArmController.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Oct 21 19:39:14 2021
+--	Sun Oct 24 11:58:25 2021
 --
 
 USE cypress.cypress.all;
@@ -47,7 +47,7 @@ SIGNAL Net_3 : bit;
 SIGNAL Net_9 : bit;
 SIGNAL Net_10 : bit;
 SIGNAL Net_2 : bit;
-SIGNAL Net_11 : bit;
+SIGNAL Net_137 : bit;
 SIGNAL tmpFB_0__M1_net_0 : bit;
 SIGNAL tmpIO_0__M1_net_0 : bit;
 TERMINAL tmpSIOVREF__M1_net_0 : bit;
@@ -56,11 +56,11 @@ SIGNAL \PWM_1:swap\ : bit;
 SIGNAL \PWM_1:count\ : bit;
 SIGNAL \PWM_1:reload\ : bit;
 SIGNAL Net_294 : bit;
-SIGNAL Net_18 : bit;
-SIGNAL Net_19 : bit;
-SIGNAL Net_17 : bit;
-SIGNAL Net_20 : bit;
-SIGNAL Net_16 : bit;
+SIGNAL Net_141 : bit;
+SIGNAL Net_133 : bit;
+SIGNAL Net_136 : bit;
+SIGNAL Net_138 : bit;
+SIGNAL Net_135 : bit;
 SIGNAL Net_21 : bit;
 SIGNAL tmpFB_0__RED_USER_LED2_net_0 : bit;
 SIGNAL tmpIO_0__RED_USER_LED2_net_0 : bit;
@@ -142,11 +142,11 @@ TERMINAL tmpSIOVREF__M2_net_0 : bit;
 SIGNAL \PWM_2:swap\ : bit;
 SIGNAL \PWM_2:count\ : bit;
 SIGNAL \PWM_2:reload\ : bit;
-SIGNAL Net_58 : bit;
-SIGNAL Net_59 : bit;
-SIGNAL Net_57 : bit;
-SIGNAL Net_60 : bit;
-SIGNAL Net_56 : bit;
+SIGNAL Net_132 : bit;
+SIGNAL Net_125 : bit;
+SIGNAL Net_128 : bit;
+SIGNAL Net_129 : bit;
+SIGNAL Net_127 : bit;
 SIGNAL \CapSense:tmpFB_0__Cmod_net_0\ : bit;
 TERMINAL \CapSense:Net_314\ : bit;
 SIGNAL \CapSense:tmpIO_0__Cmod_net_0\ : bit;
@@ -288,6 +288,35 @@ SIGNAL Net_124 : bit;
 SIGNAL Net_123 : bit;
 SIGNAL Net_122 : bit;
 SIGNAL \BLE_1:Net_1\ : bit;
+SIGNAL Net_146 : bit;
+SIGNAL tmpFB_0__M3_net_0 : bit;
+SIGNAL tmpIO_0__M3_net_0 : bit;
+TERMINAL tmpSIOVREF__M3_net_0 : bit;
+SIGNAL Net_179 : bit;
+SIGNAL \PWM_3:swap\ : bit;
+SIGNAL \PWM_3:count\ : bit;
+SIGNAL \PWM_3:reload\ : bit;
+SIGNAL \PWM_3:kill\ : bit;
+SIGNAL \PWM_3:start\ : bit;
+SIGNAL Net_158 : bit;
+SIGNAL Net_148 : bit;
+SIGNAL Net_152 : bit;
+SIGNAL Net_153 : bit;
+SIGNAL Net_150 : bit;
+SIGNAL Net_161 : bit;
+SIGNAL tmpFB_0__M4_net_0 : bit;
+SIGNAL tmpIO_0__M4_net_0 : bit;
+TERMINAL tmpSIOVREF__M4_net_0 : bit;
+SIGNAL \PWM_4:swap\ : bit;
+SIGNAL \PWM_4:count\ : bit;
+SIGNAL \PWM_4:reload\ : bit;
+SIGNAL \PWM_4:kill\ : bit;
+SIGNAL \PWM_4:start\ : bit;
+SIGNAL Net_169 : bit;
+SIGNAL Net_162 : bit;
+SIGNAL Net_165 : bit;
+SIGNAL Net_166 : bit;
+SIGNAL Net_164 : bit;
 SIGNAL cy_tff_1D : bit;
 BEGIN
 
@@ -436,7 +465,7 @@ M1:cy_mxs40_gpio_v1_0
 		use_annotation=>"0",
 		hotswap_needed=>"0")
 	PORT MAP(oe=>(one),
-		y=>Net_11,
+		y=>Net_137,
 		fb=>(tmpFB_0__M1_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__M1_net_0),
@@ -462,12 +491,12 @@ Clock_1:cy_clock_v1_0
 		reload=>zero,
 		stop=>Net_294,
 		start=>Net_294,
-		tr_underflow=>Net_18,
-		tr_compare_match=>Net_19,
-		tr_overflow=>Net_17,
-		line_compl=>Net_20,
-		line=>Net_11,
-		interrupt=>Net_16);
+		tr_underflow=>Net_141,
+		tr_compare_match=>Net_133,
+		tr_overflow=>Net_136,
+		line_compl=>Net_138,
+		line=>Net_137,
+		interrupt=>Net_135);
 RED_USER_LED2:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
@@ -784,12 +813,12 @@ M2:cy_mxs40_gpio_v1_0
 		reload=>zero,
 		stop=>Net_294,
 		start=>Net_294,
-		tr_underflow=>Net_58,
-		tr_compare_match=>Net_59,
-		tr_overflow=>Net_57,
-		line_compl=>Net_60,
+		tr_underflow=>Net_132,
+		tr_compare_match=>Net_125,
+		tr_overflow=>Net_128,
+		line_compl=>Net_129,
 		line=>Net_329,
-		interrupt=>Net_56);
+		interrupt=>Net_127);
 \CapSense:Cmod\:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
@@ -1243,6 +1272,112 @@ LED9:cy_mxs40_gpio_v1_0
 		deepsleep_required=>'1',
 		int_type=>"10")
 	PORT MAP(int_signal=>\BLE_1:Net_1\);
+M3:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"452e2da9-6344-441b-b4ae-972211324fbc",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"1",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>Net_146,
+		fb=>(tmpFB_0__M3_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__M3_net_0),
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__M3_net_0));
+\PWM_3:TCPWM\:cy_mxs40_tcpwm_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>16,
+		exact_width=>'0')
+	PORT MAP(clock=>Net_179,
+		capture=>zero,
+		count=>one,
+		reload=>zero,
+		stop=>zero,
+		start=>zero,
+		tr_underflow=>Net_158,
+		tr_compare_match=>Net_148,
+		tr_overflow=>Net_152,
+		line_compl=>Net_153,
+		line=>Net_146,
+		interrupt=>Net_150);
+M4:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"af6175f4-777e-40f6-82c2-1fe40dc14670",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"1",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>Net_161,
+		fb=>(tmpFB_0__M4_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__M4_net_0),
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__M4_net_0));
+\PWM_4:TCPWM\:cy_mxs40_tcpwm_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>16,
+		exact_width=>'0')
+	PORT MAP(clock=>Net_179,
+		capture=>zero,
+		count=>one,
+		reload=>zero,
+		stop=>zero,
+		start=>zero,
+		tr_underflow=>Net_169,
+		tr_compare_match=>Net_162,
+		tr_overflow=>Net_165,
+		line_compl=>Net_166,
+		line=>Net_161,
+		interrupt=>Net_164);
+Clock_3:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"cf532220-808b-4d03-b520-d12eefb594c4",
+		source_clock_id=>"2FB4EC85-8328-4C5A-9ED9-8B63060178EB",
+		divisor=>0,
+		period=>"1000000000",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>Net_179,
+		dig_domain_out=>open);
 cy_tff_1:cy_dff
 	PORT MAP(d=>cy_tff_1D,
 		clk=>Net_36,

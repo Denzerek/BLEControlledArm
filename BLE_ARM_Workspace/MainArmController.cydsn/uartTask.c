@@ -112,6 +112,30 @@ void UartTask(void * arg)
                     pwmMessage.percent = -10;
                     xQueueSend(pwmQueue,&pwmMessage,0);
                 break;
+                case 'm':
+                    pwmMessage.motor = M3; 
+                    pwmMessage.changeType = POS_RELATIVE;
+                    pwmMessage.percent = 10;
+                    xQueueSend(pwmQueue,&pwmMessage,0);
+                break;
+                case 'n':
+                    pwmMessage.motor = M3; 
+                    pwmMessage.changeType = POS_RELATIVE;
+                    pwmMessage.percent = -10;
+                    xQueueSend(pwmQueue,&pwmMessage,0);
+                break; 
+                case '.':
+                    pwmMessage.motor = M4; 
+                    pwmMessage.changeType = POS_RELATIVE;
+                    pwmMessage.percent = 10;
+                    xQueueSend(pwmQueue,&pwmMessage,0);
+                break;
+                case ',':
+                    pwmMessage.motor = M4; 
+                    pwmMessage.changeType = POS_RELATIVE;
+                    pwmMessage.percent = -10;
+                    xQueueSend(pwmQueue,&pwmMessage,0);
+                break;
                 
                 case 's':
                     serialPrintf("Motor1 = %%%d\tMotor2 = %%%d",getMotorPercent(M1),getMotorPercent(M2));

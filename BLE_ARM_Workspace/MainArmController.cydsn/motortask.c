@@ -93,6 +93,8 @@ void motorTask(void* arg)
     int percentTmp = 0;
     PWM_1_Start();
     PWM_2_Start();
+    PWM_4_Start();
+    PWM_3_Start();
     motorPrint("Motor Task Started ...");
     
     while(1)
@@ -110,6 +112,14 @@ void motorTask(void* arg)
             case M2:
                 hw = PWM_2_HW;
                 cntrNum = PWM_2_CNT_NUM;
+            break;
+            case M3:
+                hw = PWM_3_HW;
+                cntrNum = PWM_3_CNT_NUM;
+            break;
+            case M4:
+                hw = PWM_4_HW;
+                cntrNum = PWM_4_CNT_NUM;
             break;
             default:
             break;

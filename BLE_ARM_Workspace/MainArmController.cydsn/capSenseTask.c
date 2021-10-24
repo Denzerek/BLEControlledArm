@@ -19,6 +19,7 @@ void capsenseTask(void *arg)
     
     motors_t currentMotor = M1;
     PWM_Message_t myMessage;
+    static uint8_t pressReleased = true;
     
     
     
@@ -46,15 +47,29 @@ void capsenseTask(void *arg)
             
             if(CapSense_IsWidgetActive(CapSense_BUTTON0_WDGT_ID))
             {
-                cap_print("Motor M1 selected");
-                currentMotor = M1;   
+                if(pressReleased)
+                {
+                    currentMotor++;
+                    pressReleased = false;
+                }
+            }
+            else if(CapSense_IsWidgetActive(CapSense_BUTTON1_WDGT_ID))
+            {
+                if(pressReleased)
+                {
+                    currentMotor--;
+                    pressReleased = false;
+                }
+            }
+            else
+            {
+                pressReleased = true;
             }
             
-            if(CapSense_IsWidgetActive(CapSense_BUTTON1_WDGT_ID))
-            {
-                cap_print("Motor M2 Selected");
-                currentMotor = M2;   
-            }
+            if(currentMotor >= M_MAX) currentMotor = M_MAX - 1;
+            if(currentMotor < M1) currentMotor = M1;
+            
+            cap_printf("Motor M%d selected",currentMotor+1);
             CapSense_UpdateAllBaselines();
             CapSense_ScanAllWidgets();
         }
