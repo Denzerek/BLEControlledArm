@@ -15,7 +15,8 @@
 
 #define I2C_MAX_EVENTS  2
 
-
+//#define TRANSMITTER     SUPER_TRANSMITTER
+#define TRANSMITTER     
 
 #define ard_print(x)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
 #define ard_printf(x,...)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}

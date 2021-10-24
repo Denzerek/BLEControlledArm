@@ -1,7 +1,185 @@
---------------- Build Started: 10/24/2021 18:03:39 Project: MainArmController, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 10/24/2021 18:11:16 Project: MainArmController, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 The compile step is up to date, no work needs to be done.
 The link step is up to date, no work needs to be done.
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -IGenerated_Source\PSoC6\pdl\utilities/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/main_cm4.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c main_cm4.c -o .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+In file included from main_cm4.c:13:0:
+pwmTask.h:17:0: warning: "TRANSMITTER" redefined
+ #define TRANSMITTER     
+ ^
+In file included from uartTask.h:15:0,
+                 from main_cm4.c:12:
+motorTask.h:16:0: note: this is the location of the previous definition
+ #define TRANSMITTER     SUPER_TRANSMITTER
+ ^
+In file included from main_cm4.c:16:0:
+ezI2CTask.h:17:0: warning: "TRANSMITTER" redefined
+ #define TRANSMITTER     SUPER_TRANSMITTER
+ ^
+In file included from main_cm4.c:13:0:
+pwmTask.h:17:0: note: this is the location of the previous definition
+ #define TRANSMITTER     
+ ^
+In file included from main_cm4.c:19:0:
+servoSlaveCommTask.h:19:0: warning: "TRANSMITTER" redefined
+ #define TRANSMITTER     
+ ^
+In file included from main_cm4.c:18:0:
+capSenseTask.h:17:0: note: this is the location of the previous definition
+ #define TRANSMITTER     SUPER_TRANSMITTER
+ ^
+In file included from main_cm4.c:20:0:
+BLETask.h:18:0: warning: "TRANSMITTER" redefined
+ #define TRANSMITTER     SUPER_TRANSMITTER
+ ^
+In file included from main_cm4.c:19:0:
+servoSlaveCommTask.h:19:0: note: this is the location of the previous definition
+ #define TRANSMITTER     
+ ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -IGenerated_Source\PSoC6\pdl\utilities/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/uartTask.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c uartTask.c -o .\CortexM4\ARM_GCC_541\Debug\uartTask.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -IGenerated_Source\PSoC6\pdl\utilities/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/pwmTask.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c pwmTask.c -o .\CortexM4\ARM_GCC_541\Debug\pwmTask.o
+In file included from pwmTask.c:13:0:
+pwmTask.c: In function 'pwmTask':
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -IGenerated_Source\PSoC6\pdl\utilities/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/motorTask.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c motorTask.c -o .\CortexM4\ARM_GCC_541\Debug\motorTask.o
+pwmTask.h:19:36: warning: statement with no effect [-Wunused-value]
+ #define pwm_print(x)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                    ^
+pwmTask.c:23:5: note: in expansion of macro 'pwm_print'
+     pwm_print("Heart Beat LED Started ...");
+     ^
+pwmTask.h:19:67: warning: statement with no effect [-Wunused-value]
+ #define pwm_print(x)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                                                   ^
+pwmTask.c:23:5: note: in expansion of macro 'pwm_print'
+     pwm_print("Heart Beat LED Started ...");
+     ^
+pwmTask.h:19:82: warning: statement with no effect [-Wunused-value]
+ #define pwm_print(x)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                                                                  ^
+pwmTask.c:23:5: note: in expansion of macro 'pwm_print'
+     pwm_print("Heart Beat LED Started ...");
+     ^
+pwmTask.h:19:36: warning: statement with no effect [-Wunused-value]
+ #define pwm_print(x)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                    ^
+pwmTask.c:26:5: note: in expansion of macro 'pwm_print'
+     pwm_print("Kill Switch LEDs Started ...");
+     ^
+pwmTask.h:19:67: warning: statement with no effect [-Wunused-value]
+ #define pwm_print(x)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                                                   ^
+pwmTask.c:26:5: note: in expansion of macro 'pwm_print'
+     pwm_print("Kill Switch LEDs Started ...");
+     ^
+pwmTask.h:19:82: warning: statement with no effect [-Wunused-value]
+ #define pwm_print(x)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                                                                  ^
+pwmTask.c:26:5: note: in expansion of macro 'pwm_print'
+     pwm_print("Kill Switch LEDs Started ...");
+     ^
+pwmTask.c:36:9: warning: 'compareVal' may be used uninitialized in this function [-Wmaybe-uninitialized]
+         Cy_TCPWM_PWM_SetCompare0(PWM_RED_HW,PWM_RED_CNT_NUM,compareVal++);
+         ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -IGenerated_Source\PSoC6\pdl\utilities/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/ezI2CTask.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c ezI2CTask.c -o .\CortexM4\ARM_GCC_541\Debug\ezI2CTask.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -IGenerated_Source\PSoC6\pdl\utilities/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/capSenseTask.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c capSenseTask.c -o .\CortexM4\ARM_GCC_541\Debug\capSenseTask.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -IGenerated_Source\PSoC6\pdl\utilities/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/servoSlaveCommTask.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c servoSlaveCommTask.c -o .\CortexM4\ARM_GCC_541\Debug\servoSlaveCommTask.o
+In file included from servoSlaveCommTask.c:12:0:
+servoSlaveCommTask.h:19:0: warning: "TRANSMITTER" redefined
+ #define TRANSMITTER     
+ ^
+In file included from servoSlaveCommTask.h:14:0,
+                 from servoSlaveCommTask.c:12:
+motorTask.h:16:0: note: this is the location of the previous definition
+ #define TRANSMITTER     SUPER_TRANSMITTER
+ ^
+In file included from servoSlaveCommTask.c:12:0:
+servoSlaveCommTask.c: In function 'servoSlaveCommTask':
+servoSlaveCommTask.h:21:36: warning: statement with no effect [-Wunused-value]
+ #define ard_print(x)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                    ^
+servoSlaveCommTask.c:41:5: note: in expansion of macro 'ard_print'
+     ard_print("Comm to Arduino Servo Control Started");
+     ^
+servoSlaveCommTask.h:21:72: warning: statement with no effect [-Wunused-value]
+ #define ard_print(x)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                                                        ^
+servoSlaveCommTask.c:41:5: note: in expansion of macro 'ard_print'
+     ard_print("Comm to Arduino Servo Control Started");
+     ^
+servoSlaveCommTask.h:21:87: warning: statement with no effect [-Wunused-value]
+ #define ard_print(x)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                                                                       ^
+servoSlaveCommTask.c:41:5: note: in expansion of macro 'ard_print'
+     ard_print("Comm to Arduino Servo Control Started");
+     ^
+servoSlaveCommTask.h:22:41: warning: statement with no effect [-Wunused-value]
+ #define ard_printf(x,...)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+                                         ^
+servoSlaveCommTask.c:95:9: note: in expansion of macro 'ard_printf'
+         ard_printf("Transmitting motor %d pwm %d ",pwmMessage.motor,percentTmp);
+         ^
+servoSlaveCommTask.h:22:79: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+ #define ard_printf(x,...)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+                                                                               ^
+servoSlaveCommTask.c:95:9: note: in expansion of macro 'ard_printf'
+         ard_printf("Transmitting motor %d pwm %d ",pwmMessage.motor,percentTmp);
+         ^
+servoSlaveCommTask.c:95:68: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+         ard_printf("Transmitting motor %d pwm %d ",pwmMessage.motor,percentTmp);
+                                                                    ^
+servoSlaveCommTask.h:22:80: note: in definition of macro 'ard_printf'
+ #define ard_printf(x,...)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+                                                                                ^
+servoSlaveCommTask.h:22:77: warning: statement with no effect [-Wunused-value]
+ #define ard_printf(x,...)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+                                                                             ^
+servoSlaveCommTask.c:95:9: note: in expansion of macro 'ard_printf'
+         ard_printf("Transmitting motor %d pwm %d ",pwmMessage.motor,percentTmp);
+         ^
+servoSlaveCommTask.h:22:104: warning: statement with no effect [-Wunused-value]
+ #define ard_printf(x,...)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+                                                                                                        ^
+servoSlaveCommTask.c:95:9: note: in expansion of macro 'ard_printf'
+         ard_printf("Transmitting motor %d pwm %d ",pwmMessage.motor,percentTmp);
+         ^
+servoSlaveCommTask.c: In function 'ardTransmitPWMPercent':
+servoSlaveCommTask.h:22:41: warning: statement with no effect [-Wunused-value]
+ #define ard_printf(x,...)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+                                         ^
+servoSlaveCommTask.c:130:5: note: in expansion of macro 'ard_printf'
+     ard_printf("I2c master write operation complete %X ",i2cStatus);
+     ^
+servoSlaveCommTask.h:22:79: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+ #define ard_printf(x,...)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+                                                                               ^
+servoSlaveCommTask.c:130:5: note: in expansion of macro 'ard_printf'
+     ard_printf("I2c master write operation complete %X ",i2cStatus);
+     ^
+servoSlaveCommTask.h:22:104: warning: statement with no effect [-Wunused-value]
+ #define ard_printf(x,...)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+                                                                                                        ^
+servoSlaveCommTask.c:130:5: note: in expansion of macro 'ard_printf'
+     ard_printf("I2c master write operation complete %X ",i2cStatus);
+     ^
+servoSlaveCommTask.c: In function 'i2cStatusDecode':
+servoSlaveCommTask.h:21:36: warning: statement with no effect [-Wunused-value]
+ #define ard_print(x)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                    ^
+servoSlaveCommTask.c:142:13: note: in expansion of macro 'ard_print'
+             ard_print((char*)i2cEvents[i].i2cMessage);
+             ^
+servoSlaveCommTask.h:21:72: warning: statement with no effect [-Wunused-value]
+ #define ard_print(x)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                                                        ^
+servoSlaveCommTask.c:142:13: note: in expansion of macro 'ard_print'
+             ard_print((char*)i2cEvents[i].i2cMessage);
+             ^
+servoSlaveCommTask.h:21:87: warning: statement with no effect [-Wunused-value]
+ #define ard_print(x)  { TRANSMITTER("[ ARD COMM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
+                                                                                       ^
+servoSlaveCommTask.c:142:13: note: in expansion of macro 'ard_print'
+             ard_print((char*)i2cEvents[i].i2cMessage);
+             ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -IGenerated_Source\PSoC6\pdl\utilities/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/BLETask.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c BLETask.c -o .\CortexM4\ARM_GCC_541\Debug\BLETask.o
 BLETask.c: In function 'updateMotorsGatt':
 BLETask.c:38:5: warning: enumeration value 'M_MAX' not handled in switch [-Wswitch]
@@ -16,5 +194,5 @@ Checksum calculated and stored in ELF section .cymeta
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 "C:\Program Files (x86)\Cypress\PDL\3.1.5\tools\win\elf\cymcuelftool.exe" -A C:\Alen\GitHub_Denzerek\BLEControlledArm\BLE_ARM_Workspace\MainArmController.cydsn\CortexM4\ARM_GCC_541\Debug\MainArmController.elf
-code:241453	sram:66792
---------------- Build Succeeded: 10/24/2021 18:03:46 ---------------
+code:241045	sram:66776
+--------------- Build Succeeded: 10/24/2021 18:11:28 ---------------

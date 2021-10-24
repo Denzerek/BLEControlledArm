@@ -112,6 +112,7 @@ void genericEventHandler(uint32_t event,void* eventParam)
         case CY_BLE_EVT_GATTS_WRITE_REQ:
         writeRequestParam = (cy_stc_ble_gatts_write_cmd_req_param_t*)eventParam;
         
+    ble_printf("Received Write from Handle :%d",writeRequestParam->handleValPair.attrHandle);
         for(int i = 0;i < M_MAX ; i++)
         {
             if(motorToControl[i].BLECharacteristicHandle == writeRequestParam->handleValPair.attrHandle)

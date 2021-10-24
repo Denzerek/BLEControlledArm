@@ -12,8 +12,9 @@
 #pragma once
 #include "common.h"
 
-//#define motorPrint(x)  { TRANSMITTER("[ MOTOR TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
-//#define motorTRANSMITTER(x,...)  { TRANSMITTER("[ MOTOR TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
+
+#define TRANSMITTER     SUPER_TRANSMITTER
+//#define TRANSMITTER     
 
 #define motorPrint(x)  { TRANSMITTER("[ MOTOR TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
 #define motorPrintf(x,...)  { TRANSMITTER("[ MOTOR TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}

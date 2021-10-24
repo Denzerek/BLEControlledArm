@@ -18,12 +18,12 @@
 #include <stdio.h>
 #include "event_groups.h"
 
-#define TRANSMITTER printf
+
+#define SUPER_TRANSMITTER   printf
 //#define TRANSMITTER 
 
-#define serialPrint(x)  { TRANSMITTER("[ UART ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
-#define serialPrintf(x,...)  { TRANSMITTER("[ UART ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
-#define seralPrinter(x,...) { TRANSMITTER("[ UART ] : ");sTRANSMITTER(temp,x,__VA_ARGS__);TRANSMITTER(temp);TRANSMITTER("\r\n"); }
+#define serialPrint(x)  { SUPER_TRANSMITTER("[ UART ] : ");SUPER_TRANSMITTER(x);SUPER_TRANSMITTER("\r\n");}
+#define serialPrintf(x,...)  { SUPER_TRANSMITTER("[ UART ] : ");SUPER_TRANSMITTER(x,__VA_ARGS__);SUPER_TRANSMITTER("\r\n");}
 
 
 #define PJT_NAME    "   MAIN CONTROLLER   " 

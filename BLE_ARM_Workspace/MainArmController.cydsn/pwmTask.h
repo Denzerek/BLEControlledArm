@@ -13,6 +13,9 @@
 
 #include "common.h"
 
+//#define TRANSMITTER     SUPER_TRANSMITTER
+#define TRANSMITTER     
+
 #define pwm_print(x)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");}
 #define pwm_printf(x,...)  { TRANSMITTER("[ PWM TASK ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");}
 
