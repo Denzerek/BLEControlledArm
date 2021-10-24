@@ -24,6 +24,7 @@ void updateRelativeMotorPos(motors_t motor,int8_t percent,uint8_t flags)
     myMessage.motor = motor;
     myMessage.percent = percent;
     myMessage.changeType = POS_RELATIVE;
+    ble_printf("Received relative change M%d percent %%%d",motor,percent);
     xQueueSend(pwmQueue,&myMessage,0);
 }
 
