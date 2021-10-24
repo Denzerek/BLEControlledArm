@@ -17,6 +17,16 @@
 
 SemaphoreHandle_t bleSemaphore;
 
+void updateRelativeMotorPos(motors_t motor,int8_t percent,uint8_t flags)
+{
+    (void)flags;
+    PWM_Message_t myMessage;
+    myMessage.motor = motor;
+    myMessage.percent = percent;
+    myMessage.changeType = POS_RELATIVE;
+    xQueueSend(pwmQueue,&myMessage,0);
+}
+
 void updateMotorsGatt(motors_t motor,int8_t percent,uint8_t flags)
 {
     cy_stc_ble_gatt_handle_value_pair_t myHvp;
@@ -31,6 +41,12 @@ void updateMotorsGatt(motors_t motor,int8_t percent,uint8_t flags)
         break;        
         case M2:
         myHvp.attrHandle = CY_BLE_MOTOR_M2_CHAR_HANDLE;
+        break;
+        case M3:
+        myHvp.attrHandle = CY_BLE_MOTOR_M3_CHAR_HANDLE;
+        break;        
+        case M4:
+        myHvp.attrHandle = CY_BLE_MOTOR_M4_CHAR_HANDLE;
         break;
     }
     
@@ -53,6 +69,24 @@ void updateMotorsGatt(motors_t motor,int8_t percent,uint8_t flags)
         Cy_BLE_GATTS_SendNotification(&cy_ble_connHandle[0],&myHvp);
     }
 }
+
+typedef struct{
+    motors_t motor;
+    uint16_t BLECharacteristicHandle;
+    void (*callBackfn)(motors_t motor,int8_t percent,uint8_t flags);
+}motorToControl_t;
+#define MOTORS_TO_CONTROL_MAX   (M_MAX-1) * 2
+motorToControl_t motorToControl[MOTORS_TO_CONTROL_MAX] = {
+    {M1,CY_BLE_MOTOR_M1_CHAR_HANDLE,updateMotorsGatt},
+    {M1,CY_BLE_MOTOR_M1_REL_CHAR_HANDLE,updateRelativeMotorPos},
+    {M2,CY_BLE_MOTOR_M2_CHAR_HANDLE,updateMotorsGatt},
+    {M2,CY_BLE_MOTOR_M2_REL_CHAR_HANDLE,updateRelativeMotorPos},
+    {M3,CY_BLE_MOTOR_M3_CHAR_HANDLE,updateMotorsGatt},
+    {M3,CY_BLE_MOTOR_M3_REL_CHAR_HANDLE,updateRelativeMotorPos},
+    {M4,CY_BLE_MOTOR_M4_CHAR_HANDLE,updateMotorsGatt},
+    {M4,CY_BLE_MOTOR_M4_REL_CHAR_HANDLE,updateRelativeMotorPos}
+};
+
 
 
 void genericEventHandler(uint32_t event,void* eventParam)
@@ -77,32 +111,18 @@ void genericEventHandler(uint32_t event,void* eventParam)
         case CY_BLE_EVT_GATTS_WRITE_REQ:
         writeRequestParam = (cy_stc_ble_gatts_write_cmd_req_param_t*)eventParam;
         
-        if(CY_BLE_MOTOR_M1_CHAR_HANDLE == writeRequestParam->handleValPair.attrHandle)
-            updateMotorsGatt(M1,writeRequestParam->handleValPair.value.val[0],CY_BLE_GATT_DB_PEER_INITIATED);
-            
-        if(CY_BLE_MOTOR_M2_CHAR_HANDLE == writeRequestParam->handleValPair.attrHandle)
-            updateMotorsGatt(M2,writeRequestParam->handleValPair.value.val[0],CY_BLE_GATT_DB_PEER_INITIATED);
-            
-        if(CY_BLE_MOTOR_M1_REL_CHAR_HANDLE == writeRequestParam->handleValPair.attrHandle)
+        for(int i = 0;i < M_MAX ; i++)
         {
-            PWM_Message_t myMessage;
-            myMessage.motor = M1;
-            myMessage.percent = (int8_t) writeRequestParam->handleValPair.value.val[0];
-            myMessage.changeType = POS_RELATIVE;
-            xQueueSend(pwmQueue,&myMessage,0);
+            if(motorToControl[i].BLECharacteristicHandle == writeRequestParam->handleValPair.attrHandle)
+                motorToControl[i].callBackfn(motorToControl[i].motor,writeRequestParam->handleValPair.value.val[0],CY_BLE_GATT_DB_PEER_INITIATED);
+            
         }
-        
-        if(CY_BLE_MOTOR_M2_REL_CHAR_HANDLE == writeRequestParam->handleValPair.attrHandle)
-        {
-            PWM_Message_t myMessage;
-            myMessage.motor = M2;
-            myMessage.percent = (int8_t) writeRequestParam->handleValPair.value.val[0];
-            myMessage.changeType = POS_RELATIVE;
-            xQueueSend(pwmQueue,&myMessage,0);
-        }
+       
         
         if(CY_BLE_MOTOR_M1_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE == writeRequestParam->handleValPair.attrHandle ||
-            CY_BLE_MOTOR_M2_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE == writeRequestParam->handleValPair.attrHandle )
+            CY_BLE_MOTOR_M2_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE == writeRequestParam->handleValPair.attrHandle||
+            CY_BLE_MOTOR_M3_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE == writeRequestParam->handleValPair.attrHandle||
+            CY_BLE_MOTOR_M4_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE == writeRequestParam->handleValPair.attrHandle )
         {
             cy_stc_ble_gatts_db_attr_val_info_t myWrite;
             myWrite.offset = 0;
@@ -162,6 +182,8 @@ void bleTask(void * arg)
             xEventGroupClearBits(pwmEventGroup,PWM_EVENT_BLE);
             updateMotorsGatt(M1,getMotorPercent(M1),CY_BLE_GATT_DB_LOCALLY_INITIATED);
             updateMotorsGatt(M2,getMotorPercent(M2),CY_BLE_GATT_DB_LOCALLY_INITIATED);
+            updateMotorsGatt(M3,getMotorPercent(M3),CY_BLE_GATT_DB_LOCALLY_INITIATED);
+            updateMotorsGatt(M4,getMotorPercent(M4),CY_BLE_GATT_DB_LOCALLY_INITIATED);
             
         }
     }

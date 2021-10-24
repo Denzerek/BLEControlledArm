@@ -60,6 +60,14 @@ void servoSlaveCommTask(void * arg)
                 hw = PWM_2_HW;
                 cntrNum = PWM_2_CNT_NUM;
             break;
+            case M3:
+                hw = PWM_3_HW;
+                cntrNum = PWM_3_CNT_NUM;
+            break;
+            case M4:
+                hw = PWM_4_HW;
+                cntrNum = PWM_4_CNT_NUM;
+            break;
             default:
             break;
         }
