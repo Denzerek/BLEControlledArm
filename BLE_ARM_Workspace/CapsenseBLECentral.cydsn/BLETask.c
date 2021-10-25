@@ -12,6 +12,7 @@
 
 #include "BLETask.h"
 
+//#define BLE_PACKET_DEBUG_ENABLE
 SemaphoreHandle_t bleSemaphore;
 
 motorToControl_t motorToControl[MOTORS_TO_CONTROL_MAX] = {
@@ -120,8 +121,9 @@ void genericEventHandler(uint32_t event,void* eventParameter)
         break;
         case CY_BLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             //Print out information about the device that was found
-            ble_print("Device");
+            ble_print("");
             cy_stc_ble_gapc_adv_report_param_t *scanProgressParam = (cy_stc_ble_gapc_adv_report_param_t*) eventParameter;
+            #ifdef BLE_PACKET_DEBUG_ENABLE
             printf("[ BLE ] : BD Addr = ");
             for(unsigned int i = 0; i < CY_BLE_BD_ADDR_SIZE;i++)
             {
@@ -129,17 +131,18 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             }
             printf("\r\n");
             ble_printf("Length = %d",scanProgressParam->dataLen);
-            
+            #endif
             findAdvInfo(scanProgressParam->data,scanProgressParam->dataLen);
             if(currentAdvInfo.name != 0)
-                ble_printf("%.*s",currentAdvInfo.name_len,currentAdvInfo.name);
+                ble_printf(" Device %.*s",currentAdvInfo.name_len,currentAdvInfo.name);
             
             if( (currentAdvInfo.servUUID_len > 0 )
                  && (memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_MOTOR_SERVICE_INDEX].uuid
                   ,currentAdvInfo.servUUID_len) == 0))
             {
-                
+                #ifdef BLE_PACKET_DEBUG_ENABLE
                 ble_print("Found MOTOR Service ");
+                #endif
                 cy_stc_ble_bd_addr_t connectAddr;
                 memcpy(&connectAddr.bdAddr[0],&scanProgressParam->peerBdAddr[0],CY_BLE_BD_ADDR_SIZE);
                 connectAddr.type = scanProgressParam->peerAddrType;
