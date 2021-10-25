@@ -51,7 +51,9 @@ void writeMotorPosition(motors_t motor,motor_change_t type,uint8_t percent)
     
     myVal.handleValPair.value.len = 1;
     myVal.handleValPair.value.val = (uint8_t *)&percent;
+    #ifdef BLE_PACKET_DEBUG_ENABLE
     ble_printf("Sent data %d",*(myVal.handleValPair.value.val));
+    #endif
     myVal.connHandle = cy_ble_connHandle[0];
     
     int i = 0;
@@ -172,7 +174,9 @@ void genericEventHandler(uint32_t event,void* eventParameter)
         break;
             
         case CY_BLE_EVT_GATTC_WRITE_RSP:
+    #ifdef BLE_PACKET_DEBUG_ENABLE
             ble_print("GATTC Write Succeeded");
+    #endif
         break;
             
         default:
