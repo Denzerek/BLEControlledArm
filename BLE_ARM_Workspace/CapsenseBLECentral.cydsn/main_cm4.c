@@ -16,6 +16,14 @@
 #include "capSenseTask.h"
 
 
+#define UART_TASK_STACK_SIZE        1024
+#define UART_TASK_PRIORITY          2
+
+#define CAPSENSE_TASK_STACK_SIZE         1024
+#define CAPSENSE_TASK_PRIORITY           2
+
+#define BLE_TASK_STACK_SIZE         8*1024
+#define BLE_TASK_PRIORITY           1
 
 /*
 Author : Alen Austin
@@ -46,9 +54,9 @@ int main(void)
     serialPrint("========== BLE CENTRAL CODE =========="); 
     serialPrint("======================================"); 
     setvbuf(stdin,0,_IONBF,0);
-    xTaskCreate(bleTask," BLE TASK",8*1024,0,2,0);
-    xTaskCreate(UartTask," UART TASK",1024,0,1,0);
-    xTaskCreate(capsenseTask," CAPSENSE TASK",1024,0,1,0);
+    xTaskCreate(bleTask," BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
+    xTaskCreate(UartTask," UART TASK",UART_TASK_STACK_SIZE,0,UART_TASK_PRIORITY,0);
+    xTaskCreate(capsenseTask," CAPSENSE TASK",CAPSENSE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
     vTaskStartScheduler();
     
     for(;;);

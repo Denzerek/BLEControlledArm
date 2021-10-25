@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 1
 
 
    1              		.syntax unified
@@ -47,27 +47,35 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   16:main_cm4.c    **** #include "capSenseTask.h"
   17:main_cm4.c    **** 
   18:main_cm4.c    **** 
-  19:main_cm4.c    **** 
-  20:main_cm4.c    **** /*
-  21:main_cm4.c    **** Author : Alen Austin
-  22:main_cm4.c    **** Brief : This project canot be used as a standalone one but in combination 
-  23:main_cm4.c    **** with the CustomBLEBasic project.
+  19:main_cm4.c    **** #define UART_TASK_STACK_SIZE        1024
+  20:main_cm4.c    **** #define UART_TASK_PRIORITY          2
+  21:main_cm4.c    **** 
+  22:main_cm4.c    **** #define CAPSENSE_TASK_STACK_SIZE         1024
+  23:main_cm4.c    **** #define CAPSENSE_TASK_PRIORITY           2
   24:main_cm4.c    **** 
-  25:main_cm4.c    **** COMBO
-  26:main_cm4.c    **** =====
-  27:main_cm4.c    **** As a combo project, this firmware should be loaded into one 062 BLE pioneer
-  28:main_cm4.c    **** kit and the firmware of CustomBLEBasic project into a different 062 BLE
-  29:main_cm4.c    **** pioneer kit. Then start both, and u will be able to see the BLE central
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 2
+  25:main_cm4.c    **** #define BLE_TASK_STACK_SIZE         8*1024
+  26:main_cm4.c    **** #define BLE_TASK_PRIORITY           1
+  27:main_cm4.c    **** 
+  28:main_cm4.c    **** /*
+  29:main_cm4.c    **** Author : Alen Austin
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 2
 
 
-  30:main_cm4.c    **** device connect to the peripheral device  and user can change the color
-  31:main_cm4.c    **** of the peripheral device by pressing the '+' or '-' in the uart terminal 
-  32:main_cm4.c    **** of this central device.
-  33:main_cm4.c    **** */
-  34:main_cm4.c    **** int main(void)
-  35:main_cm4.c    **** {
-  29              		.loc 1 35 0
+  30:main_cm4.c    **** Brief : This project canot be used as a standalone one but in combination 
+  31:main_cm4.c    **** with the CustomBLEBasic project.
+  32:main_cm4.c    **** 
+  33:main_cm4.c    **** COMBO
+  34:main_cm4.c    **** =====
+  35:main_cm4.c    **** As a combo project, this firmware should be loaded into one 062 BLE pioneer
+  36:main_cm4.c    **** kit and the firmware of CustomBLEBasic project into a different 062 BLE
+  37:main_cm4.c    **** pioneer kit. Then start both, and u will be able to see the BLE central
+  38:main_cm4.c    **** device connect to the peripheral device  and user can change the color
+  39:main_cm4.c    **** of the peripheral device by pressing the '+' or '-' in the uart terminal 
+  40:main_cm4.c    **** of this central device.
+  41:main_cm4.c    **** */
+  42:main_cm4.c    **** int main(void)
+  43:main_cm4.c    **** {
+  29              		.loc 1 43 0
   30              		.cfi_startproc
   31              		@ Volatile: function does not return.
   32              		@ args = 0, pretend = 0, frame = 0
@@ -110,6 +118,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   27:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
   28:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* ignore some GCC warnings */
   29:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic push
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 3
+
+
   30:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   31:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
   32:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -118,9 +129,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   35:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef __has_builtin
   36:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
   37:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 3
-
-
   38:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
   39:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
   40:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ASM
@@ -170,6 +178,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   84:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
   85:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
   86:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 4
+
+
   87:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   88:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   89:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -178,9 +189,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   92:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
   93:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
   94:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 4
-
-
   95:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   96:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   97:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -227,10 +235,13 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   49              		.syntax unified
   50              	.LBE11:
   51              	.LBE10:
-  36:main_cm4.c    ****     __enable_irq(); /* Enable global interrupts. */
-  37:main_cm4.c    **** 
-  38:main_cm4.c    ****     UART_Start();
-  52              		.loc 1 38 0
+  44:main_cm4.c    ****     __enable_irq(); /* Enable global interrupts. */
+  45:main_cm4.c    **** 
+  46:main_cm4.c    ****     UART_Start();
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 5
+
+
+  52              		.loc 1 46 0
   53 0006 FFF7FEFF 		bl	UART_Start
   54              	.LVL0:
   55              	.LBB12:
@@ -238,9 +249,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   57              		.file 3 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/gpio/cy_gpio.h"
    1:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /***************************************************************************//**
    2:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \file cy_gpio.h
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 5
-
-
    3:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \version 1.20
    4:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
    5:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Provides an API declaration of the GPIO driver
@@ -290,6 +298,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   49:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    This allows the pin to connect to signal sources/sinks throughout the device,
   50:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    as defined by the pin HSIOM selection options (en_hsiom_sel_t).
   51:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * 2. All pins are initialized to High-Z drive mode with HSIOM connected to CPU (SW
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 6
+
+
   52:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    control digital pin only) at Power-On-Reset(POR).
   53:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * 3. Some API functions perform read-modify-write operations on shared port
   54:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    registers. These functions are not thread safe and care must be taken when
@@ -298,9 +309,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   57:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    digital input. The input buffer is connected to the HSIOM for routing to 
   58:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    the CPU port registers and selected peripheral. Enabling the input 
   59:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    buffer provides possibility to read the pin state via the CPU.
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 6
-
-
   60:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    If pin is connected to an analog signal, the input buffer should be 
   61:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    disabled to avoid crowbar currents. For more information refer to device 
   62:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    TRM and the device datasheet.
@@ -350,6 +358,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  106:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  107:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \section group_gpio_changelog Changelog
  108:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * <table class="doxtable">
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 7
+
+
  109:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   <tr><th>Version</th><th>Changes</th><th>Reason for Change</th></tr>
  110:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   <tr>
  111:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     <td rowspan="3">1.20</td>
@@ -358,9 +369,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  114:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   </tr>
  115:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   <tr>
  116:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     <td>Added the functions for configuring the AMux bus splitter switch cells:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 7
-
-
  117:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     - \ref Cy_GPIO_SetAmuxSplit
  118:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     - \ref Cy_GPIO_GetAmuxSplit
  119:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     </td>
@@ -410,6 +418,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  163:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  164:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include <stddef.h>
  165:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include "cy_device.h"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 8
+
+
  166:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include "cy_device_headers.h"
  167:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include "cy_syslib.h"
  168:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -418,9 +429,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  171:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #endif
  172:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  173:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \addtogroup group_gpio_macros
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 8
-
-
  174:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \{
  175:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
  176:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -470,6 +478,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  220:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** typedef enum
  221:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
  222:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_GPIO_AMUXBUSA,       /**< AMuxBus A */
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 9
+
+
  223:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_GPIO_AMUXBUSB        /**< AMuxBus B */
  224:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }cy_en_gpio_amuxselect_t;
  225:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -478,9 +489,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  228:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  229:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /***************************************
  230:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *       Configuration Structures
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 9
-
-
  231:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ***************************************/
  232:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  233:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
@@ -530,6 +538,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  277:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  278:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /* General Constants */
  279:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_HALF                       (4UL)      /**< Half-way point of a GPIO port */
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 10
+
+
  280:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_DEINIT                     (0UL)      /**< De-init value for port registers */
  281:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  282:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /* GPIO Masks */
@@ -538,9 +549,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  285:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_IN_MASK                        (0x01UL)   /**< Single pin mask for IN register */
  286:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_CFG_DM_MASK                    (0x0FUL)   /**< Single pin mask for drive mode in CF
  287:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_CFG_IN_VTRIP_SEL_MASK          (0x01UL)   /**< Single pin mask for VTRIP selection 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 10
-
-
  288:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_CFG_OUT_SLOW_MASK              (0x01UL)   /**< Single pin mask for slew rate in CFG
  289:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_CFG_OUT_DRIVE_SEL_MASK         (0x03UL)   /**< Single pin mask for drive strength i
  290:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_INTR_STATUS_MASK               (0x01UL)   /**< Single pin mask for interrupt status
@@ -590,6 +598,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  334:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                 GPIO_PRT_INTR_CFG_FLT_SEL_Msk)
  335:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_INT_MASK_MASK              (0x0000001FFUL)
  336:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_SEL_ACTIVE_MASK            (0x1FFFFFFFUL)
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 11
+
+
  337:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  338:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define GPIO_MAX_SPLIT_CELL_SEGMENTS           (9U)
  339:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -598,9 +609,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  342:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_IS_FILTER_PIN_VALID(pinNum)    (CY_GPIO_PINS_MAX >= (pinNum))
  343:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_IS_VALUE_VALID(outVal)         (1UL >= (outVal))
  344:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_IS_DM_VALID(driveMode)         (0U == ((driveMode) & (uint32_t)~CY_GPIO_CFG_DM_MASK
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 11
-
-
  345:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  346:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_IS_HSIOM_VALID(hsiom)          (0U == ((hsiom) & (uint32_t)~CY_GPIO_HSIOM_MASK))
  347:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -650,6 +658,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  391:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  392:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  393:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /***************************************
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 12
+
+
  394:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *        Function Constants
  395:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ***************************************/
  396:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -658,9 +669,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  399:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \{
  400:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
  401:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 12
-
-
  402:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
  403:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \defgroup group_gpio_driveModes Pin drive mode
  404:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \{
@@ -710,6 +718,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  448:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_DRIVE_1_4                      (0x02UL) /**< 1/4 drive strength: 1/4 drive current 
  449:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_DRIVE_1_8                      (0x03UL) /**< 1/8 drive strength: 1/8 drive current 
  450:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} */
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 13
+
+
  451:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  452:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
  453:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \defgroup group_gpio_interruptTrigger Interrupt trigger type
@@ -718,9 +729,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  456:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
  457:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_INTR_DISABLE                   (0x00UL) /**< Disable the pin interrupt generation *
  458:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_INTR_RISING                    (0x01UL) /**< Rising-Edge interrupt */
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 13
-
-
  459:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_INTR_FALLING                   (0x02UL) /**< Falling-Edge interrupt */
  460:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_INTR_BOTH                      (0x03UL) /**< Both-Edge interrupt */
  461:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} */
@@ -770,6 +778,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  505:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \{
  506:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Constants to be used for setting the Voh and input buffer trip-point of an SIO pair
  507:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 14
+
+
  508:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_1_00                        (0x00UL) /**< Voh = 1 x Reference */
  509:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_1_25                        (0x01UL) /**< Voh = 1.25 x Reference */
  510:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_1_49                        (0x02UL) /**< Voh = 1.49 x Reference */
@@ -778,9 +789,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  513:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_2_50                        (0x05UL) /**< Voh = 2.50 x Reference */
  514:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_2_78                        (0x06UL) /**< Voh = 2.78 x Reference */
  515:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_4_16                        (0x07UL) /**< Voh = 4.16 x Reference */
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 14
-
-
  516:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} */
  517:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  518:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} group_gpio_macros */
@@ -830,6 +838,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  562:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetSlewRate(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
  563:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetSlewRate(GPIO_PRT_Type* base, uint32_t pinNum);
  564:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetDriveSel(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 15
+
+
  565:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetDriveSel(GPIO_PRT_Type* base, uint32_t pinNum);
  566:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  567:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} group_gpio_functions_gpio */
@@ -838,9 +849,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  570:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \addtogroup group_gpio_functions_sio
  571:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \{
  572:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 15
-
-
  573:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  574:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetVregEn(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
  575:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetVregEn(GPIO_PRT_Type* base, uint32_t pinNum);
@@ -890,6 +898,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  619:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  620:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Configures the HSIOM connection to the pin.
  621:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 16
+
+
  622:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Connects the specified High-Speed Input Output Multiplexer (HSIOM) selection
  623:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * to the pin.
  624:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -898,9 +909,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  627:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  628:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
  629:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 16
-
-
  630:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  631:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param value
  632:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * HSIOM input selection
@@ -950,6 +958,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  676:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  677:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
  678:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 17
+
+
  679:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  680:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \return
  681:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * HSIOM input selection
@@ -958,9 +969,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  684:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \snippet gpio/gpio_v1_10_sut_01.cydsn/main_cm4.c snippet_Cy_GPIO_SetHSIOM
  685:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  686:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *******************************************************************************/
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 17
-
-
  687:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE en_hsiom_sel_t Cy_GPIO_GetHSIOM(GPIO_PRT_Type* base, uint32_t pinNum)
  688:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
  689:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     uint32_t returnValue;
@@ -1010,6 +1018,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  733:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     GPIO_PRT_Type* portBase;
  734:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     
  735:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     if(portNum < (uint32_t)IOSS_GPIO_GPIO_PORT_NR)
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 18
+
+
  736:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     {
  737:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****         portBase = (GPIO_PRT_Type *)(CY_GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum));
  738:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     }
@@ -1018,9 +1029,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  741:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****         /* Error: Return default base address */
  742:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****         portBase = (GPIO_PRT_Type *)(CY_GPIO_BASE);
  743:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     }
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 18
-
-
  744:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  745:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     return (portBase);
  746:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }
@@ -1070,6 +1078,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  790:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * any effect on peripheral driven pins.
  791:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  792:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 19
+
+
  793:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
  794:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  795:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
@@ -1078,9 +1089,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  798:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param value
  799:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Logic level to drive out on the pin
  800:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 19
-
-
  801:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \funcusage
  802:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \snippet gpio/gpio_v1_10_sut_01.cydsn/main_cm4.c snippet_Cy_GPIO_Write
  803:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -1130,6 +1138,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  847:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  848:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  849:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 20
+
+
  850:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_Set
  851:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ****************************************************************************//**
  852:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -1138,9 +1149,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  855:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * This function should be used only for software driven pins. It does not have
  856:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * any effect on peripheral driven pins.
  857:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 20
-
-
  858:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
  859:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
  860:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -1190,6 +1198,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  895:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_Clr(GPIO_PRT_Type* base, uint32_t pinNum)
  896:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
  897:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_ASSERT_L2(CY_GPIO_IS_PIN_VALID(pinNum));
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 21
+
+
  898:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     
  899:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     GPIO_PRT_OUT_CLR(base) = CY_GPIO_OUT_MASK << pinNum;
   67              		.loc 3 899 0
@@ -1198,20 +1209,17 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   70 0014 5A60     		str	r2, [r3, #4]
   71              	.LVL2:
   72              	.LBE15:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 21
-
-
   73              	.LBE14:
-  39:main_cm4.c    **** 
-  40:main_cm4.c    ****     Cy_GPIO_Set(GREEN_PORT,GREEN_NUM);
-  41:main_cm4.c    ****     Cy_GPIO_Clr(RED_PORT,RED_NUM);
-  42:main_cm4.c    ****     CyDelay(10); 
-  74              		.loc 1 42 0
+  47:main_cm4.c    **** 
+  48:main_cm4.c    ****     Cy_GPIO_Set(GREEN_PORT,GREEN_NUM);
+  49:main_cm4.c    ****     Cy_GPIO_Clr(RED_PORT,RED_NUM);
+  50:main_cm4.c    ****     CyDelay(10); 
+  74              		.loc 1 50 0
   75 0016 0A20     		movs	r0, #10
   76 0018 FFF7FEFF 		bl	Cy_SysLib_Delay
   77              	.LVL3:
-  43:main_cm4.c    ****     serialPrint("\x1b[2J\x1b[;H");
-  78              		.loc 1 43 0
+  51:main_cm4.c    ****     serialPrint("\x1b[2J\x1b[;H");
+  78              		.loc 1 51 0
   79 001c 2C4D     		ldr	r5, .L4+4
   80 001e 2846     		mov	r0, r5
   81 0020 FFF7FEFF 		bl	printf
@@ -1223,8 +1231,8 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   87 002c 2046     		mov	r0, r4
   88 002e FFF7FEFF 		bl	puts
   89              	.LVL6:
-  44:main_cm4.c    ****     serialPrint("System Init Done.");
-  90              		.loc 1 44 0
+  52:main_cm4.c    ****     serialPrint("System Init Done.");
+  90              		.loc 1 52 0
   91 0032 2846     		mov	r0, r5
   92 0034 FFF7FEFF 		bl	printf
   93              	.LVL7:
@@ -1234,8 +1242,8 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
   97 003e 2046     		mov	r0, r4
   98 0040 FFF7FEFF 		bl	puts
   99              	.LVL9:
-  45:main_cm4.c    ****     serialPrint("======================================"); 
- 100              		.loc 1 45 0
+  53:main_cm4.c    ****     serialPrint("======================================"); 
+ 100              		.loc 1 53 0
  101 0044 2846     		mov	r0, r5
  102 0046 FFF7FEFF 		bl	printf
  103              	.LVL10:
@@ -1246,10 +1254,13 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  108 0052 2046     		mov	r0, r4
  109 0054 FFF7FEFF 		bl	puts
  110              	.LVL12:
-  46:main_cm4.c    ****     serialPrint("========== BLE CENTRAL CODE =========="); 
- 111              		.loc 1 46 0
+  54:main_cm4.c    ****     serialPrint("========== BLE CENTRAL CODE =========="); 
+ 111              		.loc 1 54 0
  112 0058 2846     		mov	r0, r5
  113 005a FFF7FEFF 		bl	printf
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 22
+
+
  114              	.LVL13:
  115 005e 2148     		ldr	r0, .L4+24
  116 0060 FFF7FEFF 		bl	printf
@@ -1257,11 +1268,8 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  118 0064 2046     		mov	r0, r4
  119 0066 FFF7FEFF 		bl	puts
  120              	.LVL15:
-  47:main_cm4.c    ****     serialPrint("======================================"); 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 22
-
-
- 121              		.loc 1 47 0
+  55:main_cm4.c    ****     serialPrint("======================================"); 
+ 121              		.loc 1 55 0
  122 006a 2846     		mov	r0, r5
  123 006c FFF7FEFF 		bl	printf
  124              	.LVL16:
@@ -1271,8 +1279,8 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  128 0076 2046     		mov	r0, r4
  129 0078 FFF7FEFF 		bl	puts
  130              	.LVL18:
-  48:main_cm4.c    ****     setvbuf(stdin,0,_IONBF,0);
- 131              		.loc 1 48 0
+  56:main_cm4.c    ****     setvbuf(stdin,0,_IONBF,0);
+ 131              		.loc 1 56 0
  132 007c 1A4B     		ldr	r3, .L4+28
  133 007e 1868     		ldr	r0, [r3]
  134 0080 0023     		movs	r3, #0
@@ -1281,46 +1289,46 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  137 0086 4068     		ldr	r0, [r0, #4]
  138 0088 FFF7FEFF 		bl	setvbuf
  139              	.LVL19:
-  49:main_cm4.c    ****     xTaskCreate(bleTask," BLE TASK",8*1024,0,2,0);
- 140              		.loc 1 49 0
+  57:main_cm4.c    ****     xTaskCreate(bleTask," BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
+ 140              		.loc 1 57 0
  141 008c 0024     		movs	r4, #0
  142 008e 0194     		str	r4, [sp, #4]
- 143 0090 0096     		str	r6, [sp]
- 144 0092 2346     		mov	r3, r4
- 145 0094 4FF40052 		mov	r2, #8192
- 146 0098 1449     		ldr	r1, .L4+32
- 147 009a 1548     		ldr	r0, .L4+36
- 148 009c FFF7FEFF 		bl	xTaskCreate
- 149              	.LVL20:
-  50:main_cm4.c    ****     xTaskCreate(UartTask," UART TASK",1024,0,1,0);
- 150              		.loc 1 50 0
- 151 00a0 0194     		str	r4, [sp, #4]
- 152 00a2 0125     		movs	r5, #1
- 153 00a4 0095     		str	r5, [sp]
+ 143 0090 0125     		movs	r5, #1
+ 144 0092 0095     		str	r5, [sp]
+ 145 0094 2346     		mov	r3, r4
+ 146 0096 4FF40052 		mov	r2, #8192
+ 147 009a 1449     		ldr	r1, .L4+32
+ 148 009c 1448     		ldr	r0, .L4+36
+ 149 009e FFF7FEFF 		bl	xTaskCreate
+ 150              	.LVL20:
+  58:main_cm4.c    ****     xTaskCreate(UartTask," UART TASK",UART_TASK_STACK_SIZE,0,UART_TASK_PRIORITY,0);
+ 151              		.loc 1 58 0
+ 152 00a2 0194     		str	r4, [sp, #4]
+ 153 00a4 0096     		str	r6, [sp]
  154 00a6 2346     		mov	r3, r4
  155 00a8 4FF48062 		mov	r2, #1024
  156 00ac 1149     		ldr	r1, .L4+40
  157 00ae 1248     		ldr	r0, .L4+44
  158 00b0 FFF7FEFF 		bl	xTaskCreate
  159              	.LVL21:
-  51:main_cm4.c    ****     xTaskCreate(capsenseTask," CAPSENSE TASK",1024,0,1,0);
- 160              		.loc 1 51 0
+  59:main_cm4.c    ****     xTaskCreate(capsenseTask," CAPSENSE TASK",CAPSENSE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
+ 160              		.loc 1 59 0
  161 00b4 0194     		str	r4, [sp, #4]
  162 00b6 0095     		str	r5, [sp]
  163 00b8 2346     		mov	r3, r4
  164 00ba 4FF48062 		mov	r2, #1024
  165 00be 0F49     		ldr	r1, .L4+48
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 23
+
+
  166 00c0 0F48     		ldr	r0, .L4+52
  167 00c2 FFF7FEFF 		bl	xTaskCreate
  168              	.LVL22:
-  52:main_cm4.c    ****     vTaskStartScheduler();
- 169              		.loc 1 52 0
+  60:main_cm4.c    ****     vTaskStartScheduler();
+ 169              		.loc 1 60 0
  170 00c6 FFF7FEFF 		bl	vTaskStartScheduler
  171              	.LVL23:
  172              	.L2:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 23
-
-
  173 00ca FEE7     		b	.L2
  174              	.L5:
  175              		.align	2
@@ -1370,6 +1378,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  208      3D3D3D3D 
  208      3D3D3D3D 
  209 0057 00       		.space	1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 24
+
+
  210              	.LC5:
  211 0058 3D3D3D3D 		.ascii	"========== BLE CENTRAL CODE ==========\000"
  211      3D3D3D3D 
@@ -1378,9 +1389,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  211      454E5452 
  212 007f 00       		.space	1
  213              	.LC6:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 24
-
-
  214 0080 20424C45 		.ascii	" BLE TASK\000"
  214      20544153 
  214      4B00
@@ -1430,6 +1438,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  253 001d 00000000 		.4byte	0
  254 0021 00000000 		.4byte	.Ldebug_line0
  255 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 25
+
+
  256 0026 02       		.byte	0x2
  257 0027 05       		.byte	0x5
  258 0028 920B0000 		.4byte	.LASF0
@@ -1438,9 +1449,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  261 002e 06       		.byte	0x6
  262 002f CD0E0000 		.4byte	.LASF1
  263 0033 03       		.uleb128 0x3
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 25
-
-
  264 0034 920C0000 		.4byte	.LASF3
  265 0038 04       		.byte	0x4
  266 0039 1D       		.byte	0x1d
@@ -1490,6 +1498,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  310 008f 07       		.byte	0x7
  311 0090 2F040000 		.4byte	.LASF12
  312 0094 04       		.uleb128 0x4
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 26
+
+
  313 0095 04       		.byte	0x4
  314 0096 05       		.byte	0x5
  315 0097 696E7400 		.ascii	"int\000"
@@ -1498,9 +1509,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  318 009d 07       		.byte	0x7
  319 009e 24010000 		.4byte	.LASF13
  320 00a2 03       		.uleb128 0x3
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 26
-
-
  321 00a3 E1070000 		.4byte	.LASF14
  322 00a7 05       		.byte	0x5
  323 00a8 18       		.byte	0x18
@@ -1550,6 +1558,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  367 0107 06       		.byte	0x6
  368 0108 23       		.byte	0x23
  369 0109 E0000000 		.4byte	0xe0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 27
+
+
  370 010d 00       		.byte	0
  371 010e 0B       		.uleb128 0xb
  372 010f AF040000 		.4byte	.LASF20
@@ -1558,9 +1569,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  375 0115 E0000000 		.4byte	0xe0
  376 0119 04       		.byte	0x4
  377 011a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 27
-
-
  378 011b 46040000 		.4byte	.LASF21
  379 011f 06       		.byte	0x6
  380 0120 25       		.byte	0x25
@@ -1610,6 +1618,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  424 0178 24       		.byte	0x24
  425 0179 0A       		.uleb128 0xa
  426 017a 43464700 		.ascii	"CFG\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 28
+
+
  427 017e 06       		.byte	0x6
  428 017f 2D       		.byte	0x2d
  429 0180 E0000000 		.4byte	0xe0
@@ -1618,9 +1629,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  432 0186 A5030000 		.4byte	.LASF28
  433 018a 06       		.byte	0x6
  434 018b 2E       		.byte	0x2e
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 28
-
-
  435 018c E0000000 		.4byte	0xe0
  436 0190 2C       		.byte	0x2c
  437 0191 0B       		.uleb128 0xb
@@ -1670,6 +1678,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  481 01e8 6E020000 		.4byte	0x26e
  482 01ec 0A       		.uleb128 0xa
  483 01ed 50525400 		.ascii	"PRT\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 29
+
+
  484 01f1 06       		.byte	0x6
  485 01f2 3A       		.byte	0x3a
  486 01f3 6E020000 		.4byte	0x26e
@@ -1678,9 +1689,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  489 01f9 39000000 		.4byte	.LASF35
  490 01fd 06       		.byte	0x6
  491 01fe 3B       		.byte	0x3b
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 29
-
-
  492 01ff E5000000 		.4byte	0xe5
  493 0203 0040     		.2byte	0x4000
  494 0205 0D       		.uleb128 0xd
@@ -1730,6 +1738,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  538 0265 06       		.byte	0x6
  539 0266 43       		.byte	0x43
  540 0267 E0000000 		.4byte	0xe0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 30
+
+
  541 026b 2040     		.2byte	0x4020
  542 026d 00       		.byte	0
  543 026e 07       		.uleb128 0x7
@@ -1738,9 +1749,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  546 0277 08       		.uleb128 0x8
  547 0278 D9000000 		.4byte	0xd9
  548 027c 7F       		.byte	0x7f
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 30
-
-
  549 027d 00       		.byte	0
  550 027e 03       		.uleb128 0x3
  551 027f F8030000 		.4byte	.LASF44
@@ -1790,6 +1798,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  595 02da 3A       		.byte	0x3a
  596 02db CE000000 		.4byte	0xce
  597 02df 0C       		.byte	0xc
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 31
+
+
  598 02e0 0B       		.uleb128 0xb
  599 02e1 A80A0000 		.4byte	.LASF52
  600 02e5 08       		.byte	0x8
@@ -1798,9 +1809,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  603 02eb 10       		.byte	0x10
  604 02ec 0B       		.uleb128 0xb
  605 02ed 22090000 		.4byte	.LASF53
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 31
-
-
  606 02f1 08       		.byte	0x8
  607 02f2 3C       		.byte	0x3c
  608 02f3 CE000000 		.4byte	0xce
@@ -1850,6 +1858,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  652 034c 0B       		.uleb128 0xb
  653 034d CB0B0000 		.4byte	.LASF61
  654 0351 08       		.byte	0x8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 32
+
+
  655 0352 46       		.byte	0x46
  656 0353 A2000000 		.4byte	0xa2
  657 0357 2B       		.byte	0x2b
@@ -1858,9 +1869,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  660 035d 08       		.byte	0x8
  661 035e 47       		.byte	0x47
  662 035f A2000000 		.4byte	0xa2
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 32
-
-
  663 0363 2C       		.byte	0x2c
  664 0364 0B       		.uleb128 0xb
  665 0365 370D0000 		.4byte	.LASF63
@@ -1910,6 +1918,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  709 03be 51       		.byte	0x51
  710 03bf A2000000 		.4byte	0xa2
  711 03c3 34       		.byte	0x34
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 33
+
+
  712 03c4 0B       		.uleb128 0xb
  713 03c5 2B080000 		.4byte	.LASF71
  714 03c9 08       		.byte	0x8
@@ -1918,9 +1929,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  717 03cf 36       		.byte	0x36
  718 03d0 0B       		.uleb128 0xb
  719 03d1 93010000 		.4byte	.LASF72
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 33
-
-
  720 03d5 08       		.byte	0x8
  721 03d6 53       		.byte	0x53
  722 03d7 AD000000 		.4byte	0xad
@@ -1970,6 +1978,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  766 0430 0B       		.uleb128 0xb
  767 0431 7F040000 		.4byte	.LASF80
  768 0435 08       		.byte	0x8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 34
+
+
  769 0436 5B       		.byte	0x5b
  770 0437 A2000000 		.4byte	0xa2
  771 043b 42       		.byte	0x42
@@ -1978,9 +1989,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  774 0441 08       		.byte	0x8
  775 0442 5C       		.byte	0x5c
  776 0443 A2000000 		.4byte	0xa2
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 34
-
-
  777 0447 43       		.byte	0x43
  778 0448 0B       		.uleb128 0xb
  779 0449 96070000 		.4byte	.LASF82
@@ -2030,6 +2038,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  823 04a2 64       		.byte	0x64
  824 04a3 A2000000 		.4byte	0xa2
  825 04a7 54       		.byte	0x54
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 35
+
+
  826 04a8 0B       		.uleb128 0xb
  827 04a9 56060000 		.4byte	.LASF90
  828 04ad 08       		.byte	0x8
@@ -2038,9 +2049,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  831 04b3 55       		.byte	0x55
  832 04b4 0B       		.uleb128 0xb
  833 04b5 00000000 		.4byte	.LASF91
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 35
-
-
  834 04b9 08       		.byte	0x8
  835 04ba 66       		.byte	0x66
  836 04bb A2000000 		.4byte	0xa2
@@ -2090,6 +2098,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  880 0514 0B       		.uleb128 0xb
  881 0515 E5060000 		.4byte	.LASF99
  882 0519 08       		.byte	0x8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 36
+
+
  883 051a 72       		.byte	0x72
  884 051b A2000000 		.4byte	0xa2
  885 051f 60       		.byte	0x60
@@ -2098,9 +2109,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  888 0525 08       		.byte	0x8
  889 0526 73       		.byte	0x73
  890 0527 CE000000 		.4byte	0xce
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 36
-
-
  891 052b 64       		.byte	0x64
  892 052c 0B       		.uleb128 0xb
  893 052d 050B0000 		.4byte	.LASF101
@@ -2150,6 +2158,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  937 0586 7E       		.byte	0x7e
  938 0587 A2000000 		.4byte	0xa2
  939 058b 73       		.byte	0x73
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 37
+
+
  940 058c 0B       		.uleb128 0xb
  941 058d 800B0000 		.4byte	.LASF109
  942 0591 08       		.byte	0x8
@@ -2158,9 +2169,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  945 0597 74       		.byte	0x74
  946 0598 0B       		.uleb128 0xb
  947 0599 5A0A0000 		.4byte	.LASF110
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 37
-
-
  948 059d 08       		.byte	0x8
  949 059e 81       		.byte	0x81
  950 059f B8000000 		.4byte	0xb8
@@ -2210,6 +2218,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  994 05f8 0B       		.uleb128 0xb
  995 05f9 86000000 		.4byte	.LASF118
  996 05fd 08       		.byte	0x8
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 38
+
+
  997 05fe 8D       		.byte	0x8d
  998 05ff CE000000 		.4byte	0xce
  999 0603 84       		.byte	0x84
@@ -2218,9 +2229,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1002 0609 08       		.byte	0x8
  1003 060a 8E       		.byte	0x8e
  1004 060b CE000000 		.4byte	0xce
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 38
-
-
  1005 060f 88       		.byte	0x88
  1006 0610 0B       		.uleb128 0xb
  1007 0611 A1090000 		.4byte	.LASF120
@@ -2270,6 +2278,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1051 066a 96       		.byte	0x96
  1052 066b B8000000 		.4byte	0xb8
  1053 066f A6       		.byte	0xa6
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 39
+
+
  1054 0670 0B       		.uleb128 0xb
  1055 0671 560D0000 		.4byte	.LASF128
  1056 0675 08       		.byte	0x8
@@ -2278,9 +2289,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1059 067b A8       		.byte	0xa8
  1060 067c 0B       		.uleb128 0xb
  1061 067d 99080000 		.4byte	.LASF129
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 39
-
-
  1062 0681 08       		.byte	0x8
  1063 0682 98       		.byte	0x98
  1064 0683 B8000000 		.4byte	0xb8
@@ -2330,6 +2338,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1108 06da 60070000 		.4byte	.LASF136
  1109 06de 02       		.uleb128 0x2
  1110 06df 04       		.byte	0x4
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 40
+
+
  1111 06e0 04       		.byte	0x4
  1112 06e1 700D0000 		.4byte	.LASF137
  1113 06e5 02       		.uleb128 0x2
@@ -2338,9 +2349,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1116 06e8 520F0000 		.4byte	.LASF138
  1117 06ec 11       		.uleb128 0x11
  1118 06ed 04       		.byte	0x4
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 40
-
-
  1119 06ee 02       		.uleb128 0x2
  1120 06ef 01       		.byte	0x1
  1121 06f0 02       		.byte	0x2
@@ -2390,6 +2398,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1165 0752 0C       		.byte	0xc
  1166 0753 15       		.uleb128 0x15
  1167 0754 2F0B0000 		.4byte	.LASF145
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 41
+
+
  1168 0758 0A       		.byte	0xa
  1169 0759 7D02     		.2byte	0x27d
  1170 075b E0000000 		.4byte	0xe0
@@ -2398,9 +2409,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1173 0761 88070000 		.4byte	.LASF146
  1174 0765 0A       		.byte	0xa
  1175 0766 7E02     		.2byte	0x27e
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 41
-
-
  1176 0768 E0000000 		.4byte	0xe0
  1177 076c 14       		.byte	0x14
  1178 076d 15       		.uleb128 0x15
@@ -2450,6 +2458,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1222 07cd 0A       		.byte	0xa
  1223 07ce 8E02     		.2byte	0x28e
  1224 07d0 CE000000 		.4byte	0xce
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 42
+
+
  1225 07d4 34       		.byte	0x34
  1226 07d5 00       		.byte	0
  1227 07d6 0E       		.uleb128 0xe
@@ -2458,9 +2469,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1230 07dc 9102     		.2byte	0x291
  1231 07de 12070000 		.4byte	0x712
  1232 07e2 03       		.uleb128 0x3
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 42
-
-
  1233 07e3 E6010000 		.4byte	.LASF156
  1234 07e7 0B       		.byte	0xb
  1235 07e8 07       		.byte	0x7
@@ -2510,6 +2518,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1279 0842 5F080000 		.4byte	0x85f
  1280 0846 0B       		.uleb128 0xb
  1281 0847 27040000 		.4byte	.LASF162
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 43
+
+
  1282 084b 0C       		.byte	0xc
  1283 084c A5       		.byte	0xa5
  1284 084d 94000000 		.4byte	0x94
@@ -2518,9 +2529,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1287 0853 DD060000 		.4byte	.LASF163
  1288 0857 0C       		.byte	0xc
  1289 0858 AA       		.byte	0xaa
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 43
-
-
  1290 0859 0F080000 		.4byte	0x80f
  1291 085d 04       		.byte	0x4
  1292 085e 00       		.byte	0
@@ -2570,6 +2578,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1336 08b6 F00B0000 		.4byte	.LASF171
  1337 08ba 0E       		.byte	0xe
  1338 08bb 30       		.byte	0x30
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 44
+
+
  1339 08bc 94000000 		.4byte	0x94
  1340 08c0 0C       		.byte	0xc
  1341 08c1 0B       		.uleb128 0xb
@@ -2578,9 +2589,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1344 08c7 30       		.byte	0x30
  1345 08c8 94000000 		.4byte	0x94
  1346 08cc 10       		.byte	0x10
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 44
-
-
  1347 08cd 0A       		.uleb128 0xa
  1348 08ce 5F7800   		.ascii	"_x\000"
  1349 08d1 0E       		.byte	0xe
@@ -2630,6 +2638,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1393 092a 0C       		.byte	0xc
  1394 092b 0B       		.uleb128 0xb
  1395 092c 6D0A0000 		.4byte	.LASF178
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 45
+
+
  1396 0930 0E       		.byte	0xe
  1397 0931 3B       		.byte	0x3b
  1398 0932 94000000 		.4byte	0x94
@@ -2638,9 +2649,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1401 0938 450C0000 		.4byte	.LASF179
  1402 093c 0E       		.byte	0xe
  1403 093d 3C       		.byte	0x3c
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 45
-
-
  1404 093e 94000000 		.4byte	0x94
  1405 0942 14       		.byte	0x14
  1406 0943 0B       		.uleb128 0xb
@@ -2690,6 +2698,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1450 099b B80F0000 		.4byte	.LASF187
  1451 099f 0E       		.byte	0xe
  1452 09a0 4F       		.byte	0x4f
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 46
+
+
  1453 09a1 7B080000 		.4byte	0x87b
  1454 09a5 0401     		.2byte	0x104
  1455 09a7 00       		.byte	0
@@ -2698,9 +2709,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1458 09ad B8090000 		.4byte	0x9b8
  1459 09b1 08       		.uleb128 0x8
  1460 09b2 D9000000 		.4byte	0xd9
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 46
-
-
  1461 09b6 1F       		.byte	0x1f
  1462 09b7 00       		.byte	0
  1463 09b8 19       		.uleb128 0x19
@@ -2750,6 +2758,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1507 0a12 0E       		.byte	0xe
  1508 0a13 73       		.byte	0x73
  1509 0a14 310A0000 		.4byte	0xa31
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 47
+
+
  1510 0a18 0B       		.uleb128 0xb
  1511 0a19 DE080000 		.4byte	.LASF192
  1512 0a1d 0E       		.byte	0xe
@@ -2758,9 +2769,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1515 0a23 00       		.byte	0
  1516 0a24 0B       		.uleb128 0xb
  1517 0a25 4C0F0000 		.4byte	.LASF193
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 47
-
-
  1518 0a29 0E       		.byte	0xe
  1519 0a2a 75       		.byte	0x75
  1520 0a2b 94000000 		.4byte	0x94
@@ -2810,6 +2818,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1564 0a81 0E       		.byte	0xe
  1565 0a82 B9       		.byte	0xb9
  1566 0a83 0C0A0000 		.4byte	0xa0c
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 48
+
+
  1567 0a87 10       		.byte	0x10
  1568 0a88 0B       		.uleb128 0xb
  1569 0a89 67010000 		.4byte	.LASF197
@@ -2818,9 +2829,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1572 0a8f 94000000 		.4byte	0x94
  1573 0a93 18       		.byte	0x18
  1574 0a94 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 48
-
-
  1575 0a95 6B030000 		.4byte	.LASF198
  1576 0a99 0E       		.byte	0xe
  1577 0a9a C1       		.byte	0xc1
@@ -2870,6 +2878,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1621 0af3 3C       		.byte	0x3c
  1622 0af4 0B       		.uleb128 0xb
  1623 0af5 32100000 		.4byte	.LASF203
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 49
+
+
  1624 0af9 0E       		.byte	0xe
  1625 0afa D1       		.byte	0xd1
  1626 0afb 2A0D0000 		.4byte	0xd2a
@@ -2878,9 +2889,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1629 0b01 830F0000 		.4byte	.LASF204
  1630 0b05 0E       		.byte	0xe
  1631 0b06 D2       		.byte	0xd2
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 49
-
-
  1632 0b07 3A0D0000 		.4byte	0xd3a
  1633 0b0b 43       		.byte	0x43
  1634 0b0c 0A       		.uleb128 0xa
@@ -2930,6 +2938,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1678 0b62 94000000 		.4byte	0x94
  1679 0b66 7F0B0000 		.4byte	0xb7f
  1680 0b6a 13       		.uleb128 0x13
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 50
+
+
  1681 0b6b 7F0B0000 		.4byte	0xb7f
  1682 0b6f 13       		.uleb128 0x13
  1683 0b70 EC060000 		.4byte	0x6ec
@@ -2938,9 +2949,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1686 0b79 13       		.uleb128 0x13
  1687 0b7a 94000000 		.4byte	0x94
  1688 0b7e 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 50
-
-
  1689 0b7f 0F       		.uleb128 0xf
  1690 0b80 04       		.byte	0x4
  1691 0b81 850B0000 		.4byte	0xb85
@@ -2990,6 +2998,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1735 0be2 B30C0000 		.4byte	.LASF218
  1736 0be6 0E       		.byte	0xe
  1737 0be7 4402     		.2byte	0x244
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 51
+
+
  1738 0be9 94000000 		.4byte	0x94
  1739 0bed 30       		.byte	0x30
  1740 0bee 15       		.uleb128 0x15
@@ -2998,9 +3009,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1743 0bf4 4502     		.2byte	0x245
  1744 0bf6 DB0C0000 		.4byte	0xcdb
  1745 0bfa 34       		.byte	0x34
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 51
-
-
  1746 0bfb 15       		.uleb128 0x15
  1747 0bfc 20080000 		.4byte	.LASF220
  1748 0c00 0E       		.byte	0xe
@@ -3050,6 +3058,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1792 0c5e 75080000 		.4byte	0x875
  1793 0c62 54       		.byte	0x54
  1794 0c63 15       		.uleb128 0x15
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 52
+
+
  1795 0c64 9C0C0000 		.4byte	.LASF228
  1796 0c68 0E       		.byte	0xe
  1797 0c69 7602     		.2byte	0x276
@@ -3058,9 +3069,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1800 0c70 1C       		.uleb128 0x1c
  1801 0c71 150B0000 		.4byte	.LASF188
  1802 0c75 0E       		.byte	0xe
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 52
-
-
  1803 0c76 7A02     		.2byte	0x27a
  1804 0c78 F6090000 		.4byte	0x9f6
  1805 0c7c 4801     		.2byte	0x148
@@ -3110,6 +3118,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1849 0ce1 06       		.uleb128 0x6
  1850 0ce2 D7060000 		.4byte	0x6d7
  1851 0ce6 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 53
+
+
  1852 0ce7 04       		.byte	0x4
  1853 0ce8 BD0C0000 		.4byte	0xcbd
  1854 0cec 1A       		.uleb128 0x1a
@@ -3118,9 +3129,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1857 0cf5 13       		.uleb128 0x13
  1858 0cf6 7F0B0000 		.4byte	0xb7f
  1859 0cfa 13       		.uleb128 0x13
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 53
-
-
  1860 0cfb EC060000 		.4byte	0x6ec
  1861 0cff 13       		.uleb128 0x13
  1862 0d00 F8070000 		.4byte	0x7f8
@@ -3170,6 +3178,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1906 0d64 EE0F0000 		.4byte	.LASF169
  1907 0d68 0E       		.byte	0xe
  1908 0d69 2301     		.2byte	0x123
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 54
+
+
  1909 0d6b 8B0D0000 		.4byte	0xd8b
  1910 0d6f 00       		.byte	0
  1911 0d70 15       		.uleb128 0x15
@@ -3178,9 +3189,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1914 0d76 2401     		.2byte	0x124
  1915 0d78 94000000 		.4byte	0x94
  1916 0d7c 04       		.byte	0x4
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 54
-
-
  1917 0d7d 15       		.uleb128 0x15
  1918 0d7e D90E0000 		.4byte	.LASF236
  1919 0d82 0E       		.byte	0xe
@@ -3230,6 +3238,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1963 0ddd D0       		.byte	0xd0
  1964 0dde 0E       		.byte	0xe
  1965 0ddf 5702     		.2byte	0x257
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 55
+
+
  1966 0de1 DD0E0000 		.4byte	0xedd
  1967 0de5 15       		.uleb128 0x15
  1968 0de6 890F0000 		.4byte	.LASF241
@@ -3238,9 +3249,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  1971 0ded 9B000000 		.4byte	0x9b
  1972 0df1 00       		.byte	0
  1973 0df2 15       		.uleb128 0x15
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 55
-
-
  1974 0df3 750E0000 		.4byte	.LASF242
  1975 0df7 0E       		.byte	0xe
  1976 0df8 5A02     		.2byte	0x25a
@@ -3290,6 +3298,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2020 0e59 70       		.byte	0x70
  2021 0e5a 15       		.uleb128 0x15
  2022 0e5b ED000000 		.4byte	.LASF250
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 56
+
+
  2023 0e5f 0E       		.byte	0xe
  2024 0e60 6202     		.2byte	0x262
  2025 0e62 5F080000 		.4byte	0x85f
@@ -3298,9 +3309,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2028 0e68 A90C0000 		.4byte	.LASF251
  2029 0e6c 0E       		.byte	0xe
  2030 0e6d 6302     		.2byte	0x263
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 56
-
-
  2031 0e6f ED0E0000 		.4byte	0xeed
  2032 0e73 80       		.byte	0x80
  2033 0e74 15       		.uleb128 0x15
@@ -3350,6 +3358,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2077 0ed4 0E       		.byte	0xe
  2078 0ed5 6B02     		.2byte	0x26b
  2079 0ed7 94000000 		.4byte	0x94
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 57
+
+
  2080 0edb CC       		.byte	0xcc
  2081 0edc 00       		.byte	0
  2082 0edd 07       		.uleb128 0x7
@@ -3358,9 +3369,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2085 0ee6 08       		.uleb128 0x8
  2086 0ee7 D9000000 		.4byte	0xd9
  2087 0eeb 19       		.byte	0x19
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 57
-
-
  2088 0eec 00       		.byte	0
  2089 0eed 07       		.uleb128 0x7
  2090 0eee D7060000 		.4byte	0x6d7
@@ -3410,6 +3418,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2134 0f50 00       		.byte	0
  2135 0f51 1E       		.uleb128 0x1e
  2136 0f52 F0       		.byte	0xf0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 58
+
+
  2137 0f53 0E       		.byte	0xe
  2138 0f54 5502     		.2byte	0x255
  2139 0f56 730F0000 		.4byte	0xf73
@@ -3418,9 +3429,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2142 0f5f 0E       		.byte	0xe
  2143 0f60 6C02     		.2byte	0x26c
  2144 0f62 DC0D0000 		.4byte	0xddc
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 58
-
-
  2145 0f66 1F       		.uleb128 0x1f
  2146 0f67 8A0C0000 		.4byte	.LASF262
  2147 0f6b 0E       		.byte	0xe
@@ -3470,6 +3478,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2191 0fc6 E50F0000 		.4byte	0xfe5
  2192 0fca 15       		.uleb128 0x15
  2193 0fcb A10E0000 		.4byte	.LASF263
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 59
+
+
  2194 0fcf 0F       		.byte	0xf
  2195 0fd0 6E01     		.2byte	0x16e
  2196 0fd2 A2000000 		.4byte	0xa2
@@ -3478,9 +3489,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2199 0fd8 B20F0000 		.4byte	.LASF264
  2200 0fdc 0F       		.byte	0xf
  2201 0fdd 7201     		.2byte	0x172
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 59
-
-
  2202 0fdf A2000000 		.4byte	0xa2
  2203 0fe3 01       		.byte	0x1
  2204 0fe4 00       		.byte	0
@@ -3530,6 +3538,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2248 103e 02       		.byte	0x2
  2249 103f 21       		.uleb128 0x21
  2250 1040 FF0F0000 		.4byte	.LASF274
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 60
+
+
  2251 1044 03       		.byte	0x3
  2252 1045 21       		.uleb128 0x21
  2253 1046 44050000 		.4byte	.LASF275
@@ -3538,9 +3549,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2256 104c 2B070000 		.4byte	.LASF276
  2257 1050 05       		.byte	0x5
  2258 1051 21       		.uleb128 0x21
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 60
-
-
  2259 1052 070A0000 		.4byte	.LASF277
  2260 1056 06       		.byte	0x6
  2261 1057 21       		.uleb128 0x21
@@ -3590,6 +3598,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2305 10b2 69100000 		.4byte	0x1069
  2306 10b6 24       		.uleb128 0x24
  2307 10b7 1C0E0000 		.4byte	.LASF281
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 61
+
+
  2308 10bb 03       		.byte	0x3
  2309 10bc 6403     		.2byte	0x364
  2310 10be CE000000 		.4byte	0xce
@@ -3597,10 +3608,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2312 10c3 25       		.uleb128 0x25
  2313 10c4 150F0000 		.4byte	.LASF302
  2314 10c8 01       		.byte	0x1
- 2315 10c9 22       		.byte	0x22
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 61
-
-
+ 2315 10c9 2A       		.byte	0x2a
  2316 10ca 94000000 		.4byte	0x94
  2317 10ce 00000000 		.4byte	.LFB502
  2318 10d2 04010000 		.4byte	.LFE502-.LFB502
@@ -3612,13 +3620,13 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2324 10e1 04000000 		.4byte	.LBB10
  2325 10e5 02000000 		.4byte	.LBE10-.LBB10
  2326 10e9 01       		.byte	0x1
- 2327 10ea 24       		.byte	0x24
+ 2327 10ea 2C       		.byte	0x2c
  2328 10eb 27       		.uleb128 0x27
  2329 10ec 9D100000 		.4byte	0x109d
  2330 10f0 0A000000 		.4byte	.LBB12
  2331 10f4 06000000 		.4byte	.LBE12-.LBB12
  2332 10f8 01       		.byte	0x1
- 2333 10f9 28       		.byte	0x28
+ 2333 10f9 30       		.byte	0x30
  2334 10fa 11110000 		.4byte	0x1111
  2335 10fe 28       		.uleb128 0x28
  2336 10ff B6100000 		.4byte	0x10b6
@@ -3632,7 +3640,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2344 1116 10000000 		.4byte	.LBB14
  2345 111a 06000000 		.4byte	.LBE14-.LBB14
  2346 111e 01       		.byte	0x1
- 2347 111f 29       		.byte	0x29
+ 2347 111f 31       		.byte	0x31
  2348 1120 37110000 		.4byte	0x1137
  2349 1124 28       		.uleb128 0x28
  2350 1125 90100000 		.4byte	0x1090
@@ -3650,6 +3658,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2362 1149 53110000 		.4byte	0x1153
  2363 114d 2B       		.uleb128 0x2b
  2364 114e 01       		.uleb128 0x1
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 62
+
+
  2365 114f 50       		.byte	0x50
  2366 1150 01       		.uleb128 0x1
  2367 1151 3A       		.byte	0x3a
@@ -3658,9 +3669,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2370 1154 24000000 		.4byte	.LVL4
  2371 1158 EB130000 		.4byte	0x13eb
  2372 115c 67110000 		.4byte	0x1167
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 62
-
-
  2373 1160 2B       		.uleb128 0x2b
  2374 1161 01       		.uleb128 0x1
  2375 1162 50       		.byte	0x50
@@ -3710,6 +3718,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2419 11b5 50       		.byte	0x50
  2420 11b6 05       		.uleb128 0x5
  2421 11b7 03       		.byte	0x3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 63
+
+
  2422 11b8 1C000000 		.4byte	.LC3
  2423 11bc 00       		.byte	0
  2424 11bd 2A       		.uleb128 0x2a
@@ -3718,9 +3729,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2427 11c6 D1110000 		.4byte	0x11d1
  2428 11ca 2B       		.uleb128 0x2b
  2429 11cb 01       		.uleb128 0x1
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 63
-
-
  2430 11cc 50       		.byte	0x50
  2431 11cd 02       		.uleb128 0x2
  2432 11ce 74       		.byte	0x74
@@ -3770,6 +3778,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2476 121e 75       		.byte	0x75
  2477 121f 00       		.sleb128 0
  2478 1220 00       		.byte	0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 64
+
+
  2479 1221 2A       		.uleb128 0x2a
  2480 1222 64000000 		.4byte	.LVL14
  2481 1226 EB130000 		.4byte	0x13eb
@@ -3778,9 +3789,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2484 122f 01       		.uleb128 0x1
  2485 1230 50       		.byte	0x50
  2486 1231 05       		.uleb128 0x5
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 64
-
-
  2487 1232 03       		.byte	0x3
  2488 1233 58000000 		.4byte	.LC5
  2489 1237 00       		.byte	0
@@ -3830,6 +3838,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2533 1287 00       		.byte	0
  2534 1288 2A       		.uleb128 0x2a
  2535 1289 8C000000 		.4byte	.LVL19
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 65
+
+
  2536 128d 05140000 		.4byte	0x1405
  2537 1291 A6120000 		.4byte	0x12a6
  2538 1295 2B       		.uleb128 0x2b
@@ -3838,9 +3849,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2541 1298 01       		.uleb128 0x1
  2542 1299 30       		.byte	0x30
  2543 129a 2B       		.uleb128 0x2b
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 65
-
-
  2544 129b 01       		.uleb128 0x1
  2545 129c 52       		.byte	0x52
  2546 129d 02       		.uleb128 0x2
@@ -3853,7 +3861,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2553 12a4 30       		.byte	0x30
  2554 12a5 00       		.byte	0
  2555 12a6 2A       		.uleb128 0x2a
- 2556 12a7 A0000000 		.4byte	.LVL20
+ 2556 12a7 A2000000 		.4byte	.LVL20
  2557 12ab 10140000 		.4byte	0x1410
  2558 12af D8120000 		.4byte	0x12d8
  2559 12b3 2B       		.uleb128 0x2b
@@ -3879,7 +3887,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2579 12cb 7D       		.byte	0x7d
  2580 12cc 00       		.sleb128 0
  2581 12cd 02       		.uleb128 0x2
- 2582 12ce 76       		.byte	0x76
+ 2582 12ce 75       		.byte	0x75
  2583 12cf 00       		.sleb128 0
  2584 12d0 2B       		.uleb128 0x2b
  2585 12d1 02       		.uleb128 0x2
@@ -3890,6 +3898,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2590 12d6 00       		.sleb128 0
  2591 12d7 00       		.byte	0
  2592 12d8 2A       		.uleb128 0x2a
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 66
+
+
  2593 12d9 B4000000 		.4byte	.LVL21
  2594 12dd 10140000 		.4byte	0x1410
  2595 12e1 0A130000 		.4byte	0x130a
@@ -3898,9 +3909,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2598 12e7 51       		.byte	0x51
  2599 12e8 05       		.uleb128 0x5
  2600 12e9 03       		.byte	0x3
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 66
-
-
  2601 12ea 8C000000 		.4byte	.LC7
  2602 12ee 2B       		.uleb128 0x2b
  2603 12ef 01       		.uleb128 0x1
@@ -3919,7 +3927,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2616 12fd 7D       		.byte	0x7d
  2617 12fe 00       		.sleb128 0
  2618 12ff 02       		.uleb128 0x2
- 2619 1300 75       		.byte	0x75
+ 2619 1300 76       		.byte	0x76
  2620 1301 00       		.sleb128 0
  2621 1302 2B       		.uleb128 0x2b
  2622 1303 02       		.uleb128 0x2
@@ -3950,6 +3958,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2647 1329 53       		.byte	0x53
  2648 132a 02       		.uleb128 0x2
  2649 132b 74       		.byte	0x74
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 67
+
+
  2650 132c 00       		.sleb128 0
  2651 132d 2B       		.uleb128 0x2b
  2652 132e 02       		.uleb128 0x2
@@ -3958,9 +3969,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2655 1331 02       		.uleb128 0x2
  2656 1332 75       		.byte	0x75
  2657 1333 00       		.sleb128 0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 67
-
-
  2658 1334 2B       		.uleb128 0x2b
  2659 1335 02       		.uleb128 0x2
  2660 1336 7D       		.byte	0x7d
@@ -4010,6 +4018,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2704 1395 2C       		.uleb128 0x2c
  2705 1396 31010000 		.4byte	.LASF288
  2706 139a 10       		.byte	0x10
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 68
+
+
  2707 139b 2C02     		.2byte	0x22c
  2708 139d 85130000 		.4byte	0x1385
  2709 13a1 07       		.uleb128 0x7
@@ -4018,9 +4029,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2712 13aa 08       		.uleb128 0x8
  2713 13ab D9000000 		.4byte	0xd9
  2714 13af 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 68
-
-
  2715 13b0 00       		.byte	0
  2716 13b1 2C       		.uleb128 0x2c
  2717 13b2 14000000 		.4byte	.LASF289
@@ -4070,6 +4078,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2761 141a 4101     		.2byte	0x141
  2762 141c 2F       		.uleb128 0x2f
  2763 141d 8A0D0000 		.4byte	.LASF297
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 69
+
+
  2764 1421 8A0D0000 		.4byte	.LASF297
  2765 1425 14       		.byte	0x14
  2766 1426 8E04     		.2byte	0x48e
@@ -4078,9 +4089,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2769              	.Ldebug_abbrev0:
  2770 0000 01       		.uleb128 0x1
  2771 0001 11       		.uleb128 0x11
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 69
-
-
  2772 0002 01       		.byte	0x1
  2773 0003 25       		.uleb128 0x25
  2774 0004 0E       		.uleb128 0xe
@@ -4130,6 +4138,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2818 0030 3E       		.uleb128 0x3e
  2819 0031 0B       		.uleb128 0xb
  2820 0032 03       		.uleb128 0x3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 70
+
+
  2821 0033 08       		.uleb128 0x8
  2822 0034 00       		.byte	0
  2823 0035 00       		.byte	0
@@ -4138,9 +4149,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2826 0038 00       		.byte	0
  2827 0039 49       		.uleb128 0x49
  2828 003a 13       		.uleb128 0x13
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 70
-
-
  2829 003b 00       		.byte	0
  2830 003c 00       		.byte	0
  2831 003d 06       		.uleb128 0x6
@@ -4190,6 +4198,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2875 0069 0B       		.uleb128 0xb
  2876 006a 3B       		.uleb128 0x3b
  2877 006b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 71
+
+
  2878 006c 49       		.uleb128 0x49
  2879 006d 13       		.uleb128 0x13
  2880 006e 38       		.uleb128 0x38
@@ -4198,9 +4209,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2883 0071 00       		.byte	0
  2884 0072 0B       		.uleb128 0xb
  2885 0073 0D       		.uleb128 0xd
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 71
-
-
  2886 0074 00       		.byte	0
  2887 0075 03       		.uleb128 0x3
  2888 0076 0E       		.uleb128 0xe
@@ -4250,6 +4258,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2932 00a2 3A       		.uleb128 0x3a
  2933 00a3 0B       		.uleb128 0xb
  2934 00a4 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 72
+
+
  2935 00a5 05       		.uleb128 0x5
  2936 00a6 49       		.uleb128 0x49
  2937 00a7 13       		.uleb128 0x13
@@ -4258,9 +4269,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2940 00aa 0F       		.uleb128 0xf
  2941 00ab 0F       		.uleb128 0xf
  2942 00ac 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 72
-
-
  2943 00ad 0B       		.uleb128 0xb
  2944 00ae 0B       		.uleb128 0xb
  2945 00af 49       		.uleb128 0x49
@@ -4310,6 +4318,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2989 00db 05       		.uleb128 0x5
  2990 00dc 01       		.uleb128 0x1
  2991 00dd 13       		.uleb128 0x13
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 73
+
+
  2992 00de 00       		.byte	0
  2993 00df 00       		.byte	0
  2994 00e0 15       		.uleb128 0x15
@@ -4318,9 +4329,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  2997 00e3 03       		.uleb128 0x3
  2998 00e4 0E       		.uleb128 0xe
  2999 00e5 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 73
-
-
  3000 00e6 0B       		.uleb128 0xb
  3001 00e7 3B       		.uleb128 0x3b
  3002 00e8 05       		.uleb128 0x5
@@ -4370,6 +4378,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3046 0114 01       		.uleb128 0x1
  3047 0115 13       		.uleb128 0x13
  3048 0116 00       		.byte	0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 74
+
+
  3049 0117 00       		.byte	0
  3050 0118 19       		.uleb128 0x19
  3051 0119 13       		.uleb128 0x13
@@ -4378,9 +4389,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3054 011c 0E       		.uleb128 0xe
  3055 011d 0B       		.uleb128 0xb
  3056 011e 05       		.uleb128 0x5
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 74
-
-
  3057 011f 3A       		.uleb128 0x3a
  3058 0120 0B       		.uleb128 0xb
  3059 0121 3B       		.uleb128 0x3b
@@ -4430,6 +4438,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3103 014d 05       		.uleb128 0x5
  3104 014e 00       		.byte	0
  3105 014f 00       		.byte	0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 75
+
+
  3106 0150 1D       		.uleb128 0x1d
  3107 0151 13       		.uleb128 0x13
  3108 0152 01       		.byte	0x1
@@ -4438,9 +4449,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3111 0155 3A       		.uleb128 0x3a
  3112 0156 0B       		.uleb128 0xb
  3113 0157 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 75
-
-
  3114 0158 05       		.uleb128 0x5
  3115 0159 01       		.uleb128 0x1
  3116 015a 13       		.uleb128 0x13
@@ -4490,6 +4498,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3160 0186 21       		.uleb128 0x21
  3161 0187 28       		.uleb128 0x28
  3162 0188 00       		.byte	0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 76
+
+
  3163 0189 03       		.uleb128 0x3
  3164 018a 0E       		.uleb128 0xe
  3165 018b 1C       		.uleb128 0x1c
@@ -4498,9 +4509,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3168 018e 00       		.byte	0
  3169 018f 22       		.uleb128 0x22
  3170 0190 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 76
-
-
  3171 0191 00       		.byte	0
  3172 0192 03       		.uleb128 0x3
  3173 0193 0E       		.uleb128 0xe
@@ -4550,6 +4558,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3217 01bf 3F       		.uleb128 0x3f
  3218 01c0 19       		.uleb128 0x19
  3219 01c1 03       		.uleb128 0x3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 77
+
+
  3220 01c2 0E       		.uleb128 0xe
  3221 01c3 3A       		.uleb128 0x3a
  3222 01c4 0B       		.uleb128 0xb
@@ -4558,9 +4569,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3225 01c7 27       		.uleb128 0x27
  3226 01c8 19       		.uleb128 0x19
  3227 01c9 49       		.uleb128 0x49
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 77
-
-
  3228 01ca 13       		.uleb128 0x13
  3229 01cb 8701     		.uleb128 0x87
  3230 01cd 19       		.uleb128 0x19
@@ -4610,6 +4618,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3274 01fa 00       		.byte	0
  3275 01fb 28       		.uleb128 0x28
  3276 01fc 05       		.uleb128 0x5
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 78
+
+
  3277 01fd 00       		.byte	0
  3278 01fe 31       		.uleb128 0x31
  3279 01ff 13       		.uleb128 0x13
@@ -4618,9 +4629,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3282 0202 00       		.byte	0
  3283 0203 00       		.byte	0
  3284 0204 29       		.uleb128 0x29
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 78
-
-
  3285 0205 898201   		.uleb128 0x4109
  3286 0208 00       		.byte	0
  3287 0209 11       		.uleb128 0x11
@@ -4670,6 +4678,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3331 023a 34       		.uleb128 0x34
  3332 023b 00       		.byte	0
  3333 023c 03       		.uleb128 0x3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 79
+
+
  3334 023d 0E       		.uleb128 0xe
  3335 023e 3A       		.uleb128 0x3a
  3336 023f 0B       		.uleb128 0xb
@@ -4678,9 +4689,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3339 0242 49       		.uleb128 0x49
  3340 0243 13       		.uleb128 0x13
  3341 0244 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 79
-
-
  3342 0245 19       		.uleb128 0x19
  3343 0246 3C       		.uleb128 0x3c
  3344 0247 19       		.uleb128 0x19
@@ -4730,6 +4738,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3388 0273 6E       		.uleb128 0x6e
  3389 0274 0E       		.uleb128 0xe
  3390 0275 03       		.uleb128 0x3
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 80
+
+
  3391 0276 0E       		.uleb128 0xe
  3392 0277 3A       		.uleb128 0x3a
  3393 0278 0B       		.uleb128 0xb
@@ -4738,9 +4749,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3396 027b 6E       		.uleb128 0x6e
  3397 027c 0E       		.uleb128 0xe
  3398 027d 00       		.byte	0
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 80
-
-
  3399 027e 00       		.byte	0
  3400 027f 00       		.byte	0
  3401              		.section	.debug_loc,"",%progbits
@@ -4790,6 +4798,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3445 0010 00000000 		.4byte	.LFB502
  3446 0014 04010000 		.4byte	.LFE502-.LFB502
  3447 0018 00000000 		.4byte	0
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 81
+
+
  3448 001c 00000000 		.4byte	0
  3449              		.section	.debug_ranges,"",%progbits
  3450              	.Ldebug_ranges0:
@@ -4798,9 +4809,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3453 0008 00000000 		.4byte	0
  3454 000c 00000000 		.4byte	0
  3455              		.section	.debug_line,"",%progbits
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 81
-
-
  3456              	.Ldebug_line0:
  3457 0000 16050000 		.section	.debug_str,"MS",%progbits,1
  3457      0200DC04 
@@ -4850,6 +4858,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3476              	.LASF285:
  3477 0074 63795F64 		.ascii	"cy_device\000"
  3477      65766963 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 82
+
+
  3477      6500
  3478              	.LASF295:
  3479 007e 73657476 		.ascii	"setvbuf\000"
@@ -4858,9 +4869,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3481 0086 63707573 		.ascii	"cpussCm0ClockCtlOffset\000"
  3481      73436D30 
  3481      436C6F63 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 82
-
-
  3481      6B43746C 
  3481      4F666673 
  3482              	.LASF77:
@@ -4910,6 +4918,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3502              	.LASF13:
  3503 0124 756E7369 		.ascii	"unsigned int\000"
  3503      676E6564 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 83
+
+
  3503      20696E74 
  3503      00
  3504              	.LASF288:
@@ -4918,9 +4929,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3505      6F6E6E48 
  3505      616E646C 
  3505      6500
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 83
-
-
  3506              	.LASF78:
  3507 0143 736D6966 		.ascii	"smifDeviceNr\000"
  3507      44657669 
@@ -4970,6 +4978,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3527 01cf 63795F65 		.ascii	"cy_en_ble_scan_state_t\000"
  3527      6E5F626C 
  3527      655F7363 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 84
+
+
  3527      616E5F73 
  3527      74617465 
  3528              	.LASF156:
@@ -4978,9 +4989,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3529      43555253 
  3529      4956455F 
  3529      5400
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 84
-
-
  3530              	.LASF104:
  3531 01f8 70657269 		.ascii	"periTrGrSize\000"
  3531      54724772 
@@ -5030,6 +5038,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3549      31363036 
  3550 029d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m4 -mfloat-abi=s"
  3550      20726576 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 85
+
+
  3550      6973696F 
  3550      6E203233 
  3550      37373135 
@@ -5038,9 +5049,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3551      6670753D 
  3551      66707634 
  3551      2D73702D 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 85
-
-
  3552 0303 65637469 		.ascii	"ections -ffat-lto-objects\000"
  3552      6F6E7320 
  3552      2D666661 
@@ -5090,6 +5098,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3573              	.LASF180:
  3574 03b4 5F5F746D 		.ascii	"__tm_wday\000"
  3574      5F776461 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 86
+
+
  3574      7900
  3575              	.LASF222:
  3576 03be 5F726573 		.ascii	"_result\000"
@@ -5098,9 +5109,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3578 03c6 75696E74 		.ascii	"uint32_t\000"
  3578      33325F74 
  3578      00
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 86
-
-
  3579              	.LASF176:
  3580 03cf 5F5F746D 		.ascii	"__tm_hour\000"
  3580      5F686F75 
@@ -5150,6 +5158,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3598      00
  3599              	.LASF155:
  3600 0465 63795F73 		.ascii	"cy_stc_scb_uart_context_t\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 87
+
+
  3600      74635F73 
  3600      63625F75 
  3600      6172745F 
@@ -5158,9 +5169,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3602 047f 65704D6F 		.ascii	"epMonitorNr\000"
  3602      6E69746F 
  3602      724E7200 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 87
-
-
  3603              	.LASF280:
  3604 048b 62617365 		.ascii	"base\000"
  3604      00
@@ -5210,6 +5218,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3625              	.LASF74:
  3626 0511 73727373 		.ascii	"srssNumClkpath\000"
  3626      4E756D43 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 88
+
+
  3626      6C6B7061 
  3626      746800
  3627              	.LASF194:
@@ -5218,9 +5229,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3629              	.LASF172:
  3630 0528 5F776473 		.ascii	"_wds\000"
  3630      00
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 88
-
-
  3631              	.LASF51:
  3632 052d 75646242 		.ascii	"udbBase\000"
  3632      61736500 
@@ -5270,6 +5278,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3654 05c2 666C6173 		.ascii	"flashPipeRequired\000"
  3654      68506970 
  3654      65526571 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 89
+
+
  3654      75697265 
  3654      6400
  3655              	.LASF174:
@@ -5278,9 +5289,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3656      00
  3657              	.LASF239:
  3658 05dd 5F6D756C 		.ascii	"_mult\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 89
-
-
  3658      7400
  3659              	.LASF266:
  3660 05e3 43595F42 		.ascii	"CY_BLE_SCAN_STATE_STOPPED\000"
@@ -5330,6 +5338,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3675      455F5354 
  3676              	.LASF125:
  3677 06ae 63707573 		.ascii	"cpussSysTickCtlOffset\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 90
+
+
  3677      73537973 
  3677      5469636B 
  3677      43746C4F 
@@ -5338,9 +5349,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3679 06c4 75646250 		.ascii	"udbPresent\000"
  3679      72657365 
  3679      6E7400
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 90
-
-
  3680              	.LASF45:
  3681 06cf 4750494F 		.ascii	"GPIO_PRT_Type\000"
  3681      5F505254 
@@ -5390,6 +5398,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3701 0760 63686172 		.ascii	"char\000"
  3701      00
  3702              	.LASF177:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 91
+
+
  3703 0765 5F5F746D 		.ascii	"__tm_mday\000"
  3703      5F6D6461 
  3703      7900
@@ -5398,9 +5409,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3705      5F66756E 
  3705      6300
  3706              	.LASF255:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 91
-
-
  3707 0779 5F6D6272 		.ascii	"_mbrtowc_state\000"
  3707      746F7763 
  3707      5F737461 
@@ -5450,6 +5458,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3727      747300
  3728              	.LASF267:
  3729 07f8 43595F42 		.ascii	"CY_BLE_SCAN_STATE_SCAN_INITIATED\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 92
+
+
  3729      4C455F53 
  3729      43414E5F 
  3729      53544154 
@@ -5458,9 +5469,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3731 0819 5F636C6F 		.ascii	"_close\000"
  3731      736500
  3732              	.LASF220:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 92
-
-
  3733 0820 5F5F7364 		.ascii	"__sdidinit\000"
  3733      6964696E 
  3733      697400
@@ -5510,6 +5518,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3751      61736500 
  3752              	.LASF97:
  3753 08bd 64774368 		.ascii	"dwChCtlPrioPos\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 93
+
+
  3753      43746C50 
  3753      72696F50 
  3753      6F7300
@@ -5518,9 +5529,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3755      746F4261 
  3755      736500
  3756              	.LASF294:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 93
-
-
  3757 08d7 7072696E 		.ascii	"printf\000"
  3757      746600
  3758              	.LASF192:
@@ -5570,6 +5578,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3781 094a 5F6D626C 		.ascii	"_mblen_state\000"
  3781      656E5F73 
  3781      74617465 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 94
+
+
  3781      00
  3782              	.LASF164:
  3783 0957 5F6D6273 		.ascii	"_mbstate_t\000"
@@ -5578,9 +5589,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3784              	.LASF69:
  3785 0962 63707573 		.ascii	"cpussDwChNr\000"
  3785      73447743 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 94
-
-
  3785      684E7200 
  3786              	.LASF24:
  3787 096e 494E5452 		.ascii	"INTR_MASK\000"
@@ -5630,6 +5638,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3805      72726E6F 
  3805      00
  3806              	.LASF158:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 95
+
+
  3807 09f3 5F66706F 		.ascii	"_fpos_t\000"
  3807      735F7400 
  3808              	.LASF25:
@@ -5638,9 +5649,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3809      4B454400 
  3810              	.LASF277:
  3811 0a07 43595F42 		.ascii	"CY_BLE_CONN_STATE_CLIENT_DESCR_DISCOVERING\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 95
-
-
  3811      4C455F43 
  3811      4F4E4E5F 
  3811      53544154 
@@ -5690,6 +5698,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3830              	.LASF52:
  3831 0aa8 70726F74 		.ascii	"protBase\000"
  3831      42617365 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 96
+
+
  3831      00
  3832              	.LASF43:
  3833 0ab1 5644445F 		.ascii	"VDD_INTR_SET\000"
@@ -5698,9 +5709,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3833      00
  3834              	.LASF102:
  3835 0abe 70657269 		.ascii	"periTrCmdGrSelMsk\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 96
-
-
  3835      5472436D 
  3835      64477253 
  3835      656C4D73 
@@ -5750,6 +5758,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3855      74635F62 
  3855      6C655F63 
  3855      6F6E6E5F 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 97
+
+
  3855      68616E64 
  3856              	.LASF127:
  3857 0b56 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
@@ -5758,9 +5769,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3857      746C4F66 
  3857      66736574 
  3858              	.LASF122:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 97
-
-
  3859 0b6b 63707573 		.ascii	"cpussCm4PwrCtlOffset\000"
  3859      73436D34 
  3859      50777243 
@@ -5810,6 +5818,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3877      00
  3878              	.LASF171:
  3879 0bf0 5F736967 		.ascii	"_sign\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 98
+
+
  3879      6E00
  3880              	.LASF34:
  3881 0bf6 4750494F 		.ascii	"GPIO_PRT_V1_Type\000"
@@ -5818,9 +5829,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3881      54797065 
  3881      00
  3882              	.LASF219:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 98
-
-
  3883 0c07 5F637572 		.ascii	"_current_locale\000"
  3883      72656E74 
  3883      5F6C6F63 
@@ -5870,6 +5878,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3905      73656400 
  3906              	.LASF3:
  3907 0c92 5F5F7569 		.ascii	"__uint8_t\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 99
+
+
  3907      6E74385F 
  3907      7400
  3908              	.LASF228:
@@ -5878,9 +5889,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3910              	.LASF170:
  3911 0ca1 5F6D6178 		.ascii	"_maxwds\000"
  3911      77647300 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 99
-
-
  3912              	.LASF251:
  3913 0ca9 5F6C3634 		.ascii	"_l64a_buf\000"
  3913      615F6275 
@@ -5930,6 +5938,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3932              	.LASF63:
  3933 0d37 6873696F 		.ascii	"hsiomVersion\000"
  3933      6D566572 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 100
+
+
  3933      73696F6E 
  3933      00
  3934              	.LASF10:
@@ -5938,9 +5949,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3935      69676E65 
  3935      6420696E 
  3935      7400
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 100
-
-
  3936              	.LASF128:
  3937 0d56 63707573 		.ascii	"cpussRomCtl\000"
  3937      73526F6D 
@@ -5990,6 +5998,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3959      65727200 
  3960              	.LASF9:
  3961 0ddd 5F5F7569 		.ascii	"__uint32_t\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 101
+
+
  3961      6E743332 
  3961      5F7400
  3962              	.LASF46:
@@ -5998,9 +6009,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3963      6500
  3964              	.LASF133:
  3965 0df2 6970634C 		.ascii	"ipcLockStatusOffset\000"
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 101
-
-
  3965      6F636B53 
  3965      74617475 
  3965      734F6666 
@@ -6050,6 +6058,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3987      00
  3988              	.LASF242:
  3989 0e75 5F737472 		.ascii	"_strtok_last\000"
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 102
+
+
  3989      746F6B5F 
  3989      6C617374 
  3989      00
@@ -6058,9 +6069,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  3991      6F77635F 
  3991      73746174 
  3991      6500
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 102
-
-
  3992              	.LASF114:
  3993 0e90 6770696F 		.ascii	"gpioPrtCfgOffset\000"
  3993      50727443 
@@ -6110,6 +6118,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  4013      70746162 
  4013      6C65506F 
  4014              	.LASF302:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 103
+
+
  4015 0f15 6D61696E 		.ascii	"main\000"
  4015      00
  4016              	.LASF134:
@@ -6118,9 +6129,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  4017      65766963 
  4017      655F7400 
  4018              	.LASF301:
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 103
-
-
  4019 0f2a 5F5F656E 		.ascii	"__enable_irq\000"
  4019      61626C65 
  4019      5F697271 
@@ -6170,6 +6178,9 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  4041      57733446 
  4041      72657100 
  4042              	.LASF210:
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 104
+
+
  4043 0faa 5F666C61 		.ascii	"_flags2\000"
  4043      67733200 
  4044              	.LASF264:
@@ -6178,9 +6189,6 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  4046              	.LASF187:
  4047 0fb8 5F69735F 		.ascii	"_is_cxa\000"
  4047      63786100 
-ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 104
-
-
  4048              	.LASF287:
  4049 0fc0 63795F62 		.ascii	"cy_ble_scanState\000"
  4049      6C655F73 
@@ -6230,4 +6238,7 @@ ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccLBOkN3.s 			page 1
  4071      656E6469 
  4071      6E67466C 
  4071      61736857 
+ARM GAS  C:\Users\Austina\AppData\Local\Temp\ccbdYOS5.s 			page 105
+
+
  4072              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
