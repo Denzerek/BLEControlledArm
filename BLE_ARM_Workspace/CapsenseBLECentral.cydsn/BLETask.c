@@ -35,7 +35,7 @@ void writeMotorPosition(motors_t motor,motor_change_t type,uint8_t percent)
         return;
     }
     
-    ble_printf("Motor = %d\tType = %d\tpercent = %d",motor,type,percent);
+    ble_printf("Motor = %d\tType = %d\tpercent = %d",motor+1,type,percent);
     
     cy_stc_ble_gattc_write_req_t myVal;
       
