@@ -159,7 +159,7 @@
 * \}
 */
 #include "cy_device_headers.h"
-#include "project.h"
+    #include "project.h"
 
 /* Must remain uncommented to use this utility */
 #define IO_STDOUT_ENABLE

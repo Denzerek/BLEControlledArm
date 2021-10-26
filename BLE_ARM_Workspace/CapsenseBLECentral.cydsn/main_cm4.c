@@ -67,7 +67,7 @@ int main(void)
     xTaskCreate(bleTask," BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
     xTaskCreate(UartTask," UART TASK",UART_TASK_STACK_SIZE,0,UART_TASK_PRIORITY,0);
     xTaskCreate(capsenseTask," CAPSENSE TASK",CAPSENSE_TASK_STACK_SIZE,0,CAPSENSE_TASK_PRIORITY,0);
-    //xTaskCreate(motionTask," MOTION TASK",MOTION_TASK_STACK_SIZE,0,MOTION_TASK_PRIORITY,0);
+    xTaskCreate(motionTask," MOTION TASK",MOTION_TASK_STACK_SIZE,0,MOTION_TASK_PRIORITY,0);
     vTaskStartScheduler();
     
     for(;;);

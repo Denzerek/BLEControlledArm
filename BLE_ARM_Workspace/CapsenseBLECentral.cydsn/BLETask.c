@@ -62,7 +62,7 @@ void writeMotorPosition(motors_t motor,motor_change_t type,uint8_t percent)
     #endif
     myVal.connHandle = cy_ble_connHandle[0];
     
-    int i = 0;
+    uint32_t i = 0;
     //wait for the data transfer to complete
     while(Cy_BLE_GATTC_WriteCharacteristicValue(&myVal) != CY_BLE_SUCCESS)
     {
