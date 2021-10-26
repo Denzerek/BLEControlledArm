@@ -35,9 +35,12 @@ void capsenseTask(void *arg)
             int pos;
             pos = CapSense_GetCentroidPos(CapSense_LINEARSLIDER0_WDGT_ID);
             
-            if(pos < 0xFFFF)
+            if(pos < 0xFFFF && xEventGroupGetBits(systemInputMode) == MODE_CAPSENSE)
             {
+                
+                if(bleConnectionState())
                 writeMotorPosition(currentMotor,POS_ABSOLUTE,pos);
+                cap_printf("Motor M%d : %%%d",currentMotor+1,pos);
             }
             
             if(CapSense_IsWidgetActive(CapSense_BUTTON0_WDGT_ID))
@@ -48,7 +51,7 @@ void capsenseTask(void *arg)
                     {
                         currentMotor++;
                         pressReleased = false;
-                        cap_printf("Motor M%d selected",currentMotor);
+                        cap_printf("Motor M%d selected",currentMotor+1);
                     }
                 }
             }
@@ -60,7 +63,7 @@ void capsenseTask(void *arg)
                     {
                         currentMotor--;
                         pressReleased = false;
-                        cap_printf("Motor M%d selected",currentMotor);
+                        cap_printf("Motor M%d selected",currentMotor+1);
                     }
                 }
             }

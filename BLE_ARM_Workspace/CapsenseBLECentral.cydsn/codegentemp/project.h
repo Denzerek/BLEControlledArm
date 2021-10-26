@@ -170,8 +170,10 @@
 #include "CapSense_RegisterMap.h"
 #include "CapSense_Centroid_LL.h"
 #include "CapSense_SmartSense_LL.h"
+#include "I2C_1.h"
 #include "UART_SCBCLK.h"
 #include "CapSense_ModClk.h"
+#include "I2C_1_SCBCLK.h"
 
 /*[]*/
 

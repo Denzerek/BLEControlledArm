@@ -19,8 +19,8 @@
 #define TRANSMITTER     SUPER_TRANSMITTER
 //#define TRANSMITTER     
 
-#define ble_print(x)    TRANSMITTER("[ BLE ]");TRANSMITTER(x);TRANSMITTER("\r\n");
-#define ble_printf(x,...)    TRANSMITTER("[ BLE ]");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");
+#define ble_print(x)    TRANSMITTER("[ BLE ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");
+#define ble_printf(x,...)    TRANSMITTER("[ BLE ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");
 
 #define MOTORS_TO_CONTROL_MAX   (M_MAX-1) * 2
 

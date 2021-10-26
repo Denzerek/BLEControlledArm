@@ -14,6 +14,9 @@
 #include "BLETask.h"
 #include "uartTask.h"
 #include "capSenseTask.h"
+#include "motionTask.h"
+
+EventGroupHandle_t systemInputMode;
 
 
 #define UART_TASK_STACK_SIZE        1024
@@ -21,6 +24,9 @@
 
 #define CAPSENSE_TASK_STACK_SIZE         1024
 #define CAPSENSE_TASK_PRIORITY           2
+
+#define MOTION_TASK_STACK_SIZE         1024
+#define MOTION_TASK_PRIORITY           2
 
 #define BLE_TASK_STACK_SIZE         8*1024
 #define BLE_TASK_PRIORITY           1
@@ -48,6 +54,10 @@ int main(void)
     Cy_GPIO_Set(GREEN_PORT,GREEN_NUM);
     Cy_GPIO_Clr(RED_PORT,RED_NUM);
     CyDelay(10); 
+    
+    systemInputMode = xEventGroupCreate();
+    xEventGroupSetBits(systemInputMode,MODE_CAPSENSE);
+    
     serialPrint("\x1b[2J\x1b[;H");
     serialPrint("System Init Done.");
     serialPrint("======================================"); 
@@ -56,7 +66,8 @@ int main(void)
     setvbuf(stdin,0,_IONBF,0);
     xTaskCreate(bleTask," BLE TASK",BLE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
     xTaskCreate(UartTask," UART TASK",UART_TASK_STACK_SIZE,0,UART_TASK_PRIORITY,0);
-    xTaskCreate(capsenseTask," CAPSENSE TASK",CAPSENSE_TASK_STACK_SIZE,0,BLE_TASK_PRIORITY,0);
+    xTaskCreate(capsenseTask," CAPSENSE TASK",CAPSENSE_TASK_STACK_SIZE,0,CAPSENSE_TASK_PRIORITY,0);
+    //xTaskCreate(motionTask," MOTION TASK",MOTION_TASK_STACK_SIZE,0,MOTION_TASK_PRIORITY,0);
     vTaskStartScheduler();
     
     for(;;);

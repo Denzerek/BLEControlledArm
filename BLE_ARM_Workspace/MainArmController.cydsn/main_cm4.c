@@ -24,6 +24,12 @@
 #define UART_TASK_STACK_SIZE        400
 #define UART_TASK_PRIORITY          2
 
+#define CAPSENSE_TASK_STACK_SIZE         2*1024
+#define CAPSENSE_TASK_PRIORITY           2
+
+#define BLE_TASK_STACK_SIZE         4*1024
+#define BLE_TASK_PRIORITY           1
+
 #define MOTOR_TASK_STACK_SIZE       400
 #define MOTOR_TASK_PRIORITY         2
 
@@ -32,12 +38,6 @@
 
 #define EZI2C_TASK_STACK_SIZE         400
 #define EZI2C_TASK_PRIORITY           2
-
-#define CAPSENSE_TASK_STACK_SIZE         2*1024
-#define CAPSENSE_TASK_PRIORITY           2
-
-#define BLE_TASK_STACK_SIZE         4*1024
-#define BLE_TASK_PRIORITY           1
 
 #define ARDUINO_COMM_TASK_STACK_SIZE    400
 #define ARDUINO_COMM_TASK_PRIORITY      2

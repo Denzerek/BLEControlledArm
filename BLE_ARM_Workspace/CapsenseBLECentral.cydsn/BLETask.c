@@ -15,6 +15,8 @@
 //#define BLE_PACKET_DEBUG_ENABLE
 SemaphoreHandle_t bleSemaphore;
 
+static uint8_t bleConnectionStatus = false;
+
 motorToControl_t motorToControl[MOTORS_TO_CONTROL_MAX] = {
     {M1, POS_ABSOLUTE,CY_BLE_CUSTOMC_MOTOR_M1_CHAR_INDEX},
     {M1, POS_RELATIVE,CY_BLE_CUSTOMC_MOTOR_M1_REL_CHAR_INDEX},
@@ -26,6 +28,10 @@ motorToControl_t motorToControl[MOTORS_TO_CONTROL_MAX] = {
     {M4, POS_RELATIVE,CY_BLE_CUSTOMC_MOTOR_M4_REL_CHAR_INDEX}
 };
 
+uint8_t bleConnectionState()
+{
+    return bleConnectionStatus;
+}
 
 void writeMotorPosition(motors_t motor,motor_change_t type,uint8_t percent)
 {
@@ -35,7 +41,7 @@ void writeMotorPosition(motors_t motor,motor_change_t type,uint8_t percent)
         return;
     }
     
-    ble_printf("Motor = %d\tType = %d\tpercent = %d",motor+1,type,percent);
+    //ble_printf("Motor = %d\tType = %d\tpercent = %d",motor+1,type,percent);
     
     cy_stc_ble_gattc_write_req_t myVal;
       
@@ -114,6 +120,8 @@ void genericEventHandler(uint32_t event,void* eventParameter)
     {
         case CY_BLE_EVT_STACK_ON:
         case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:
+        ble_print("Make sure the peripheral BLE device is on");
+        ble_print("Only once connected to the peripheral the data aquisition will begin.");
             ble_print("Starting Scan");
             //Start scan operation
             Cy_BLE_GAPC_StartScan(CY_BLE_SCANNING_FAST,0);
@@ -123,7 +131,7 @@ void genericEventHandler(uint32_t event,void* eventParameter)
         break;
         case CY_BLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             //Print out information about the device that was found
-            ble_print("");
+            ble_printer("\r");
             cy_stc_ble_gapc_adv_report_param_t *scanProgressParam = (cy_stc_ble_gapc_adv_report_param_t*) eventParameter;
             #ifdef BLE_PACKET_DEBUG_ENABLE
             printf("[ BLE ] : BD Addr = ");
@@ -135,8 +143,6 @@ void genericEventHandler(uint32_t event,void* eventParameter)
             ble_printf("Length = %d",scanProgressParam->dataLen);
             #endif
             findAdvInfo(scanProgressParam->data,scanProgressParam->dataLen);
-            if(currentAdvInfo.name != 0)
-                ble_printf(" Device %.*s",currentAdvInfo.name_len,currentAdvInfo.name);
             
             if( (currentAdvInfo.servUUID_len > 0 )
                  && (memcmp(currentAdvInfo.serviceUUID,cy_ble_customCServ[CY_BLE_CUSTOMC_MOTOR_SERVICE_INDEX].uuid
@@ -145,6 +151,7 @@ void genericEventHandler(uint32_t event,void* eventParameter)
                 #ifdef BLE_PACKET_DEBUG_ENABLE
                 ble_print("Found MOTOR Service ");
                 #endif
+                ble_printf(" Device %.*s",currentAdvInfo.name_len,currentAdvInfo.name);
                 cy_stc_ble_bd_addr_t connectAddr;
                 memcpy(&connectAddr.bdAddr[0],&scanProgressParam->peerBdAddr[0],CY_BLE_BD_ADDR_SIZE);
                 connectAddr.type = scanProgressParam->peerAddrType;
@@ -156,12 +163,14 @@ void genericEventHandler(uint32_t event,void* eventParameter)
         case CY_BLE_EVT_GATT_DISCONNECT_IND:
             Cy_GPIO_Set(GREEN_PORT,GREEN_NUM);
             Cy_GPIO_Clr(RED_PORT,RED_NUM);
+            bleConnectionStatus = false;
             ble_print("Disconnected");
         break;
         case CY_BLE_EVT_GATT_CONNECT_IND:
             Cy_GPIO_Clr(GREEN_PORT,GREEN_NUM);
             Cy_GPIO_Set(RED_PORT,RED_NUM);
             ble_print("Made a connection, starting service discovery");
+            bleConnectionStatus = true;
             Cy_BLE_GATTC_StartDiscovery(cy_ble_connHandle[0]);
         break;
         

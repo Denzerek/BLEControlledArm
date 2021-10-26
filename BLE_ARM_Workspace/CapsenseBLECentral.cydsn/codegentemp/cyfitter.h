@@ -27,13 +27,24 @@
 #define UART_SCB__SS1_POSITION 1u
 #define UART_SCB__SS2_POSITION 2u
 #define UART_SCB__SS3_POSITION 3u
-#define UART_SCBCLK__DIV_IDX 1
-#define UART_SCBCLK__DIV_NUM 1
+#define UART_SCBCLK__DIV_IDX 2
+#define UART_SCBCLK__DIV_NUM 2
 #define UART_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* BLE_1 */
 #define BLE_1_cy_mxs40_ble__HW BLE
 #define BLE_1_cy_mxs40_ble__IDX 0
+
+/* I2C_1 */
+#define I2C_1_SCB__HW SCB3
+#define I2C_1_SCB__IDX 3
+#define I2C_1_SCB__SS0_POSITION 0u
+#define I2C_1_SCB__SS1_POSITION 1u
+#define I2C_1_SCB__SS2_POSITION 2u
+#define I2C_1_SCB__SS3_POSITION 3u
+#define I2C_1_SCBCLK__DIV_IDX 1
+#define I2C_1_SCBCLK__DIV_NUM 1
+#define I2C_1_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* CapSense */
 #define CapSense_CSD__CMOD_PAD 1u

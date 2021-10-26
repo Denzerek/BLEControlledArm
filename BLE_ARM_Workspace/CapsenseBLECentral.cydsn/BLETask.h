@@ -37,11 +37,13 @@ typedef struct
 #define MOTORS_TO_CONTROL_MAX   ( M_MAX * 2 )
 
 
+#define ble_printer(x)    TRANSMITTER("[ BLE CENTRAL ] : ");TRANSMITTER(x);
 #define ble_print(x)    TRANSMITTER("[ BLE CENTRAL ] : ");TRANSMITTER(x);TRANSMITTER("\r\n");
 #define ble_printf(x,...)    TRANSMITTER("[ BLE CENTRAL ] : ");TRANSMITTER(x,__VA_ARGS__);TRANSMITTER("\r\n");
 
 
 void writeMotorPosition(motors_t ,motor_change_t,uint8_t);
+uint8_t bleConnectionState();
 
 void bleTask(void*);
 

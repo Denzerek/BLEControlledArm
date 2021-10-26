@@ -11,7 +11,6 @@
 */
 #include "servoSlaveCommTask.h"
 
-
 volatile static uint32_t i2cStatus = 0;
 
 i2cEvents_s i2cEvents[I2C_MAX_EVENTS] = {
@@ -19,6 +18,16 @@ i2cEvents_s i2cEvents[I2C_MAX_EVENTS] = {
     {0x00020000UL,"MASTER WRITE COMPLETE EVENT"},
 };
 
+void i2cStatusDecode()
+{
+    for(int i = 0; i < I2C_MAX_EVENTS ; i++)
+    {
+        if(i2cEvents[i].i2cEvent & i2cStatus)
+        {
+            ard_print((char*)i2cEvents[i].i2cMessage);
+        }
+    }
+}
 
 void i2cCallback(uint32_t event)
 {
@@ -133,14 +142,4 @@ void ardTransmitPWMPercent(motors_t motorNum,uint8_t percent)
 }
 
 
-void i2cStatusDecode()
-{
-    for(int i = 0; i < I2C_MAX_EVENTS ; i++)
-    {
-        if(i2cEvents[i].i2cEvent & i2cStatus)
-        {
-            ard_print((char*)i2cEvents[i].i2cMessage);
-        }
-    }
-}
 /* [] END OF FILE */
