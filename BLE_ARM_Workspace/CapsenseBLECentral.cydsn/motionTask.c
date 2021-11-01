@@ -155,8 +155,8 @@ void motionTask(void *arg)
         
         //convert the accel values to %
         
-        m1 = acos(gx) * 360 / (2*3.14*1.8);
-        m2 = acos(gy) * 360 / (2*3.14*1.8);
+        m1 = acos(gy) * 360 / (2*3.14*1.8);
+        m2 = acos(gx) * 360 / (2*3.14*1.8);
         
         //check if the change is greater than 3% 
         if(fabs(m1-50.0)>3.0 || fabs(m2-50.0)>3.0)
@@ -185,7 +185,6 @@ void motionTask(void *arg)
                 
                 if(bleConnectionState())
                 writeMotorPosition(M1,POS_ABSOLUTE,(int)m1);
-            vTaskDelay(50);
                 m1Prev = m1;
                 //serialPrintf("M1 %%%d\tM2 %%%d",m1,m2);
             }
@@ -195,11 +194,13 @@ void motionTask(void *arg)
                 
                 if(bleConnectionState())
                 writeMotorPosition(M2,POS_ABSOLUTE,(int)m2);
-            vTaskDelay(50);
                 m2Prev = m2;
             }
             
                 serialPrintf("M1 %%%d\tM2 %%%d",(int)m1,(int)m2);
+                
+            xEventGroupSetBits(systemInputMode,MODE_CAPSENSE);
+                vTaskDelay(50);
         }
         else
         {
