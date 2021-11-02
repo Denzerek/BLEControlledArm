@@ -143,13 +143,18 @@ int main(void)
             if(CapSense_IsWidgetActive(CapSense_BUTTON0_WDGT_ID))
             {
                 Cy_TCPWM_PWM_Disable(PWM_HW,PWM_CNT_NUM);
+                Cy_TCPWM_PWM_Disable(PWM_1_HW,PWM_1_CNT_NUM);
+                Cy_TCPWM_PWM_Disable(PWM_2_HW,PWM_2_CNT_NUM);
                 Cy_GPIO_Write(BLUE_PORT,BLUE_NUM,0);
             }
             if(CapSense_IsWidgetActive(CapSense_BUTTON1_WDGT_ID))
             {
                 Cy_TCPWM_PWM_Enable(PWM_HW,PWM_CNT_NUM);
-                Cy_TCPWM_TriggerStart(PWM_HW,PWM_CNT_MASK);
-                Cy_GPIO_Write(BLUE_PORT,BLUE_NUM,1);
+                Cy_TCPWM_PWM_Enable(PWM_1_HW,PWM_1_CNT_NUM);
+                Cy_TCPWM_PWM_Enable(PWM_2_HW,PWM_2_CNT_NUM);
+                Cy_TCPWM_TriggerStart(PWM_HW,PWM_CNT_NUM);
+                Cy_TCPWM_TriggerStart(PWM_1_HW,PWM_1_CNT_NUM);
+                Cy_TCPWM_TriggerStart(PWM_2_HW,PWM_2_CNT_NUM);
             }
             CapSense_UpdateAllBaselines();
             CapSense_ScanAllWidgets();
